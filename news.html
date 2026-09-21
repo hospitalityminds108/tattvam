@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Latest news, updates, and achievements from Tat:vm — press releases, events, and industry announcements.">
+  <meta name="og:title" content="News & Updates — Tat:vm">
+  <meta name="og:description" content="Stay updated with the latest from Tat:vm Group">
+  <title>News & Updates — Tat:vm</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="in"><span data-logo="dark"></span><div class="bar"><i></i></div></div></div>
+  <div id="header-slot"></div>
+
+  <!-- NEWS HERO -->
+  <section class="page-hero">
+    <img src="assets/img/city-golden.jpg" alt="Mumbai skyline at golden hour" aria-hidden="true">
+    <div class="hero-scrim"></div>
+    <div class="container hero-inner">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>News</span></nav>
+      <p class="eyebrow light">Latest Updates</p>
+      <h1 class="display">News from Tat:vm.</h1>
+      <p class="lead">Announcements, press releases, events and achievements from Tat:vm and the real estate industry.</p>
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTERS -->
+  <section class="news-controls">
+    <div class="news-search">
+      <input type="text" id="newsSearch" placeholder="Search news..." aria-label="Search news articles">
+    </div>
+    <div class="news-filters">
+      <button class="filter-btn active" data-category="all">All News</button>
+      <button class="filter-btn" data-category="company-news">Company News</button>
+      <button class="filter-btn" data-category="events">Events</button>
+      <button class="filter-btn" data-category="announcements">Announcements</button>
+      <button class="filter-btn" data-category="awards">Awards</button>
+      <button class="filter-btn" data-category="press">Press & Media</button>
+    </div>
+  </section>
+
+  <!-- FEATURED NEWS -->
+  <section class="featured-news">
+    <div class="featured-news-content">
+      <div class="featured-news-image">
+        <img src="assets/img/tattva-green.jpg" alt="Tat:vm Wins Best Sustainable Development Award">
+      </div>
+      <div class="featured-news-text">
+        <div class="featured-news-tag">Featured</div>
+        <h2>Tat:vm Wins Best Sustainable Development Award 2024</h2>
+        <div class="featured-news-meta">
+          <span>📅 March 18, 2024</span>
+          <span>🏢 Company News</span>
+        </div>
+        <p>Recognized by the Indian Green Building Council for our commitment to sustainable real estate development and community-centric design philosophy.</p>
+        <div class="featured-news-source">
+          🔗 Published on Tat:vm Group
+        </div>
+        <a href="News/tatvam-wins-best-sustainable-award.html" class="featured-news-cta">
+          Read Full Story
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS GRID -->
+  <section class="news-grid-section">
+    <div class="news-grid-header">
+      <h3>Latest News</h3>
+      <p>Press releases, announcements, and updates from our team</p>
+    </div>
+
+    <div class="news-grid" id="newsGrid">
+      <!-- News cards injected by JavaScript -->
+    </div>
+
+    <div class="news-pagination">
+      <button class="pagination-btn" id="prevPage" aria-label="Previous page">&larr;</button>
+      <span id="pageInfo" style="display:flex; align-items:center; padding:0 1rem; color:#6B5B51; font-weight:600;"></span>
+      <button class="pagination-btn" id="nextPage" aria-label="Next page">&rarr;</button>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/svg.js?v=5"></script>
+  <script src="assets/js/components.js?v=5"></script>
+  <script src="assets/js/main.js?v=5"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const NEWS_ITEMS = [
+        {
+          id: 1,
+          title: 'Tat:vm Wins Best Sustainable Development Award 2024',
+          excerpt: 'Recognized by the Indian Green Building Council for our commitment to sustainable real estate development.',
+          category: 'awards',
+          date: 'March 18, 2024',
+          image: 'assets/img/tattva-green.jpg',
+          type: 'internal',
+          slug: 'best-sustainable-award-2024',
+          source: 'Tat:vm Group'
+        },
+        {
+          id: 2,
+          title: 'Ghatkopar Mixed-Use Project Reaches Major Milestone',
+          excerpt: 'Foundation stone ceremony marks the beginning of our flagship sustainable mixed-use development.',
+          category: 'announcements',
+          date: 'March 15, 2024',
+          image: 'assets/img/project-ghatkopar.jpg',
+          type: 'internal',
+          slug: 'ghatkopar-milestone',
+          source: 'Tat:vm Group'
+        },
+        {
+          id: 3,
+          title: 'Economic Times Features Tat:vm\'s Sustainable Development Model',
+          excerpt: 'Leading financial publication highlights our five tattvas approach to responsible urban development.',
+          category: 'press',
+          date: 'March 10, 2024',
+          image: 'assets/img/skyline-mumbai.jpg',
+          type: 'external',
+          slug: null,
+          source: 'Economic Times',
+          externalUrl: 'https://economictimes.indiatimes.com'
+        },
+        {
+          id: 4,
+          title: 'Join Us at the Urban Development Summit 2024',
+          excerpt: 'Tat:vm to showcase sustainable design innovations and network with industry leaders on April 5-6.',
+          category: 'events',
+          date: 'March 8, 2024',
+          image: 'assets/img/city-golden.jpg',
+          type: 'internal',
+          slug: 'urban-summit-2024',
+          source: 'Tat:vm Group'
+        },
+        {
+          id: 5,
+          title: 'Hindustan Times: "Building Homes That Breathe"',
+          excerpt: 'Deep-dive feature on how our cross-ventilation design reduces cooling costs by 30-35%.',
+          category: 'press',
+          date: 'March 5, 2024',
+          image: 'assets/img/ghatkopar-street.jpg',
+          type: 'external',
+          slug: null,
+          source: 'Hindustan Times',
+          externalUrl: 'https://hindustantimes.com'
+        },
+        {
+          id: 6,
+          title: 'Tat:vm Launches Community Welfare Program',
+          excerpt: 'New CSR initiative supporting education and environmental conservation in surrounding neighborhoods.',
+          category: 'company-news',
+          date: 'February 28, 2024',
+          image: 'assets/img/family-home.jpg',
+          type: 'internal',
+          slug: 'community-welfare-program',
+          source: 'Tat:vm Group'
+        },
+        {
+          id: 7,
+          title: 'TOI: Mumbai Real Estate Market Report Q1 2024',
+          excerpt: 'Analysis of market trends featuring Tat:vm\'s sustainable development approach as game-changer.',
+          category: 'press',
+          date: 'February 22, 2024',
+          image: 'assets/img/redevelopment-building.jpg',
+          type: 'external',
+          slug: null,
+          source: 'Times of India',
+          externalUrl: 'https://timesofindia.indiatimes.com'
+        },
+        {
+          id: 8,
+          title: 'New Residency Tower Launched in Ghatkopar',
+          excerpt: 'Announcement of our latest residential project featuring premium sustainable living spaces.',
+          category: 'announcements',
+          date: 'February 15, 2024',
+          image: 'assets/img/project-residential.jpg',
+          type: 'internal',
+          slug: 'residency-tower-launch',
+          source: 'Tat:vm Group'
+        },
+        {
+          id: 9,
+          title: 'Architectural Digest India Features Our Design Philosophy',
+          excerpt: 'Premium design publication explores how vastu principles inform our modern architecture.',
+          category: 'press',
+          date: 'February 10, 2024',
+          image: 'assets/img/commercial-interior.jpg',
+          type: 'external',
+          slug: null,
+          source: 'Architectural Digest',
+          externalUrl: 'https://www.architecturaldigest.in'
+        }
+      ];
+
+      const ITEMS_PER_PAGE = 6;
+      let currentPage = 1;
+      let filteredNews = NEWS_ITEMS;
+
+      const renderGrid = () => {
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        const end = start + ITEMS_PER_PAGE;
+        const newsToShow = filteredNews.slice(start, end);
+
+        const grid = document.getElementById('newsGrid');
+        grid.innerHTML = newsToShow.map(item => {
+          const link = item.type === 'internal'
+            ? (item.slug === 'best-sustainable-award-2024' ? 'News/tatvam-wins-best-sustainable-award.html' : 'news.html')
+            : item.externalUrl;
+          const target = item.type === 'external' ? '_blank' : '_self';
+          const rel = item.type === 'external' ? 'noopener noreferrer' : '';
+
+          return `
+            <article class="news-card">
+              <div class="news-card-image">
+                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                <span class="news-card-badge">${item.category.replace('-', ' ')}</span>
+                ${item.type === 'external' ? '<span class="news-card-external">External Link</span>' : ''}
+              </div>
+              <div class="news-card-content">
+                <h3 class="news-card-title">${item.title}</h3>
+                <p class="news-card-excerpt">${item.excerpt}</p>
+                <div class="news-card-meta">
+                  <span>📅 ${item.date}</span>
+                </div>
+                <div class="news-card-source">
+                  📍 ${item.source}
+                </div>
+                <a href="${link}" target="${target}" rel="${rel}" class="news-card-cta">
+                  ${item.type === 'external' ? 'Read Article' : 'Read More'}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
+        document.getElementById('pageInfo').textContent = `${currentPage} of ${totalPages}`;
+        document.getElementById('prevPage').classList.toggle('disabled', currentPage === 1);
+        document.getElementById('nextPage').classList.toggle('disabled', currentPage === totalPages);
+      };
+
+      // Search functionality
+      document.getElementById('newsSearch').addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        currentPage = 1;
+        filteredNews = NEWS_ITEMS.filter(item =>
+          item.title.toLowerCase().includes(query) ||
+          item.excerpt.toLowerCase().includes(query) ||
+          item.source.toLowerCase().includes(query)
+        );
+        renderGrid();
+      });
+
+      // Filter functionality
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const category = btn.dataset.category;
+          currentPage = 1;
+          filteredNews = category === 'all' 
+            ? NEWS_ITEMS 
+            : NEWS_ITEMS.filter(item => item.category === category);
+          renderGrid();
+        });
+      });
+
+      // Pagination
+      document.getElementById('prevPage').addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      document.getElementById('nextPage').addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      renderGrid();
+    });
+  </script>
+</body>
+</html>

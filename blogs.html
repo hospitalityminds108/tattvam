@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Insights, stories, and perspectives from Tat:vm — thoughts on real estate, urban living, and sustainable development.">
+  <meta name="og:title" content="Blog — Tat:vm">
+  <meta name="og:description" content="Insights and perspectives from Tat:vm">
+  <meta name="og:image" content="https://tatvmgroup.com/og-blog.jpg">
+  <title>Blog — Tat:vm</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+  <div class="loader" id="loader"><div class="in"><span data-logo="dark"></span><div class="bar"><i></i></div></div></div>
+  <div id="header-slot"></div>
+
+  <!-- BLOG HERO -->
+  <section class="page-hero">
+    <img src="assets/img/interior-light.jpg" alt="Sunlit interior in a Tat:vm home" aria-hidden="true">
+    <div class="hero-scrim"></div>
+    <div class="container hero-inner">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Blog</span></nav>
+      <p class="eyebrow light">Thoughts &amp; Perspectives</p>
+      <h1 class="display">Ideas for better homes.</h1>
+      <p class="lead">Insights on urban development, sustainable living and the future of real estate in Mumbai.</p>
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTERS -->
+  <section class="blog-controls">
+    <div class="blog-search">
+      <input type="text" id="blogSearch" placeholder="Search articles..." aria-label="Search blog posts">
+    </div>
+    <div class="blog-filters">
+      <button class="filter-btn active" data-category="all">All Posts</button>
+      <button class="filter-btn" data-category="urban-living">Urban Living</button>
+      <button class="filter-btn" data-category="sustainability">Sustainability</button>
+      <button class="filter-btn" data-category="design">Design</button>
+      <button class="filter-btn" data-category="community">Community</button>
+    </div>
+  </section>
+
+  <!-- FEATURED BLOG -->
+  <section class="featured-blog">
+    <div class="featured-blog-content">
+      <div class="featured-blog-image">
+        <img src="assets/img/project-ghatkopar.jpg" alt="The Future of Sustainable Urban Development" loading="lazy">
+      </div>
+      <div class="featured-blog-text">
+        <div class="featured-blog-tag">Featured</div>
+        <h2>The Future of Sustainable Urban Development</h2>
+        <div class="featured-blog-meta">
+          <span>📅 March 15, 2024</span>
+          <span>✍️ By Ravi Sharma</span>
+          <span>⏱️ 7 min read</span>
+        </div>
+        <p>Explore how Tat:vm is reshaping Mumbai's urban landscape through thoughtfully designed mixed-use developments that prioritize sustainability, community connectivity, and the five tattvas — space, light, air, vastu harmony, and environmental responsibility.</p>
+        <a href="Blogs/the-future-of-sustainable-urban-development.html" class="featured-blog-cta">
+          Read Full Article
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="blog-grid-section">
+    <div class="blog-grid-header">
+      <h3>Latest Articles</h3>
+      <p>Curated insights and perspectives from our team</p>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+      <!-- Blog cards injected by JavaScript -->
+    </div>
+
+    <div class="blog-pagination">
+      <button class="pagination-btn" id="prevPage" aria-label="Previous page">&larr;</button>
+      <span id="pageInfo" style="display:flex; align-items:center; padding:0 1rem; color:#6B5B51; font-weight:600;"></span>
+      <button class="pagination-btn" id="nextPage" aria-label="Next page">&rarr;</button>
+    </div>
+  </section>
+
+  <div id="footer-slot"></div>
+
+  <script src="assets/js/svg.js?v=5"></script>
+  <script src="assets/js/components.js?v=5"></script>
+  <script src="assets/js/main.js?v=5"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const BLOG_POSTS = [
+        {
+          id: 1,
+          title: 'The Future of Sustainable Urban Development',
+          excerpt: 'Explore how Tat:vm is reshaping Mumbai\'s urban landscape through thoughtfully designed mixed-use developments.',
+          category: 'sustainability',
+          date: 'March 15, 2024',
+          author: 'Ravi Sharma',
+          readTime: '7 min',
+          image: 'assets/img/project-ghatkopar.jpg',
+          slug: 'future-sustainable-development'
+        },
+        {
+          id: 2,
+          title: 'Creating Spaces That Adapt to Life\'s Changes',
+          excerpt: 'How flexible, generous layouts empower residents to shape their homes as their lives evolve.',
+          category: 'design',
+          date: 'March 8, 2024',
+          author: 'Priya Desai',
+          readTime: '5 min',
+          image: 'assets/img/interior-warm.jpg',
+          slug: 'spaces-adapt-life-changes'
+        },
+        {
+          id: 3,
+          title: 'Light as a Fundamental Right in Residential Design',
+          excerpt: 'Why natural light orientation should be prioritized before calculating floor areas.',
+          category: 'design',
+          date: 'March 1, 2024',
+          author: 'Arjun Patel',
+          readTime: '6 min',
+          image: 'assets/img/interior-light.jpg',
+          slug: 'light-right-residential'
+        },
+        {
+          id: 4,
+          title: 'Building Communities, Not Just Complexes',
+          excerpt: 'The importance of amenities, gathering spaces, and neighbor connection in modern residential projects.',
+          category: 'community',
+          date: 'February 22, 2024',
+          author: 'Meera Singh',
+          readTime: '8 min',
+          image: 'assets/img/mumbai-neighbourhood.jpg',
+          slug: 'communities-complexes'
+        },
+        {
+          id: 5,
+          title: 'Why Mumbai Needs Mixed-Use Development Now',
+          excerpt: 'How integrated residential, commercial, and retail spaces reduce commute time and enhance urban vitality.',
+          category: 'urban-living',
+          date: 'February 14, 2024',
+          author: 'Vikram Khanna',
+          readTime: '7 min',
+          image: 'assets/img/skyline-mumbai.jpg',
+          slug: 'mixed-use-development'
+        },
+        {
+          id: 6,
+          title: 'Vastu in Modern Architecture: Ancient Wisdom Meets Contemporary Design',
+          excerpt: 'How traditional principles of orientation and proportion create homes that feel right the moment you enter.',
+          category: 'design',
+          date: 'February 7, 2024',
+          author: 'Dr. Neha Iyer',
+          readTime: '6 min',
+          image: 'assets/img/approach-craft.jpg',
+          slug: 'vastu-modern-architecture'
+        },
+        {
+          id: 7,
+          title: 'Cross-Ventilation: Why Air Movement Matters',
+          excerpt: 'Natural airflow reduces cooling costs and creates healthier indoor environments. Here\'s how we design for it.',
+          category: 'sustainability',
+          date: 'January 30, 2024',
+          author: 'Rakesh Verma',
+          readTime: '5 min',
+          image: 'assets/img/tattva-green.jpg',
+          slug: 'cross-ventilation-matters'
+        },
+        {
+          id: 8,
+          title: 'Water Harvesting in Urban Residential Projects',
+          excerpt: 'How smart water management makes buildings more sustainable and reduces dependence on municipal supply.',
+          category: 'sustainability',
+          date: 'January 23, 2024',
+          author: 'Sunita Nair',
+          readTime: '6 min',
+          image: 'assets/img/family-home.jpg',
+          slug: 'water-harvesting-urban'
+        },
+        {
+          id: 9,
+          title: 'The Psychology of Home: Design Principles That Make Spaces Feel Right',
+          excerpt: 'Beyond aesthetics — how layout, proportion, and natural elements influence comfort and well-being.',
+          category: 'design',
+          date: 'January 16, 2024',
+          author: 'Dr. Anjali Bhat',
+          readTime: '8 min',
+          image: 'assets/img/commercial-interior.jpg',
+          slug: 'psychology-home-design'
+        }
+      ];
+
+      const ITEMS_PER_PAGE = 6;
+      let currentPage = 1;
+      let filteredPosts = BLOG_POSTS;
+
+      const renderGrid = () => {
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        const end = start + ITEMS_PER_PAGE;
+        const postsToShow = filteredPosts.slice(start, end);
+
+        const grid = document.getElementById('blogGrid');
+        grid.innerHTML = postsToShow.map(post => `
+          <article class="blog-card">
+            <div class="blog-card-image">
+              <img src="${post.image}" alt="${post.title}" loading="lazy">
+              <span class="blog-card-badge">${post.category.replace('-', ' ')}</span>
+            </div>
+            <div class="blog-card-content">
+              <h3 class="blog-card-title">${post.title}</h3>
+              <p class="blog-card-excerpt">${post.excerpt}</p>
+              <div class="blog-card-meta">
+                <span>📅 ${post.date}</span>
+                <span>⏱️ ${post.readTime}</span>
+              </div>
+              <a href="Blogs/the-future-of-sustainable-urban-development.html" class="blog-card-cta">
+                Read More
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        `).join('');
+
+        const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
+        document.getElementById('pageInfo').textContent = `${currentPage} of ${totalPages}`;
+        document.getElementById('prevPage').classList.toggle('disabled', currentPage === 1);
+        document.getElementById('nextPage').classList.toggle('disabled', currentPage === totalPages);
+      };
+
+      // Search functionality
+      document.getElementById('blogSearch').addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        currentPage = 1;
+        filteredPosts = BLOG_POSTS.filter(post =>
+          post.title.toLowerCase().includes(query) ||
+          post.excerpt.toLowerCase().includes(query)
+        );
+        renderGrid();
+      });
+
+      // Filter functionality
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const category = btn.dataset.category;
+          currentPage = 1;
+          filteredPosts = category === 'all' 
+            ? BLOG_POSTS 
+            : BLOG_POSTS.filter(post => post.category === category);
+          renderGrid();
+        });
+      });
+
+      // Pagination
+      document.getElementById('prevPage').addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      document.getElementById('nextPage').addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      renderGrid();
+    });
+  </script>
+</body>
+</html>
