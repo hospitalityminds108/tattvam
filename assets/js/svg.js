@@ -3,9 +3,9 @@ window.TATVM = (() => {
 
   /* ---------------- BRAND LOGO ---------------- */
   const logo = (variant = 'dark') => {
-    const base = location.pathname.includes('/projects/') ? '../' : './';
-    const src = `${base}tatvm_logo.png`;
-    const fallback = `${base}assets/img/tatvm-logo.svg`;
+    const base = /\/(projects|Blogs|News)\//.test(location.pathname) ? '../' : './';
+    const src = `${base}assets/img/tatvm_logo.png`;
+    const fallback = `${base}assets/img/favicon.svg`;
     return `<img src="${src}" alt="Tat:vm — Rooted in you" class="brand-logo ${variant === 'white' ? 'brand-logo-white' : ''}" loading="eager" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">`;
   };
 
@@ -13,15 +13,15 @@ window.TATVM = (() => {
   const tattvaPentagon = () => {
     // Central pentagon: 5 · node colors from brand graphics
     const nodes = [
-      { key:'space',      label:'SPACE',   color:'#E8B23A' },
+      { key:'space',      label:'SPACE',   color:'#E8B23A', labelY:16 },
       { key:'light',      label:'LIGHT',   color:'#E97F31' },
       { key:'air',        label:'AIR',     color:'#3FA8B5' },
       { key:'vastu',      label:'VASTU',   color:'#8B6BB1' },
-      { key:'sustain',    label:'SUSTAINABILITY', color:'#9FB63D' },
+      { key:'sustain',    label:'SUSTAINABILITY', color:'#9FB63D', labelY:135 },
     ];
     // node positions on a pentagon (top, upper-right, lower-right, lower-left, upper-left)
     const pos = [
-      { x:250, y:52  },  // top
+      { x:250, y:78  },  // top
       { x:448, y:196 },  // upper-right
       { x:372, y:430 },  // lower-right
       { x:128, y:430 },  // lower-left
@@ -42,7 +42,7 @@ window.TATVM = (() => {
         <circle class="halo" cx="${p.x}" cy="${p.y}" r="46" fill="#FFFFFF" stroke="${n.color}" stroke-width="2" stroke-dasharray="5 6"/>
         <circle cx="${p.x}" cy="${p.y}" r="34" fill="${n.color}"/>
         <g transform="translate(${p.x - 12},${p.y - 12})" fill="#fff">${icons[n.key].replace(/stroke-width="2\.1"/,'stroke="#fff"').replace(/stroke-width="1\.6"/g,'stroke="#fff"')}</g>
-        <text class="lbl" x="${p.x}" y="${p.y + 64}" text-anchor="middle">${n.label}</text>
+        <text class="lbl${n.key === 'sustain' ? ' lbl-sustain' : ''}" x="${n.labelX || p.x}" y="${n.labelY || p.y + 64}" text-anchor="middle">${n.label}</text>
       </g>`;
     });
     // core pentagon

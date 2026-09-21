@@ -2,7 +2,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const T = window.TATVM;
   const path = location.pathname.split('/').pop() || 'index.html';
-  const depth = location.pathname.includes('/projects/') ? '../' : '';
+  const inProjects = location.pathname.includes('/projects/');
+  const depth = /\/(projects|Blogs|News)\//.test(location.pathname) ? '../' : '';
+  const resolveNavHref = href => href.startsWith('projects/')
+    ? (inProjects ? href.slice(9) : depth + href)
+    : depth + href;
 
   /* ============ HEADER ============ */
   const NAV = [
@@ -18,14 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
       { label:'Ghatkopar — Mixed-Use', href:'projects/ghatkopar-mixed-use.html', icon:'briefcase' },
       { label:'Ghatkopar — Residential', href:'projects/ghatkopar-residential.html', icon:'home' },
     ]},
-    { label:'Redevelopment', href:'redevelopment.html' },
     { label:'Opportunities', href:'#', dd:[
       { label:'Work With Us',     href:'work-with-us.html', icon:'handshake' },
       { label:'Network Partners', href:'network-partners.html', icon:'users' },
       { label:'NRI Services',     href:'nri.html', icon:'globe' },
     ]},
-    { label:'Insights', href:'insights.html', dd:[
-      { label:'Blogs & Perspectives', href:'insights.html', icon:'book' },
+    { label:'Insights', href:'blogs.html', dd:[
+      { label:'Blogs & Perspectives', href:'blogs.html', icon:'book' },
+      { label:'News & Updates',        href:'news.html',  icon:'doc' },
       { label:'FAQs',                 href:'faqs.html', icon:'chat' },
     ]},
     { label:'Contact', href:'contact.html' },
@@ -42,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             : n.href === path;
           const activeCls = active ? ' active' : '';
           return `<div class="nav-item${activeCls}">
-            <a href="${n.dd && n.label !== 'Projects' ? '#' : (n.label==='Projects' && n.dd ? depth + 'projects.html' : depth + n.href)}" ${n.dd && n.label !== 'Projects' ? 'aria-haspopup="true"' : ''}>${n.label}</a>
-            ${n.dd ? `<div class="dd">${n.dd.map(d => `<a href="${d.href.startsWith('projects/') && depth === '' ? '' : depth}${d.href}">${T.icon(d.icon)}${d.label}</a>`).join('')}</div>` : ''}
+            <a href="${n.href === '#' ? '#' : depth + n.href}" ${n.dd ? 'aria-haspopup="true"' : ''}>${n.label}</a>
+            ${n.dd ? `<div class="dd">${n.dd.map(d => `<a href="${resolveNavHref(d.href)}">${T.icon(d.icon)}${d.label}</a>`).join('')}</div>` : ''}
           </div>`;
         }).join('')}
       </nav>
@@ -56,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="mnav" id="mnav" aria-hidden="true">
     ${NAV.map(n => `
       <a class="mlink" href="${n.href === '#' ? 'javascript:void(0)' : depth + n.href}" data-mgroup="${n.label}">${n.label}${n.dd ? `<em>+</em>` : ''}</a>
-      ${n.dd ? `<div class="msub" data-msub="${n.label}">${n.dd.map(d => `<a href="${d.href.startsWith('projects/') && depth === '' ? '' : depth}${d.href}">${d.label}</a>`).join('')}</div>` : ''}`).join('')}
+      ${n.dd ? `<div class="msub" data-msub="${n.label}">${n.dd.map(d => `<a href="${resolveNavHref(d.href)}">${d.label}</a>`).join('')}</div>` : ''}`).join('')}
     <div class="mnav-foot">
       <a href="${depth}contact.html" class="btn btn-primary">Enquire Now ${T.icon('arrow','arrow')}</a>
       <a href="https://wa.me/919152000425" class="btn btn-green" target="_blank" rel="noopener">WhatsApp ${T.icon('whatsapp','arrow')}</a>
@@ -65,13 +69,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('header-slot').outerHTML = headerHTML;
 
+  /* parent links with no landing page should not jump to top */
+  document.querySelectorAll('.nav-desktop .nav-item > a[href="#"]').forEach(a => {
+    a.addEventListener('click', e => e.preventDefault());
+  });
+
   /* header scroll state */
   const header = document.getElementById('siteHeader');
+  /* pages without a dark hero need a readable (solid) header from the start */
+  const hasDarkHero = !!document.querySelector('.hero, .page-hero');
+  if (!hasDarkHero) header.classList.add('solid');
   let lastY = 0;
   const onScroll = () => {
     const y = window.scrollY;
-    header.classList.toggle('solid', y > 40);
-    header.classList.toggle('hidden', y > 500 && y > lastY && !document.getElementById('mnav').classList.contains('open'));
+    header.classList.toggle('solid', !hasDarkHero || y > 40);
+    header.classList.remove('hidden');
     lastY = y;
   };
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -83,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const openM = (open) => {
     burger.classList.toggle('open', open);
     mnav.classList.toggle('open', open);
+    header.classList.toggle('menu-open', open);
     burger.setAttribute('aria-expanded', open);
     mnav.setAttribute('aria-hidden', !open);
     document.body.style.overflow = open ? 'hidden' : '';
@@ -127,12 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="${depth}brand-story.html">Brand Story</a>
           <a href="${depth}leadership.html">Leadership</a>
           <a href="${depth}csr.html">CSR</a>
+          <a href="${depth}news.html">News &amp; Updates</a>
         </div>
         <div class="f-col">
           <h4>Explore</h4>
           <a href="${depth}projects.html">Projects</a>
-          <a href="${depth}redevelopment.html">Redevelopment</a>
-          <a href="${depth}insights.html">Insights</a>
+          <a href="${depth}blogs.html">Insights</a>
           <a href="${depth}faqs.html">FAQs</a>
           <a href="${depth}work-with-us.html">Work With Us</a>
           <a href="${depth}nri.html">NRI Services</a>
@@ -195,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* chatbot (Sell.do slot — replace body with client's script when provided) */
   window.tatvmOpenChat = () => {
     const w = document.getElementById('sellDoChat');
-    if (w) { w.style.display = 'flex'; return; }
+    if (w) { w.style.display = 'flex'; w.querySelector('input')?.focus(); return; }
     const el = document.createElement('div');
     el.id = 'sellDoChat';
     el.innerHTML = `
@@ -207,16 +220,78 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="chat-body">
           <div class="msg them">Namaste! Looking for a home, a commercial space, or exploring redevelopment? Ask us anything.</div>
-          <div class="msg me">Hi — I'd like to know more about your projects.</div>
-          <div class="msg them">Happy to help. You can also reach us directly on WhatsApp or call +91 22 3500 6800.</div>
+          <div class="chat-prompts">
+            <button type="button" data-chat-question="What projects are coming soon?">Upcoming projects</button>
+            <button type="button" data-chat-question="How can I enquire about a project?">Enquire about a project</button>
+            <button type="button" data-chat-question="Do you handle society redevelopment?">Society redevelopment</button>
+          </div>
         </div>
-        <div class="chat-foot">
+        <form class="chat-foot">
           <input type="text" placeholder="Type your message…" aria-label="Message">
-          <button onclick="this.closest('.chat-win').querySelector('.chat-body').insertAdjacentHTML('beforeend','<div class=\\'msg me\\'>Thanks! I\\'ll explore the projects page.</div>')" aria-label="Send">${T.icon('arrowR')}</button>
-        </div>
+          <button type="submit" aria-label="Send">${T.icon('arrowR')}</button>
+        </form>
       </div>`;
     el.style.cssText = 'position:fixed;right:clamp(14px,2.4vw,26px);bottom:calc(clamp(14px,2.4vw,26px) + 84px);z-index:950;display:flex;align-items:flex-end;animation:chatIn .45s var(--ease-out)';
     document.body.appendChild(el);
+    const form = el.querySelector('.chat-foot');
+    const input = form.querySelector('input');
+    const body = el.querySelector('.chat-body');
+    const replyFor = message => {
+      const text = message.toLowerCase();
+      if (/project|home|residen|mixed.?use|commercial|upcoming/.test(text)) {
+        return 'Tat:vm currently has Ghatkopar Mixed-Use and Ghatkopar Residential projects coming soon. You can explore the project details or request an update from our team.';
+      }
+      if (/price|cost|budget|rate|brochure|rera|detail/.test(text)) {
+        return 'Plans, pricing approach and RERA details are shared on request, in writing. Please use the enquiry form or WhatsApp us for the latest information.';
+      }
+      if (/redevelop|society|building/.test(text)) {
+        return 'Yes. Tat:vm works with housing societies on transparent redevelopment, with clear area entitlements, written timelines and member-first communication. Start with our enquiry form.';
+      }
+      if (/partner|broker|agent|channel/.test(text)) {
+        return 'Our Network Partner programme offers protected leads, real inventory, dedicated support and written commission schedules. Visit Network Partners or apply through Contact.';
+      }
+      if (/nri|overseas|abroad/.test(text)) {
+        return 'Tat:vm supports NRI buyers with remote guidance, documentation support and trusted local coordination. Our NRI Services page has the overview.';
+      }
+      if (/where|location|address|office|visit/.test(text)) {
+        return 'Our office is at Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg, Lower Parel, Mumbai 400013. Call +91 22 3500 6800 before visiting.';
+      }
+      if (/contact|call|whatsapp|talk|enquir/.test(text)) {
+        return 'You can enquire through the Contact page, call +91 22 3500 6800, email info@tatvmgroup.com, or WhatsApp +91 91520 04250.';
+      }
+      return 'I can help with projects, pricing and brochures, redevelopment, NRI services, channel partnerships, or our office location. What would you like to know?';
+    };
+    const appendMessage = (message, type) => {
+      const bubble = document.createElement('div');
+      bubble.className = `msg ${type}`;
+      bubble.textContent = message;
+      body.appendChild(bubble);
+      body.scrollTop = body.scrollHeight;
+      return bubble;
+    };
+    const answer = message => {
+      const typing = appendMessage('Typing…', 'them typing');
+      window.setTimeout(() => {
+        typing.remove();
+        appendMessage(replyFor(message), 'them');
+      }, 450);
+    };
+    el.querySelectorAll('[data-chat-question]').forEach(button => {
+      button.addEventListener('click', () => {
+        input.value = button.dataset.chatQuestion;
+        form.requestSubmit();
+      });
+    });
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const message = input.value.trim();
+      if (!message) { input.focus(); return; }
+      appendMessage(message, 'me');
+      input.value = '';
+      answer(message);
+      input.focus();
+    });
+    input.focus();
   };
   window.tatvmCloseChat = () => { const w = document.getElementById('sellDoChat'); if (w) w.style.display = 'none'; };
 
@@ -247,6 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
   .msg{max-width:82%;padding:.65rem .95rem;border-radius:16px;font-size:.86rem;font-weight:600;line-height:1.45}
   .msg.them{background:#fff;border:1px solid #E5D9C6;color:#3A3128;border-bottom-left-radius:5px;align-self:flex-start}
   .msg.me{background:#8E1F24;color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+  .msg.typing{font-style:italic;opacity:.68}
+  .chat-prompts{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.2rem}
+  .chat-prompts button{padding:.45rem .65rem;border:1px solid #E5D9C6;border-radius:999px;background:#fff;color:#8E1F24;font:600 .72rem/1.2 var(--font-sans);text-align:left}
+  .chat-prompts button:hover{border-color:#9FB63D;background:#EDF3DC}
   .chat-foot{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid #E5D9C6;background:#fff}
   .chat-foot input{flex:1;border:none;background:#FBF7F0;border-radius:999px;padding:.65rem 1rem;font-family:inherit;font-size:.86rem;min-width:0}
   .chat-foot input:focus{outline:1.5px solid #8E1F24}

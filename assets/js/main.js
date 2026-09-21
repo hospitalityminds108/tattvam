@@ -147,6 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const step = () => Math.min(track.clientWidth * .9, 480);
     prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
     next?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    /* hide controls when there is nothing to scroll (keeps UI honest) */
+    const syncBtns = () => {
+      const scrollable = track.scrollWidth - track.clientWidth > 4;
+      const btns = wrap.querySelector('.car-btns');
+      if (btns) btns.style.display = scrollable ? '' : 'none';
+    };
+    syncBtns();
+    window.addEventListener('resize', syncBtns, { passive: true });
   });
 
   /* ---------- hero video ---------- */
@@ -171,6 +179,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form[data-tatvm-form]').forEach(f => {
     f.addEventListener('submit', e => {
       e.preventDefault();
+      if (!f.checkValidity()) {
+        f.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(f);
+      const subject = `Website enquiry from ${formData.get('name')}`;
+      const body = [
+        `Name: ${formData.get('name')}`,
+        `Phone: ${formData.get('phone')}`,
+        `Email: ${formData.get('email')}`,
+        `Interested in: ${formData.get('interest')}`,
+        `Message: ${formData.get('message') || '(No message provided)'}`
+      ].join('\n');
+      window.location.href = `mailto:info@tatvmgroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
       const ok = f.querySelector('.form-ok') || f.parentElement.querySelector('.form-ok');
       if (ok) ok.classList.add('show');
       f.querySelectorAll('input,select,textarea,button').forEach(el => el.disabled = true);

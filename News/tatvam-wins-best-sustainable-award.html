@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tat:vm Wins Best Sustainable Development Award 2024 — Recognized for our commitment to sustainable real estate development.">
+  <title>Tat:vm Wins Best Sustainable Award — News</title>
+  <link rel="stylesheet" href="../assets/css/style.css?v=5">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    /* ============ ARTICLE CONTAINER ============ */
+    .article-wrapper {
+      background: #fff;
+      padding-top: 2rem;
+    }
+
+    .article-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ============ BREADCRUMB ============ */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 2rem;
+      font-size: .9rem;
+      color: #6B5B51;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      color: #9FB63D;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: #7C922B;
+      text-decoration: underline;
+    }
+
+    /* ============ ARTICLE HEADER ============ */
+    .article-header {
+      margin-bottom: 2.5rem;
+      animation: fadeInUp .8s ease-out;
+    }
+
+    .article-category {
+      display: inline-block;
+      padding: .5rem 1rem;
+      background: linear-gradient(135deg, #7C922B, #9FB63D);
+      color: #fff;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .article-header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      color: #3A3128;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      font-size: .95rem;
+      color: #6B5B51;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .article-author-brief {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem;
+      background: #FBF7F0;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7C922B, #9FB63D);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .author-brief-text {
+      font-size: .85rem;
+      color: #6B5B51;
+    }
+
+    /* ============ FEATURED IMAGE ============ */
+    .article-featured {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 16px;
+      margin: 2.5rem 0;
+      background: #E5D9C6;
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,.15);
+      animation: fadeInUp .8s ease-out .2s backwards;
+    }
+
+    .article-featured img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ============ ARTICLE CONTENT LAYOUT ============ */
+    .article-body-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      margin: 3rem 0;
+    }
+
+    .article-content {
+      order: 1;
+    }
+
+    .article-sidebar {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* ============ ARTICLE BODY ============ */
+    .article-body {
+      color: #3A3128;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .article-body > * {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-body p {
+      color: #6B5B51;
+    }
+
+    .article-body h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+      scroll-margin-top: 100px;
+    }
+
+    .article-body h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      scroll-margin-top: 100px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body li {
+      margin-bottom: .8rem;
+      color: #6B5B51;
+    }
+
+    .article-body a {
+      color: #9FB63D;
+      text-decoration: underline;
+      transition: color .2s ease;
+    }
+
+    .article-body a:hover {
+      color: #7C922B;
+    }
+
+    .article-body img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,.1);
+      display: block;
+    }
+
+    .article-body .image-caption {
+      font-size: .9rem;
+      color: #9B8A7F;
+      font-style: italic;
+      text-align: center;
+      margin-top: -.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body blockquote {
+      border-left: 4px solid #9FB63D;
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      background: #FBF7F0;
+      border-radius: 8px;
+      margin: 2rem 0;
+      color: #6B5B51;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .article-body blockquote p {
+      margin: 0;
+    }
+
+    .article-highlight {
+      background: rgba(159, 182, 61, .1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #9FB63D;
+      margin: 2rem 0;
+    }
+
+    .article-highlight p {
+      margin: 0;
+      font-weight: 600;
+      color: #3A3128;
+    }
+
+    /* ============ TABLE OF CONTENTS ============ */
+    .toc-box {
+      background: #FBF7F0;
+      border: 1px solid #E5D9C6;
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: sticky;
+      top: 100px;
+      animation: fadeInUp .8s ease-out .3s backwards;
+    }
+
+    .toc-box h4 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: #3A3128;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-list li {
+      margin-bottom: .6rem;
+    }
+
+    .toc-list a {
+      font-size: .9rem;
+      color: #6B5B51;
+      text-decoration: none;
+      transition: all .2s ease;
+      display: block;
+      padding: .4rem .6rem;
+      border-radius: 4px;
+    }
+
+    .toc-list a:hover {
+      color: #9FB63D;
+      background: rgba(159, 182, 61, .08);
+      padding-left: .9rem;
+    }
+
+    /* ============ RELATED NEWS IN SIDEBAR ============ */
+    .related-sidebar {
+      animation: fadeInUp .8s ease-out .35s backwards;
+    }
+
+    .related-sidebar h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #3A3128;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      padding-bottom: .8rem;
+      border-bottom: 2px solid #E5D9C6;
+    }
+
+    .related-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #E5D9C6;
+      transition: all .3s ease;
+    }
+
+    .related-item:last-child {
+      border-bottom: none;
+    }
+
+    .related-item a {
+      font-size: .9rem;
+      font-weight: 600;
+      color: #9FB63D;
+      text-decoration: none;
+      line-height: 1.4;
+      display: block;
+      transition: color .2s ease;
+    }
+
+    .related-item a:hover {
+      color: #7C922B;
+    }
+
+    .related-item-meta {
+      font-size: .8rem;
+      color: #9B8A7F;
+      margin-top: .3rem;
+    }
+
+    /* ============ CATEGORIES BOX ============ */
+    .categories-box {
+      animation: fadeInUp .8s ease-out .4s backwards;
+    }
+
+    .categories-box h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #3A3128;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      padding-bottom: .8rem;
+      border-bottom: 2px solid #E5D9C6;
+    }
+
+    .categories-list {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .categories-list a {
+      padding: .6rem .8rem;
+      background: #FBF7F0;
+      color: #6B5B51;
+      border-radius: 6px;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: all .2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .categories-list a:hover {
+      background: #9FB63D;
+      color: #fff;
+    }
+
+    /* ============ AUTHOR INFO SECTION ============ */
+    .article-author {
+      background: linear-gradient(135deg, #FBF7F0 0%, rgba(159, 182, 61, .05) 100%);
+      border: 1px solid #E5D9C6;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      animation: fadeInUp .8s ease-out .4s backwards;
+    }
+
+    .author-avatar-large {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7C922B, #9FB63D);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .author-info h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-bottom: .2rem;
+    }
+
+    .author-role {
+      font-size: .9rem;
+      color: #9FB63D;
+      font-weight: 600;
+      margin-bottom: .8rem;
+    }
+
+    .author-bio {
+      font-size: .95rem;
+      color: #6B5B51;
+      line-height: 1.6;
+    }
+
+    .author-social {
+      display: flex;
+      gap: .8rem;
+      margin-top: .8rem;
+    }
+
+    .author-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #E5D9C6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9FB63D;
+      text-decoration: none;
+      transition: all .2s ease;
+    }
+
+    .author-social a:hover {
+      background: #9FB63D;
+      color: #fff;
+      border-color: #9FB63D;
+    }
+
+    /* ============ SHARE BUTTONS ============ */
+    .share-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #E5D9C6;
+      border-bottom: 1px solid #E5D9C6;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      animation: fadeInUp .8s ease-out .35s backwards;
+    }
+
+    .share-label {
+      font-weight: 600;
+      color: #3A3128;
+      white-space: nowrap;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #E5D9C6;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .2s ease;
+      text-decoration: none;
+      color: #6B5B51;
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .share-btn:hover {
+      background: #9FB63D;
+      color: #fff;
+      border-color: #9FB63D;
+    }
+
+    /* ============ RELATED ARTICLES GRID ============ */
+    .article-related {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 2px solid #E5D9C6;
+    }
+
+    .article-related h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-bottom: 2rem;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .related-card {
+      background: #fff;
+      border: 1px solid #E5D9C6;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all .3s ease;
+      animation: fadeInUp .6s ease-out backwards;
+    }
+
+    .related-card:nth-child(1) { animation-delay: 0s; }
+    .related-card:nth-child(2) { animation-delay: .1s; }
+    .related-card:nth-child(3) { animation-delay: .2s; }
+
+    .related-card:hover {
+      border-color: #9FB63D;
+      box-shadow: 0 15px 40px -10px rgba(0,0,0,.1);
+    }
+
+    .related-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #E5D9C6;
+    }
+
+    .related-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .6s cubic-bezier(.16,.1,.3,1);
+    }
+
+    .related-card:hover .related-card-image img {
+      transform: scale(1.1);
+    }
+
+    .related-card-content {
+      padding: 1.5rem;
+    }
+
+    .related-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-bottom: .6rem;
+      line-height: 1.4;
+    }
+
+    .related-card-meta {
+      font-size: .85rem;
+      color: #9B8A7F;
+      margin-bottom: .8rem;
+    }
+
+    .related-card-link {
+      color: #9FB63D;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+
+    .related-card-link:hover {
+      color: #7C922B;
+    }
+
+    /* ============ NAVIGATION ============ */
+    .article-navigation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #E5D9C6;
+    }
+
+    .nav-link {
+      padding: 1.5rem;
+      border: 1.5px solid #E5D9C6;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all .3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .nav-link:hover {
+      border-color: #9FB63D;
+      background: #FBF7F0;
+    }
+
+    .nav-link-label {
+      font-size: .85rem;
+      color: #9B8A7F;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      font-weight: 600;
+    }
+
+    .nav-link-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #9FB63D;
+      transition: color .2s ease;
+    }
+
+    .nav-link:hover .nav-link-title {
+      color: #7C922B;
+    }
+
+    /* ============ CTA SECTION ============ */
+    .article-cta {
+      background: linear-gradient(135deg, #9FB63D 0%, #7C922B 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-top: 4rem;
+      text-align: center;
+      animation: fadeInUp .8s ease-out .45s backwards;
+    }
+
+    .article-cta h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+      color: #fff;
+    }
+
+    .article-cta p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      opacity: .95;
+    }
+
+    .article-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem 2rem;
+      background: #fff;
+      color: #9FB63D;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all .3s ease;
+    }
+
+    .article-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px -10px rgba(159, 182, 61, .3);
+      color: #7C922B;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .article-body-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .article-sidebar {
+        order: -1;
+      }
+
+      .toc-box {
+        position: static;
+        top: auto;
+      }
+
+      .article-author {
+        grid-template-columns: 1fr;
+      }
+
+      .author-avatar-large {
+        margin: 0 auto;
+      }
+
+      .author-info {
+        text-align: center;
+      }
+
+      .author-social {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .article-container {
+        padding: 0 1rem;
+      }
+
+      .article-header h1 {
+        font-size: 1.6rem;
+      }
+
+      .article-featured {
+        aspect-ratio: 16 / 12;
+        margin: 1.5rem 0;
+      }
+
+      .article-body {
+        font-size: .95rem;
+      }
+
+      .article-body h2 {
+        font-size: 1.4rem;
+      }
+
+      .article-body h3 {
+        font-size: 1.2rem;
+      }
+
+      .share-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .article-navigation {
+        grid-template-columns: 1fr;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-meta {
+        gap: 1rem;
+        font-size: .85rem;
+      }
+
+      .toc-box {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .article-cta {
+        padding: 1.5rem 1rem;
+      }
+
+      .article-cta h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="in"><span data-logo="dark"></span><div class="bar"><i></i></div></div></div>
+  <div id="header-slot"></div>
+
+  <article class="article-wrapper">
+    <div class="article-container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="../news.html">News &amp; Updates</a>
+        <span>/</span>
+        <span>Tat:vm Wins Best Sustainable Development Award 2024</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <span class="article-category">Awards</span>
+        <h1>Tat:vm Wins Best Sustainable Development Award 2024</h1>
+        <div class="article-meta">
+          <span>📅 March 18, 2024</span>
+          <span>✍️ By Media Team</span>
+          <span>⏱️ 5 min read</span>
+        </div>
+        <div class="article-author-brief">
+          <div class="author-avatar">MT</div>
+          <div class="author-brief-text">
+            <strong>Tat:vm Communications Team</strong> brings you the latest news and announcements from our organization.
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+      <figure class="article-featured">
+        <img src="../assets/img/tattva-green.jpg" alt="Tat:vm team receiving the Best Sustainable Development Award 2024">
+      </figure>
+
+      <!-- Article Body with Sidebar -->
+      <div class="article-body-wrapper">
+        <!-- Sidebar -->
+        <aside class="article-sidebar">
+          <!-- Table of Contents -->
+          <div class="toc-box">
+            <h4>Contents</h4>
+            <ul class="toc-list">
+              <li><a href="#section-1">Award Recognition</a></li>
+              <li><a href="#section-2">Sustainability Commitment</a></li>
+              <li><a href="#section-3">Our Approach</a></li>
+              <li><a href="#section-4">Future Vision</a></li>
+            </ul>
+          </div>
+
+          <!-- Related News -->
+          <div class="related-sidebar">
+            <h4>Latest News</h4>
+            <div class="related-item">
+              <a href="../news.html">Ghatkopar Mixed-Use Project Reaches Major Milestone</a>
+              <div class="related-item-meta">Mar 15, 2024</div>
+            </div>
+            <div class="related-item">
+              <a href="../news.html">New Residency Tower Launched in Ghatkopar</a>
+              <div class="related-item-meta">Feb 15, 2024</div>
+            </div>
+            <div class="related-item">
+              <a href="../news.html">Tat:vm Launches Community Welfare Program</a>
+              <div class="related-item-meta">Feb 28, 2024</div>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="categories-box">
+            <h4>News Categories</h4>
+            <div class="categories-list">
+              <a href="../news.html">Awards</a>
+              <a href="../news.html">Company News</a>
+              <a href="../news.html">Announcements</a>
+              <a href="../news.html">Events</a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="article-content">
+          <div class="article-body">
+            <p>
+              Tat:vm Builders & Developers is thrilled to announce that we have been recognized by the Indian Green Building Council (IGBC) with the prestigious Best Sustainable Development Award 2024. This honor reflects our unwavering commitment to building homes and commercial spaces that prioritize environmental responsibility, community well-being, and sustainable urban development.
+            </p>
+
+            <h2 id="section-1">Award Recognition</h2>
+
+            <p>
+              The award was presented during the IGBC Annual Summit on March 15, 2024, recognizing Tat:vm's innovative approach to real estate development. The judging panel commended our implementation of the Five Tattvas philosophy — integrating Space, Light, Air, Vastu harmony, and Sustainability into every project.
+            </p>
+
+            <blockquote>
+              "This award is not just recognition for what we've accomplished — it's validation of our belief that sustainable development and economic viability are not mutually exclusive. They go hand-in-hand." — Founder & MD, Tat:vm Group
+            </blockquote>
+
+            <h2 id="section-2">Sustainability Commitment</h2>
+
+            <p>
+              Our commitment to sustainability extends across multiple dimensions:
+            </p>
+
+            <ul>
+              <li><strong>Water Conservation:</strong> All projects include rainwater harvesting and wastewater recycling systems, reducing municipal dependence by 30-40%</li>
+              <li><strong>Energy Efficiency:</strong> Solar-ready infrastructure, LED lighting, and passive design reduce energy consumption by 25-35%</li>
+              <li><strong>Material Selection:</strong> Locally-sourced, low-emission materials minimize transportation impact and support local economies</li>
+              <li><strong>Green Spaces:</strong> Native plant landscaping and urban gardens enhance biodiversity while improving resident well-being</li>
+              <li><strong>Community Integration:</strong> Affordable housing options and community facilities ensure inclusive, vibrant neighborhoods</li>
+            </ul>
+
+            <figure class="article-featured">
+              <img src="../assets/img/project-ghatkopar.jpg" alt="Sustainable development with integrated green spaces and efficient design">
+              <figcaption class="image-caption">Our Ghatkopar projects exemplify integrated sustainable urban development.</figcaption>
+            </figure>
+
+            <h2 id="section-3">Our Approach: The Five Tattvas</h2>
+
+            <p>
+              Unlike treating sustainability as an afterthought, we embed it into our foundational design philosophy through the Five Tattvas:
+            </p>
+
+            <div class="article-highlight">
+              <p>🌿 <strong>Space:</strong> Flexible, adaptable layouts that reduce the need for larger homes and unnecessary consumption of resources.</p>
+            </div>
+
+            <div class="article-highlight">
+              <p>☀️ <strong>Light:</strong> Natural light prioritized in design before calculating saleable area, reducing daytime electricity consumption.</p>
+            </div>
+
+            <div class="article-highlight">
+              <p>💨 <strong>Air:</strong> Cross-ventilation engineered into every unit, enabling passive cooling and eliminating constant air-conditioning dependency.</p>
+            </div>
+
+            <div class="article-highlight">
+              <p>🕉️ <strong>Vastu:</strong> Ancient principles of harmony applied to modern architecture, creating homes that feel naturally balanced and healthy.</p>
+            </div>
+
+            <div class="article-highlight">
+              <p>🌍 <strong>Sustainability:</strong> Water harvesting, solar infrastructure, waste management, and environmental stewardship built into every project from day one.</p>
+            </div>
+
+            <p>
+              This integrated philosophy ensures that every aspect of our developments works in harmony with both residents and the environment.
+            </p>
+
+            <h2 id="section-4">Future Vision</h2>
+
+            <p>
+              The Best Sustainable Development Award 2024 motivates us to raise the bar even higher. We are committed to:
+            </p>
+
+            <ul>
+              <li>Expanding solar and renewable energy integration across all projects by 2025</li>
+              <li>Achieving net-zero water consumption in new developments through advanced recycling systems</li>
+              <li>Incorporating biodiversity corridors that connect urban green spaces</li>
+              <li>Supporting circular economy principles through waste reduction and material reuse</li>
+              <li>Engaging communities in sustainable practices through education and partnerships</li>
+            </ul>
+
+            <p>
+              We believe that the real estate industry plays a critical role in shaping the future of cities like Mumbai. By choosing sustainability today, we're building a more livable, prosperous, and environmentally responsible tomorrow.
+            </p>
+
+            <p>
+              Thank you to the Indian Green Building Council for this recognition, and to our team, partners, and residents who share our vision of sustainable urban development. This award belongs to all of us.
+            </p>
+          </div>
+
+          <!-- Author Info -->
+          <section class="article-author">
+            <div class="author-avatar-large">MT</div>
+            <div class="author-info">
+              <h4>Tat:vm Communications</h4>
+              <div class="author-role">News & Press</div>
+              <p class="author-bio">
+                The Tat:vm Communications team shares the latest news, press releases, and announcements from our organization. Stay updated on our projects, awards, events, and community initiatives.
+              </p>
+              <div class="author-social">
+                <a href="https://in.linkedin.com/company/tatvm-group" target="_blank" rel="noopener" title="LinkedIn">in</a>
+                <a href="https://x.com" target="_blank" rel="noopener" title="X">𝕏</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Share Section -->
+          <div class="share-section">
+            <span class="share-label">Share this news:</span>
+            <div class="share-buttons">
+              <button class="share-btn" onclick="shareOn('twitter')">𝕏</button>
+              <button class="share-btn" onclick="shareOn('linkedin')">in</button>
+              <button class="share-btn" onclick="shareOn('facebook')">f</button>
+              <button class="share-btn" onclick="shareOn('copy')">🔗</button>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <nav class="article-navigation">
+            <a href="../news.html" class="nav-link">
+              <span class="nav-link-label">← Previous News</span>
+              <span class="nav-link-title">Ghatkopar Mixed-Use Project Reaches Major Milestone</span>
+            </a>
+            <a href="../news.html" class="nav-link">
+              <span class="nav-link-label">Next News →</span>
+              <span class="nav-link-title">Economic Times Features Tat:vm's Sustainable Model</span>
+            </a>
+          </nav>
+
+          <!-- CTA Section -->
+          <section class="article-cta">
+            <h3>Be Part of Our Sustainable Journey</h3>
+            <p>Explore our award-winning projects and discover homes built with sustainability, care, and vision.</p>
+            <a href="../projects.html" class="article-cta-btn">
+              Explore Our Projects
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </section>
+
+          <!-- Related News -->
+          <section class="article-related">
+            <h3>Related News</h3>
+            <div class="related-grid">
+              <article class="related-card">
+                <div class="related-card-image">
+                  <img src="../assets/img/project-ghatkopar.jpg" alt="Ghatkopar Milestone">
+                </div>
+                <div class="related-card-content">
+                  <h4 class="related-card-title">Ghatkopar Mixed-Use Project Reaches Major Milestone</h4>
+                  <div class="related-card-meta">March 15, 2024</div>
+                  <a href="../news.html" class="related-card-link">Read More →</a>
+                </div>
+              </article>
+
+              <article class="related-card">
+                <div class="related-card-image">
+                  <img src="../assets/img/project-residential.jpg" alt="Residency Tower Launch">
+                </div>
+                <div class="related-card-content">
+                  <h4 class="related-card-title">New Residency Tower Launched in Ghatkopar</h4>
+                  <div class="related-card-meta">February 15, 2024</div>
+                  <a href="../news.html" class="related-card-link">Read More →</a>
+                </div>
+              </article>
+
+              <article class="related-card">
+                <div class="related-card-image">
+                  <img src="../assets/img/family-home.jpg" alt="Community Welfare">
+                </div>
+                <div class="related-card-content">
+                  <h4 class="related-card-title">Tat:vm Launches Community Welfare Program</h4>
+                  <div class="related-card-meta">February 28, 2024</div>
+                  <a href="../news.html" class="related-card-link">Read More →</a>
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-slot"></div>
+
+  <script src="../assets/js/svg.js?v=5"></script>
+  <script src="../assets/js/components.js?v=5"></script>
+  <script src="../assets/js/main.js?v=5"></script>
+
+  <script>
+    // Share functionality
+    function shareOn(platform) {
+      const url = window.location.href;
+      const title = 'Tat:vm Wins Best Sustainable Development Award 2024';
+      const text = 'Tat:vm has been recognized by the Indian Green Building Council with the Best Sustainable Development Award 2024.';
+
+      if (platform === 'copy') {
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Link copied to clipboard!');
+        });
+      } else if (platform === 'twitter') {
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+      } else if (platform === 'linkedin') {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+      } else if (platform === 'facebook') {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+      }
+    }
+
+    // Smooth scroll to TOC items
+    document.querySelectorAll('.toc-list a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = link.getAttribute('href').substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

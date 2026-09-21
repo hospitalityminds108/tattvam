@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Future of Sustainable Urban Development — Explore how Tat:vm is reshaping Mumbai's urban landscape.">
+  <title>The Future of Sustainable Urban Development — Tat:vm Blog</title>
+  <link rel="stylesheet" href="../assets/css/style.css?v=5">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    /* ============ ARTICLE CONTAINER ============ */
+    .article-wrapper {
+      background: #fff;
+      padding-top: 2rem;
+    }
+
+    .article-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ============ BREADCRUMB ============ */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 2rem;
+      font-size: .9rem;
+      color: #6B5B51;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      color: #8E1F24;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: #6B1620;
+      text-decoration: underline;
+    }
+
+    /* ============ ARTICLE HEADER ============ */
+    .article-header {
+      margin-bottom: 2.5rem;
+      animation: fadeInUp .8s ease-out;
+    }
+
+    .article-category {
+      display: inline-block;
+      padding: .5rem 1rem;
+      background: linear-gradient(135deg, #E97F31, #E8B23A);
+      color: #fff;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .article-header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      color: #3A3128;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      font-size: .95rem;
+      color: #6B5B51;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .article-author-brief {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem;
+      background: #FBF7F0;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E97F31, #E8B23A);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .author-brief-text {
+      font-size: .85rem;
+      color: #6B5B51;
+    }
+
+    /* ============ FEATURED IMAGE ============ */
+    .article-featured {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 16px;
+      margin: 2.5rem 0;
+      background: #E5D9C6;
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,.15);
+      animation: fadeInUp .8s ease-out .2s backwards;
+    }
+
+    .article-featured img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ============ ARTICLE CONTENT LAYOUT ============ */
+    .article-body-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      margin: 3rem 0;
+    }
+
+    .article-content {
+      order: 1;
+    }
+
+    .article-sidebar {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* ============ ARTICLE BODY ============ */
+    .article-body {
+      color: #3A3128;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .article-body > * {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-body p {
+      color: #6B5B51;
+    }
+
+    .article-body h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+      scroll-margin-top: 100px;
+    }
+
+    .article-body h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      scroll-margin-top: 100px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body li {
+      margin-bottom: .8rem;
+      color: #6B5B51;
+    }
+
+    .article-body a {
+      color: #8E1F24;
+      text-decoration: underline;
+      transition: color .2s ease;
+    }
+
+    .article-body a:hover {
+      color: #6B1620;
+    }
+
+    .article-body img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,.1);
+      display: block;
+    }
+
+    .article-body .image-caption {
+      font-size: .9rem;
+      color: #9B8A7F;
+      font-style: italic;
+      text-align: center;
+      margin-top: -.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body blockquote {
+      border-left: 4px solid #8E1F24;
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      background: #FBF7F0;
+      border-radius: 8px;
+      margin: 2rem 0;
+      color: #6B5B51;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .article-body blockquote p {
+      margin: 0;
+    }
+
+    .article-highlight {
+      background: rgba(232, 178, 58, .1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #E8B23A;
+      margin: 2rem 0;
+    }
+
+    .article-highlight p {
+      margin: 0;
+      font-weight: 600;
+      color: #3A3128;
+    }
+
+    /* ============ TABLE OF CONTENTS ============ */
+    .toc-box {
+      background: #FBF7F0;
+      border: 1px solid #E5D9C6;
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: sticky;
+      top: 100px;
+      animation: fadeInUp .8s ease-out .3s backwards;
+    }
+
+    .toc-box h4 {
+      font-size: .9rem;
+      font-weight: 700;
+      color: #3A3128;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-list li {
+      margin-bottom: .6rem;
+    }
+
+    .toc-list a {
+      font-size: .9rem;
+      color: #6B5B51;
+      text-decoration: none;
+      transition: all .2s ease;
+      display: block;
+      padding: .4rem .6rem;
+      border-radius: 4px;
+    }
+
+    .toc-list a:hover {
+      color: #8E1F24;
+      background: rgba(142, 31, 36, .08);
+      padding-left: .9rem;
+    }
+
+    /* ============ RELATED POSTS IN SIDEBAR ============ */
+    .related-sidebar {
+      animation: fadeInUp .8s ease-out .35s backwards;
+    }
+
+    .related-sidebar h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #3A3128;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      padding-bottom: .8rem;
+      border-bottom: 2px solid #E5D9C6;
+    }
+
+    .related-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #E5D9C6;
+      transition: all .3s ease;
+    }
+
+    .related-item:last-child {
+      border-bottom: none;
+    }
+
+    .related-item a {
+      font-size: .9rem;
+      font-weight: 600;
+      color: #8E1F24;
+      text-decoration: none;
+      line-height: 1.4;
+      display: block;
+      transition: color .2s ease;
+    }
+
+    .related-item a:hover {
+      color: #6B1620;
+    }
+
+    .related-item-meta {
+      font-size: .8rem;
+      color: #9B8A7F;
+      margin-top: .3rem;
+    }
+
+    /* ============ CATEGORIES BOX ============ */
+    .categories-box {
+      animation: fadeInUp .8s ease-out .4s backwards;
+    }
+
+    .categories-box h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #3A3128;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      padding-bottom: .8rem;
+      border-bottom: 2px solid #E5D9C6;
+    }
+
+    .categories-list {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .categories-list a {
+      padding: .6rem .8rem;
+      background: #FBF7F0;
+      color: #6B5B51;
+      border-radius: 6px;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: all .2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .categories-list a:hover {
+      background: #8E1F24;
+      color: #fff;
+    }
+
+    /* ============ AUTHOR INFO SECTION ============ */
+    .article-author {
+      background: linear-gradient(135deg, #FBF7F0 0%, rgba(232, 178, 58, .05) 100%);
+      border: 1px solid #E5D9C6;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      animation: fadeInUp .8s ease-out .4s backwards;
+    }
+
+    .author-avatar-large {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E97F31, #E8B23A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .author-info h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-bottom: .2rem;
+    }
+
+    .author-role {
+      font-size: .9rem;
+      color: #8E1F24;
+      font-weight: 600;
+      margin-bottom: .8rem;
+    }
+
+    .author-bio {
+      font-size: .95rem;
+      color: #6B5B51;
+      line-height: 1.6;
+    }
+
+    .author-social {
+      display: flex;
+      gap: .8rem;
+      margin-top: .8rem;
+    }
+
+    .author-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #E5D9C6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8E1F24;
+      text-decoration: none;
+      transition: all .2s ease;
+    }
+
+    .author-social a:hover {
+      background: #8E1F24;
+      color: #fff;
+      border-color: #8E1F24;
+    }
+
+    /* ============ SHARE BUTTONS ============ */
+    .share-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #E5D9C6;
+      border-bottom: 1px solid #E5D9C6;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+      animation: fadeInUp .8s ease-out .35s backwards;
+    }
+
+    .share-label {
+      font-weight: 600;
+      color: #3A3128;
+      white-space: nowrap;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid #E5D9C6;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all .2s ease;
+      text-decoration: none;
+      color: #6B5B51;
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .share-btn:hover {
+      background: #8E1F24;
+      color: #fff;
+      border-color: #8E1F24;
+    }
+
+    /* ============ RELATED ARTICLES GRID ============ */
+    .article-related {
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 2px solid #E5D9C6;
+    }
+
+    .article-related h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-bottom: 2rem;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .related-card {
+      background: #fff;
+      border: 1px solid #E5D9C6;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all .3s ease;
+      animation: fadeInUp .6s ease-out backwards;
+    }
+
+    .related-card:nth-child(1) { animation-delay: 0s; }
+    .related-card:nth-child(2) { animation-delay: .1s; }
+    .related-card:nth-child(3) { animation-delay: .2s; }
+
+    .related-card:hover {
+      border-color: #8E1F24;
+      box-shadow: 0 15px 40px -10px rgba(0,0,0,.1);
+    }
+
+    .related-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #E5D9C6;
+    }
+
+    .related-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .6s cubic-bezier(.16,.1,.3,1);
+    }
+
+    .related-card:hover .related-card-image img {
+      transform: scale(1.1);
+    }
+
+    .related-card-content {
+      padding: 1.5rem;
+    }
+
+    .related-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #3A3128;
+      margin-bottom: .6rem;
+      line-height: 1.4;
+    }
+
+    .related-card-meta {
+      font-size: .85rem;
+      color: #9B8A7F;
+      margin-bottom: .8rem;
+    }
+
+    .related-card-link {
+      color: #8E1F24;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+
+    .related-card-link:hover {
+      color: #6B1620;
+    }
+
+    /* ============ NAVIGATION ============ */
+    .article-navigation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #E5D9C6;
+    }
+
+    .nav-link {
+      padding: 1.5rem;
+      border: 1.5px solid #E5D9C6;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all .3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .nav-link:hover {
+      border-color: #8E1F24;
+      background: #FBF7F0;
+    }
+
+    .nav-link-label {
+      font-size: .85rem;
+      color: #9B8A7F;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      font-weight: 600;
+    }
+
+    .nav-link-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #8E1F24;
+      transition: color .2s ease;
+    }
+
+    .nav-link:hover .nav-link-title {
+      color: #6B1620;
+    }
+
+    /* ============ CTA SECTION ============ */
+    .article-cta {
+      background: linear-gradient(135deg, #8E1F24 0%, #6B1620 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin-top: 4rem;
+      text-align: center;
+      animation: fadeInUp .8s ease-out .45s backwards;
+    }
+
+    .article-cta h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+      color: #fff;
+    }
+
+    .article-cta p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      opacity: .95;
+    }
+
+    .article-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem 2rem;
+      background: #9FB63D;
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all .3s ease;
+    }
+
+    .article-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px -10px rgba(159, 182, 61, .3);
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .article-body-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .article-sidebar {
+        order: -1;
+      }
+
+      .toc-box {
+        position: static;
+        top: auto;
+      }
+
+      .article-author {
+        grid-template-columns: 1fr;
+      }
+
+      .author-avatar-large {
+        margin: 0 auto;
+      }
+
+      .author-info {
+        text-align: center;
+      }
+
+      .author-social {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .article-container {
+        padding: 0 1rem;
+      }
+
+      .article-header h1 {
+        font-size: 1.6rem;
+      }
+
+      .article-featured {
+        aspect-ratio: 16 / 12;
+        margin: 1.5rem 0;
+      }
+
+      .article-body {
+        font-size: .95rem;
+      }
+
+      .article-body h2 {
+        font-size: 1.4rem;
+      }
+
+      .article-body h3 {
+        font-size: 1.2rem;
+      }
+
+      .share-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .article-navigation {
+        grid-template-columns: 1fr;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-meta {
+        gap: 1rem;
+        font-size: .85rem;
+      }
+
+      .toc-box {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .article-cta {
+        padding: 1.5rem 1rem;
+      }
+
+      .article-cta h3 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader"><div class="in"><span data-logo="dark"></span><div class="bar"><i></i></div></div></div>
+  <div id="header-slot"></div>
+
+  <article class="article-wrapper">
+    <div class="article-container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="../blogs.html">Blog</a>
+        <span>/</span>
+        <span>The Future of Sustainable Urban Development</span>
+      </nav>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <span class="article-category">Sustainability</span>
+        <h1>The Future of Sustainable Urban Development</h1>
+        <div class="article-meta">
+          <span>📅 March 15, 2024</span>
+          <span>✍️ By Ravi Sharma</span>
+          <span>⏱️ 7 min read</span>
+        </div>
+        <div class="article-author-brief">
+          <div class="author-avatar">RS</div>
+          <div class="author-brief-text">
+            <strong>Ravi Sharma</strong> is the Chief Architect at Tat:vm, leading sustainable design initiatives across all projects.
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+      <figure class="article-featured">
+        <img src="../assets/img/project-ghatkopar.jpg" alt="Modern sustainable urban development with green spaces and mixed-use development">
+      </figure>
+
+      <!-- Article Body with Sidebar -->
+      <div class="article-body-wrapper">
+        <!-- Sidebar -->
+        <aside class="article-sidebar">
+          <!-- Table of Contents -->
+          <div class="toc-box">
+            <h4>Contents</h4>
+            <ul class="toc-list">
+              <li><a href="#section-1">Why Sustainability Matters</a></li>
+              <li><a href="#section-2">The Five Tattvas Approach</a></li>
+              <li><a href="#section-3">Mixed-Use Development Benefits</a></li>
+              <li><a href="#section-4">Water & Energy Management</a></li>
+              <li><a href="#section-5">Community Integration</a></li>
+              <li><a href="#section-6">Future Outlook</a></li>
+            </ul>
+          </div>
+
+          <!-- Related Posts -->
+          <div class="related-sidebar">
+            <h4>Latest Posts</h4>
+            <div class="related-item">
+              <a href="../blogs.html">Creating Spaces That Adapt to Life's Changes</a>
+              <div class="related-item-meta">Mar 8, 2024</div>
+            </div>
+            <div class="related-item">
+              <a href="../blogs.html">Light as a Fundamental Right in Residential Design</a>
+              <div class="related-item-meta">Mar 1, 2024</div>
+            </div>
+            <div class="related-item">
+              <a href="../blogs.html">Building Communities, Not Just Complexes</a>
+              <div class="related-item-meta">Feb 22, 2024</div>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="categories-box">
+            <h4>Categories</h4>
+            <div class="categories-list">
+              <a href="../blogs.html">Sustainability</a>
+              <a href="../blogs.html">Design</a>
+              <a href="../blogs.html">Urban Living</a>
+              <a href="../blogs.html">Community</a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="article-content">
+          <div class="article-body">
+            <p>
+              As Mumbai continues to evolve as a global financial hub, the urgency of sustainable urban development has never been more apparent. Rising populations, increasing congestion, and environmental pressures demand a fundamental shift in how we design and build our cities. At Tat:vm, we believe that sustainability isn't a premium add-on — it's the foundation of responsible development.
+            </p>
+
+            <h2 id="section-1">Why Sustainability Matters Now</h2>
+
+            <p>
+              Urban areas consume approximately 78% of global energy and produce over 60% of global CO2 emissions. In India, cities are expanding at an unprecedented rate, with most new construction concentrated in metropolitan areas like Mumbai. If we don't prioritize sustainable practices in our developments today, the environmental and economic costs will be borne by future generations.
+            </p>
+
+            <p>
+              Sustainability in real estate means designing buildings that:
+            </p>
+
+            <ul>
+              <li>Minimize energy consumption through intelligent orientation and passive design</li>
+              <li>Reduce water dependence via harvesting and recycling systems</li>
+              <li>Use locally-sourced, low-emission materials</li>
+              <li>Integrate green spaces for both ecological and mental health benefits</li>
+              <li>Prioritize walkability and public transportation connectivity</li>
+              <li>Foster vibrant communities that reduce car dependency</li>
+            </ul>
+
+            <div class="article-highlight">
+              <p>💡 A sustainably-designed home costs 3-5% more to build but saves residents 30-40% on energy and water bills over 10 years — while also contributing to a healthier environment.</p>
+            </div>
+
+            <h2 id="section-2">The Five Tattvas: Our Guiding Philosophy</h2>
+
+            <p>
+              At Tat:vm, sustainability is woven through our design philosophy via the Five Tattvas — an ancient Indian framework adapted for modern architecture:
+            </p>
+
+            <h3>Space</h3>
+            <p>
+              Efficient, flexible space planning means homes can adapt as families grow and work patterns evolve. This reduces the need for larger homes and the embodied carbon of construction.
+            </p>
+
+            <h3>Light</h3>
+            <p>
+              Natural light design eliminates the need for daytime artificial lighting, reducing electricity consumption. Proper orientation also supports natural heating and cooling patterns.
+            </p>
+
+            <h3>Air</h3>
+            <p>
+              Cross-ventilation is engineered into every unit, allowing passive cooling and eliminating constant air-conditioning dependency — a major energy drain in Mumbai's climate.
+            </p>
+
+            <h3>Vastu</h3>
+            <p>
+              While rooted in ancient wisdom, vastu principles align remarkably with biophilic design and human wellness — creating homes that feel naturally comfortable.
+            </p>
+
+            <h3>Sustainability</h3>
+            <p>
+              Water harvesting, solar-ready roofing, low-waste construction, and native plant landscaping. These aren't afterthoughts — they're embedded in the architectural strategy from day one.
+            </p>
+
+            <blockquote>
+              "Sustainable development is not a constraint on growth — it's the path to long-term economic and environmental health. The most successful cities in 2050 will be those that build sustainably today."
+            </blockquote>
+
+            <figure class="article-featured">
+              <img src="../assets/img/interior-light.jpg" alt="Sustainable urban development with green spaces and natural lighting">
+              <figcaption class="image-caption">Natural light and ventilation are prioritized before calculating saleable area.</figcaption>
+            </figure>
+
+            <h2 id="section-3">Mixed-Use Development: The Urban Solution</h2>
+
+            <p>
+              One of the most impactful sustainability strategies is mixed-use development — integrating residential, commercial, and retail spaces in a single complex. This approach:
+            </p>
+
+            <ul>
+              <li><strong>Reduces commute times:</strong> People live closer to work and shopping</li>
+              <li><strong>Increases walkability:</strong> Fewer cars on the road means less pollution</li>
+              <li><strong>Creates vibrant neighborhoods:</strong> 24/7 activity and social connection</li>
+              <li><strong>Optimizes infrastructure:</strong> Shared parking, utilities, and services</li>
+              <li><strong>Supports local businesses:</strong> Vendors and services thrive with foot traffic</li>
+              <li><strong>Reduces urban sprawl:</strong> Dense development preserves surrounding green areas</li>
+            </ul>
+
+            <p>
+              Mumbai's ongoing traffic crisis and pollution levels make mixed-use development not just environmentally smart, but economically essential. Our Ghatkopar projects exemplify this integrated approach.
+            </p>
+
+            <h2 id="section-4">Water & Energy: The Twin Pillars</h2>
+
+            <p>
+              Mumbai's monsoon season provides abundant water, yet municipal systems struggle with supply and quality. Similarly, power outages and peak-hour demand constraints plague residential areas. Intelligent resource management is critical.
+            </p>
+
+            <p>
+              Our approach includes:
+            </p>
+
+            <div style="margin: 2rem 0; padding: 1.5rem; background: #FBF7F0; border-radius: 12px;">
+              <h3 style="margin-top: 0; font-size: 1.2rem;">Water Management</h3>
+              <ul style="margin: 0;">
+                <li>Rainwater harvesting systems capture monsoon runoff</li>
+                <li>Greywater recycling for landscape irrigation</li>
+                <li>Low-flow fixtures reduce per-unit consumption by 30%</li>
+                <li>Wastewater treatment for safe disposal</li>
+              </ul>
+
+              <h3 style="font-size: 1.2rem;">Energy Efficiency</h3>
+              <ul style="margin: 0;">
+                <li>Solar-ready roofs (pre-wiring for future installation)</li>
+                <li>Energy-efficient LED systems throughout</li>
+                <li>Smart building management for optimal HVAC performance</li>
+                <li>Passive design reduces air-conditioning load by 25-35%</li>
+              </ul>
+            </div>
+
+            <h2 id="section-5">Building Communities</h2>
+
+            <p>
+              A truly sustainable development is also socially sustainable. This means:
+            </p>
+
+            <ul>
+              <li><strong>Affordability:</strong> Diverse housing options serve mixed-income residents</li>
+              <li><strong>Social infrastructure:</strong> Schools, healthcare, community centers</li>
+              <li><strong>Public spaces:</strong> Parks, plazas, and gathering areas</li>
+              <li><strong>Local employment:</strong> Jobs created during construction and ongoing operations</li>
+              <li><strong>Accessibility:</strong> Design for elderly residents and those with disabilities</li>
+            </ul>
+
+            <p>
+              Without community integration, a development is merely a collection of buildings. Our CSR initiatives and community engagement programs ensure that our projects strengthen the neighborhoods they inhabit.
+            </p>
+
+            <h2 id="section-6">The Future Outlook</h2>
+
+            <p>
+              Governments worldwide are tightening building codes and emission standards. What's optional today will be mandatory tomorrow. Early adopters of sustainable practices gain:
+            </p>
+
+            <ul>
+              <li>Lower operating costs and higher rental/resale values</li>
+              <li>Reduced regulatory risk and potential carbon taxes</li>
+              <li>Enhanced reputation and market preference</li>
+              <li>Healthier, more productive resident populations</li>
+            </ul>
+
+            <p>
+              At Tat:vm, sustainability isn't a marketing message — it's a commitment to building homes and spaces that stand the test of time, both structurally and environmentally. Our developments will house families for generations, and we design with that responsibility in mind.
+            </p>
+          </div>
+
+          <!-- Author Info -->
+          <section class="article-author">
+            <div class="author-avatar-large">RS</div>
+            <div class="author-info">
+              <h4>Ravi Sharma</h4>
+              <div class="author-role">Chief Architect & Head of Sustainability</div>
+              <p class="author-bio">
+                Ravi leads all architectural and sustainability initiatives at Tat:vm. With 15+ years of experience in sustainable urban development, he's passionate about creating buildings that honor both people and planet.
+              </p>
+              <div class="author-social">
+                <a href="https://in.linkedin.com/company/tatvm-group" target="_blank" rel="noopener" title="LinkedIn">in</a>
+                <a href="https://x.com" target="_blank" rel="noopener" title="X">𝕏</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Share Section -->
+          <div class="share-section">
+            <span class="share-label">Share this article:</span>
+            <div class="share-buttons">
+              <button class="share-btn" onclick="shareOn('twitter')">𝕏</button>
+              <button class="share-btn" onclick="shareOn('linkedin')">in</button>
+              <button class="share-btn" onclick="shareOn('facebook')">f</button>
+              <button class="share-btn" onclick="shareOn('copy')">🔗</button>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <nav class="article-navigation">
+            <a href="../blogs.html" class="nav-link">
+              <span class="nav-link-label">← Previous Post</span>
+              <span class="nav-link-title">Light as a Fundamental Right in Residential Design</span>
+            </a>
+            <a href="../blogs.html" class="nav-link">
+              <span class="nav-link-label">Next Post →</span>
+              <span class="nav-link-title">Building Communities, Not Just Complexes</span>
+            </a>
+          </nav>
+
+          <!-- CTA Section -->
+          <section class="article-cta">
+            <h3>Interested in Living Sustainably?</h3>
+            <p>Explore our Ghatkopar projects designed around sustainable living principles.</p>
+            <a href="../projects.html" class="article-cta-btn">
+              Explore Our Projects
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </section>
+
+          <!-- Related Articles -->
+          <section class="article-related">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+              <article class="related-card">
+                <div class="related-card-image">
+                  <img src="../assets/img/interior-warm.jpg" alt="Creating Spaces That Adapt">
+                </div>
+                <div class="related-card-content">
+                  <h4 class="related-card-title">Creating Spaces That Adapt to Life's Changes</h4>
+                  <div class="related-card-meta">March 8, 2024 • 5 min read</div>
+                  <a href="../blogs.html" class="related-card-link">Read More →</a>
+                </div>
+              </article>
+
+              <article class="related-card">
+                <div class="related-card-image">
+                  <img src="../assets/img/interior-light.jpg" alt="Light in Residential Design">
+                </div>
+                <div class="related-card-content">
+                  <h4 class="related-card-title">Light as a Fundamental Right in Residential Design</h4>
+                  <div class="related-card-meta">March 1, 2024 • 6 min read</div>
+                  <a href="../blogs.html" class="related-card-link">Read More →</a>
+                </div>
+              </article>
+
+              <article class="related-card">
+                <div class="related-card-image">
+                  <img src="../assets/img/mumbai-neighbourhood.jpg" alt="Building Communities">
+                </div>
+                <div class="related-card-content">
+                  <h4 class="related-card-title">Building Communities, Not Just Complexes</h4>
+                  <div class="related-card-meta">February 22, 2024 • 8 min read</div>
+                  <a href="../blogs.html" class="related-card-link">Read More →</a>
+                </div>
+              </article>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </article>
+
+  <div id="footer-slot"></div>
+
+  <script src="../assets/js/svg.js?v=5"></script>
+  <script src="../assets/js/components.js?v=5"></script>
+  <script src="../assets/js/main.js?v=5"></script>
+
+  <script>
+    // Share functionality
+    function shareOn(platform) {
+      const url = window.location.href;
+      const title = 'The Future of Sustainable Urban Development — Tat:vm Blog';
+      const text = 'Check out this insightful article on sustainable urban development from Tat:vm.';
+
+      if (platform === 'copy') {
+        navigator.clipboard.writeText(url).then(() => {
+          alert('Link copied to clipboard!');
+        });
+      } else if (platform === 'twitter') {
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+      } else if (platform === 'linkedin') {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+      } else if (platform === 'facebook') {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+      }
+    }
+
+    // Smooth scroll to TOC items
+    document.querySelectorAll('.toc-list a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = link.getAttribute('href').substring(1);
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
