@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Five Tattvas — Continuous Roll</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   SECTION SHELL
+   ============================================================ */
+.tattvas{
+  --t-wash:        #FCF9F1;
+  --t-aura-a:      #EEDCA9;
+  --t-aura-b:      #F9F2E2;
+  --t-accent:      #C8A24A;
+  --t-accent-soft: rgba(200,162,74,.16);
+  --t-accent-line: rgba(200,162,74,.36);
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(72px, 9vw, 132px) clamp(20px, 5vw, 64px);
+  background-color: var(--t-wash);
+  color: inherit;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color .9s ease;
+}
+
+.tattvas__bg{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.tattvas__layer{ position:absolute; inset:-12%; }
+.tattvas__layer--a{
+  background: radial-gradient(46% 46% at 30% 42%, var(--t-aura-a) 0%, transparent 68%);
+  opacity:.92;
+  animation: auraDriftA 22s ease-in-out infinite;
+}
+.tattvas__layer--b{
+  background: radial-gradient(52% 52% at 78% 74%, var(--t-aura-b) 0%, transparent 72%);
+  opacity:.86;
+  animation: auraDriftB 26s ease-in-out infinite;
+}
+@keyframes auraDriftA{ 0%,100%{ transform: translate3d(0,0,0) scale(1); } 50%{ transform: translate3d(2%,-1%,0) scale(1.04); } }
+@keyframes auraDriftB{ 0%,100%{ transform: translate3d(0,0,0) scale(1); } 50%{ transform: translate3d(-2%,1.5%,0) scale(1.05); } }
+
+.tattvas__grain{
+  position:absolute; inset:0;
+  opacity:.05;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+.tattvas__particles{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+
+.tattvas__inner{ position:relative; z-index:1; max-width:1280px; margin:0 auto; }
+
+/* ============================================================
+   HEADING
+   ============================================================ */
+.tattvas__head{ max-width:720px; margin:0 auto clamp(44px, 6vw, 78px); text-align:center; }
+
+.tattvas__eyebrow{
+  margin:0 0 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(10px, .78vw, 11.5px);
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  opacity:.5;
+}
+.tattvas__title{
+  margin:0 0 22px;
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size:clamp(34px, 4.4vw, 60px);
+  line-height:1.05;
+  letter-spacing:-.028em;
+  font-variation-settings: 'SOFT' 20, 'WONK' 0;
+}
+.tattvas__lede{
+  margin:0 auto;
+  max-width:56ch;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size:clamp(14px, 1.02vw, 16px);
+  line-height:1.7;
+  letter-spacing:-.005em;
+  opacity:.62;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.tattvas__layout{
+  display:grid;
+  grid-template-columns: minmax(0,44fr) minmax(0,56fr);
+  gap: clamp(28px, 4.5vw, 72px);
+  align-items:center;
+}
+.tattvas__wheel-col{ display:flex; justify-content:center; }
+
+/* ============================================================
+   WHEEL
+   ============================================================ */
+.tattva-wheel{
+  position:relative;
+  width:100%;
+  max-width:540px;
+  aspect-ratio:1 / 1;
+  --node-size: 84px;
+  --wheel-r: 180px;
+}
+
+.tattva-wheel__aura{
+  position:absolute; inset:-8%; border-radius:50%;
+  background:
+    conic-gradient(from 0deg,
+      transparent 0deg,
+      var(--t-accent-soft) 60deg,
+      transparent 130deg,
+      transparent 200deg,
+      var(--t-accent-soft) 260deg,
+      transparent 330deg,
+      transparent 360deg);
+  filter: blur(28px);
+  opacity:.55;
+  animation: auraSpin 32s linear infinite;
+  pointer-events:none;
+}
+@keyframes auraSpin{ to{ transform: rotate(360deg); } }
+
+/* ============================================================
+   CENTRAL MANDALA
+   ============================================================ */
+.tattva-wheel__mandala{
+  position:absolute;
+  left:50%; top:50%;
+  width: 66%;
+  aspect-ratio:1 / 1;
+  transform: translate(-50%,-50%);
+  pointer-events:none;
+  z-index: 1;
+  color: var(--t-accent);
+  transition: color .9s ease;
+}
+.tattva-wheel__mandala::before{
+  content:"";
+  position:absolute; inset:-14%;
+  border-radius:50%;
+  background: radial-gradient(circle, var(--t-accent-soft) 0%, transparent 62%);
+  opacity:.9;
+  animation: focusBreath 6s ease-in-out infinite;
+  pointer-events:none;
+}
+.tattva-wheel__mandala svg{
+  position:relative;
+  width:100%; height:100%;
+  display:block;
+  overflow:visible;
+}
+
+.mandala-layer{
+  transform-box: view-box;
+  transform-origin: 50px 50px;
+  will-change: transform;
+}
+.mandala-layer--outer{ animation: mandalaCW  60s linear infinite; }
+.mandala-layer--mid  { animation: mandalaCCW 42s linear infinite; }
+.mandala-layer--inner{ animation: mandalaCW  30s linear infinite; }
+.mandala-layer--core { animation: mandalaCW  20s linear infinite; }
+
+@keyframes mandalaCW { to{ transform: rotate(360deg); } }
+@keyframes mandalaCCW{ to{ transform: rotate(-360deg); } }
+
+.mandala-layer use{
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: .26;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: fill-opacity .9s ease, stroke-opacity .9s ease;
+}
+.mandala-layer--outer use{ fill-opacity: .055; stroke-opacity: .34; }
+.mandala-layer--mid   use{ fill-opacity: .075; stroke-opacity: .40; }
+.mandala-layer--inner use{ fill-opacity: .10;  stroke-opacity: .48; }
+
+.mandala-ring{
+  fill: none;
+  stroke: currentColor;
+  stroke-width: .4;
+  stroke-opacity: .48;
+}
+.mandala-ring--thin{
+  stroke-width: .22;
+  stroke-opacity: .30;
+}
+.mandala-core{
+  fill: currentColor;
+  opacity: .60;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mandalaCorePulse 4.2s ease-in-out infinite;
+}
+@keyframes mandalaCorePulse{
+  0%,100%{ opacity:.55; transform: scale(1); }
+  50%    { opacity:.85; transform: scale(1.55); }
+}
+.mandala-dot{
+  fill: currentColor;
+  opacity: .55;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mandalaDotPulse 3.6s ease-in-out infinite;
+}
+.mandala-dot:nth-of-type(even){ animation-delay: 1.2s; }
+@keyframes mandalaDotPulse{
+  0%,100%{ opacity:.35; }
+  50%    { opacity:.75; }
+}
+
+/* ============================================================
+   ORBIT LINES
+   ============================================================ */
+.tattva-wheel__orbits{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+
+.orbit{
+  fill:none;
+  stroke: var(--t-accent);
+  transform-box: view-box;
+  transform-origin: 50px 50px;
+  transition: stroke .9s ease;
+}
+.orbit--outer { stroke-width:.34; opacity:.34; stroke-dasharray: 9 5;  animation: orbitCW  40s linear infinite; }
+.orbit--dashed{ stroke-width:.34; opacity:.24; stroke-dasharray:.7 2.4; animation: orbitCCW 55s linear infinite; }
+.orbit--inner { stroke-width:.28; opacity:.20; stroke-dasharray: 4 3;  animation: orbitCW  30s linear infinite; }
+.orbit--core  { stroke-width:.26; opacity:.14; stroke-dasharray: 2 2;  animation: orbitCCW 22s linear infinite, corePulse 6s ease-in-out infinite; }
+
+@keyframes orbitCW  { to{ transform: rotate(360deg); } }
+@keyframes orbitCCW { to{ transform: rotate(-360deg); } }
+@keyframes corePulse{ 0%,100%{ opacity:.12; } 50%{ opacity:.22; } }
+
+.orbit-dots{ position:absolute; inset:0; pointer-events:none; animation: orbitCCW 60s linear infinite; }
+.orbit-dots span{
+  position:absolute; left:50%; top:50%;
+  width:3.5px; height:3.5px; margin:-1.75px 0 0 -1.75px;
+  border-radius:50%;
+  background: var(--t-accent);
+  opacity:.48;
+  box-shadow: 0 0 6px var(--t-accent);
+}
+
+.tattva-wheel__focus{
+  position:absolute; left:50%; top:50%;
+  width:calc(var(--node-size) * 2.6);
+  height:calc(var(--node-size) * 2.6);
+  margin-left:calc(var(--node-size) * -1.3);
+  margin-top:calc(var(--node-size) * -1.3);
+  border-radius:50%;
+  background: radial-gradient(circle, var(--t-accent-soft) 0%, transparent 62%);
+  transform: translateY(calc(var(--wheel-r) * -1));
+  pointer-events:none;
+  animation: focusBreath 5.5s ease-in-out infinite;
+  transition: background .9s ease;
+}
+@keyframes focusBreath{
+  0%,100%{ opacity:.85; transform: translateY(calc(var(--wheel-r) * -1)) scale(1); }
+  50%    { opacity:1;   transform: translateY(calc(var(--wheel-r) * -1)) scale(1.08); }
+}
+
+.tattva-wheel__hub{
+  position:absolute; left:50%; top:50%;
+  width: 24%; aspect-ratio: 1;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  display:grid; place-content:center;
+  text-align:center;
+  pointer-events:none; user-select:none;
+  z-index: 2;
+  background: radial-gradient(circle,
+              rgba(252,249,241,.9) 0%,
+              rgba(252,249,241,.55) 55%,
+              transparent 82%);
+}
+.tattva-wheel__hub-mark{
+  display:block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size:clamp(10px, .85vw, 12px);
+  letter-spacing:.34em; text-indent:.34em;
+  opacity:.68;
+  transition: color .9s ease;
+  color: var(--t-accent);
+}
+.tattva-wheel__hub-sub{
+  display:block; margin-top:5px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size:clamp(7.5px, .64vw, 9px);
+  letter-spacing:.22em; text-transform:uppercase;
+  opacity:.38;
+}
+
+/* ============================================================
+   NODES
+   ============================================================ */
+.tattva-wheel__nodes{ position:absolute; inset:0; z-index:3; }
+
+.tattva-node{
+  position:absolute; left:50%; top:50%;
+  width:var(--node-size); height:var(--node-size);
+  padding:0; border:0; background:none;
+  cursor:pointer;
+  opacity: var(--n-o, 1);
+  transform: translate(-50%,-50%);
+  will-change: transform, opacity, filter;
+  -webkit-tap-highlight-color: transparent;
+  transition: filter .4s ease;
+}
+.tattva-node__disc{
+  position:relative; display:grid; place-items:center;
+  width:100%; height:100%; border-radius:50%;
+  color: var(--node-accent);
+  background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.98) 0%, rgba(255,255,255,.72) 45%, rgba(255,255,255,.55) 100%);
+  border:1px solid var(--node-accent-line);
+  box-shadow:
+    0 14px 30px -18px rgba(24,20,14,.45),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -6px 12px -10px rgba(24,20,14,.12);
+  transition: background .5s ease, box-shadow .5s ease, border-color .5s ease;
+}
+.tattva-node__disc::before{
+  content:""; position:absolute; inset:14%; border-radius:50%;
+  border:1px solid var(--node-accent);
+  opacity:.14; pointer-events:none;
+  transition: opacity .5s ease;
+}
+.tattva-node__ring{
+  position:absolute; inset:-7px; border-radius:50%;
+  border:1px dashed var(--node-accent);
+  opacity:0; transform:scale(.92);
+  transition: opacity .55s ease, transform .55s ease;
+  pointer-events:none;
+}
+.tattva-node__ring--outer{
+  inset:-14px; border-style: solid;
+  border-color: var(--node-accent);
+  opacity:0; transform:scale(.86);
+}
+.tattva-node__icon{
+  display:block; width:42%; height:42%;
+  transition: transform .55s cubic-bezier(.22,1,.36,1);
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.6));
+}
+.tattva-node__icon svg{ display:block; width:100%; height:100%; }
+.tattva-node__label{
+  position:absolute; top:100%; left:50%;
+  transform:translateX(-50%);
+  margin-top:10px; white-space:nowrap;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size:clamp(8.5px, calc(var(--node-size) * .15), 11px);
+  letter-spacing:.2em; text-transform:uppercase;
+  opacity:.55;
+  transition: opacity .5s ease, letter-spacing .5s ease, color .5s ease;
+}
+
+.tattva-node.is-active .tattva-node__disc{
+  background: radial-gradient(circle at 32% 26%, #ffffff 0%, rgba(255,255,255,.94) 55%, rgba(255,255,255,.82) 100%);
+  border-color: var(--node-accent);
+  box-shadow:
+    0 0 0 8px var(--node-accent-soft),
+    0 0 40px -8px var(--node-accent),
+    0 24px 50px -26px var(--node-accent),
+    inset 0 1px 0 rgba(255,255,255,1);
+}
+.tattva-node.is-active .tattva-node__disc::before{ opacity:.34; }
+.tattva-node.is-active .tattva-node__ring{
+  opacity:.5; transform:scale(1);
+  animation: tattvaPulse 3.2s ease-in-out infinite;
+}
+.tattva-node.is-active .tattva-node__ring--outer{
+  opacity:.26; transform:scale(1);
+  animation: orbitCW 12s linear infinite;
+}
+.tattva-node.is-active .tattva-node__label{
+  opacity:1; letter-spacing:.24em;
+  color: var(--node-accent);
+}
+.tattva-node.is-active .tattva-node__icon{
+  animation: tattvaBreath 4.2s ease-in-out infinite;
+}
+@keyframes tattvaPulse{ 0%,100%{ transform:scale(1); opacity:.5; } 50%{ transform:scale(1.12); opacity:.18; } }
+@keyframes tattvaBreath{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.07); } }
+.tattva-node:focus-visible{ outline:none; }
+.tattva-node:focus-visible .tattva-node__disc{
+  box-shadow: 0 0 0 3px rgba(255,255,255,.95), 0 0 0 5px var(--node-accent), 0 22px 46px -24px var(--node-accent);
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.tattvas__cards{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap: clamp(14px, 1.4vw, 20px);
+}
+
+.tattva-card{
+  position:relative;
+  grid-column:span 1;
+  padding: clamp(22px, 2.1vw, 30px) clamp(20px, 2vw, 28px);
+  padding-top: clamp(28px, 2.5vw, 36px);
+  border-radius:20px;
+  background: linear-gradient(158deg, rgba(255,255,255,.82) 0%, rgba(255,255,255,.56) 100%);
+  border:1px solid rgba(24,20,14,.07);
+  box-shadow: 0 1px 2px rgba(24,20,14,.025);
+  cursor:pointer; outline:none;
+  overflow:hidden;
+  opacity:1;
+  transform: translateY(0) scale(1);
+  isolation:isolate;
+  transition:
+    transform .6s cubic-bezier(.22,1,.36,1),
+    box-shadow .6s cubic-bezier(.22,1,.36,1),
+    border-color .6s ease,
+    background .6s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.tattva-card:last-child{ grid-column: 1 / -1; }
+
+.tattva-card__accent{
+  position:absolute; left:0; top:14%; bottom:14%;
+  width:2px;
+  background: linear-gradient(180deg, transparent, var(--card-accent), transparent);
+  opacity:0; transform:scaleY(.4); transform-origin:50% 50%;
+  transition: opacity .6s ease, transform .6s cubic-bezier(.22,1,.36,1);
+  border-radius:2px; z-index:2;
+}
+.tattva-card__corner{
+  position:absolute; top:0; left:0;
+  width:26px; height:26px;
+  border-top:1.5px solid var(--card-accent);
+  border-left:1.5px solid var(--card-accent);
+  border-top-left-radius:20px;
+  opacity:.22;
+  transition: opacity .6s ease, width .6s cubic-bezier(.22,1,.36,1), height .6s cubic-bezier(.22,1,.36,1);
+  pointer-events:none; z-index:2;
+}
+.tattva-card__num{
+  position:absolute; top:16px; right:18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size:10px;
+  letter-spacing:.22em;
+  font-variant-numeric: tabular-nums;
+  color: var(--card-accent);
+  opacity:.34;
+  transition: opacity .5s ease, transform .5s ease;
+  z-index:2;
+}
+.tattva-card__glow{
+  position:absolute; inset:-40% -20% auto -20%;
+  height:120%;
+  background: radial-gradient(50% 50% at 50% 0%, var(--card-accent-soft) 0%, transparent 70%);
+  opacity:0; transition: opacity .7s ease;
+  pointer-events:none; z-index:0;
+}
+.tattva-card__shine{
+  position:absolute; top:0; left:-140%;
+  width:80%; height:100%;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,.65) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  transition: left 1.1s cubic-bezier(.22,1,.36,1);
+  pointer-events:none; z-index:1;
+}
+@media (hover:hover) and (pointer:fine){
+  .tattva-card:hover .tattva-card__shine{ left:150%; }
+}
+
+.tattva-card__head{
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:16px;
+  position:relative; z-index:2;
+}
+.tattva-card__icon{
+  display:grid; place-items:center;
+  width:38px; height:38px; flex:0 0 auto;
+  border-radius:50%;
+  color: var(--card-accent);
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.9), var(--card-accent-soft));
+  border:1px solid var(--card-accent-line);
+  box-shadow:
+    0 4px 12px -8px var(--card-accent),
+    inset 0 1px 0 rgba(255,255,255,.7);
+  transition: transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s ease, border-color .6s ease;
+  position:relative;
+}
+.tattva-card__icon::after{
+  content:""; position:absolute; inset:-4px; border-radius:50%;
+  border:1px dashed var(--card-accent);
+  opacity:0; transition: opacity .5s ease;
+  animation: orbitCW 10s linear infinite;
+}
+.tattva-card__icon svg{ width:18px; height:18px; display:block; }
+
+.tattva-card__titles{ display:flex; flex-direction:column; min-width:0; flex:1; }
+.tattva-card__name{
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size:clamp(11px, .82vw, 12px);
+  letter-spacing:.26em; text-transform:uppercase;
+  opacity:.78;
+  transition: opacity .5s ease, letter-spacing .5s ease, color .5s ease;
+}
+.tattva-card__sub{
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size:clamp(9px, .68vw, 10px);
+  letter-spacing:.18em; text-transform:uppercase;
+  opacity:.36; margin-top:3px;
+  transition: opacity .5s ease;
+}
+.tattva-card__tagline{
+  margin:0 0 10px;
+  font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size:clamp(17px, 1.3vw, 20px);
+  line-height:1.3;
+  letter-spacing:-.018em;
+  opacity:.9;
+  position:relative; z-index:2;
+  transition: opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1);
+  font-variation-settings: 'SOFT' 20, 'WONK' 0;
+}
+.tattva-card__desc{
+  margin:0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size:clamp(12px, .88vw, 13.5px);
+  line-height:1.68;
+  opacity:.5;
+  position:relative; z-index:2;
+  transition: opacity .55s ease;
+  max-height: 4.5em; overflow: hidden;
+}
+.tattva-card__bar{
+  position:absolute; left:0; bottom:0;
+  height:2px; width:0%;
+  background: linear-gradient(90deg, transparent 0%, var(--card-accent) 30%, var(--card-accent) 70%, transparent 100%);
+  transition: width .8s cubic-bezier(.22,1,.36,1);
+  pointer-events:none; z-index:2;
+}
+
+.tattva-card.is-active{
+  transform: translateY(-8px) scale(1.02);
+  background: linear-gradient(158deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.86) 100%);
+  border-color: var(--card-accent-line);
+  box-shadow:
+    0 30px 60px -34px var(--card-accent),
+    0 0 0 1px var(--card-accent-line),
+    0 4px 12px rgba(24,20,14,.05);
+  z-index:3;
+}
+.tattva-card.is-active .tattva-card__accent{ opacity:1; transform:scaleY(1); }
+.tattva-card.is-active .tattva-card__corner{ opacity:.85; width:44px; height:44px; }
+.tattva-card.is-active .tattva-card__num{ opacity:1; transform:scale(1.12); }
+.tattva-card.is-active .tattva-card__glow{ opacity:1; }
+.tattva-card.is-active .tattva-card__bar{ width:100%; }
+.tattva-card.is-active .tattva-card__desc{ opacity:.74; }
+.tattva-card.is-active .tattva-card__tagline{ opacity:1; transform:translateX(2px); }
+.tattva-card.is-active .tattva-card__name{
+  opacity:1; letter-spacing:.3em;
+  color: var(--card-accent);
+}
+.tattva-card.is-active .tattva-card__sub{ opacity:.55; }
+.tattva-card.is-active .tattva-card__icon{
+  transform:scale(1.1) rotate(-4deg);
+  box-shadow:
+    0 10px 24px -12px var(--card-accent),
+    0 0 0 4px var(--card-accent-soft),
+    inset 0 1px 0 rgba(255,255,255,.9);
+}
+.tattva-card.is-active .tattva-card__icon::after{ opacity:.5; }
+
+@media (hover:hover) and (pointer:fine){
+  .tattva-card:hover{
+    transform: translateY(-6px);
+    border-color: var(--card-accent-line);
+    box-shadow: 0 22px 48px -32px var(--card-accent), 0 0 0 1px var(--card-accent-line);
+  }
+  .tattva-card:hover .tattva-card__accent{ opacity:.7; transform:scaleY(1); }
+  .tattva-card:hover .tattva-card__corner{ opacity:.55; width:34px; height:34px; }
+  .tattva-card:hover .tattva-card__num{ opacity:.65; }
+  .tattva-card:hover .tattva-card__icon{ transform: rotate(-6deg) scale(1.06); }
+  .tattva-card.is-active:hover{ transform: translateY(-12px) scale(1.02); }
+}
+.tattva-card:focus-visible{
+  border-color: var(--card-accent);
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.95),
+    0 0 0 5px var(--card-accent-line),
+    0 22px 46px -30px var(--card-accent);
+}
+
+/* ============================================================
+   HELPERS / RESPONSIVE
+   ============================================================ */
+.sr-only{
+  position:absolute !important; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+@media (max-width:1000px){
+  .tattvas__layout{ grid-template-columns:minmax(0,1fr); gap: clamp(38px, 6vw, 60px); }
+  .tattva-wheel{ max-width:430px; }
+  .tattvas__cards{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+}
+
+@media (max-width:640px){
+  .tattvas{ padding-left:18px; padding-right:18px; }
+  .tattva-wheel{ max-width:330px; }
+  .tattvas__cards{ grid-template-columns:minmax(0,1fr); }
+  .tattva-card:last-child{ grid-column:auto; }
+  .tattva-card.is-active{ transform: translateY(-4px); }
+  .tattva-card__desc{ font-size:13px; }
+  .tattva-node__label{ letter-spacing:.12em; }
+  .tattva-wheel__mandala{ width:70%; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .orbit--outer, .orbit--dashed, .orbit--inner, .orbit--core,
+  .orbit-dots, .tattva-wheel__aura, .tattva-wheel__focus,
+  .tattvas__layer--a, .tattvas__layer--b,
+  .tattva-node.is-active .tattva-node__ring,
+  .tattva-node.is-active .tattva-node__ring--outer,
+  .tattva-node.is-active .tattva-node__icon,
+  .tattva-card__icon::after,
+  .mandala-layer--outer, .mandala-layer--mid,
+  .mandala-layer--inner, .mandala-layer--core,
+  .mandala-core, .mandala-dot{
+    animation: none !important;
+  }
+  .tattva-card, .tattva-card__icon, .tattva-card__accent,
+  .tattva-card__corner, .tattva-card__num, .tattva-card__glow,
+  .tattva-card__shine, .tattva-card__bar,
+  .tattva-node__disc, .tattva-node__ring, .tattva-node__icon{
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<main>
+<section class="tattvas" id="five-tattvas" aria-labelledby="tattvas-title">
+
+  <div class="tattvas__bg" aria-hidden="true">
+    <div class="tattvas__layer tattvas__layer--a"></div>
+    <div class="tattvas__layer tattvas__layer--b"></div>
+    <div class="tattvas__grain"></div>
+    <canvas class="tattvas__particles"></canvas>
+  </div>
+
+  <div class="tattvas__inner">
+
+    <header class="tattvas__head">
+      <p class="tattvas__eyebrow">The Tat:vm philosophy</p>
+      <h2 class="tattvas__title" id="tattvas-title">Five tattvas. One home.</h2>
+      <p class="tattvas__lede">
+        We never design them separately. A Tat:vm home is space, light, air,
+        vastu and sustainability working as one system.
+      </p>
+    </header>
+
+    <div class="tattvas__layout">
+      <div class="tattvas__wheel-col">
+        <div class="tattva-wheel" id="tattvaWheel">
+          <div class="tattva-wheel__aura" aria-hidden="true"></div>
+
+          <div class="tattva-wheel__mandala" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <path id="mPetalOuter"
+                      d="M 50 5 C 60 18, 60 34, 50 45 C 40 34, 40 18, 50 5 Z"/>
+                <path id="mPetalMid"
+                      d="M 50 14 C 58 24, 58 37, 50 45 C 42 37, 42 24, 50 14 Z"/>
+                <path id="mPetalInner"
+                      d="M 50 22 C 56 30, 56 38, 50 44 C 44 38, 44 30, 50 22 Z"/>
+              </defs>
+
+              <g class="mandala-layer mandala-layer--outer">
+                <use href="#mPetalOuter" transform="rotate(0 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(30 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(60 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(90 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(120 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(150 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(180 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(210 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(240 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(270 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(300 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(330 50 50)"/>
+              </g>
+
+              <g class="mandala-layer mandala-layer--mid">
+                <use href="#mPetalMid" transform="rotate(22.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(67.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(112.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(157.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(202.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(247.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(292.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(337.5 50 50)"/>
+              </g>
+
+              <g class="mandala-layer mandala-layer--inner">
+                <use href="#mPetalInner" transform="rotate(0 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(60 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(120 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(180 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(240 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(300 50 50)"/>
+              </g>
+
+              <g class="mandala-layer mandala-layer--core">
+                <circle class="mandala-ring"       cx="50" cy="50" r="13"/>
+                <circle class="mandala-ring"       cx="50" cy="50" r="8.5"/>
+                <circle class="mandala-ring mandala-ring--thin" cx="50" cy="50" r="4.5"/>
+                <circle class="mandala-core"       cx="50" cy="50" r="2.2"/>
+
+                <circle class="mandala-dot" cx="50"    cy="38.8" r=".85"/>
+                <circle class="mandala-dot" cx="59.7"  cy="44.4" r=".85"/>
+                <circle class="mandala-dot" cx="59.7"  cy="55.6" r=".85"/>
+                <circle class="mandala-dot" cx="50"    cy="61.2" r=".85"/>
+                <circle class="mandala-dot" cx="40.3"  cy="55.6" r=".85"/>
+                <circle class="mandala-dot" cx="40.3"  cy="44.4" r=".85"/>
+              </g>
+            </svg>
+          </div>
+
+          <svg class="tattva-wheel__orbits" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="orbit orbit--outer"  cx="50" cy="50" r="33" pathLength="1"/>
+            <circle class="orbit orbit--dashed" cx="50" cy="50" r="33"/>
+            <circle class="orbit orbit--inner"  cx="50" cy="50" r="25"/>
+            <circle class="orbit orbit--core"   cx="50" cy="50" r="16.5"/>
+          </svg>
+
+          <div class="orbit-dots" id="orbitDots" aria-hidden="true"></div>
+          <div class="tattva-wheel__focus" aria-hidden="true"></div>
+
+          <div class="tattva-wheel__hub" aria-hidden="true">
+            <span class="tattva-wheel__hub-mark">TAT:VM</span>
+            <span class="tattva-wheel__hub-sub">one system</span>
+          </div>
+
+          <div class="tattva-wheel__nodes" id="tattvaNodes"></div>
+        </div>
+      </div>
+
+      <div class="tattvas__cards" id="tattvaCards"></div>
+    </div>
+  </div>
+
+  <p class="sr-only" aria-live="polite" id="tattvaStatus"></p>
+</section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  var section = document.getElementById('five-tattvas');
+  if (!section) return;
+
+  /* ============================================================
+     CONFIG
+     ============================================================ */
+  var AUTO_INTERVAL   = 1.5;   // seconds between Tattva changes
+  var TRANSITION_TIME = 0.8;   // seconds of the roll animation
+  var FOCAL           = -90;   // top of the circle
+  var IDLE_RESUME     = 4000;  // ms pause after a click (not hover)
+
+  /* ============================================================
+     1. DATA
+     ============================================================ */
+  var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+                 'stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" ' +
+                 'aria-hidden="true">';
+
+  var TATTVAS = [
+    {
+      id: 'space', num: '01', sub: 'Principle',
+      name: 'Space', tagline: 'Room to breathe',
+      description: 'Volume, proportion and quiet. We plan the emptiness first, so every room keeps air around it.',
+      accent:     '#C8A24A', accentSoft: 'rgba(200,162,74,.16)', accentLine: 'rgba(200,162,74,.40)',
+      auraA: '#EEDCA9', auraB: '#F9F2E2', wash: '#FCF9F1',
+      icon: SVG_OPEN +
+        '<circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.2" opacity=".5"/>' +
+        '<circle cx="18.5" cy="6.9" r=".9" fill="currentColor" stroke="none"/></svg>'
+    },
+    {
+      id: 'light', num: '02', sub: 'Principle',
+      name: 'Light', tagline: 'Sun before switches',
+      description: 'Orientation, aperture and shadow. Natural light is drawn in from the first line, never added at the end.',
+      accent:     '#D98A45', accentSoft: 'rgba(217,138,69,.16)', accentLine: 'rgba(217,138,69,.40)',
+      auraA: '#F2D2AB', auraB: '#FBEEE0', wash: '#FDF5EA',
+      icon: SVG_OPEN +
+        '<circle cx="12" cy="12" r="3.9"/>' +
+        '<path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></svg>'
+    },
+    {
+      id: 'air', num: '03', sub: 'Principle',
+      name: 'Air', tagline: 'Cross-ventilation by design',
+      description: 'Openings, courtyards and stack effect. Fresh air moves through the home without machines doing the work.',
+      accent:     '#4E9E9C', accentSoft: 'rgba(78,158,156,.15)', accentLine: 'rgba(78,158,156,.40)',
+      auraA: '#BEE0DF', auraB: '#EAF5F4', wash: '#F4FAF9',
+      icon: SVG_OPEN +
+        '<path d="M3.4 9.1h11a2.9 2.9 0 1 0-2.9-2.9"/>' +
+        '<path d="M3.4 14.9h13.1a2.9 2.9 0 1 1-2.9 2.9"/>' +
+        '<path d="M3.4 12h6.4"/></svg>'
+    },
+    {
+      id: 'vastu', num: '04', sub: 'Principle',
+      name: 'Vastu', tagline: 'Aligned, not superstitious',
+      description: 'Direction, geometry and balance. Vastu principles are interpreted with modern planning discipline.',
+      accent:     '#8674B5', accentSoft: 'rgba(134,116,181,.15)', accentLine: 'rgba(134,116,181,.40)',
+      auraA: '#D6CBEC', auraB: '#F1ECF9', wash: '#F8F5FC',
+      icon: SVG_OPEN +
+        '<rect x="3.4" y="3.4" width="17.2" height="17.2" rx="1.2"/>' +
+        '<path d="M12 3.4v17.2M3.4 12h17.2"/><circle cx="12" cy="12" r="3.1"/></svg>'
+    },
+    {
+      id: 'sustainability', num: '05', sub: 'Principle',
+      name: 'Sustainability', tagline: 'Built to give back',
+      description: 'Materials, water and energy. A home that runs lightly on the land it stands on.',
+      accent:     '#6E9B5E', accentSoft: 'rgba(110,155,94,.15)', accentLine: 'rgba(110,155,94,.40)',
+      auraA: '#C9DFBC', auraB: '#EDF5E7', wash: '#F5FAF1',
+      icon: SVG_OPEN +
+        '<path d="M20.2 3.8c0 8.6-4.6 13-10.6 13A5.9 5.9 0 0 1 3.8 10.9C3.8 5.4 9.7 3.8 20.2 3.8Z"/>' +
+        '<path d="M4.2 20.2c2.5-5.9 6.7-9.6 11.4-11.5"/></svg>'
+    }
+  ];
+
+  var STEP = 360 / TATTVAS.length;
+
+  /* ============================================================
+     2. ENVIRONMENT
+     ============================================================ */
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var G = window.gsap || null;
+
+  /* ============================================================
+     3. DOM
+     ============================================================ */
+  var wheel       = document.getElementById('tattvaWheel');
+  var nodesLayer  = document.getElementById('tattvaNodes');
+  var cardsLayer  = document.getElementById('tattvaCards');
+  var orbitDots   = document.getElementById('orbitDots');
+  var canvas      = section.querySelector('.tattvas__particles');
+  var statusEl    = document.getElementById('tattvaStatus');
+
+  var nodeEls = [];
+  var cardEls = [];
+
+  /* ============================================================
+     4. BUILD NODES + CARDS
+     ============================================================ */
+  TATTVAS.forEach(function (t, i) {
+
+    var node = document.createElement('button');
+    node.type = 'button';
+    node.className = 'tattva-node';
+    node.setAttribute('data-id', t.id);
+    node.setAttribute('aria-pressed', 'false');
+    node.setAttribute('aria-label', t.name + ' — ' + t.tagline);
+    node.style.setProperty('--node-accent', t.accent);
+    node.style.setProperty('--node-accent-line', t.accentLine);
+    node.innerHTML =
+      '<span class="tattva-node__disc">' +
+        '<span class="tattva-node__ring"></span>' +
+        '<span class="tattva-node__ring tattva-node__ring--outer"></span>' +
+        '<span class="tattva-node__icon">' + t.icon + '</span>' +
+      '</span>' +
+      '<span class="tattva-node__label">' + t.name + '</span>';
+    node.addEventListener('click', function () { selectTattva(i, 'user'); });
+    nodesLayer.appendChild(node);
+    nodeEls.push(node);
+
+    var card = document.createElement('article');
+    card.className = 'tattva-card';
+    card.setAttribute('data-id', t.id);
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-pressed', 'false');
+    card.setAttribute('aria-label', t.name + ' — ' + t.tagline);
+    card.style.setProperty('--card-accent', t.accent);
+    card.style.setProperty('--card-accent-soft', t.accentSoft);
+    card.style.setProperty('--card-accent-line', t.accentLine);
+    card.innerHTML =
+      '<span class="tattva-card__accent" aria-hidden="true"></span>' +
+      '<span class="tattva-card__corner" aria-hidden="true"></span>' +
+      '<span class="tattva-card__num" aria-hidden="true">' + t.num + '</span>' +
+      '<span class="tattva-card__glow" aria-hidden="true"></span>' +
+      '<span class="tattva-card__shine" aria-hidden="true"></span>' +
+      '<span class="tattva-card__head">' +
+        '<span class="tattva-card__icon">' + t.icon + '</span>' +
+        '<span class="tattva-card__titles">' +
+          '<span class="tattva-card__name">' + t.name + '</span>' +
+          '<span class="tattva-card__sub">' + t.sub + '</span>' +
+        '</span>' +
+      '</span>' +
+      '<p class="tattva-card__tagline">' + t.tagline + '</p>' +
+      '<p class="tattva-card__desc">' + t.description + '</p>' +
+      '<span class="tattva-card__bar" aria-hidden="true"></span>';
+    card.addEventListener('click', function () { selectTattva(i, 'user'); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        selectTattva(i, 'user');
+      }
+    });
+    cardsLayer.appendChild(card);
+    cardEls.push(card);
+  });
+
+  (function () {
+    var n = 4;
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement('span');
+      var a = (i / n) * 360 * Math.PI / 180;
+      s.style.left = (50 + Math.cos(a) * 33) + '%';
+      s.style.top  = (50 + Math.sin(a) * 33) + '%';
+      orbitDots.appendChild(s);
+    }
+  })();
+
+  /* ============================================================
+     5. STATE
+     ============================================================ */
+  var state = { index: 0, rot: FOCAL };
+  var radius = 180;
+  var nodeSize = 84;
+
+  /* ============================================================
+     6. MEASURE + RENDER
+     ============================================================ */
+  var retries = 0;
+  function measure() {
+    var rect = wheel.getBoundingClientRect();
+    var size = Math.min(rect.width, rect.height);
+    if (!size) { if (retries++ < 20) requestAnimationFrame(measure); return; }
+    retries = 0;
+    radius   = size * 0.33;
+    nodeSize = Math.max(54, Math.min(96, size * 0.165));
+    wheel.style.setProperty('--node-size', nodeSize + 'px');
+    wheel.style.setProperty('--wheel-r', radius + 'px');
+    render();
+  }
+
+  function render() {
+    for (var i = 0; i < nodeEls.length; i++) {
+      var el = nodeEls[i];
+      var angle = i * STEP + state.rot;
+      var rad   = angle * Math.PI / 180;
+      var x     = Math.cos(rad) * radius;
+      var y     = Math.sin(rad) * radius;
+
+      var diff = ((angle - FOCAL) % 360 + 540) % 360 - 180;
+      var d = Math.abs(diff);
+      var t = d / 180;
+
+      var scale   = 1.06 - 0.24 * t;
+      var opacity = 1 - 0.40 * t;
+      var blur    = t > 0.12 ? (t - 0.12) * 0.85 : 0;
+
+      el.style.transform =
+        'translate(-50%,-50%) translate3d(' +
+        x.toFixed(2) + 'px,' + y.toFixed(2) + 'px,0) scale(' + scale.toFixed(3) + ')';
+      el.style.setProperty('--n-o', opacity.toFixed(3));
+      el.style.zIndex = String(Math.round(200 - d));
+      el.style.filter = blur > 0.02 ? 'blur(' + blur.toFixed(2) + 'px)' : '';
+    }
+  }
+
+  /* ============================================================
+     7. BACKGROUND
+     ============================================================ */
+  var bgState = {
+    wash: '#FCF9F1', auraA: '#EEDCA9', auraB: '#F9F2E2',
+    accent: '#C8A24A', accentSoft: 'rgba(200,162,74,.16)',
+    accentLine: 'rgba(200,162,74,.36)'
+  };
+
+  function applyBackground() {
+    var s = section.style;
+    s.setProperty('--t-wash', bgState.wash);
+    s.setProperty('--t-aura-a', bgState.auraA);
+    s.setProperty('--t-aura-b', bgState.auraB);
+    s.setProperty('--t-accent', bgState.accent);
+    s.setProperty('--t-accent-soft', bgState.accentSoft);
+    s.setProperty('--t-accent-line', bgState.accentLine);
+    particleTarget = hexToRgb(bgState.accent);
+  }
+
+  var bgTween = null;
+  function animateBackground(index) {
+    var t = TATTVAS[index];
+    var next = {
+      wash: t.wash, auraA: t.auraA, auraB: t.auraB,
+      accent: t.accent, accentSoft: t.accentSoft, accentLine: t.accentLine
+    };
+    if (!G || REDUCED) {
+      for (var k in next) bgState[k] = next[k];
+      applyBackground();
+      return;
+    }
+    if (bgTween) bgTween.kill();
+    bgTween = G.to(bgState, {
+      wash: next.wash, auraA: next.auraA, auraB: next.auraB,
+      accent: next.accent, accentSoft: next.accentSoft, accentLine: next.accentLine,
+      duration: TRANSITION_TIME + 0.2,
+      ease: 'power2.inOut',
+      onUpdate: applyBackground
+    });
+  }
+
+  /* ============================================================
+     8. MASTER TRANSITION
+     ============================================================ */
+  var wheelTween = null;
+
+  function rollWheelTo(index) {
+    var desired = FOCAL - index * STEP;
+    var delta   = desired - state.rot;
+    delta = ((delta % 360) + 540) % 360 - 180;
+    var target = state.rot + delta;
+
+    if (wheelTween && wheelTween.kill) { wheelTween.kill(); wheelTween = null; }
+
+    if (G) {
+      wheelTween = G.to(state, {
+        rot: target,
+        duration: REDUCED ? 0.001 : TRANSITION_TIME,
+        ease: 'power3.inOut',
+        onUpdate: render
+      });
+    } else {
+      state.rot = target;
+      render();
+    }
+  }
+
+  function selectTattva(index, source) {
+    index = ((index % TATTVAS.length) + TATTVAS.length) % TATTVAS.length;
+    var prev = state.index;
+    state.index = index;
+
+    for (var i = 0; i < TATTVAS.length; i++) {
+      var on = i === index;
+      nodeEls[i].classList.toggle('is-active', on);
+      nodeEls[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+      cardEls[i].classList.toggle('is-active', on);
+      cardEls[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+
+    animateBackground(index);
+
+    if (G && !REDUCED && prev !== index) {
+      G.fromTo(cardEls[index].querySelector('.tattva-card__icon'),
+        { rotate: -8, scale: 0.88 },
+        { rotate: 0, scale: 1, duration: 0.7, ease: 'power3.out' });
+      G.fromTo(nodeEls[index].querySelector('.tattva-node__icon'),
+        { rotate: -12, scale: 0.9 },
+        { rotate: 0, scale: 1, duration: 0.75, ease: 'power3.out' });
+    }
+
+    if (statusEl && source === 'user') {
+      statusEl.textContent = TATTVAS[index].name + ' — ' + TATTVAS[index].tagline;
+    }
+
+    rollWheelTo(index);
+  }
+
+  /* ============================================================
+     9. PARTICLES
+     ============================================================ */
+  var ctx = canvas ? canvas.getContext('2d') : null;
+  var particles = [];
+  var cw = 0, ch = 0, dpr = 1;
+  var pColor = { r: 200, g: 162, b: 74 };
+  var particleTarget = { r: 200, g: 162, b: 74 };
+  var particlesRunning = false;
+
+  function hexToRgb(hex) {
+    var h = hex.replace('#', '');
+    if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    var n = parseInt(h, 16);
+    return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+  }
+  function spawnParticle(anywhere) {
+    return {
+      x: Math.random() * cw,
+      y: anywhere ? Math.random() * ch : ch + 12,
+      r: 0.6 + Math.random() * 1.6,
+      vy: 0.05 + Math.random() * 0.18,
+      a: 0.04 + Math.random() * 0.14,
+      phase: Math.random() * 900
+    };
+  }
+  function initParticles() {
+    if (!ctx || REDUCED) return;
+    var rect = section.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cw = rect.width; ch = rect.height;
+    canvas.width  = Math.round(cw * dpr);
+    canvas.height = Math.round(ch * dpr);
+    canvas.style.width  = cw + 'px';
+    canvas.style.height = ch + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var count = Math.round(Math.min(40, Math.max(14, cw / 44)));
+    particles = [];
+    for (var i = 0; i < count; i++) particles.push(spawnParticle(true));
+    startParticles();
+  }
+  function drawParticles() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, cw, ch);
+    pColor.r += (particleTarget.r - pColor.r) * 0.045;
+    pColor.g += (particleTarget.g - pColor.g) * 0.045;
+    pColor.b += (particleTarget.b - pColor.b) * 0.045;
+    var cr = Math.round(pColor.r), cg = Math.round(pColor.g), cb = Math.round(pColor.b);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.y -= p.vy;
+      p.x += Math.sin((p.y + p.phase) * 0.006) * 0.18;
+      if (p.y < -12) { p.y = ch + 12; p.x = Math.random() * cw; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + cr + ',' + cg + ',' + cb + ',' + p.a + ')';
+      ctx.fill();
+    }
+  }
+  var rafId = null;
+  function startParticles() {
+    if (!ctx || REDUCED || particlesRunning) return;
+    particlesRunning = true;
+    if (G) { G.ticker.add(drawParticles); return; }
+    (function loop(){ drawParticles(); rafId = requestAnimationFrame(loop); })();
+  }
+  function stopParticles() {
+    if (!ctx || !particlesRunning) return;
+    particlesRunning = false;
+    if (G) { G.ticker.remove(drawParticles); return; }
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  /* ============================================================
+     10. AUTO-ROTATION — never stops on hover.
+     Only a brief pause after a click (for readability),
+     and when the browser tab is hidden.
+     ============================================================ */
+  var rotationTimer = null;
+  var idlePause     = false;
+  var idleTimer     = null;
+
+  function rotationTick() {
+    if (REDUCED) return;
+    if (idlePause) return;     /* brief pause after a user click only */
+    selectTattva(state.index + 1, 'auto');
+  }
+  function startRotation() {
+    if (rotationTimer) return;
+    rotationTimer = setInterval(rotationTick, AUTO_INTERVAL * 1000);
+  }
+  function stopRotation() {
+    if (rotationTimer) { clearInterval(rotationTimer); rotationTimer = null; }
+  }
+  function pauseForIdle() {
+    idlePause = true;
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { idlePause = false; }, IDLE_RESUME);
+  }
+
+  /* ============================================================
+     NO hover-pause listeners.
+     Hovering the wheel or the cards does NOT stop the roll.
+     ============================================================ */
+
+  /* Click / tap pauses briefly so the user can read the selection. */
+  nodesLayer.addEventListener('click', pauseForIdle);
+  cardsLayer.addEventListener('click', pauseForIdle);
+  section.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'touch') pauseForIdle();
+  });
+
+  /* Pause when the browser tab is hidden (saves CPU), resume when back. */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stopRotation();
+    else startRotation();
+  });
+
+  /* ============================================================
+     11. INTRO
+     ============================================================ */
+  var introPlayed = false;
+  var introDone   = false;
+
+  function finishIntro() {
+    if (introDone) return;
+    introDone = true;
+    if (G) {
+      G.set(cardEls, { clearProps: 'opacity,transform' });
+      G.set(nodeEls, { clearProps: 'opacity' });
+    }
+    startRotation();
+  }
+
+  function playIntro() {
+    if (introPlayed) return;
+    introPlayed = true;
+
+    if (!G || REDUCED) { finishIntro(); return; }
+
+    var bg      = section.querySelector('.tattvas__bg');
+    var eyebrow = section.querySelector('.tattvas__eyebrow');
+    var title   = section.querySelector('.tattvas__title');
+    var lede    = section.querySelector('.tattvas__lede');
+    var orbit   = section.querySelector('.orbit--outer');
+    var hub     = section.querySelector('.tattva-wheel__hub');
+    var aura    = section.querySelector('.tattva-wheel__aura');
+    var mandala = section.querySelector('.tattva-wheel__mandala');
+    var dots    = section.querySelector('.orbit-dots');
+
+    var nodeTargets = nodeEls.map(function (el) {
+      return parseFloat(el.style.getPropertyValue('--n-o')) || 1;
+    });
+
+    var tl = G.timeline({ defaults: { ease: 'power3.out' }, onComplete: finishIntro });
+
+    tl.from(bg,      { opacity: 0, duration: 0.9 }, 0)
+      .from(eyebrow, { y: 14, opacity: 0, duration: .55 }, 0.08)
+      .from(title,   { y: 22, opacity: 0, duration: .8 }, 0.15)
+      .from(lede,    { y: 16, opacity: 0, duration: .8 }, 0.25)
+      .from(aura,    { opacity: 0, scale: .8, duration: 1.2, ease: 'power2.out' }, 0.28)
+      .from(wheel,   { scale: .86, opacity: 0, duration: 1.1, ease: 'power3.out' }, 0.30)
+      .from(mandala, { opacity: 0, scale: .55, rotate: -25, duration: 1.6, ease: 'power2.out' }, 0.5)
+      .fromTo(orbit, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, 0.6)
+      .from(dots,    { opacity: 0, duration: .8 }, 0.9)
+      .from(hub,     { opacity: 0, duration: .7 }, 1.0)
+      .set(nodeEls,  { opacity: 0 }, 0.85)
+      .to(nodeEls,   {
+        opacity: function (i) { return nodeTargets[i]; },
+        duration: .65, stagger: .09, ease: 'power2.out'
+      }, 0.9)
+      .from(cardEls, { y: 26, opacity: 0, duration: .75, stagger: .06, ease: 'power3.out' }, 1.0);
+
+    setTimeout(finishIntro, 2500);
+  }
+
+  /* ============================================================
+     12. VISIBILITY
+     ============================================================ */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          if (!introPlayed) playIntro();
+          startParticles();
+        } else {
+          stopParticles();
+        }
+      });
+    }, { threshold: 0.1 });
+    io.observe(section);
+  } else {
+    playIntro();
+    startParticles();
+  }
+
+  setTimeout(function () {
+    if (!introPlayed) playIntro();
+    if (!introDone)   finishIntro();
+  }, 4000);
+
+  /* ============================================================
+     13. RESIZE
+     ============================================================ */
+  var lastSize = 0;
+  function onResize() {
+    var r = wheel.getBoundingClientRect();
+    var s = Math.min(r.width, r.height);
+    if (Math.abs(s - lastSize) > 1) {
+      lastSize = s;
+      measure();
+      if (ctx && !REDUCED) initParticles();
+    }
+  }
+  if (window.ResizeObserver) new ResizeObserver(onResize).observe(wheel);
+  else window.addEventListener('resize', onResize);
+
+  /* ============================================================
+     14. INIT
+     ============================================================ */
+  measure();
+  render();
+  applyBackground();
+  selectTattva(0, 'init');
+  initParticles();
+
+  /* ============================================================
+     15. CLEANUP
+     ============================================================ */
+  window.addEventListener('pagehide', function () {
+    stopRotation();
+    stopParticles();
+    if (wheelTween && wheelTween.kill) wheelTween.kill();
+    if (bgTween    && bgTween.kill)    bgTween.kill();
+    if (idleTimer) clearTimeout(idleTimer);
+  });
+
+})();
+</script>
+</body>
+</html>

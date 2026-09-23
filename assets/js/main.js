@@ -207,3 +207,562 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- re-bind for late injections ---------- */
   window.addEventListener('load', () => { bindReveals(); bindCounters(); });
 });
+
+/* ==========================================================================
+   FIVE TATTVAS — interactive wheel (homepage)
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var section = document.getElementById('five-tattvas');
+  if (!section || !section.classList.contains('tattvas')) return;
+
+  /* ============================================================
+     CONFIG
+     ============================================================ */
+  var AUTO_INTERVAL   = 1.5;   // seconds between Tattva changes
+  var TRANSITION_TIME = 0.8;   // seconds of the roll animation
+  var FOCAL           = -90;   // top of the circle
+  var IDLE_RESUME     = 4000;  // ms pause after a click (not hover)
+
+  /* ============================================================
+     1. DATA
+     ============================================================ */
+  var SVG_OPEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+                 'stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" ' +
+                 'aria-hidden="true">';
+
+  var TATTVAS = [
+    {
+      id: 'space', num: '01', sub: 'Principle',
+      name: 'Space', tagline: 'Room to breathe',
+      description: 'Volume, proportion and quiet. We plan the emptiness first, so every room keeps air around it.',
+      accent:     '#C8A24A', accentSoft: 'rgba(200,162,74,.16)', accentLine: 'rgba(200,162,74,.40)',
+      auraA: '#EEDCA9', auraB: '#F9F2E2', wash: '#FCF9F1',
+      icon: SVG_OPEN +
+        '<circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.2" opacity=".5"/>' +
+        '<circle cx="18.5" cy="6.9" r=".9" fill="currentColor" stroke="none"/></svg>'
+    },
+    {
+      id: 'light', num: '02', sub: 'Principle',
+      name: 'Light', tagline: 'Sun before switches',
+      description: 'Orientation, aperture and shadow. Natural light is drawn in from the first line, never added at the end.',
+      accent:     '#D98A45', accentSoft: 'rgba(217,138,69,.16)', accentLine: 'rgba(217,138,69,.40)',
+      auraA: '#F2D2AB', auraB: '#FBEEE0', wash: '#FDF5EA',
+      icon: SVG_OPEN +
+        '<circle cx="12" cy="12" r="3.9"/>' +
+        '<path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"/></svg>'
+    },
+    {
+      id: 'air', num: '03', sub: 'Principle',
+      name: 'Air', tagline: 'Cross-ventilation by design',
+      description: 'Openings, courtyards and stack effect. Fresh air moves through the home without machines doing the work.',
+      accent:     '#4E9E9C', accentSoft: 'rgba(78,158,156,.15)', accentLine: 'rgba(78,158,156,.40)',
+      auraA: '#BEE0DF', auraB: '#EAF5F4', wash: '#F4FAF9',
+      icon: SVG_OPEN +
+        '<path d="M3.4 9.1h11a2.9 2.9 0 1 0-2.9-2.9"/>' +
+        '<path d="M3.4 14.9h13.1a2.9 2.9 0 1 1-2.9 2.9"/>' +
+        '<path d="M3.4 12h6.4"/></svg>'
+    },
+    {
+      id: 'vastu', num: '04', sub: 'Principle',
+      name: 'Vastu', tagline: 'Aligned, not superstitious',
+      description: 'Direction, geometry and balance. Vastu principles are interpreted with modern planning discipline.',
+      accent:     '#8674B5', accentSoft: 'rgba(134,116,181,.15)', accentLine: 'rgba(134,116,181,.40)',
+      auraA: '#D6CBEC', auraB: '#F1ECF9', wash: '#F8F5FC',
+      icon: SVG_OPEN +
+        '<rect x="3.4" y="3.4" width="17.2" height="17.2" rx="1.2"/>' +
+        '<path d="M12 3.4v17.2M3.4 12h17.2"/><circle cx="12" cy="12" r="3.1"/></svg>'
+    },
+    {
+      id: 'sustainability', num: '05', sub: 'Principle',
+      name: 'Sustainability', tagline: 'Built to give back',
+      description: 'Materials, water and energy. A home that runs lightly on the land it stands on.',
+      accent:     '#6E9B5E', accentSoft: 'rgba(110,155,94,.15)', accentLine: 'rgba(110,155,94,.40)',
+      auraA: '#C9DFBC', auraB: '#EDF5E7', wash: '#F5FAF1',
+      icon: SVG_OPEN +
+        '<path d="M20.2 3.8c0 8.6-4.6 13-10.6 13A5.9 5.9 0 0 1 3.8 10.9C3.8 5.4 9.7 3.8 20.2 3.8Z"/>' +
+        '<path d="M4.2 20.2c2.5-5.9 6.7-9.6 11.4-11.5"/></svg>'
+    }
+  ];
+
+  var STEP = 360 / TATTVAS.length;
+
+  /* ============================================================
+     2. ENVIRONMENT
+     ============================================================ */
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var G = window.gsap || null;
+
+  /* ============================================================
+     3. DOM
+     ============================================================ */
+  var wheel       = document.getElementById('tattvaWheel');
+  var nodesLayer  = document.getElementById('tattvaNodes');
+  var cardsLayer  = document.getElementById('tattvaCards');
+  var orbitDots   = document.getElementById('orbitDots');
+  var canvas      = section.querySelector('.tattvas__particles');
+  var statusEl    = document.getElementById('tattvaStatus');
+
+  var nodeEls = [];
+  var cardEls = [];
+
+  /* ============================================================
+     4. BUILD NODES + CARDS
+     ============================================================ */
+  TATTVAS.forEach(function (t, i) {
+
+    var node = document.createElement('button');
+    node.type = 'button';
+    node.className = 'tattva-node';
+    node.setAttribute('data-id', t.id);
+    node.setAttribute('aria-pressed', 'false');
+    node.setAttribute('aria-label', t.name + ' — ' + t.tagline);
+    node.style.setProperty('--node-accent', t.accent);
+    node.style.setProperty('--node-accent-line', t.accentLine);
+    node.innerHTML =
+      '<span class="tattva-node__disc">' +
+        '<span class="tattva-node__ring"></span>' +
+        '<span class="tattva-node__ring tattva-node__ring--outer"></span>' +
+        '<span class="tattva-node__icon">' + t.icon + '</span>' +
+      '</span>' +
+      '<span class="tattva-node__label">' + t.name + '</span>';
+    node.addEventListener('click', function () { selectTattva(i, 'user'); });
+    nodesLayer.appendChild(node);
+    nodeEls.push(node);
+
+    var card = document.createElement('article');
+    card.className = 'tattva-card';
+    card.setAttribute('data-id', t.id);
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-pressed', 'false');
+    card.setAttribute('aria-label', t.name + ' — ' + t.tagline);
+    card.style.setProperty('--card-accent', t.accent);
+    card.style.setProperty('--card-accent-soft', t.accentSoft);
+    card.style.setProperty('--card-accent-line', t.accentLine);
+    card.innerHTML =
+      '<span class="tattva-card__accent" aria-hidden="true"></span>' +
+      '<span class="tattva-card__corner" aria-hidden="true"></span>' +
+      '<span class="tattva-card__num" aria-hidden="true">' + t.num + '</span>' +
+      '<span class="tattva-card__glow" aria-hidden="true"></span>' +
+      '<span class="tattva-card__shine" aria-hidden="true"></span>' +
+      '<span class="tattva-card__head">' +
+        '<span class="tattva-card__icon">' + t.icon + '</span>' +
+        '<span class="tattva-card__titles">' +
+          '<span class="tattva-card__name">' + t.name + '</span>' +
+          '<span class="tattva-card__sub">' + t.sub + '</span>' +
+        '</span>' +
+      '</span>' +
+      '<p class="tattva-card__tagline">' + t.tagline + '</p>' +
+      '<p class="tattva-card__desc">' + t.description + '</p>' +
+      '<span class="tattva-card__bar" aria-hidden="true"></span>';
+    card.addEventListener('click', function () { selectTattva(i, 'user'); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        selectTattva(i, 'user');
+      }
+    });
+    cardsLayer.appendChild(card);
+    cardEls.push(card);
+  });
+
+  (function () {
+    var n = 4;
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement('span');
+      var a = (i / n) * 360 * Math.PI / 180;
+      s.style.left = (50 + Math.cos(a) * 33) + '%';
+      s.style.top  = (50 + Math.sin(a) * 33) + '%';
+      orbitDots.appendChild(s);
+    }
+  })();
+
+  /* ============================================================
+     5. STATE
+     ============================================================ */
+  var state = { index: 0, rot: FOCAL };
+  var radius = 180;
+  var nodeSize = 84;
+
+  /* ============================================================
+     6. MEASURE + RENDER
+     ============================================================ */
+  var retries = 0;
+  function measure() {
+    var rect = wheel.getBoundingClientRect();
+    var size = Math.min(rect.width, rect.height);
+    if (!size) { if (retries++ < 20) requestAnimationFrame(measure); return; }
+    retries = 0;
+    radius   = size * 0.33;
+    nodeSize = Math.max(54, Math.min(96, size * 0.165));
+    wheel.style.setProperty('--node-size', nodeSize + 'px');
+    wheel.style.setProperty('--wheel-r', radius + 'px');
+    render();
+  }
+
+  function render() {
+    for (var i = 0; i < nodeEls.length; i++) {
+      var el = nodeEls[i];
+      var angle = i * STEP + state.rot;
+      var rad   = angle * Math.PI / 180;
+      var x     = Math.cos(rad) * radius;
+      var y     = Math.sin(rad) * radius;
+
+      var diff = ((angle - FOCAL) % 360 + 540) % 360 - 180;
+      var d = Math.abs(diff);
+      var t = d / 180;
+
+      var scale   = 1.06 - 0.24 * t;
+      var opacity = 1 - 0.40 * t;
+      var blur    = t > 0.12 ? (t - 0.12) * 0.85 : 0;
+
+      el.style.transform =
+        'translate(-50%,-50%) translate3d(' +
+        x.toFixed(2) + 'px,' + y.toFixed(2) + 'px,0) scale(' + scale.toFixed(3) + ')';
+      el.style.setProperty('--n-o', opacity.toFixed(3));
+      el.style.zIndex = String(Math.round(200 - d));
+      el.style.filter = blur > 0.02 ? 'blur(' + blur.toFixed(2) + 'px)' : '';
+    }
+  }
+
+  /* ============================================================
+     7. BACKGROUND
+     ============================================================ */
+  var bgState = {
+    wash: '#FCF9F1', auraA: '#EEDCA9', auraB: '#F9F2E2',
+    accent: '#C8A24A', accentSoft: 'rgba(200,162,74,.16)',
+    accentLine: 'rgba(200,162,74,.36)'
+  };
+
+  function applyBackground() {
+    var s = section.style;
+    s.setProperty('--t-wash', bgState.wash);
+    s.setProperty('--t-aura-a', bgState.auraA);
+    s.setProperty('--t-aura-b', bgState.auraB);
+    s.setProperty('--t-accent', bgState.accent);
+    s.setProperty('--t-accent-soft', bgState.accentSoft);
+    s.setProperty('--t-accent-line', bgState.accentLine);
+    particleTarget = hexToRgb(bgState.accent);
+  }
+
+  var bgTween = null;
+  function animateBackground(index) {
+    var t = TATTVAS[index];
+    var next = {
+      wash: t.wash, auraA: t.auraA, auraB: t.auraB,
+      accent: t.accent, accentSoft: t.accentSoft, accentLine: t.accentLine
+    };
+    if (!G || REDUCED) {
+      for (var k in next) bgState[k] = next[k];
+      applyBackground();
+      return;
+    }
+    if (bgTween) bgTween.kill();
+    bgTween = G.to(bgState, {
+      wash: next.wash, auraA: next.auraA, auraB: next.auraB,
+      accent: next.accent, accentSoft: next.accentSoft, accentLine: next.accentLine,
+      duration: TRANSITION_TIME + 0.2,
+      ease: 'power2.inOut',
+      onUpdate: applyBackground
+    });
+  }
+
+  /* ============================================================
+     8. MASTER TRANSITION
+     ============================================================ */
+  var wheelTween = null;
+
+  function rollWheelTo(index) {
+    var desired = FOCAL - index * STEP;
+    var delta   = desired - state.rot;
+    delta = ((delta % 360) + 540) % 360 - 180;
+    var target = state.rot + delta;
+
+    if (wheelTween && wheelTween.kill) { wheelTween.kill(); wheelTween = null; }
+
+    if (G) {
+      wheelTween = G.to(state, {
+        rot: target,
+        duration: REDUCED ? 0.001 : TRANSITION_TIME,
+        ease: 'power3.inOut',
+        onUpdate: render
+      });
+    } else {
+      state.rot = target;
+      render();
+    }
+  }
+
+  function selectTattva(index, source) {
+    index = ((index % TATTVAS.length) + TATTVAS.length) % TATTVAS.length;
+    var prev = state.index;
+    state.index = index;
+
+    for (var i = 0; i < TATTVAS.length; i++) {
+      var on = i === index;
+      nodeEls[i].classList.toggle('is-active', on);
+      nodeEls[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+      cardEls[i].classList.toggle('is-active', on);
+      cardEls[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+
+    animateBackground(index);
+
+    if (G && !REDUCED && prev !== index) {
+      G.fromTo(cardEls[index].querySelector('.tattva-card__icon'),
+        { rotate: -8, scale: 0.88 },
+        { rotate: 0, scale: 1, duration: 0.7, ease: 'power3.out' });
+      G.fromTo(nodeEls[index].querySelector('.tattva-node__icon'),
+        { rotate: -12, scale: 0.9 },
+        { rotate: 0, scale: 1, duration: 0.75, ease: 'power3.out' });
+    }
+
+    if (statusEl && source === 'user') {
+      statusEl.textContent = TATTVAS[index].name + ' — ' + TATTVAS[index].tagline;
+    }
+
+    rollWheelTo(index);
+  }
+
+  /* ============================================================
+     9. PARTICLES
+     ============================================================ */
+  var ctx = canvas ? canvas.getContext('2d') : null;
+  var particles = [];
+  var cw = 0, ch = 0, dpr = 1;
+  var pColor = { r: 200, g: 162, b: 74 };
+  var particleTarget = { r: 200, g: 162, b: 74 };
+  var particlesRunning = false;
+
+  function hexToRgb(hex) {
+    var h = hex.replace('#', '');
+    if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    var n = parseInt(h, 16);
+    return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+  }
+  function spawnParticle(anywhere) {
+    return {
+      x: Math.random() * cw,
+      y: anywhere ? Math.random() * ch : ch + 12,
+      r: 0.6 + Math.random() * 1.6,
+      vy: 0.05 + Math.random() * 0.18,
+      a: 0.04 + Math.random() * 0.14,
+      phase: Math.random() * 900
+    };
+  }
+  function initParticles() {
+    if (!ctx || REDUCED) return;
+    var rect = section.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cw = rect.width; ch = rect.height;
+    canvas.width  = Math.round(cw * dpr);
+    canvas.height = Math.round(ch * dpr);
+    canvas.style.width  = cw + 'px';
+    canvas.style.height = ch + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var count = Math.round(Math.min(40, Math.max(14, cw / 44)));
+    particles = [];
+    for (var i = 0; i < count; i++) particles.push(spawnParticle(true));
+    startParticles();
+  }
+  function drawParticles() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, cw, ch);
+    pColor.r += (particleTarget.r - pColor.r) * 0.045;
+    pColor.g += (particleTarget.g - pColor.g) * 0.045;
+    pColor.b += (particleTarget.b - pColor.b) * 0.045;
+    var cr = Math.round(pColor.r), cg = Math.round(pColor.g), cb = Math.round(pColor.b);
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.y -= p.vy;
+      p.x += Math.sin((p.y + p.phase) * 0.006) * 0.18;
+      if (p.y < -12) { p.y = ch + 12; p.x = Math.random() * cw; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + cr + ',' + cg + ',' + cb + ',' + p.a + ')';
+      ctx.fill();
+    }
+  }
+  var rafId = null;
+  function startParticles() {
+    if (!ctx || REDUCED || particlesRunning) return;
+    particlesRunning = true;
+    if (G) { G.ticker.add(drawParticles); return; }
+    (function loop(){ drawParticles(); rafId = requestAnimationFrame(loop); })();
+  }
+  function stopParticles() {
+    if (!ctx || !particlesRunning) return;
+    particlesRunning = false;
+    if (G) { G.ticker.remove(drawParticles); return; }
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  /* ============================================================
+     10. AUTO-ROTATION — never stops on hover.
+     Only a brief pause after a click (for readability),
+     and when the browser tab is hidden.
+     ============================================================ */
+  var rotationTimer = null;
+  var idlePause     = false;
+  var idleTimer     = null;
+
+  function rotationTick() {
+    if (REDUCED) return;
+    if (idlePause) return;     /* brief pause after a user click only */
+    selectTattva(state.index + 1, 'auto');
+  }
+  function startRotation() {
+    if (rotationTimer) return;
+    rotationTimer = setInterval(rotationTick, AUTO_INTERVAL * 1000);
+  }
+  function stopRotation() {
+    if (rotationTimer) { clearInterval(rotationTimer); rotationTimer = null; }
+  }
+  function pauseForIdle() {
+    idlePause = true;
+    if (idleTimer) clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () { idlePause = false; }, IDLE_RESUME);
+  }
+
+  /* ============================================================
+     NO hover-pause listeners.
+     Hovering the wheel or the cards does NOT stop the roll.
+     ============================================================ */
+
+  /* Click / tap pauses briefly so the user can read the selection. */
+  nodesLayer.addEventListener('click', pauseForIdle);
+  cardsLayer.addEventListener('click', pauseForIdle);
+  section.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'touch') pauseForIdle();
+  });
+
+  /* Pause when the browser tab is hidden (saves CPU), resume when back. */
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stopRotation();
+    else startRotation();
+  });
+
+  /* ============================================================
+     11. INTRO
+     ============================================================ */
+  var introPlayed = false;
+  var introDone   = false;
+
+  function finishIntro() {
+    if (introDone) return;
+    introDone = true;
+    if (G) {
+      G.set(cardEls, { clearProps: 'opacity,transform' });
+      G.set(nodeEls, { clearProps: 'opacity' });
+    }
+    startRotation();
+  }
+
+  function playIntro() {
+    if (introPlayed) return;
+    introPlayed = true;
+
+    if (!G || REDUCED) { finishIntro(); return; }
+
+    var bg      = section.querySelector('.tattvas__bg');
+    var eyebrow = section.querySelector('.tattvas__eyebrow');
+    var title   = section.querySelector('.tattvas__title');
+    var lede    = section.querySelector('.tattvas__lede');
+    var orbit   = section.querySelector('.orbit--outer');
+    var hub     = section.querySelector('.tattva-wheel__hub');
+    var aura    = section.querySelector('.tattva-wheel__aura');
+    var mandala = section.querySelector('.tattva-wheel__mandala');
+    var dots    = section.querySelector('.orbit-dots');
+
+    var nodeTargets = nodeEls.map(function (el) {
+      return parseFloat(el.style.getPropertyValue('--n-o')) || 1;
+    });
+
+    var tl = G.timeline({ defaults: { ease: 'power3.out' }, onComplete: finishIntro });
+
+    tl.from(bg,      { opacity: 0, duration: 0.9 }, 0)
+      .from(eyebrow, { y: 14, opacity: 0, duration: .55 }, 0.08)
+      .from(title,   { y: 22, opacity: 0, duration: .8 }, 0.15)
+      .from(lede,    { y: 16, opacity: 0, duration: .8 }, 0.25)
+      .from(aura,    { opacity: 0, scale: .8, duration: 1.2, ease: 'power2.out' }, 0.28)
+      .from(wheel,   { scale: .86, opacity: 0, duration: 1.1, ease: 'power3.out' }, 0.30)
+      .from(mandala, { opacity: 0, scale: .55, rotate: -25, duration: 1.6, ease: 'power2.out' }, 0.5)
+      .fromTo(orbit, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut' }, 0.6)
+      .from(dots,    { opacity: 0, duration: .8 }, 0.9)
+      .from(hub,     { opacity: 0, duration: .7 }, 1.0)
+      .set(nodeEls,  { opacity: 0 }, 0.85)
+      .to(nodeEls,   {
+        opacity: function (i) { return nodeTargets[i]; },
+        duration: .65, stagger: .09, ease: 'power2.out'
+      }, 0.9)
+      .from(cardEls, { y: 26, opacity: 0, duration: .75, stagger: .06, ease: 'power3.out' }, 1.0);
+
+    setTimeout(finishIntro, 2500);
+  }
+
+  /* ============================================================
+     12. VISIBILITY
+     ============================================================ */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          if (!introPlayed) playIntro();
+          startParticles();
+        } else {
+          stopParticles();
+        }
+      });
+    }, { threshold: 0.1 });
+    io.observe(section);
+  } else {
+    playIntro();
+    startParticles();
+  }
+
+  setTimeout(function () {
+    if (!introPlayed) playIntro();
+    if (!introDone)   finishIntro();
+  }, 4000);
+
+  /* ============================================================
+     13. RESIZE
+     ============================================================ */
+  var lastSize = 0;
+  function onResize() {
+    var r = wheel.getBoundingClientRect();
+    var s = Math.min(r.width, r.height);
+    if (Math.abs(s - lastSize) > 1) {
+      lastSize = s;
+      measure();
+      if (ctx && !REDUCED) initParticles();
+    }
+  }
+  if (window.ResizeObserver) new ResizeObserver(onResize).observe(wheel);
+  else window.addEventListener('resize', onResize);
+
+  /* ============================================================
+     14. INIT
+     ============================================================ */
+  measure();
+  render();
+  applyBackground();
+  selectTattva(0, 'init');
+  initParticles();
+
+  /* ============================================================
+     15. CLEANUP
+     ============================================================ */
+  window.addEventListener('pagehide', function () {
+    stopRotation();
+    stopParticles();
+    if (wheelTween && wheelTween.kill) wheelTween.kill();
+    if (bgTween    && bgTween.kill)    bgTween.kill();
+    if (idleTimer) clearTimeout(idleTimer);
+  });
+
+})();
+

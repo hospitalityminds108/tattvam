@@ -17,10 +17,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#8E1F24">
 <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="stylesheet" href="./assets/css/style.css?v=6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -135,29 +135,118 @@
   </div>
 </section>
 
-<!-- ============ 5 FUNDAMENTALS — ALL FIVE TOGETHER ============ -->
-<section class="section bg-sand" id="fundamentals">
-  <div class="container">
-    <div class="section-head center">
-      <p class="eyebrow center reveal">Our five fundamentals</p>
-      <h2 class="h1 mt-sm reveal d1">Five tattvas. One home.</h2>
-      <p class="lead mt-md reveal d2">We never design them separately. A Tat:vm home is space, light, air, vastu and sustainability working as one system.</p>
-    </div>
-    <div class="tattva-stage mt-lg reveal d3">
-      <div class="pent-wrap" data-pentagon></div>
-      <aside class="tattva-panel">
-        <div class="tattva-detail"></div>
-        <nav class="tattva-nav" aria-label="Explore the five tattvas">
-          <button data-tattva="space">Space</button>
-          <button data-tattva="light">Light</button>
-          <button data-tattva="air">Air</button>
-          <button data-tattva="vastu">Vastu</button>
-          <button data-tattva="sustain">Sustainability</button>
-        </nav>
-      </aside>
-    </div>
-    <p class="center mt-lg reveal" style="font-size:.85rem;color:var(--taupe)">Tap any node to see how the five complete each other.</p>
+<!-- ============ FIVE TATTVAS — INTERACTIVE WHEEL ============ -->
+<section class="tattvas" id="five-tattvas" aria-labelledby="tattvas-title">
+
+  <div class="tattvas__bg" aria-hidden="true">
+    <div class="tattvas__layer tattvas__layer--a"></div>
+    <div class="tattvas__layer tattvas__layer--b"></div>
+    <div class="tattvas__grain"></div>
+    <canvas class="tattvas__particles"></canvas>
   </div>
+
+  <div class="tattvas__inner">
+
+    <header class="tattvas__head">
+      <p class="tattvas__eyebrow">The Tat:vm philosophy</p>
+      <h2 class="tattvas__title" id="tattvas-title">Five tattvas. One home.</h2>
+      <p class="tattvas__lede">
+        We never design them separately. A Tat:vm home is space, light, air,
+        vastu and sustainability working as one system.
+      </p>
+    </header>
+
+    <div class="tattvas__layout">
+      <div class="tattvas__wheel-col">
+        <div class="tattva-wheel" id="tattvaWheel">
+          <div class="tattva-wheel__aura" aria-hidden="true"></div>
+
+          <div class="tattva-wheel__mandala" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <path id="mPetalOuter"
+                      d="M 50 5 C 60 18, 60 34, 50 45 C 40 34, 40 18, 50 5 Z"/>
+                <path id="mPetalMid"
+                      d="M 50 14 C 58 24, 58 37, 50 45 C 42 37, 42 24, 50 14 Z"/>
+                <path id="mPetalInner"
+                      d="M 50 22 C 56 30, 56 38, 50 44 C 44 38, 44 30, 50 22 Z"/>
+              </defs>
+
+              <g class="mandala-layer mandala-layer--outer">
+                <use href="#mPetalOuter" transform="rotate(0 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(30 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(60 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(90 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(120 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(150 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(180 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(210 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(240 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(270 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(300 50 50)"/>
+                <use href="#mPetalOuter" transform="rotate(330 50 50)"/>
+              </g>
+
+              <g class="mandala-layer mandala-layer--mid">
+                <use href="#mPetalMid" transform="rotate(22.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(67.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(112.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(157.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(202.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(247.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(292.5 50 50)"/>
+                <use href="#mPetalMid" transform="rotate(337.5 50 50)"/>
+              </g>
+
+              <g class="mandala-layer mandala-layer--inner">
+                <use href="#mPetalInner" transform="rotate(0 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(60 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(120 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(180 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(240 50 50)"/>
+                <use href="#mPetalInner" transform="rotate(300 50 50)"/>
+              </g>
+
+              <g class="mandala-layer mandala-layer--core">
+                <circle class="mandala-ring"       cx="50" cy="50" r="13"/>
+                <circle class="mandala-ring"       cx="50" cy="50" r="8.5"/>
+                <circle class="mandala-ring mandala-ring--thin" cx="50" cy="50" r="4.5"/>
+                <circle class="mandala-core"       cx="50" cy="50" r="2.2"/>
+
+                <circle class="mandala-dot" cx="50"    cy="38.8" r=".85"/>
+                <circle class="mandala-dot" cx="59.7"  cy="44.4" r=".85"/>
+                <circle class="mandala-dot" cx="59.7"  cy="55.6" r=".85"/>
+                <circle class="mandala-dot" cx="50"    cy="61.2" r=".85"/>
+                <circle class="mandala-dot" cx="40.3"  cy="55.6" r=".85"/>
+                <circle class="mandala-dot" cx="40.3"  cy="44.4" r=".85"/>
+              </g>
+            </svg>
+          </div>
+
+          <svg class="tattva-wheel__orbits" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="orbit orbit--outer"  cx="50" cy="50" r="33" pathLength="1"/>
+            <circle class="orbit orbit--dashed" cx="50" cy="50" r="33"/>
+            <circle class="orbit orbit--inner"  cx="50" cy="50" r="25"/>
+            <circle class="orbit orbit--core"   cx="50" cy="50" r="16.5"/>
+          </svg>
+
+          <div class="orbit-dots" id="orbitDots" aria-hidden="true"></div>
+          <div class="tattva-wheel__focus" aria-hidden="true"></div>
+
+          <div class="tattva-wheel__hub" aria-hidden="true">
+            <span class="tattva-wheel__hub-mark">TAT:VM</span>
+            <span class="tattva-wheel__hub-sub">one system</span>
+          </div>
+
+          <div class="tattva-wheel__nodes" id="tattvaNodes"></div>
+        </div>
+      </div>
+
+      <div class="tattvas__cards" id="tattvaCards"></div>
+    </div>
+  </div>
+
+  <p class="sr-only" aria-live="polite" id="tattvaStatus"></p>
 </section>
 
 <!-- ============ BRAND STORY — POEM PROMINENT ============ -->
@@ -296,9 +385,10 @@
 
 </main>
 <div id="footer-slot"></div>
-<script src="assets/js/svg.js?v=5"></script>
-<script src="assets/js/components.js?v=5"></script>
-<script src="assets/js/main.js?v=5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/js/svg.js?v=6"></script>
+<script src="assets/js/components.js?v=6"></script>
+<script src="assets/js/main.js?v=6"></script>
 
 <script>
   /*
