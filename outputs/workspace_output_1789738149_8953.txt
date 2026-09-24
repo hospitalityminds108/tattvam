@@ -1,0 +1,10 @@
+standardized: about.html
+standardized: brand-story.html
+standardized: csr.html
+standardized: index.html
+standardized: leadership.html
+standardized: our-approach.html
+standardized: projects.html
+standardized: vision-mission.html
+standardized: projects/ghatkopar-mixed-use.html
+standardized: projects/ghatkopar-residential.html

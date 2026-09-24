@@ -1,0 +1,41 @@
+=== components.js head ===
+// Tat:vm — shared components (header, footer, floating contact stack)
+document.addEventListener('DOMContentLoaded', () => {
+  const T = window.TATVM;
+  const path = location.pathname.split('/').pop() || 'index.html';
+  const depth = location.pathname.includes('/projects/') ? '../' : '';
+
+  /* ============ HEADER ============ */
+  const NAV = [
+    { label:'About', href:'about.html', dd:[
+      { label:'Our Approach',      href:'our-approach.html', icon:'compass' },
+      { label:'Vision & Mission',  href:'vision-mission.html', icon:'star' },
+      { label:'Brand Story',       href:'brand-story.html', icon:'book' },
+      { label:'Leadership',        href:'leadership.html', icon:'user' },
+      { label:'CSR',               href:'csr.html', icon:'heart' },
+    ]},
+    { label:'Projects', href:'projects.html', dd:[
+      { label:'All Projects',          href:'projects.html', icon:'building' },
+      { label:'Ghatkopar — Mixed-Use', href:'projects/ghatkopar-mixed-use.html', icon:'briefcase' },
+      { label:'Ghatkopar — Residential', href:'projects/ghatkopar-residential.html', icon:'home' },
+    ]},
+    { label:'Redevelopment', href:'redevelopment.html' },
+    { label:'Opportunities', href:'#', dd:[
+      { label:'Work With Us',     href:'work-with-us.html', icon:'handshake' },
+      { label:'Network Partners', href:'network-partners.html', icon:'users' },
+      { label:'NRI Services',     href:'nri.html', icon:'globe' },
+    ]},
+    { label:'Insights', href:'insights.html', dd:[
+      { label:'Blogs & Perspectives', href:'insights.html', icon:'book' },
+      { label:'FAQs',                 href:'faqs.html', icon:'chat' },
+    ]},
+    { label:'Contact', href:'contact.html' },
+  ];
+
+  const headerHTML = `
+  <header class="site-header" id="siteHeader">
+    <div class="bar">
+      <a class="brand" href="${depth}index.html" aria-label="Tat:vm home">${T.logo('dark')}</a>
+      <nav class="nav-desktop" aria-label="Primary">
+        ${NAV.map(n => {
+          const active = n.dd

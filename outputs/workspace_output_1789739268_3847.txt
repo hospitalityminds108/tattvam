@@ -1,0 +1,3 @@
+privacy-policy.html: solid=True navColor=rgb(58, 49, 40)
+terms-and-conditions.html: solid=True navColor=rgb(58, 49, 40)
+cookie-policy.html: solid=True navColor=rgb(58, 49, 40)

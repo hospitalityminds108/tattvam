@@ -1,0 +1,18 @@
+=== index.html em dashes ===
+<title>Tat:vm — Rooted in You 
+e fundamentals — Space, Light, 
+ontent="Tat:vm — Rooted in You 
+e fundamentals — Space, Light, 
+name": "Tat:vm — Rooted in You"
+-label="Tat:vm — homes rooted i
+=== insights ₹ ===
+priceRange": "₹₹₹"
+=== insights arrows ===
+Read →
+Read →
+=== brand-story ===
+ | Tat:vm — Rooted in
+rand poem — We rise t
+ | Tat:vm — Rooted in
+rand poem — We rise t
+a promise — the story

@@ -1,0 +1,38 @@
+  const loaderEl = document.getElementById('loader');
+  if (loaderEl) {
+    const kill = () => setTimeout(() => loaderEl.classList.add('done'), 250);
+    if (document.readyState === 'complete') kill();
+    else window.addEventListener('load', kill);
+    setTimeout(() => loaderEl.classList.add('done'), 3800); // safety
+  }
+
+  /* ---------- forms ---------- */
+  document.querySelectorAll('form[data-tatvm-form]').forEach(f => {
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      const ok = f.querySelector('.form-ok') || f.parentElement.querySelector('.form-ok');
+      if (ok) ok.classList.add('show');
+      f.querySelectorAll('input,select,textarea,button').forEach(el => el.disabled = true);
+    });
+  });
+
+  /* ---------- article category badges auto color ---------- */
+  // (news cards use .acat.news — handled in markup)
+
+  /* ---------- re-bind for late injections ---------- */
+  window.addEventListener('load', () => { bindReveals(); bindCounters(); });
+});
+=== field CSS ===
+125:  .form-grid{grid-template-columns:1fr}
+483:.field label{display:block;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--char);margin-bottom:.45rem}
+484:.field input,.field select,.field textarea{
+489:.field input:focus,.field select:focus,.field textarea:focus{
+492:.field textarea{min-height:130px;resize:vertical}
+493:.form-note{font-size:.78rem;color:var(--taupe)}
+494:.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+495:.form-grid .full{grid-column:1/-1}
+496:@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+497:.form-ok{
+501:.form-ok.show{display:flex}
+502:.form-ok svg{width:20px;height:20px;flex-shrink:0}
+sed: -e expression #1, char 1: unknown command: `,'

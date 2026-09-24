@@ -1,0 +1,61 @@
+from pathlib import Path
+
+root = Path(r'C:\Users\HMTL\Downloads\tatvam v2')
+replacements = {
+    'â€”': '—',
+    'â€“': '–',
+    'â€™': '’',
+    'â€˜': '‘',
+    'â€œ': '“',
+    'â€': '”',
+    'â€': '“',
+    'Â·': '·',
+    'â‚¹': '₹',
+    'Â': '',
+    'Â©': '©',
+    'Â®': '®',
+    'Â»': '»',
+    'â†’': '→',
+    'Ã§': 'ç',
+    'Ã¼': 'ü',
+    'Ã©': 'é',
+    'Ã¡': 'á',
+    'Ã³': 'ó',
+    'Ã±': 'ñ',
+    'Ã¤': 'ä',
+    'Ã¶': 'ö',
+    'Ã‰': 'É',
+    'Ã€': 'À',
+    'Ã–': 'Ö',
+    'Ãœ': 'Ü',
+    'ÃŸ': 'ß',
+    'Ã¨': 'è',
+    'Ãª': 'ê',
+    'Ã¢': 'â',
+    'Ã´': 'ô',
+    'Ã®': 'î',
+    'Ã¯': 'ï',
+    'Ã£': 'ã',
+    'Ã¹': 'ù',
+    'Ãº': 'ú',
+    'Ã¿': 'ÿ',
+    'Ã½': 'ý',
+    'Ãµ': 'õ',
+}
+
+changed = []
+for path in root.rglob('*.html'):
+    try:
+        text = path.read_text(encoding='utf-8')
+    except UnicodeDecodeError:
+        text = path.read_text(encoding='cp1252', errors='ignore')
+    new_text = text
+    for old, replacement in replacements.items():
+        new_text = new_text.replace(old, replacement)
+    if new_text != text:
+        path.write_text(new_text, encoding='utf-8', newline='')
+        changed.append(path.name)
+
+print(f'Updated {len(changed)} HTML files')
+for name in changed[:10]:
+    print(name)

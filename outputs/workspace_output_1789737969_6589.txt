@@ -1,0 +1,32 @@
+mojibake-fixed   .backup_html/404.html
+mojibake-fixed   .backup_html/about.html
+mojibake-fixed   .backup_html/contact.html
+mojibake-fixed   .backup_html/cookie-policy.html
+mojibake-fixed   .backup_html/csr.html
+mojibake-fixed   .backup_html/faqs.html
+mojibake-fixed   .backup_html/network-partners.html
+mojibake-fixed   .backup_html/nri.html
+mojibake-fixed   .backup_html/our-approach.html
+mojibake-fixed   .backup_html/privacy-policy.html
+mojibake-fixed   .backup_html/projects.html
+mojibake-fixed   .backup_html/redevelopment.html
+mojibake-fixed   .backup_html/terms-and-conditions.html
+mojibake-fixed   .backup_html/vision-mission.html
+mojibake-fixed   .backup_html/work-with-us.html
+mojibake-fixed   404.html
+mojibake-fixed   about.html
+mojibake-fixed   contact.html
+mojibake-fixed   cookie-policy.html
+mojibake-fixed   csr.html
+mojibake-fixed   faqs.html
+mojibake-fixed   network-partners.html
+mojibake-fixed   nri.html
+mojibake-fixed   our-approach.html
+mojibake-fixed   privacy-policy.html
+mojibake-fixed   projects.html
+mojibake-fixed   redevelopment.html
+mojibake-fixed   terms-and-conditions.html
+mojibake-fixed   vision-mission.html
+mojibake-fixed   work-with-us.html
+
+Summary: {'mojibake-fixed': 30, 'clean': 12}

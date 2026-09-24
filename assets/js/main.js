@@ -766,3 +766,280 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })();
 
+
+/* ==========================================================================
+   PREMIUM MOTION — page-ready flag, auto-stagger, section reveal, parallax
+   (vanilla; reuses the existing .reveal system — no new libraries)
+   ========================================================================== */
+(function () {
+  'use strict';
+  var body = document.body;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* start the intro sequence once the loader has cleared */
+  var ready = false;
+  function setReady() { if (ready) return; ready = true; body.classList.add('is-ready'); }
+  var loader = document.getElementById('loader');
+  if (!loader) setTimeout(setReady, 60);
+  else if (document.readyState === 'complete') setTimeout(setReady, 350);
+  else window.addEventListener('load', function () { setTimeout(setReady, 350); });
+  setTimeout(setReady, 3800);
+
+  /* cascading delays for card groups: 0 / 100 / 200 / 300ms … (cleared after reveal so hover stays instant) */
+  document.querySelectorAll('[data-stagger]').forEach(function (group) {
+    var items = group.querySelectorAll(':scope > .reveal');
+    items.forEach(function (el, i) {
+      el.style.transitionDelay = (Math.min(i, 5) * 100) + 'ms';
+      var clear = function (e) {
+        if (e.propertyName !== 'opacity') return;
+        el.style.transitionDelay = '';
+        el.removeEventListener('transitionend', clear);
+      };
+      el.addEventListener('transitionend', clear);
+    });
+  });
+
+  /* cinematic section entrance for opt-in sections */
+  var cines = document.querySelectorAll('.cine');
+  if (cines.length && 'IntersectionObserver' in window) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); cio.unobserve(en.target); }
+      });
+    }, { threshold: 0.08 });
+    cines.forEach(function (el) { cio.observe(el); });
+  } else {
+    cines.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* subtle parallax (max ~22px) — desktop / hover devices only */
+  var pEls = [].slice.call(document.querySelectorAll('[data-parallax]'));
+  if (pEls.length) {
+    var mq = window.matchMedia('(min-width:901px) and (hover:hover) and (prefers-reduced-motion:no-preference)');
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      if (!mq.matches) { pEls.forEach(function (el) { el.style.translate = ''; }); return; }
+      var vh = window.innerHeight;
+      pEls.forEach(function (el) {
+        var host = el.parentElement;
+        var r = host.getBoundingClientRect();
+        if (r.bottom < -60 || r.top > vh + 60) return;
+        var f = parseFloat(el.getAttribute('data-parallax')) || 0.05;
+        var max = Math.min(22, host.clientHeight * 0.045);
+        var d = -(r.top + r.height / 2 - vh / 2) * f;
+        d = Math.max(-max, Math.min(max, d));
+        el.style.translate = '0 ' + d.toFixed(1) + 'px';
+      });
+    };
+    var onScroll = function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+})();
+
+/* ==========================================================================
+   CAREERS — filters, Apply Now, validation, resume upload, email/WhatsApp routing
+   ========================================================================== */
+(function () {
+  'use strict';
+  var form = document.getElementById('careerForm');
+  var grid = document.getElementById('jobGrid');
+  if (!form || !grid) return;
+
+  /* set endpoint to a real form/API URL to post applications (with the CV attached);
+     while empty, the form hands the application off via email + WhatsApp */
+  var CFG = { email: 'info@tatvmgroup.com', whatsapp: '919152000425', endpoint: '' };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- filters ---------- */
+  var cards = [].slice.call(grid.querySelectorAll('.job-card'));
+  var fDept = $('fDept'), fLoc = $('fLoc'), fType = $('fType');
+  var count = $('jobCount'), empty = $('jobEmpty'), reset = $('jobReset');
+  var timer = null;
+
+  function matches(c) {
+    return (!fDept.value || c.dataset.dept === fDept.value) &&
+           (!fLoc.value || c.dataset.loc === fLoc.value) &&
+           (!fType.value || c.dataset.type === fType.value);
+  }
+  function label(n) { return 'Showing ' + n + ' of ' + cards.length + ' opening' + (cards.length === 1 ? '' : 's'); }
+
+  function applyFilter() {
+    clearTimeout(timer);
+    grid.style.minHeight = grid.offsetHeight + 'px';
+    cards.forEach(function (c) { if (!c.hidden) c.classList.add('is-out'); });
+    timer = setTimeout(function () {
+      var shown = [];
+      cards.forEach(function (c) {
+        var ok = matches(c);
+        c.hidden = !ok;
+        if (ok) { c.classList.add('is-out'); shown.push(c); } else { c.classList.remove('is-out'); }
+      });
+      void grid.offsetWidth;
+      shown.forEach(function (c, i) {
+        c.style.transitionDelay = (reduce ? 0 : i * 70) + 'ms';
+        c.classList.remove('is-out');
+      });
+      count.textContent = label(shown.length);
+      empty.classList.toggle('show', shown.length === 0);
+      setTimeout(function () {
+        shown.forEach(function (c) { c.style.transitionDelay = ''; });
+        grid.style.minHeight = '';
+      }, reduce ? 0 : 320 + shown.length * 70);
+    }, reduce ? 0 : 260);
+  }
+  [fDept, fLoc, fType].forEach(function (s) { s.addEventListener('change', applyFilter); });
+  reset.addEventListener('click', function () { fDept.value = fLoc.value = fType.value = ''; applyFilter(); });
+  count.textContent = label(cards.length);
+
+  /* ---------- Apply Now → smooth scroll → position pre-selected ---------- */
+  var position = $('cfPosition');
+  var posField = position.closest('.field');
+  var picked = $('applyPicked');
+  var nameInput = $('cfName');
+
+  function setPosition(v) {
+    position.value = v;
+    if (position.value !== v) position.value = '';
+    picked.textContent = position.value ? 'Applying for: ' + position.value : '';
+    clearError(posField);
+  }
+  position.addEventListener('change', function () { setPosition(position.value); });
+
+  grid.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-apply]');
+    if (!a) return;
+    e.preventDefault();
+    setPosition(a.getAttribute('data-apply'));
+    $('apply').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    setTimeout(function () {
+      posField.classList.add('flash');
+      setTimeout(function () { posField.classList.remove('flash'); }, 1900);
+      nameInput.focus({ preventScroll: true });
+    }, reduce ? 0 : 750);
+  });
+
+  /* ---------- resume upload + validation ---------- */
+  var fileInput = $('cfResume');
+  var upload = form.querySelector('.upload');
+  var resumeField = fileInput.closest('.field');
+  var fileName = $('cfFileName'), fileSize = $('cfFileSize'), clearBtn = $('cfFileClear');
+  var file = null;
+  var MAX = 5 * 1024 * 1024;
+
+  function fmt(b) { return b < 1048576 ? Math.max(1, Math.round(b / 1024)) + ' KB' : (b / 1048576).toFixed(1) + ' MB'; }
+  function pick(f) {
+    if (!f) { dropFile(); return; }
+    var ext = (f.name.split('.').pop() || '').toLowerCase();
+    if (['pdf', 'doc', 'docx'].indexOf(ext) < 0) { dropFile(); showError(resumeField, 'Please upload a PDF, DOC or DOCX file.'); return; }
+    if (f.size > MAX) { dropFile(); showError(resumeField, 'That file is larger than 5 MB. Please upload a smaller one.'); return; }
+    file = f;
+    fileName.textContent = f.name;
+    fileSize.textContent = fmt(f.size);
+    upload.classList.add('has-file');
+    clearError(resumeField);
+  }
+  function dropFile() { file = null; fileInput.value = ''; upload.classList.remove('has-file'); }
+  fileInput.addEventListener('change', function () { pick(fileInput.files[0]); });
+  clearBtn.addEventListener('click', function (e) { e.preventDefault(); dropFile(); fileInput.focus(); });
+  ['dragenter', 'dragover'].forEach(function (t) { upload.addEventListener(t, function () { upload.classList.add('drag'); }); });
+  ['dragleave', 'drop'].forEach(function (t) { upload.addEventListener(t, function () { upload.classList.remove('drag'); }); });
+
+  function showError(field, msg) {
+    field.classList.add('invalid');
+    var err = field.querySelector('.err');
+    if (err) err.textContent = msg;
+    var input = field.querySelector('input,select,textarea');
+    if (input) input.setAttribute('aria-invalid', 'true');
+  }
+  function clearError(field) {
+    field.classList.remove('invalid');
+    var input = field.querySelector('input,select,textarea');
+    if (input) input.removeAttribute('aria-invalid');
+  }
+  ['cfName', 'cfEmail', 'cfPhone'].forEach(function (id) {
+    $(id).addEventListener('input', function () { clearError($(id).closest('.field')); });
+  });
+
+  function validate() {
+    var firstBad = null;
+    function check(field, ok, msg) {
+      if (ok) { clearError(field); return; }
+      showError(field, msg);
+      if (!firstBad) firstBad = field.querySelector('input,select,textarea');
+    }
+    check($('cfName').closest('.field'), $('cfName').value.trim().length >= 2, 'Please enter your full name.');
+    check($('cfEmail').closest('.field'), /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('cfEmail').value.trim()), 'Please enter a valid email address.');
+    var digits = $('cfPhone').value.replace(/\D/g, '');
+    check($('cfPhone').closest('.field'), digits.length >= 8 && digits.length <= 15, 'Please enter a valid phone number.');
+    check(posField, !!position.value, 'Please choose the position you are applying for.');
+    check(resumeField, !!file, 'Please attach your resume (PDF, DOC or DOCX, up to 5 MB).');
+    if (firstBad) firstBad.focus();
+    return !firstBad;
+  }
+
+  /* ---------- submit: real endpoint if configured, otherwise email + WhatsApp hand-off ---------- */
+  var success = $('applySuccess');
+  var alertEl = $('formAlert');
+
+  function summary() {
+    return [
+      'Position: ' + position.value,
+      'Name: ' + $('cfName').value.trim(),
+      'Email: ' + $('cfEmail').value.trim(),
+      'Phone: ' + $('cfPhone').value.trim(),
+      'Experience: ' + ($('cfExp').value.trim() || 'Not specified'),
+      'Note: ' + ($('cfMessage').value.trim() || '(none)')
+    ];
+  }
+  function showSuccess(sent) {
+    var first = $('cfName').value.trim().split(/\s+/)[0];
+    var lines = summary();
+    $('successTitle').textContent = sent ? 'Application Submitted Successfully' : 'Your application is ready to send';
+    $('successText').textContent = sent
+      ? 'Thank you, ' + first + '. Our team will review your application and be in touch.'
+      : 'Thank you, ' + first + '. One last step: send it to our team by email (attach your resume) or on WhatsApp, whichever is quicker.';
+    var mailBody = lines.join('\n') + '\n\nResume: ' + file.name + ' (please attach it to this email)';
+    $('successMail').href = 'mailto:' + CFG.email + '?subject=' + encodeURIComponent('Application: ' + position.value + ' - ' + $('cfName').value.trim()) + '&body=' + encodeURIComponent(mailBody);
+    $('successWa').href = 'https://wa.me/' + CFG.whatsapp + '?text=' + encodeURIComponent('Hello Tat:vm, I would like to apply.\n' + lines.join('\n') + '\nI will share my resume (' + file.name + ') here.');
+    $('successRoute').hidden = sent;
+    form.classList.add('is-leaving');
+    setTimeout(function () {
+      form.hidden = true;
+      success.classList.add('show');
+      success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      $('successTitle').focus({ preventScroll: true });
+    }, reduce ? 0 : 450);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alertEl.classList.remove('show');
+    if (!validate()) return;
+    if (!CFG.endpoint) { showSuccess(false); return; }
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    var fd = new FormData(form);
+    fd.set('resume', file, file.name);
+    fetch(CFG.endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error('bad status'); showSuccess(true); })
+      .catch(function () {
+        btn.disabled = false;
+        alertEl.textContent = 'Something went wrong sending your application. Please try again, or email ' + CFG.email + ' directly.';
+        alertEl.classList.add('show');
+      });
+  });
+
+  $('applyAgain').addEventListener('click', function (e) {
+    e.preventDefault();
+    form.reset(); dropFile(); setPosition(''); form.querySelectorAll('.invalid').forEach(function (f) { clearError(f); });
+    success.classList.remove('show');
+    form.hidden = false;
+    void form.offsetWidth;
+    form.classList.remove('is-leaving');
+    $('apply').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  });
+})();

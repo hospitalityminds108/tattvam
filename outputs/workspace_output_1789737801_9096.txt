@@ -1,0 +1,586 @@
+########## insights.html ##########
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights | Tat:vm â€” Blogs &amp; News on Mumbai Housing</title>
+<meta name="description" content="Tat:vm insights: blogs on redevelopment, the five fundamentals and light-first design, plus news and interviews from Tat:vm Builders & Developers, Mumbai.">
+<meta name="keywords" content="Tat:vm blog, Mumbai housing insights, redevelopment blog, real estate news Mumbai">
+<link rel="canonical" href="https://tatvmgroup.com/insights.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="Insights | Tat:vm â€” Blogs &amp; News on Mumbai Housing">
+<meta property="og:description" content="Tat:vm insights: blogs on redevelopment, the five fundamentals and light-first design, plus news and interviews from Tat:vm Builders & Developers, Mumbai.">
+<meta property="og:url" content="https://tatvmgroup.com/insights.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/interior-light.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Insights | Tat:vm â€” Blogs &amp; News on Mumbai Housing">
+<meta name="twitter:description" content="Tat:vm insights: blogs on redevelopment, the five fundamentals and light-first design, plus news and interviews from Tat:vm Builders & Developers, Mumbai.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/interior-light.jpg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://tatvmgroup.com/#org", "name": "Tat:vm Builders & Developers Pvt Ltd", "alternateName": "Tat:vm Group", "url": "https://tatvmgroup.com/", "logo": "https://tatvmgroup.com/assets/img/favicon.svg", "slogan": "Rooted in you", "telephone": "+91-22-3500-6800", "email": "info@tatvmgroup.com", "address": {"@type": "PostalAddress", "secretAddress": "", "streetAddress": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg", "addressLocality": "Mumbai", "addressRegion": "MH", "postalCode": "400013", "addressCountry": "IN"}, "areaServed": "Mumbai, Maharashtra, India", "sameAs": ["https://in.linkedin.com/company/tatvm-group", "https://www.instagram.com/tatvmgroup/", "https://www.youtube.com/@tatvmgroup", "https://www.facebook.com/profile.php?id=61577605111837"], "founder": {"@type": "Person", "name": "Raahul Maroo", "jobTitle": "Founder & Managing Director"}, "priceRange": "â‚¹â‚¹â‚¹"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tatvmgroup.com/index.html"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://tatvmgroup.com/insights.html"}]}, {"@type": "Blog", "name": "Tat:vm Insights", "url": "https://tatvmgroup.com/insights.html", "blogPost": [{"@type": "BlogPosting", "headline": "Why redevelopment is Mumbaiâ€™s kindest option", "url": "https://tatvmgroup.com/insights.html#why-redevelopment", "author": {"@id": "https://tatvmgroup.com/#org"}, "publisher": {"@id": "https://tatvmgroup.com/#org"}, "datePublished": "2025-08-01"}, {"@type": "BlogPosting", "headline": "The five fundamentals, explained simply", "url": "https://tatvmgroup.com/insights.html#five-tattvas", "author": {"@id": "https://tatvmgroup.com/#org"}, "publisher": {"@id": "https://tatvmgroup.com/#org"}, "datePublished": "2025-08-01"}, {"@type": "BlogPosting", "headline": "Light first, layout second", "url": "https://tatvmgroup.com/insights.html#light-first", "author": {"@id": "https://tatvmgroup.com/#org"}, "publisher": {"@id": "https://tatvmgroup.com/#org"}, "datePublished": "2025-08-01"}]}, {"@type": "ItemList", "name": "Tat:vm News", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Tat:vm launches Ghatkopar mixed-use development", "url": "https://tatvmgroup.com/insights.html#news-ghatkopar"}, {"@type": "ListItem", "position": 2, "name": "Raahul Maroo on Mumbaiâ€™s next decade of housing", "url": "https://tatvmgroup.com/insights.html#news-founder"}, {"@type": "ListItem", "position": 3, "name": "Tat:vm Builders &amp; Developers begins operations", "url": "https://tatvmgroup.com/insights.html#news-launch"}]}]}</script>
+</head>
+<body data-page="inner">
+
+<header id="header-slot"></header>
+<main>
+
+<section class="page-hero">
+  <img src="./assets/img/interior-light.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Insights</span></nav>
+    <p class="eyebrow light">Insights</p>
+    <h1 class="display">Ideas that stay rooted.</h1>
+    <p class="lead">Blogs &amp; perspectives on Mumbai housing, design and redevelopment â€” plus the latest from Tat:vm.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head split">
+      <div><p class="eyebrow">Blogs &amp; perspectives</p><h2 class="h2">Three ideas worth your chai.</h2></div>
+      <p class="lead">Short reads on how better homes actually get built â€” from someone who builds them.</p>
+    </div>
+    
+<article id="why-redevelopment" class="reveal" style="scroll-margin-top:110px">
+  <a href="redevelopment.html" class="art-card card-hl">
+    <figure class="am"><img src="./assets/img/redevelopment-building.jpg" alt="" loading="lazy"><span class="acat">Redevelopment Â· Mumbai</span></figure>
+    <div class="ab">
+      <h2 class="h3">Why redevelopment is Mumbaiâ€™s kindest option</h2>
+      <div class="ameta"><span>Blog Â· 5 min read</span><span>Read â†’</span></div>
+    </div>
+  </a>
+  <div class="art-body"><p class="lead">Aging buildings on prime land are the cityâ€™s biggest opportunity. Hereâ€™s how society redevelopment works â€” fairly.</p>
+<p>Across Mumbai, thousands of housing societies sit on strong land and weakening concrete. The frame is tired; the location is not. Redevelopment is how a buildingâ€™s promise is renewed without asking a single family to leave the neighbourhood it loves.</p>
+<p>Done fairly, redevelopment means larger carpet areas, safer RCC structure, working lifts and fire compliance â€” and a community that stays whole. Done badly, it means years in rented limbo and broken trust.</p>
+<p>The difference is process. A RERA-registered developer, written area entitlements, milestone-linked timelines and member-first meetings are not extras; they are the minimum. When a society keeps its address and gains fifty more years, that is the kindest thing Mumbai can do for itself.</p></div>
+</article>
+
+<article id="five-tattvas" class="reveal" style="scroll-margin-top:110px">
+  <a href="our-approach.html" class="art-card card-hl">
+    <figure class="am"><img src="./assets/img/tattva-light.jpg" alt="" loading="lazy"><span class="acat">Design Â· Tattvas</span></figure>
+    <div class="ab">
+      <h2 class="h3">The five fundamentals, explained simply</h2>
+      <div class="ameta"><span>Blog Â· 4 min read</span><span>Read â†’</span></div>
+    </div>
+  </a>
+  <div class="art-body"><p class="lead">Space, light, air, vastu, sustainability â€” what each means, and why they only work together.</p>
+<p><strong>Space</strong> is rooms that hold a morning, not just furniture. We design for how a family actually lives â€” the study corner, the drying yard, the chai by the window.</p>
+<p><strong>Light</strong> is a basic right. Orientation, windows and balconies are placed before saleable area is ever calculated.</p>
+<p><strong>Air</strong> is cross-ventilation as a layout decision. Two open sides beat one fancy faÃ§ade, every time.</p>
+<p><strong>Vastu</strong> is our respect for how Indian families live with their homes â€” applied as practical orientation and placement, never as superstition priced into a brochure.</p>
+<p><strong>Sustainability</strong> is lower bills and a lighter footprint: rainwater harvesting, solar-common areas, native planting and low-VOC finishes as standard.</p>
+<p>One alone is a feature. Five together are a home. That is the whole idea of Tat:vm.</p></div>
+</article>
+
+<article id="light-first" class="reveal" style="scroll-margin-top:110px">
+  <a href="our-approach.html" class="art-card card-hl">
+    <figure class="am"><img src="./assets/img/interior-warm.jpg" alt="" loading="lazy"><span class="acat">Design Â· Light</span></figure>
+    <div class="ab">
+      <h2 class="h3">Light first, layout second</h2>
+      <div class="ameta"><span>Blog Â· 4 min read</span><span>Read â†’</span></div>
+    </div>
+  </a>
+  <div class="art-body"><p class="lead">How placing windows before walls changes the way a home feels â€” and what it costs to live in.</p>
+<p>Most apartments are drawn as saleable area first and lived-in space second. Windows land wherever the faÃ§ade allows. Flip the order and everything changes: the sunâ€™s path, the breezeâ€™s direction and the familyâ€™s day are drawn first â€” the walls come after.</p>
+<p>In a light-first home, mornings begin bright without switching on a bulb. Afternoons stay gentle because the harshest sun never hits the main glazing. Electricity bills drop quietly, year after year.</p>
+<p>It costs nothing at the design stage and is impossible to add later. Thatâ€™s why light is the first fundamental â€” and why it will never be a premium option at Tat:vm.</p></div>
+</article>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-head split">
+      <div><p class="eyebrow light">News</p><h2 class="h2">News from Tat:vm.</h2></div>
+      <p class="lead">Announcements, launches and interviews â€” straight from the source.</p>
+    </div>
+    
+<article id="news-ghatkopar" class="reveal" style="scroll-margin-top:110px">
+  <a href="projects/ghatkopar-mixed-use.html" class="art-card card-hl">
+    <figure class="am"><img src="./assets/img/ghatkopar-street.jpg" alt="" loading="lazy"><span class="acat news">Launch Â· Ghatkopar</span></figure>
+    <div class="ab">
+      <h2 class="h3">Tat:vm launches Ghatkopar mixed-use development</h2>
+      <div class="ameta"><span>News Â· Press release</span><span>Read â†’</span></div>
+    </div>
+  </a>
+  <div class="art-body"><p class="lead">Street-level retail and light-filled homes arrive in central Ghatkopar.</p>
+<p>Tat:vm Builders &amp; Developers has announced its Ghatkopar mixed-use development â€” street-friendly retail with light-filled residences above, designed on the companyâ€™s five fundamentals of Space, Light, Air, Vastu and Sustainability.</p>
+<p>The street level is designed as a neighbourhood amenity, not a wall: active shopfronts, generous pedestrian margins and shade. Homes above are oriented for morning light and cross-ventilation, with materials and finishes chosen for Mumbaiâ€™s climate.</p>
+<p>Enquiries are open via the Tat:vm sales desk.</p></div>
+</article>
+
+<article id="news-founder" class="reveal" style="scroll-margin-top:110px">
+  <a href="leadership.html" class="art-card card-hl">
+    <figure class="am"><img src="./assets/img/founder-portrait.jpg" alt="Raahul Maroo, founder of Tat:vm" loading="lazy" onerror="this.onerror=null;this.src='./assets/img/skyline-mumbai.jpg';"><span class="acat news">Interview Â· Leadership</span></figure>
+    <div class="ab">
+      <h2 class="h3">Raahul Maroo on Mumbaiâ€™s next decade of housing</h2>
+      <div class="ameta"><span>News Â· Interview</span><span>Read â†’</span></div>
+    </div>
+  </a>
+  <div class="art-body"><p class="lead">â€œThe city doesnâ€™t need more towers. It needs better homes in them.â€</p>
+<p>We asked our founder what the next ten years of Mumbai housing look like from a developerâ€™s desk.</p>
+<p><strong>What will change most?</strong> â€” â€œExpectations. Families now ask about light hours, ventilation, running costs â€” not just carpet area. Developers who answer those questions first will lead the decade.â€</p>
+<p><strong>And redevelopment?</strong> â€” â€œIt is the cityâ€™s main course. The land is already there, communities are already there. Our job is to renew buildings without uprooting people â€” transparently, and on time.â€</p>
+<p><strong>Why the five fundamentals?</strong> â€” â€œBecause a home is a system. Light without space is a showcase; space without air is a box. We build the system, together.â€</p></div>
+</article>
+
+<article id="news-launch" class="reveal" style="scroll-margin-top:110px">
+  <a href="about.html" class="art-card card-hl">
+    <figure class="am"><img src="./assets/img/city-golden.jpg" alt="" loading="lazy"><span class="acat news">Company Â· Launch</span></figure>
+    <div class="ab">
+      <h2 class="h3">Tat:vm Builders &amp; Developers begins operations</h2>
+      <div class="ameta"><span>News Â· Company</span><span>Read â†’</span></div>
+    </div>
+  </a>
+  <div class="art-body"><p class="lead">A new Mumbai development company launches with a five-fundamentals philosophy.</p>
+<p>Tat:vm Builders &amp; Developers Pvt Ltd has begun operations from Lower Parel, Mumbai. The company develops residential, commercial and mixed-use projects â€” and works with housing societies on redevelopment.</p>
+<p>The name draws on â€œtattvaâ€ â€” the elements â€” and the five fundamentals that govern every design: Space, Light, Air, Vastu and Sustainability. The tagline, â€œRooted in youâ€, is the brief behind every brief.</p>
+<p>Founded by Raahul Maroo, who brings two decades of Mumbai real estate across development and redevelopment, Tat:vm is RERA-registered and works to milestone-linked delivery.</p></div>
+</article>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>
+########## redevelopment.html ##########
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redevelopment | Tat:vm â€” Mumbai Society Redevelopment</title>
+<meta name="description" content="Redevelopment of aging housing societies in Mumbai â€” larger homes, safer structures, transparent RERA-registered terms, same neighbourhood.">
+<meta name="keywords" content="Mumbai redevelopment, society redevelopment, housing society, RERA, redevelopment developer">
+<link rel="canonical" href="https://tatvmgroup.com/redevelopment.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="Redevelopment | Tat:vm â€” Mumbai Society Redevelopment">
+<meta property="og:description" content="Redevelopment of aging housing societies in Mumbai â€” larger homes, safer structures, transparent RERA-registered terms, same neighbourhood.">
+<meta property="og:url" content="https://tatvmgroup.com/redevelopment.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/redevelopment-building.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Redevelopment | Tat:vm â€” Mumbai Society Redevelopment">
+<meta name="twitter:description" content="Redevelopment of aging housing societies in Mumbai â€” larger homes, safer structures, transparent RERA-registered terms, same neighbourhood.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/redevelopment-building.jpg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://tatvmgroup.com/#org", "name": "Tat:vm Builders & Developers Pvt Ltd", "alternateName": "Tat:vm Group", "url": "https://tatvmgroup.com/", "logo": "https://tatvmgroup.com/assets/img/favicon.svg", "slogan": "Rooted in you", "telephone": "+91-22-3500-6800", "email": "info@tatvmgroup.com", "address": {"@type": "PostalAddress", "streetAddress": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg", "addressLocality": "Mumbai", "addressRegion": "MH", "postalCode": "400013", "addressCountry": "IN"}, "areaServed": "Mumbai, Maharashtra, India", "sameAs": ["https://in.linkedin.com/company/tatvm-group", "https://www.instagram.com/tatvmgroup/", "https://www.youtube.com/@tatvmgroup", "https://www.facebook.com/profile.php?id=61577605111837"], "founder": {"@type": "Person", "name": "Raahul Maroo", "jobTitle": "Founder & Managing Director"}, "priceRange": "â‚¹â‚¹â‚¹"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tatvmgroup.com/index.html"}, {"@type": "ListItem", "position": 2, "name": "Redevelopment", "item": "https://tatvmgroup.com/redevelopment.html"}]}, {"@type": "Service", "name": "Housing Society Redevelopment", "provider": {"@id": "https://tatvmgroup.com/#org"}, "areaServed": "Mumbai"}]}</script>
+</head>
+<body data-page="inner">
+
+<header id="header-slot"></header>
+<main>
+
+<section class="page-hero">
+  <img src="./assets/img/redevelopment-building.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Redevelopment</span></nav>
+    <p class="eyebrow light">Redevelopment</p>
+    <h1 class="display">Old buildings. New beginnings.</h1>
+    <p class="lead">Redevelopment of aging housing societies across Mumbai â€” fair, transparent and on time.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow">Why redevelopment</p>
+        <h2 class="h2">Your societyâ€™s next fifty years.</h2>
+      </div>
+      <p class="lead">Thousands of Mumbai societies sit on strong land and weakening structures. Redevelopment is how a buildingâ€™s promise is renewed â€” without a family having to leave the neighbourhood it loves.</p>
+    </div>
+    <div class="grid-3 mt-lg">
+      <div class="card reveal"><i data-icon="home" data-icls="lg red"></i><h3 class="h4">More space, same address</h3><p>Members receive larger carpet areas and modern amenities â€” while keeping the community and the locality they are rooted in.</p></div>
+      <div class="card reveal d1"><i data-icon="shield" data-icls="lg red"></i><h3 class="h4">Structure & safety</h3><p>New RCC construction, fire compliance and lifts replace ageing frames â€” engineered for the next fifty monsoons.</p></div>
+      <div class="card reveal d2"><i data-icon="key" data-icls="lg red"></i><h3 class="h4">Transparent terms</h3><p>Clear area entitlements, timelines and compensation in writing â€” so no family negotiates in the dark.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">Society to skyline, in five steps.</h2>
+    </div>
+    <ol class="timeline">
+      <li class="reveal"><span class="num">1</span><div><h3 class="h4">Talk &amp; feasibility</h3><p>We study your societyâ€™s land, FSI potential and membersâ€™ wishes â€” no obligation.</p></div></li>
+      <li class="reveal d1"><span class="num">2</span><div><h3 class="h4">Consent &amp; terms</h3><p>Member meetings, transparent area and rent/compensation terms, drafted with your legal advisors.</p></div></li>
+      <li class="reveal d2"><span class="num">3</span><div><h3 class="h4">Approvals</h3><p>Developer-side work: 79(A) registration, plans, RERA registration and municipal sanctions.</p></div></li>
+      <li class="reveal d3"><span class="num">4</span><div><h3 class="h4">Build &amp; temporary homes</h3><p>Members move to arranged rented homes; we build with the five fundamentals â€” light, air, space, vastu, sustainability.</p></div></li>
+      <li class="reveal d4"><span class="num">5</span><div><h3 class="h4">Handover, together</h3><p>Corpus, new flats with OC, amenities and a society that stays whole â€” rooted, renewed.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2">
+    <div>
+      <p class="eyebrow">Our promise</p>
+      <h2 class="h2">Written down, then kept.</h2>
+      <p class="lead">Every redevelopment offer we make is one we can keep on paper â€” RERA-registered, milestone-linked and explained in member meetings, not just brochures.</p>
+      <ul class="spec-grid">
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>RERA-registered projects</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>Milestone-linked timelines</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>Transparent area entitlements</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>Member-first meetings</span></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary mt-lg reveal d2">Discuss your society</a>
+    </div>
+    <figure class="media-mask reveal-img"><img src="./assets/img/redevelopment-building.jpg" alt="A redeveloped residential building" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="poem-band">
+  <div class="container">
+    <div class="poem-mark"><i data-icon="quote" data-icls="xl red"></i></div>
+    <blockquote class="poem">
+      <p class="stanza"><span>Before a brick is laid,</span> <span>we listen.</span></p>
+      <p class="stanza"><span>To the street. To the light.</span> <span>To the people who will call it home.</span></p>
+      <p class="stanza"><span>Then we build â€”</span> <span>and stay rooted.</span></p>
+    </blockquote>
+    <p class="sig">The Tat:vm Promise</p>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>
+########## work-with-us.html ##########
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work With Us | Tat:vm â€” Joint Development & Partnerships</title>
+<meta name="description" content="Work with Tat:vm: joint development for Mumbai landowners, society committees and investors â€” documented terms, RERA-registered, partner-first.">
+<meta name="keywords" content="joint development Mumbai, landowner partner, work with developer, Tat:vm careers">
+<link rel="canonical" href="https://tatvmgroup.com/work-with-us.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="Work With Us | Tat:vm â€” Joint Development & Partnerships">
+<meta property="og:description" content="Work with Tat:vm: joint development for Mumbai landowners, society committees and investors â€” documented terms, RERA-registered, partner-first.">
+<meta property="og:url" content="https://tatvmgroup.com/work-with-us.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/approach-craft.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Work With Us | Tat:vm â€” Joint Development & Partnerships">
+<meta name="twitter:description" content="Work with Tat:vm: joint development for Mumbai landowners, society committees and investors â€” documented terms, RERA-registered, partner-first.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/approach-craft.jpg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://tatvmgroup.com/#org", "name": "Tat:vm Builders & Developers Pvt Ltd", "alternateName": "Tat:vm Group", "url": "https://tatvmgroup.com/", "logo": "https://tatvmgroup.com/assets/img/favicon.svg", "slogan": "Rooted in you", "telephone": "+91-22-3500-6800", "email": "info@tatvmgroup.com", "address": {"@type": "PostalAddress", "streetAddress": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg", "addressLocality": "Mumbai", "addressRegion": "MH", "postalCode": "400013", "addressCountry": "IN"}, "areaServed": "Mumbai, Maharashtra, India", "sameAs": ["https://in.linkedin.com/company/tatvm-group", "https://www.instagram.com/tatvmgroup/", "https://www.youtube.com/@tatvmgroup", "https://www.facebook.com/profile.php?id=61577605111837"], "founder": {"@type": "Person", "name": "Raahul Maroo", "jobTitle": "Founder & Managing Director"}, "priceRange": "â‚¹â‚¹â‚¹"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tatvmgroup.com/index.html"}, {"@type": "ListItem", "position": 2, "name": "Opportunities", "item": "https://tatvmgroup.com/work-with-us.html"}, {"@type": "ListItem", "position": 3, "name": "Work With Us", "item": "https://tatvmgroup.com/work-with-us.html"}]}]}</script>
+</head>
+<body data-page="inner">
+
+<header id="header-slot"></header>
+<main>
+
+<section class="page-hero">
+  <img src="./assets/img/approach-craft.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Opportunities</span><span class="sep">/</span><span>Work With Us</span></nav>
+    <p class="eyebrow light">Work With Us</p>
+    <h1 class="display">Bring us your land.</h1>
+    <p class="lead">Landowners and joint-development partners: a fair, documented, five-fundamentals process.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow">Joint development</p>
+        <h2 class="h2">Your land. Our discipline.</h2>
+      </div>
+      <p class="lead">If you own land or an aging property in Mumbai, a joint development with Tat:vm keeps you a partner â€” not a bystander. Every term documented; every milestone shared.</p>
+    </div>
+    <div class="grid-3 mt-lg">
+      <div class="card reveal"><i data-icon="doc" data-icls="lg red"></i><h3 class="h4">Documented terms</h3><p>Revenue shares, timelines and responsibilities in a written agreement â€” reviewed by your lawyer.</p></div>
+      <div class="card reveal d1"><i data-icon="handshake" data-icls="lg red"></i><h3 class="h4">You stay a partner</h3><p>Joint decisions on design, branding and sales â€” not a handover and a goodbye.</p></div>
+      <div class="card reveal d2"><i data-icon="shield" data-icls="lg red"></i><h3 class="h4">RERA-registered</h3><p>All projects registered, milestones linked â€” your returns protected by process, not promises.</p></div>
+    </div>
+    <div class="section-head center mt-lg">
+      <p class="eyebrow">Who we partner with</p>
+    </div>
+    <div class="chip-row">
+      <span class="chip">Landowners</span><span class="chip">Society committees</span><span class="chip">Investors</span><span class="chip">Plot owners</span><span class="chip">Heritage property holders</span><span class="chip">NRIs with Mumbai land</span>
+    </div>
+    <div class="cta-wrap mt-lg">
+      <a href="contact.html" class="btn btn-primary">Start a conversation</a>
+      <a href="tel:+912235006800" class="btn btn-outline">Call +91 22 3500 6800</a>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="container grid-2">
+    <figure class="media-mask reveal-img"><img src="./assets/img/commercial-interior.jpg" alt="A modern commercial interior" loading="lazy"></figure>
+    <div>
+      <p class="eyebrow">Also looking for</p>
+      <h2 class="h2">Good people, good projects.</h2>
+      <p class="lead">We grow with careful partners â€” in development and in our ecosystem.</p>
+      <div class="grid-2 mt-lg">
+        <div class="card reveal"><i data-icon="briefcase" data-icls="lg red"></i><h3 class="h3">Careers</h3><p>Architects, project and site engineers, sales and CRM roles. Send your profile to <a href="mailto:info@tatvmgroup.com">info@tatvmgroup.com</a>.</p></div>
+        <div class="card reveal d1"><i data-icon="users" data-icls="lg red"></i><h3 class="h3">Channel partners</h3><p>Estate agents and brokers â€” join our network. <a href="network-partners.html">Network Partners</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>
+########## network-partners.html ##########
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Partners | Tat:vm â€” Channel Partner Programme</title>
+<meta name="description" content="Tat:vm channel partner programme for Mumbai estate agents and brokers: protected leads, on-time payouts, real inventory and dedicated support.">
+<meta name="keywords" content="">
+<link rel="canonical" href="https://tatvmgroup.com/network-partners.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="Network Partners | Tat:vm â€” Channel Partner Programme">
+<meta property="og:description" content="Tat:vm channel partner programme for Mumbai estate agents and brokers: protected leads, on-time payouts, real inventory and dedicated support.">
+<meta property="og:url" content="https://tatvmgroup.com/network-partners.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/ghatkopar-street.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Network Partners | Tat:vm â€” Channel Partner Programme">
+<meta name="twitter:description" content="Tat:vm channel partner programme for Mumbai estate agents and brokers: protected leads, on-time payouts, real inventory and dedicated support.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/ghatkopar-street.jpg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://tatvmgroup.com/#org", "name": "Tat:vm Builders & Developers Pvt Ltd", "alternateName": "Tat:vm Group", "url": "https://tatvmgroup.com/", "logo": "https://tatvmgroup.com/assets/img/favicon.svg", "slogan": "Rooted in you", "telephone": "+91-22-3500-6800", "email": "info@tatvmgroup.com", "address": {"@type": "PostalAddress", "streetAddress": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg", "addressLocality": "Mumbai", "addressRegion": "MH", "postalCode": "400013", "addressCountry": "IN"}, "areaServed": "Mumbai, Maharashtra, India", "sameAs": ["https://in.linkedin.com/company/tatvm-group", "https://www.instagram.com/tatvmgroup/", "https://www.youtube.com/@tatvmgroup", "https://www.facebook.com/profile.php?id=61577605111837"], "founder": {"@type": "Person", "name": "Raahul Maroo", "jobTitle": "Founder & Managing Director"}, "priceRange": "â‚¹â‚¹â‚¹"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tatvmgroup.com/index.html"}, {"@type": "ListItem", "position": 2, "name": "Opportunities", "item": "https://tatvmgroup.com/work-with-us.html"}, {"@type": "ListItem", "position": 3, "name": "Network Partners", "item": "https://tatvmgroup.com/network-partners.html"}]}]}</script>
+</head>
+<body data-page="inner">
+
+<header id="header-slot"></header>
+<main>
+
+<section class="page-hero">
+  <img src="./assets/img/ghatkopar-street.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Opportunities</span><span class="sep">/</span><span>Network Partners</span></nav>
+    <p class="eyebrow light">Network Partners</p>
+    <h1 class="display">Sell with us, honestly.</h1>
+    <p class="lead">Channel partner programme for estate agents & brokers â€” fair commissions, protected leads, real inventory.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head split">
+      <div>
+        <p class="eyebrow">Channel partners</p>
+        <h2 class="h2">A partner network, not a race.</h2>
+      </div>
+      <p class="lead">We keep inventory honest, payouts on time and support close â€” so partners recommend us with their reputation, not just their inventory.</p>
+    </div>
+    <div class="grid-3 mt-lg">
+      <div class="card reveal"><i data-icon="shield" data-icls="lg red"></i><h3 class="h4">Protected leads</h3><p>Lead registration stays with the partner who brought it â€” no re-shopping, no undercutting.</p></div>
+      <div class="card reveal d1"><i data-icon="check" data-icls="lg red"></i><h3 class="h4">On-time payouts</h3><p>Commission schedules written into the agreement and paid to the calendar.</p></div>
+      <div class="card reveal d2"><i data-icon="doc" data-icls="lg red"></i><h3 class="h4">Real inventory</h3><p>Live availability, honest pricing and site-visit support â€” material you can stand behind.</p></div>
+    </div>
+    <div class="section-head center mt-lg">
+      <p class="eyebrow">What you get</p>
+    </div>
+    <ul class="spec-grid">
+      <li class="spec"><i data-icon="check" data-icls="red"></i><span>Dedicated partner manager</span></li>
+      <li class="spec"><i data-icon="check" data-icls="red"></i><span>Co-branded sales material</span></li>
+      <li class="spec"><i data-icon="check" data-icls="red"></i><span>Site-visit &amp; CRM support</span></li>
+      <li class="spec"><i data-icon="check" data-icls="red"></i><span>Quarterly partner briefings</span></li>
+    </ul>
+    <div class="cta-wrap mt-lg">
+      <a href="contact.html" class="btn btn-primary">Apply to join the network</a>
+      <a href="https://wa.me/919152000425" class="btn btn-outline">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>
+########## nri.html ##########
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NRI Services | Tat:vm â€” Buy Mumbai Property from Abroad</title>
+<meta name="description" content="Tat:vm NRI services: video walkthroughs, POA support, FEMA guidance, NRE/NRO payment coordination and post-purchase care for Mumbai homes.">
+<meta name="keywords" content="NRI buy property Mumbai, FEMA, POA, NRE NRO, NRI real estate services">
+<link rel="canonical" href="https://tatvmgroup.com/nri.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="NRI Services | Tat:vm â€” Buy Mumbai Property from Abroad">
+<meta property="og:description" content="Tat:vm NRI services: video walkthroughs, POA support, FEMA guidance, NRE/NRO payment coordination and post-purchase care for Mumbai homes.">
+<meta property="og:url" content="https://tatvmgroup.com/nri.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/interior-light.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NRI Services | Tat:vm â€” Buy Mumbai Property from Abroad">
+<meta name="twitter:description" content="Tat:vm NRI services: video walkthroughs, POA support, FEMA guidance, NRE/NRO payment coordination and post-purchase care for Mumbai homes.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/interior-light.jpg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://tatvmgroup.com/#org", "name": "Tat:vm Builders & Developers Pvt Ltd", "alternateName": "Tat:vm Group", "url": "https://tatvmgroup.com/", "logo": "https://tatvmgroup.com/assets/img/favicon.svg", "slogan": "Rooted in you", "telephone": "+91-22-3500-6800", "email": "info@tatvmgroup.com", "address": {"@type": "PostalAddress", "streetAddress": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg", "addressLocality": "Mumbai", "addressRegion": "MH", "postalCode": "400013", "addressCountry": "IN"}, "areaServed": "Mumbai, Maharashtra, India", "sameAs": ["https://in.linkedin.com/company/tatvm-group", "https://www.instagram.com/tatvmgroup/", "https://www.youtube.com/@tatvmgroup", "https://www.facebook.com/profile.php?id=61577605111837"], "founder": {"@type": "Person", "name": "Raahul Maroo", "jobTitle": "Founder & Managing Director"}, "priceRange": "â‚¹â‚¹â‚¹"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tatvmgroup.com/index.html"}, {"@type": "ListItem", "position": 2, "name": "Opportunities", "item": "https://tatvmgroup.com/work-with-us.html"}, {"@type": "ListItem", "position": 3, "name": "NRI Services", "item": "https://tatvmgroup.com/nri.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can NRIs buy residential property in Mumbai?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Under FEMA, NRIs and OCIs can purchase residential property in India without RBI approval."}}, {"@type": "Question", "name": "Can I buy without visiting India?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly, yes - with a Power of Attorney, video walkthroughs and digital documentation."}}, {"@type": "Question", "name": "How do payments work from abroad?", "acceptedAnswer": {"@type": "Answer", "text": "Funds move through NRE/NRO accounts or inward remittance via banking channels, with a clear payment schedule shared in advance."}}]}]}</script>
+</head>
+<body>
+<header id="header-slot"></header>
+<main>
+
+<section class="page-hero">
+  <img src="./assets/img/interior-light.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Opportunities</span><span class="sep">/</span><span>NRI Services</span></nav>
+    <p class="eyebrow light">NRI Services</p>
+    <h1 class="display">Mumbai, from anywhere.</h1>
+    <p class="lead">NRI-friendly buying: remote paperwork, FEMA-compliant guidance and a home you can trust sight-seen.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container grid-2">
+    <div>
+      <p class="eyebrow">For NRIs</p>
+      <h2 class="h2">Buy from a distance, without doubt.</h2>
+      <p class="lead">Buying a Mumbai home from abroad should not feel like a leap of faith. We run a documented, remote-first process â€” with video walkthroughs, digital paperwork and FEMA-smart guidance.</p>
+      <ul class="spec-grid mt-lg">
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>Live video site walkthroughs</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>POA &amp; documentation support</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>FEMA / RBI compliance guidance</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>NRE / NRO payment coordination</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>Rental &amp; handover management</span></li>
+        <li class="spec"><i data-icon="check" data-icls="red"></i><span>Post-purchase care, years on</span></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary mt-lg reveal d2">Talk to our NRI desk</a>
+    </div>
+    <figure class="media-mask reveal-img"><img src="./assets/img/interior-light.jpg" alt="A light-filled Tat:vm interior" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="section bg-sand">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Frequently asked</p>
+      <h2 class="h2">NRI questions, answered.</h2>
+    </div>
+    <div class="grid-2 mt-lg">
+      <div class="faq-item reveal"><h3 class="h4">Can NRIs buy residential property in Mumbai?</h3><p>Yes. Under FEMA, NRIs and OCIs can purchase residential property in India without RBI approval. We help you stay compliant at every step.</p></div>
+      <div class="faq-item reveal d1"><h3 class="h4">Can I buy without visiting India?</h3><p>Mostly, yes â€” with a Power of Attorney, video walkthroughs and digital documentation. We support the POA drafting and attestation process.</p></div>
+      <div class="faq-item reveal d2"><h3 class="h4">How do payments work from abroad?</h3><p>Funds move through NRE/NRO accounts or inward remittance via banking channels. We share a clear payment schedule before you commit.</p></div>
+      <div class="faq-item reveal d3"><h3 class="h4">Can Tat:vm manage the home afterwards?</h3><p>Yes â€” handover, furnishing coordination and rental management support is available for NRI buyers.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>
+########## faqs.html ##########
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs | Tat:vm â€” Mumbai Real Estate Questions Answered</title>
+<meta name="description" content="Tat:vm FAQs: what we build, RERA registration, the five fundamentals, redevelopment timelines, NRI buying, joint development, site visits and office location.">
+<meta name="keywords" content="Tat:vm FAQ, Mumbai real estate questions, RERA, redevelopment timeline, NRI buying">
+<link rel="canonical" href="https://tatvmgroup.com/faqs.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="FAQs | Tat:vm â€” Mumbai Real Estate Questions Answered">
+<meta property="og:description" content="Tat:vm FAQs: what we build, RERA registration, the five fundamentals, redevelopment timelines, NRI buying, joint development, site visits and office location.">
+<meta property="og:url" content="https://tatvmgroup.com/faqs.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/interior-warm.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQs | Tat:vm â€” Mumbai Real Estate Questions Answered">
+<meta name="twitter:description" content="Tat:vm FAQs: what we build, RERA registration, the five fundamentals, redevelopment timelines, NRI buying, joint development, site visits and office location.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/interior-warm.jpg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://tatvmgroup.com/#org", "name": "Tat:vm Builders & Developers Pvt Ltd", "alternateName": "Tat:vm Group", "url": "https://tatvmgroup.com/", "logo": "https://tatvmgroup.com/assets/img/favicon.svg", "slogan": "Rooted in you", "telephone": "+91-22-3500-6800", "email": "info@tatvmgroup.com", "address": {"@type": "PostalAddress", "secretAddress": "", "streetAddress": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg", "addressLocality": "Mumbai", "addressRegion": "MH", "postalCode": "400013", "addressCountry": "IN"}, "areaServed": "Mumbai, Maharashtra, India", "sameAs": ["https://in.linkedin.com/company/tatvm-group", "https://www.instagram.com/tatvmgroup/", "https://www.youtube.com/@tatvmgroup", "https://www.facebook.com/profile.php?id=61577605111837"], "founder": {"@type": "Person", "name": "Raahul Maroo", "jobTitle": "Founder & Managing Director"}, "priceRange": "â‚¹â‚¹â‚¹"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tatvmgroup.com/index.html"}, {"@type": "ListItem", "position": 2, "name": "Insights", "item": "https://tatvmgroup.com/insights.html"}, {"@type": "ListItem", "position": 3, "name": "FAQs", "item": "https://tatvmgroup.com/faqs.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does Tat:vm build?", "acceptedAnswer": {"@type": "Answer", "text": "Residential, commercial and mixed-use projects in Mumbai, plus redevelopment of aging housing societies. Our first developments are in Ghatkopar."}}, {"@type": "Question", "name": "What are the five fundamentals?", "acceptedAnswer": {"@type": "Answer", "text": "Space, Light, Air, Vastu and Sustainability. Every Tat:vm design starts from these five â€” together, never separately. You can explore each one on our homepage."}}, {"@type": "Question", "name": "Are Tat:vm projects RERA-registered?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every project we market is registered under RERA (Maharashtra) with milestone-linked timelines, so your rights are protected by process, not promises."}}, {"@type": "Question", "name": "How long does society redevelopment take?", "acceptedAnswer": {"@type": "Answer", "text": "Typically 24â€“36 months of construction after approvals, plus the approval phase. We share a written, milestone-linked schedule before any consent is sought."}}, {"@type": "Question", "name": "Can NRIs buy a Tat:vm home?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We run an NRI-friendly, remote-first process: video walkthroughs, POA and documentation support, FEMA guidance and NRE/NRO payment coordination. See NRI Services."}}, {"@type": "Question", "name": "Do you take joint-development projects?", "acceptedAnswer": {"@type": "Answer", "text": "Yes â€” with landowners, society committees and investors. Terms are documented, milestones shared, and you remain a partner through design and sales. See Work With Us."}}, {"@type": "Question", "name": "How do I book a site visit?", "acceptedAnswer": {"@type": "Answer", "text": "WhatsApp us on +91 91520 04250, call +91 22 3500 6800, or write to info@tatvmgroup.com. Site visits run on weekdays and weekends."}}, {"@type": "Question", "name": "Where is the Tat:vm office?", "acceptedAnswer": {"@type": "Answer", "text": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg, Lower Parel, Mumbai 400013."}}]}]}</script>
+</head>
+<body data-page="inner">
+
+<header id="header-slot"></header>
+<main>
+
+<section class="page-hero">
+  <img src="./assets/img/interior-warm.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Insights</span><span class="sep">/</span><span>FAQs</span></nav>
+    <p class="eyebrow light">FAQs</p>
+    <h1 class="display">Asked, answered.</h1>
+    <p class="lead">The questions Mumbai homebuyers, society members and partners ask us most.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head split">
+      <div><p class="eyebrow">Frequently asked</p><h2 class="h2">Eight honest answers.</h2></div>
+      <p class="lead">Anything else? WhatsApp, call or email â€” a real person replies.</p>
+    </div>
+    <div class="grid-2 mt-lg">
+<div class="faq-item reveal"><h3 class="h4">What does Tat:vm build?</h3><p>Residential, commercial and mixed-use projects in Mumbai, plus redevelopment of aging housing societies. Our first developments are in Ghatkopar.</p></div>
+<div class="faq-item reveal"><h3 class="h4">What are the five fundamentals?</h3><p>Space, Light, Air, Vastu and Sustainability. Every Tat:vm design starts from these five â€” together, never separately. You can explore each one on our homepage.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Are Tat:vm projects RERA-registered?</h3><p>Yes. Every project we market is registered under RERA (Maharashtra) with milestone-linked timelines, so your rights are protected by process, not promises.</p></div>
+<div class="faq-item reveal"><h3 class="h4">How long does society redevelopment take?</h3><p>Typically 24â€“36 months of construction after approvals, plus the approval phase. We share a written, milestone-linked schedule before any consent is sought.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Can NRIs buy a Tat:vm home?</h3><p>Yes. We run an NRI-friendly, remote-first process: video walkthroughs, POA and documentation support, FEMA guidance and NRE/NRO payment coordination. See NRI Services.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Do you take joint-development projects?</h3><p>Yes â€” with landowners, society committees and investors. Terms are documented, milestones shared, and you remain a partner through design and sales. See Work With Us.</p></div>
+<div class="faq-item reveal"><h3 class="h4">How do I book a site visit?</h3><p>WhatsApp us on +91 91520 04250, call +91 22 3500 6800, or write to info@tatvmgroup.com. Site visits run on weekdays and weekends.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Where is the Tat:vm office?</h3><p>Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg, Lower Parel, Mumbai 400013.</p></div>
+    </div>
+    <div class="cta-wrap mt-lg">
+      <a href="https://wa.me/919152000425" class="btn btn-primary">WhatsApp us</a>
+      <a href="contact.html" class="btn btn-outline">Contact page</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>

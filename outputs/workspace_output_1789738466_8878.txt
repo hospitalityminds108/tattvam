@@ -1,0 +1,3 @@
+Usage: /usr/bin/browser-tool <action> [args...] [--ocr]
+Run with 'observe' for current page state.
+Add --ocr to any command to include Tesseract OCR text.

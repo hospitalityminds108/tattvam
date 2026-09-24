@@ -1,0 +1,24 @@
+.field label{display:block;font-size:.74rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--char);margin-bottom:.45rem}
+.field input,.field select,.field textarea{
+  width:100%;padding:.95rem 1.15rem;border-radius:14px;border:1.5px solid var(--line);
+  background:#fff;font-family:inherit;font-size:.95rem;color:var(--char);
+  transition:border-color .3s,box-shadow .3s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(142,31,36,.09);
+}
+.field textarea{min-height:130px;resize:vertical}
+.form-note{font-size:.78rem;color:var(--taupe)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.form-grid .full{grid-column:1/-1}
+@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+.form-ok{
+  display:none;align-items:center;gap:.7rem;background:#EDF3DC;border:1px solid #C9DCA2;color:#4C5F1E;
+  padding:.9rem 1.2rem;border-radius:14px;font-weight:700;font-size:.9rem;margin-top:1rem;
+}
+.form-ok.show{display:flex}
+.form-ok svg{width:20px;height:20px;flex-shrink:0}
+=== markup sample ===
+49:        <label class="field"><span>Full name</span><input type="text" name="name" required placeholder="Your name"></label>
+50:        <label class="field"><span>Phone</span><input type="tel" name="phone" required placeholder="+91"></label>
+51:        <label class="field"><span>Email</span><input type="email" name="email" required placeholder="you@example.com"></label>

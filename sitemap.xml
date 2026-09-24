@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://tatvmgroup.com/index.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/about.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/vision-mission.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/brand-story.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/leadership.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/our-approach.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/csr.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/projects.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/projects/ghatkopar-mixed-use.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/projects/ghatkopar-residential.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/redevelopment.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/work-with-us.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/network-partners.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/nri.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/insights.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/faqs.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/contact.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/privacy-policy.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/terms-and-conditions.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>
-  <url>\n    <loc>https://tatvmgroup.com/cookie-policy.html</loc>\n    <lastmod>2026-09-09</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>\n
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tatvmgroup.com/index.html</loc><lastmod>2026-09-24</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tatvmgroup.com/about.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/vision-mission.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/brand-story.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/leadership.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/our-approach.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/csr.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tatvmgroup.com/projects.html</loc><lastmod>2026-09-24</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tatvmgroup.com/projects/ghatkopar-mixed-use.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tatvmgroup.com/projects/ghatkopar-residential.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tatvmgroup.com/projects/marine-lines-commercial.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tatvmgroup.com/redevelopment.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tatvmgroup.com/work-with-us.html</loc><lastmod>2026-09-24</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/network-partners.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tatvmgroup.com/nri.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/insights.html</loc><lastmod>2026-09-24</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tatvmgroup.com/faqs.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tatvmgroup.com/contact.html</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tatvmgroup.com/privacy-policy.html</loc><lastmod>2026-09-24</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://tatvmgroup.com/terms-and-conditions.html</loc><lastmod>2026-09-24</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://tatvmgroup.com/cookie-policy.html</loc><lastmod>2026-09-24</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
+</urlset>

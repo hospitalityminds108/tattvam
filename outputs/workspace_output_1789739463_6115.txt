@@ -1,0 +1,36 @@
+.faq-item{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
+  padding:1.1rem 1.4rem;transition:box-shadow .4s,border-color .4s;
+}
+.faq-item + .faq-item{margin-top:.8rem}
+.faq-item[open]{box-shadow:var(--shadow-soft);border-color:var(--blush-deep)}
+.faq-item summary{
+  list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-weight:800;font-size:1rem;color:var(--char);cursor:pointer;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .pm{
+  flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--blush);color:var(--red);
+  display:grid;place-items:center;font-weight:700;font-size:1.15rem;transition:transform .45s var(--ease),background .3s;
+}
+.faq-item[open] summary .pm{transform:rotate(45deg);background:var(--red);color:#fff}
+.faq-item .ans{padding-top:.8rem;font-size:.94rem;color:var(--taupe);max-width:62ch}
+
+=== faq section markup ===
+    <div class="section-head split">
+      <div><p class="eyebrow">Frequently asked</p><h2 class="h2">Eight honest answers.</h2></div>
+      <p class="lead">Anything else? WhatsApp, call or email — a real person replies.</p>
+    </div>
+    <div class="grid-2 mt-lg">
+<div class="faq-item reveal"><h3 class="h4">What does Tat:vm build?</h3><p>Residential, commercial and mixed-use projects in Mumbai, plus redevelopment of aging housing societies. Our first developments are in Ghatkopar.</p></div>
+<div class="faq-item reveal"><h3 class="h4">What are the five fundamentals?</h3><p>Space, Light, Air, Vastu and Sustainability. Every Tat:vm design starts from these five — together, never separately. You can explore each one on our homepage.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Are Tat:vm projects RERA-registered?</h3><p>Yes. Every project we market is registered under RERA (Maharashtra) with milestone-linked timelines, so your rights are protected by process, not promises.</p></div>
+<div class="faq-item reveal"><h3 class="h4">How long does society redevelopment take?</h3><p>Typically 24–36 months of construction after approvals, plus the approval phase. We share a written, milestone-linked schedule before any consent is sought.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Can NRIs buy a Tat:vm home?</h3><p>Yes. We run an NRI-friendly, remote-first process: video walkthroughs, POA and documentation support, FEMA guidance and NRE/NRO payment coordination. See NRI Services.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Do you take joint-development projects?</h3><p>Yes — with landowners, society committees and investors. Terms are documented, milestones shared, and you remain a partner through design and sales. See Work With Us.</p></div>
+<div class="faq-item reveal"><h3 class="h4">How do I book a site visit?</h3><p>WhatsApp us on +91 91520 04250, call +91 22 3500 6800, or write to info@tatvmgroup.com. Site visits run on weekdays and weekends.</p></div>
+<div class="faq-item reveal"><h3 class="h4">Where is the Tat:vm office?</h3><p>Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg, Lower Parel, Mumbai 400013.</p></div>
+    </div>
+    <div class="cta-wrap mt-lg">
+      <a href="https://wa.me/919152000425" class="btn btn-primary">WhatsApp us</a>
+      <a href="contact.html" class="btn btn-outline">Contact page</a>

@@ -1,0 +1,40 @@
+=== depth usage in components.js ===
+5:  const depth = location.pathname.includes('/projects/') ? '../' : '';
+37:      <a class="brand" href="${depth}index.html" aria-label="Tat:vm home">${T.logo('dark')}</a>
+45:            <a href="${n.dd && n.label !== 'Projects' ? '#' : (n.label==='Projects' && n.dd ? depth + 'projects.html' : depth + n.href)}" ${n.dd && n.label !== 'Projects' ? 'aria-haspopup="true"' : ''}>${n.label}</a>
+46:            ${n.dd ? `<div class="dd">${n.dd.map(d => `<a href="${d.href.startsWith('projects/') && depth === '' ? '' : depth}${d.href}">${T.icon(d.icon)}${d.label}</a>`).join('')}</div>` : ''}
+51:        <a href="${depth}contact.html" class="btn btn-primary" style="padding:.8rem 1.4rem">Enquire Now ${T.icon('arrow','arrow')}</a>
+58:      <a class="mlink" href="${n.href === '#' ? 'javascript:void(0)' : depth + n.href}" data-mgroup="${n.label}">${n.label}${n.dd ? `<em>+</em>` : ''}</a>
+59:      ${n.dd ? `<div class="msub" data-msub="${n.label}">${n.dd.map(d => `<a href="${d.href.startsWith('projects/') && depth === '' ? '' : depth}${d.href}">${d.label}</a>`).join('')}</div>` : ''}`).join('')}
+61:      <a href="${depth}contact.html" class="btn btn-primary">Enquire Now ${T.icon('arrow','arrow')}</a>
+124:          <a href="${depth}about.html">About Tat:vm</a>
+125:          <a href="${depth}our-approach.html">Our Approach</a>
+126:          <a href="${depth}vision-mission.html">Vision &amp; Mission</a>
+127:          <a href="${depth}brand-story.html">Brand Story</a>
+128:          <a href="${depth}leadership.html">Leadership</a>
+129:          <a href="${depth}csr.html">CSR</a>
+133:          <a href="${depth}projects.html">Projects</a>
+134:          <a href="${depth}redevelopment.html">Redevelopment</a>
+135:          <a href="${depth}insights.html">Insights</a>
+136:          <a href="${depth}faqs.html">FAQs</a>
+137:          <a href="${depth}work-with-us.html">Work With Us</a>
+138:          <a href="${depth}nri.html">NRI Services</a>
+139:          <a href="${depth}network-partners.html">Network Partners</a>
+160:          <a href="${depth}privacy-policy.html">Privacy</a> ·
+161:          <a href="${depth}terms-and-conditions.html">Terms</a> ·
+162:          <a href="${depth}cookie-policy.html">Cookies</a>
+=== hrefs referencing projects/ ===
+ghatkopar-mixed-use.html:9:<link rel="canonical" href="https://tatvmgroup.com/projects/ghatkopar-mixed-use.html">
+ghatkopar-mixed-use.html:15:<meta property="og:url" content="https://tatvmgroup.com/projects/ghatkopar-mixed-use.html">
+ghatkopar-mixed-use.html:26:<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Residence","name":"Tat:vm Ghatkopar Mixed-Use","url":"https://tatvmgroup.com/projects/ghatkopar-mixed-use.html","address":{"@type":"PostalAddress","addressLocality":"Ghatkopar","addressRegion":"Mumbai","addressCountry":"IN"},"developer":{"@id":"https://tatvmgroup.com/#org"}},"{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://tatvmgroup.com/index.html\"}, {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Projects\",\"item\":\"https://tatvmgroup.com/projects.html\"}, {\"@type\":\"ListItem\",\"position\":3,\"name\":\"Ghatkopar Mixed-Use\",\"item\":\"https://tatvmgroup.com/projects/ghatkopar-mixed-use.html\"}]}"]}</script>
+ghatkopar-residential.html:9:<link rel="canonical" href="https://tatvmgroup.com/projects/ghatkopar-residential.html">
+ghatkopar-residential.html:15:<meta property="og:url" content="https://tatvmgroup.com/projects/ghatkopar-residential.html">
+ghatkopar-residential.html:26:<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Residence","name":"Tat:vm Ghatkopar Residential","url":"https://tatvmgroup.com/projects/ghatkopar-residential.html","address":{"@type":"PostalAddress","addressLocality":"Ghatkopar","addressRegion":"Mumbai","addressCountry":"IN"},"developer":{"@id":"https://tatvmgroup.com/#org"}},"{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://tatvmgroup.com/index.html\"}, {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Projects\",\"item\":\"https://tatvmgroup.com/projects.html\"}, {\"@type\":\"ListItem\",\"position\":3,\"name\":\"Ghatkopar Residential\",\"item\":\"https://tatvmgroup.com/projects/ghatkopar-residential.html\"}]}"]}</script>
+index.html:195:      <a href="projects/ghatkopar-mixed-use.html" class="proj-card reveal d1">
+index.html:207:      <a href="projects/ghatkopar-residential.html" class="proj-card reveal d2">
+insights.html:104:  <a href="projects/ghatkopar-mixed-use.html" class="art-card card-hl">
+projects.html:26:<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"RealEstateAgent","@id":"https://tatvmgroup.com/#org","name":"Tat:vm Builders & Developers Pvt. Ltd.","url":"https://tatvmgroup.com/","telephone":"+91-22-3500-6800","email":"info@tatvmgroup.com","address":{"@type":"PostalAddress","streetAddress":"Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg","addressLocality":"Lower Parel","addressRegion":"MH","postalCode":"400013","addressCountry":"IN"},"sameAs":["https://in.linkedin.com/company/tatvm-group","https://www.instagram.com/tatvmgroup/","https://youtube.com/@tatvmgroup","https://www.facebook.com/profile.php?id=61577605111837"],"areaServed":"Mumbai","foundingDate":"2025","description":"Mumbai-based real estate development company building residential, commercial and mixed-use spaces around five fundamentals: Space, Light, Air, Vastu and Sustainability."},{"@type":"ItemList","name":"Tat:vm Projects","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghatkopar Mixed-Use","url":"https://tatvmgroup.com/projects/ghatkopar-mixed-use.html"},{"@type":"ListItem","position":2,"name":"Ghatkopar Residential","url":"https://tatvmgroup.com/projects/ghatkopar-residential.html"}]},"{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://tatvmgroup.com/index.html\"}, {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Projects\",\"item\":\"https://tatvmgroup.com/projects.html\"}]}"]}</script>
+projects.html:49:      <a href="projects/ghatkopar-mixed-use.html" class="proj-card reveal">
+projects.html:61:      <a href="projects/ghatkopar-residential.html" class="proj-card reveal d1">
+assets/js/components.js:18:      { label:'Ghatkopar — Mixed-Use', href:'projects/ghatkopar-mixed-use.html', icon:'briefcase' },
+assets/js/components.js:19:      { label:'Ghatkopar — Residential', href:'projects/ghatkopar-residential.html', icon:'home' },

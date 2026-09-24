@@ -1,0 +1,10 @@
+=== index.html head scripts ===
+20:<script src="assets/js/svg.js?v=5"></script>
+21:<script src="assets/js/components.js?v=5"></script>
+22:<script src="assets/js/main.js?v=5"></script>
+=== contact.html body scripts ===
+85:<script src="assets/js/svg.js?v=5"></script>
+86:<script src="assets/js/components.js?v=5"></script>
+87:<script src="assets/js/main.js?v=5"></script>
+=== any defer? ===
+no defer anywhere

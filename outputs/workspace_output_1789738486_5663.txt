@@ -1,0 +1,3 @@
+HORIZONTAL OVERFLOW ISSUES: 2
+  contact.html                           w=  414 overflow=  17px  worst=SPAN.
+  contact.html                           w=  430 overflow=   9px  worst=SPAN.

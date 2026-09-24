@@ -1,0 +1,5 @@
+=== BROWSER STATE ===
+URL: http://localhost:8080/contact.html
+Title: Contact | Tat:vm — Mumbai Real Estate Enquiries
+{'tag': 'SPAN', 'cls': '', 'right': 431, 'w': 165, 'txt': 'info@tatvmgroup.com'}
+{'tag': 'A', 'cls': '', 'right': 431, 'w': 165, 'txt': 'info@tatvmgroup.com'}

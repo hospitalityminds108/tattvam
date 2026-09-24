@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Tat:vm | Mumbai Real Estate Developers</title>
+<meta name="description" content="Tat:vm Builders & Developers is a Mumbai real estate development company building residential, commercial and mixed-use spaces on five fundamentals â€” Space, Light, Air, Vastu, Sustainability.">
+<meta name="keywords" content="about Tat:vm, Mumbai real estate developer, Tatvm group company">
+<link rel="canonical" href="https://tatvmgroup.com/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm">
+<meta property="og:title" content="About Tat:vm | Mumbai Real Estate Developers">
+<meta property="og:description" content="Tat:vm Builders & Developers is a Mumbai real estate development company building residential, commercial and mixed-use spaces on five fundamentals â€” Space, Light, Air, Vastu, Sustainability.">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/skyline-mumbai.jpg">
+<meta property="og:url" content="https://tatvmgroup.com/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#8E1F24">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"RealEstateAgent","@id":"https://tatvmgroup.com/#org","name":"Tat:vm Builders & Developers Pvt. Ltd.","url":"https://tatvmgroup.com/","telephone":"+91-22-3500-6800","email":"info@tatvmgroup.com","address":{"@type":"PostalAddress","streetAddress":"Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg","addressLocality":"Lower Parel","addressRegion":"MH","postalCode":"400013","addressCountry":"IN"},"sameAs":["https://in.linkedin.com/company/tatvm-group","https://www.instagram.com/tatvmgroup/","https://youtube.com/@tatvmgroup","https://www.facebook.com/profile.php?id=61577605111837"],"areaServed":"Mumbai","foundingDate":"2025","description":"Mumbai-based real estate development company building residential, commercial and mixed-use spaces around five fundamentals: Space, Light, Air, Vastu and Sustainability."},{"@type":"AboutPage","name":"About Tat:vm","url":"https://tatvmgroup.com/about.html"},"{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://tatvmgroup.com/index.html\"}, {\"@type\":\"ListItem\",\"position\":2,\"name\":\"About\",\"item\":\"https://tatvmgroup.com/about.html\"}]}"]}</script>
+</head>
+<body>
+<div class="loader" id="loader"><div class="in"><span data-logo="dark"></span><div class="bar"><i></i></div></div></div>
+<div id="header-slot"></div>
+<main id="main">
+<section class="page-hero">
+  <img src="./assets/img/skyline-mumbai.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>About</span></nav>
+    <p class="eyebrow light">About Tat:vm</p>
+    <h1 class="display">Mumbai, built with patience.</h1>
+    <p class="lead">Tat:vm Builders &amp; Developers is a Mumbai real estate development company â€” residential, commercial and mixed-use â€” built on five fundamentals.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container grid asym">
+    <div>
+      <p class="eyebrow reveal">Who we are</p>
+      <h2 class="h1 mt-sm reveal d1">Rooted in Mumbai. Building for its next fifty years.</h2>
+      <p class="lead mt-md reveal d2">Every Tat:vm project begins with the same question: how will this space be lived in, ten years from today? The answer shapes our layouts, our light, our materials and our promises.</p>
+      <p class="mt-md reveal d3">We are a young company with old-school discipline. Founded in 2025 and headquartered in Lower Parel, we work across Ghatkopar and central Mumbai â€” on new development and on redevelopment of aging housing societies, where the city needs it most.</p>
+      <div class="chip-row mt-lg reveal d3">
+        <span class="chip">Residential</span><span class="chip">Commercial</span><span class="chip">Mixed-Use</span><span class="chip">Redevelopment</span>
+      </div>
+    </div>
+    <figure class="media-mask reveal-img"><img src="./assets/img/mumbai-neighbourhood.jpg" alt="A Mumbai neighbourhood street" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow center reveal">What guides us</p>
+      <h2 class="h1 mt-sm reveal d1">Five fundamentals, one home.</h2>
+    </div>
+    <div class="tattva-stage mt-lg reveal d2">
+      <div class="pent-wrap" data-pentagon></div>
+      <aside class="tattva-panel">
+        <div class="tattva-detail"></div>
+        <nav class="tattva-nav" aria-label="Explore the five tattvas">
+          <button data-tattva="space">Space</button>
+          <button data-tattva="light">Light</button>
+          <button data-tattva="air">Air</button>
+          <button data-tattva="vastu">Vastu</button>
+          <button data-tattva="sustain">Sustainability</button>
+        </nav>
+      </aside>
+    </div>
+    <p class="center mt-lg reveal" style="font-size:.85rem;color:var(--taupe)">Tap any node â€” the five always work together.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-3">
+    <div class="card reveal"><div class="ico-chip"><i data-icon="building" class="ico lg"></i></div><h3 class="h4">What we build</h3><p>Residential towers, commercial floors and street-friendly mixed-use developments across Mumbai.</p><a href="projects.html" class="link-arrow">Projects</a></div>
+    <div class="card reveal d1"><div class="ico-chip"><i data-icon="key" class="ico lg"></i></div><h3 class="h4">How we work</h3><p>Transparent approvals, disciplined budgets, on-time delivery â€” the five fundamentals applied end to end.</p><a href="our-approach.html" class="link-arrow">Our approach</a></div>
+    <div class="card reveal d2"><div class="ico-chip"><i data-icon="user" class="ico lg"></i></div><h3 class="h4">Who leads us</h3><p>Raahul Maroo, founder â€” two decades of Mumbai real estate across development and redevelopment.</p><a href="leadership.html" class="link-arrow">Leadership</a></div>
+  </div>
+</section>
+
+<section class="section bg-red on-dark">
+  <div class="container center">
+    <p class="eyebrow light center reveal">Next step</p>
+    <h2 class="display mt-sm reveal d1">See what we're building.</h2>
+    <div class="mt-lg reveal d2"><a href="projects.html" class="btn btn-light">Explore Projects</a> <a href="contact.html" class="btn btn-green">Talk to Us</a></div>
+  </div>
+</section>
+</main>
+<div id="footer-slot"></div>
+</body>
+</html>
+=====PROJECTS=====
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Tat:vm â€” Ghatkopar Mixed-Use & Residential, Mumbai</title>
+<meta name="description" content="Explore Tat:vm projects in Mumbai: Ghatkopar Mixed-Use (street-level retail + residences) and Ghatkopar Residential â€” built on the five fundamentals.">
+
+<link rel="canonical" href="https://tatvmgroup.com/projects.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm">
+<meta property="og:title" content="Projects | Tat:vm â€” Ghatkopar Mixed-Use & Residential, Mumbai">
+<meta property="og:description" content="Explore Tat:vm projects in Mumbai: Ghatkopar Mixed-Use (street-level retail + residences) and Ghatkopar Residential â€” built on the five fundamentals.">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/project-ghatkopar.jpg">
+<meta property="og:url" content="https://tatvmgroup.com/projects.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#8E1F24">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"RealEstateAgent","@id":"https://tatvmgroup.com/#org","name":"Tat:vm Builders & Developers Pvt. Ltd.","url":"https://tatvmgroup.com/","telephone":"+91-22-3500-6800","email":"info@tatvmgroup.com","address":{"@type":"PostalAddress","streetAddress":"Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg","addressLocality":"Lower Parel","addressRegion":"MH","postalCode":"400013","addressCountry":"IN"},"sameAs":["https://in.linkedin.com/company/tatvm-group","https://www.instagram.com/tatvmgroup/","https://youtube.com/@tatvmgroup","https://www.facebook.com/profile.php?id=61577605111837"],"areaServed":"Mumbai","foundingDate":"2025","description":"Mumbai-based real estate development company building residential, commercial and mixed-use spaces around five fundamentals: Space, Light, Air, Vastu and Sustainability."},{"@type":"ItemList","name":"Tat:vm Projects","itemListElement":[{"@type":"ListItem","position":1,"name":"Ghatkopar Mixed-Use","url":"https://tatvmgroup.com/projects/ghatkopar-mixed-use.html"},{"@type":"ListItem","position":2,"name":"Ghatkopar Residential","url":"https://tatvmgroup.com/projects/ghatkopar-residential.html"}]},"{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://tatvmgroup.com/index.html\"}, {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Projects\",\"item\":\"https://tatvmgroup.com/projects.html\"}]}"]}</script>
+</head>
+<body>
+<div class="loader" id="loader"><div class="in"><span data-logo="dark"></span><div class="bar"><i></i></div></div></div>
+<div id="header-slot"></div>
+<main id="main">
+<section class="page-hero">
+  <img src="./assets/img/project-ghatkopar.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Projects</span></nav>
+    <p class="eyebrow light">Projects</p>
+    <h1 class="display">Ghatkopar, done right.</h1>
+    <p class="lead">Current Tat:vm developments in Mumbai â€” each one a full expression of the five fundamentals.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head split">
+      <div><p class="eyebrow reveal">Current</p><h2 class="h1 mt-sm reveal d1">On the boards &amp; on the ground.</h2></div>
+      <a href="redevelopment.html" class="link-arrow reveal d2">Redevelopment opportunities</a>
+    </div>
+    <div class="grid grid-2 mt-lg">
+      <a href="projects/ghatkopar-mixed-use.html" class="proj-card reveal">
+        <figure class="pm">
+          <img src="./assets/img/project-ghatkopar.jpg" alt="Ghatkopar mixed-use development" loading="lazy">
+          <div class="ptags"><span class="tag">Mixed-Use</span><span class="tag">Ghatkopar</span></div>
+        </figure>
+        <div class="pb">
+          <h3 class="pn">Ghatkopar â€” Mixed-Use</h3>
+          <p class="pmeta"><span><i data-icon="pin" class="ico"></i> Ghatkopar West</span><span><i data-icon="building" class="ico"></i> Retail + Residences</span></p>
+          <p class="ppos">Street-level retail with light-filled homes above â€” one address, whole-day life.</p>
+          <span class="pcta">View project <i data-icon="arrow" class="ico"></i></span>
+        </div>
+      </a>
+      <a href="projects/ghatkopar-residential.html" class="proj-card reveal d1">
+        <figure class="pm">
+          <img src="./assets/img/project-residential.jpg" alt="Ghatkopar residential tower" loading="lazy">
+          <div class="ptags"><span class="tag">Residential</span><span class="tag">Ghatkopar</span></div>
+        </figure>
+        <div class="pb">
+          <h3 class="pn">Ghatkopar â€” Residential</h3>
+          <p class="pmeta"><span><i data-icon="pin" class="ico"></i> Ghatkopar</span><span><i data-icon="home" class="ico"></i> Residences</span></p>
+          <p class="ppos">Homes planned around morning light, cross-breeze and the metro minutes away.</p>
+          <span class="pcta">View project <i data-icon="arrow" class="ico"></i></span>
+        </div>
+      </a>
+    </div>
+    <div class="center mt-lg"><a href="contact.html" class="btn btn-primary">Enquire About a Project</a></div>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="container grid asym">
+    <div>
+      <p class="eyebrow reveal">The standard</p>
+      <h2 class="h1 mt-sm reveal d1">Every project, the same five.</h2>
+      <p class="lead mt-md reveal d2">Space, light, air, vastu and sustainability â€” the pentagon is our scorecard, applied identically to every site.</p>
+      <div class="tattva-stage mt-lg reveal d3">
+        <div class="pent-wrap" data-pentagon></div>
+        <aside class="tattva-panel">
+          <div class="tattva-detail"></div>
+          <nav class="tattva-nav" aria-label="Explore the five tattvas">
+            <button data-tattva="space">Space</button>
+            <button data-tattva="light">Light</button>
+            <button data-tattva="air">Air</button>
+            <button data-tattva="vastu">Vastu</button>
+            <button data-tattva="sustain">Sustainability</button>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<div id="footer-slot"></div>
+</body>
+</html>

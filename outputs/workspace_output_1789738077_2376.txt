@@ -1,0 +1,2 @@
+projects/ghatkopar-mixed-use.html:14:<meta property="og:image" content="https://tatvmgroup.com/assets/img/project-ghatkopar.jpg">
+projects/ghatkopar-residential.html:14:<meta property="og:image" content="https://tatvmgroup.com/assets/img/project-residential.jpg">

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghatkopar Mixed-Use Project | Tat:vm — Retail + Residences</title>
+<meta name="description" content="Tat:vm Ghatkopar Mixed-Use: street-facing retail with light-filled, cross-ventilated residences above — minutes from Ghatkopar metro. Enquire for details.">
+
+<link rel="canonical" href="https://tatvmgroup.com/projects/ghatkopar-mixed-use.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm">
+<meta property="og:title" content="Ghatkopar Mixed-Use Project | Tat:vm — Retail + Residences">
+<meta property="og:description" content="Tat:vm Ghatkopar Mixed-Use: street-facing retail with light-filled, cross-ventilated residences above — minutes from Ghatkopar metro. Enquire for details.">
+<meta property="og:image" content="https://tatvmgroup.com/../assets/img/project-ghatkopar.jpg">
+<meta property="og:url" content="https://tatvmgroup.com/projects/ghatkopar-mixed-use.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#8E1F24">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<script src="../assets/js/svg.js?v=5"></script>
+<script src="../assets/js/components.js?v=5"></script>
+<script src="../assets/js/main.js?v=5"></script>
+<link rel="stylesheet" href="../assets/css/style.css?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Residence","name":"Tat:vm Ghatkopar Mixed-Use","url":"https://tatvmgroup.com/projects/ghatkopar-mixed-use.html","address":{"@type":"PostalAddress","addressLocality":"Ghatkopar","addressRegion":"Mumbai","addressCountry":"IN"},"developer":{"@id":"https://tatvmgroup.com/#org"}},"{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://tatvmgroup.com/index.html\"}, {\"@type\":\"ListItem\",\"position\":2,\"name\":\"Projects\",\"item\":\"https://tatvmgroup.com/projects.html\"}, {\"@type\":\"ListItem\",\"position\":3,\"name\":\"Ghatkopar Mixed-Use\",\"item\":\"https://tatvmgroup.com/projects/ghatkopar-mixed-use.html\"}]}"]}</script>
+</head>
+<body>
+<div class="loader" id="loader"><div class="in"><span data-logo="dark"></span><div class="bar"><i></i></div></div></div>
+<div id="header-slot"></div>
+<main id="main">
+<section class="page-hero">
+  <img src="../assets/img/project-ghatkopar.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="../projects.html">Projects</a><span class="sep">/</span><span>Ghatkopar Mixed-Use</span></nav>
+    <p class="eyebrow light">Project · Ghatkopar, Mumbai</p>
+    <h1 class="display">A street that works, and homes that breathe.</h1>
+    <p class="lead">Retail that serves the neighbourhood. Residences that hold the light. One connected address in Ghatkopar.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="spec-grid">
+      <div class="spec reveal"><i data-icon="pin" class="ico red"></i><div><strong>Location</strong><span>Ghatkopar, Mumbai</span></div></div>
+      <div class="spec reveal d1"><i data-icon="building" class="ico red"></i><div><strong>Type</strong><span>Mixed-Use — Retail + Residences</span></div></div>
+      <div class="spec reveal d1"><i data-icon="wrench" class="ico red"></i><div><strong>Status</strong><span>Under development</span></div></div>
+      <div class="spec reveal d2"><i data-icon="clock" class="ico red"></i><div><strong>RERA</strong><span>Registration in progress</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream" style="padding-top:0">
+  <div class="container grid asym">
+    <div>
+      <p class="eyebrow reveal">The idea</p>
+      <h2 class="h1 mt-sm reveal d1">Ground floor: neighbourhood. Upper floors: home.</h2>
+      <p class="lead mt-md reveal d2">Most mixed-use blocks turn their back on the street. Ours leans into it — shops, shade and a walking rhythm that makes the block feel alive.</p>
+      <p class="mt-md reveal d3">Above, residences follow the five fundamentals without compromise: orientation-first layouts, cross-ventilated rooms, vastu-aligned cores, and shared systems that keep running costs low.</p>
+      <div class="badge-row mt-md reveal d3">
+        <span class="chip">Street-facing retail</span><span class="chip">Light-first homes</span><span class="chip">Cross-ventilated</span><span class="chip">Walk to metro</span>
+      </div>
+      <a href="../contact.html" class="btn btn-primary mt-lg reveal d3">Enquire — Ghatkopar Mixed-Use</a>
+    </div>
+    <figure class="media-mask reveal-img"><img src="../assets/img/ghatkopar-street.jpg" alt="Ghatkopar street life near the project site" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center"><p class="eyebrow center reveal">The scorecard</p><h2 class="h1 mt-sm reveal d1">How the five apply here.</h2></div>
+    <div class="tattva-stage mt-lg reveal d2">
+      <div class="pent-wrap" data-pentagon></div>
+      <aside class="tattva-panel">
+        <div class="tattva-detail"></div>
+        <nav class="tattva-nav" aria-label="Explore the five tattvas">
+          <button data-tattva="space">Space</button>
+          <button data-tattva="light">Light</button>
+          <button data-tattva="air">Air</button>
+          <button data-tattva="vastu">Vastu</button>
+          <button data-tattva="sustain">Sustainability</button>
+        </nav>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-sand">
+  <div class="container">
+    <div class="section-head split"><div><p class="eyebrow reveal">Location</p><h2 class="h1 mt-sm reveal d1">Ghatkopar, connected.</h2></div></div>
+    <div class="grid grid-3 mt-lg">
+      <div class="card reveal"><div class="ico-chip"><i data-icon="pin" class="ico"></i></div><h3 class="h4">Metro at the doorstep</h3><p>Minutes to Ghatkopar metro — Andheri to CST in one line.</p></div>
+      <div class="card reveal d1"><div class="ico-chip"><i data-icon="star" class="ico"></i></div><h3 class="h4">Established social life</h3><p>Schools, markets, hospitals and temples of daily life, all walkable.</p></div>
+      <div class="card reveal d2"><div class="ico-chip"><i data-icon="shield" class="ico"></i></div><h3 class="h4">The address holds value</h3><p>Ghatkopar’s scarcity of new, well-built stock protects long-term value.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-red on-dark">
+  <div class="container center">
+    <h2 class="display reveal">Want the full brochure?</h2>
+    <p class="lead mt-md reveal d1">Plans, pricing approach and RERA details — on request, in writing.</p>
+    <div class="mt-lg reveal d2"><a href="../contact.html" class="btn btn-light">Request Details</a> <a href="https://wa.me/919152000425" class="btn btn-green">WhatsApp Us</a></div>
+  </div>
+</section>
+</main>
+<div id="footer-slot"></div>
+</body>
+</html>

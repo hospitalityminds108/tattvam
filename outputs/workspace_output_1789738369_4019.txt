@@ -1,0 +1,15 @@
+98:@media(max-width:1040px){
+105:@media(max-width:920px){
+109:@media(max-width:760px){
+117:@media(max-width:640px){
+214:@media(max-width:1060px){
+261:@media(max-width:640px){.hero-scroll{display:none}.hero{min-height:88svh}}
+281:@media(prefers-reduced-motion:reduce){
+341:@media(max-width:920px){.tattva-stage{grid-template-columns:1fr}}
+343:@media(max-width:760px){.tattva-panel{padding:24px 20px}.tattva-detail .tname{font-size:clamp(1.6rem,8vw,2.1rem)}.tattva-nav{gap:.45rem}.tattva-nav button{padding:.45rem .7rem;font-size:.68rem;letter-spacing:.08em}}
+493:@media(max-width:640px){.form-grid{grid-template-columns:1fr}}
+530:@media(max-width:640px){.fbtn span{display:none}.fbtn{padding:.55rem}.fbtn i{width:40px;height:40px}.float-main{width:52px;height:52px}}
+539:@media(max-width:980px){.f-top{grid-template-columns:1fr 1fr}}
+540:@media(max-width:560px){.f-top{grid-template-columns:1fr}}
+597:@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+652:@media(max-width:920px){.desktop-only{display:none}}

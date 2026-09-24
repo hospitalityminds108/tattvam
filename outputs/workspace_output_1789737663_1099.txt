@@ -1,0 +1,77 @@
+    50 404.html
+    98 about.html
+    81 brand-story.html
+    89 contact.html
+    49 cookie-policy.html
+    81 csr.html
+    70 faqs.html
+   108 ghatkopar-mixed-use.html
+   113 ghatkopar-residential.html
+   316 index.html
+   153 insights.html
+    89 leadership.html
+    77 network-partners.html
+    81 nri.html
+    88 our-approach.html
+    51 privacy-policy.html
+   103 projects.html
+   110 redevelopment.html
+    51 terms-and-conditions.html
+    89 vision-mission.html
+    89 work-with-us.html
+   666 style.css
+   260 components.js
+   185 main.js
+   158 svg.js
+  3305 total
+---
+total 12512
+drwxr-xr-x  6 user user    4096 Sep 18 13:20 .
+drwxr-xr-x 20 root root    4096 Jun 22 03:39 ..
+drwxr-xr-x  4 user user    4096 Jun 19 10:20 .agent_hooks
+drwxr-xr-x 10 root root    4096 Sep 18 13:20 .browser_data
+drwxr-xr-x  3 root root    4096 Jun 22 03:37 .psiphon_data
+-rw-r--r--  1 root root    2718 Sep 18 13:20 404.html
+-rw-r--r--  1 root root    7242 Sep 18 13:20 HANDOVER.md
+-rw-r--r--  1 root root    7430 Sep 18 13:20 about.html
+-rw-r--r--  1 root root  235656 Sep 18 13:20 approach-craft.jpg
+-rw-r--r--  1 root root    5564 Sep 18 13:20 brand-story.html
+-rw-r--r--  1 root root  758448 Sep 18 13:20 city-golden.jpg
+-rw-r--r--  1 root root  377150 Sep 18 13:20 commercial-interior.jpg
+-rw-r--r--  1 root root   14459 Sep 18 13:20 components.js
+-rw-r--r--  1 root root    7033 Sep 18 13:20 contact.html
+-rw-r--r--  1 root root    4281 Sep 18 13:20 cookie-policy.html
+-rw-r--r--  1 root root    5567 Sep 18 13:20 csr.html
+-rw-r--r--  1 root root  247638 Sep 18 13:20 family-home.jpg
+-rw-r--r--  1 root root    8950 Sep 18 13:20 faqs.html
+-rw-r--r--  1 root root     366 Sep 18 13:20 favicon.svg
+-rw-r--r--  1 root root    1431 Sep 18 13:20 fix_encoding.py
+-rw-r--r--  1 root root 1866282 Sep 18 13:20 founder-portrait.jpg
+-rw-r--r--  1 root root    7524 Sep 18 13:20 ghatkopar-mixed-use.html
+-rw-r--r--  1 root root    7715 Sep 18 13:20 ghatkopar-residential.html
+-rw-r--r--  1 root root  432086 Sep 18 13:20 ghatkopar-street.jpg
+-rw-r--r--  1 root root  164120 Sep 18 13:20 hero-poster.jpg
+-rw-r--r--  1 root root 5237957 Sep 18 13:20 hero.mp4
+-rw-r--r--  1 root root   16871 Sep 18 13:20 index.html
+-rw-r--r--  1 root root   14712 Sep 18 13:20 insights.html
+-rw-r--r--  1 root root  326469 Sep 18 13:20 interior-light.jpg
+-rw-r--r--  1 root root  234578 Sep 18 13:20 interior-warm.jpg
+-rw-r--r--  1 root root    7083 Sep 18 13:20 leadership.html
+-rw-r--r--  1 root root  190664 Sep 18 13:20 leadership.jpeg
+-rw-r--r--  1 root root    8813 Sep 18 13:20 main.js
+-rw-r--r--  1 root root  521090 Sep 18 13:20 mumbai-neighbourhood.jpg
+-rw-r--r--  1 root root    6174 Sep 18 13:20 network-partners.html
+-rw-r--r--  1 root root    7586 Sep 18 13:20 nri.html
+-rw-r--r--  1 root root    6477 Sep 18 13:20 our-approach.html
+drwxr-xr-x  2 root root    4096 Sep 18 13:20 outputs
+-rw-r--r--  1 root root    5091 Sep 18 13:20 privacy-policy.html
+-rw-r--r--  1 root root  231186 Sep 18 13:20 project-ghatkopar.jpg
+-rw-r--r--  1 root root  406983 Sep 18 13:20 project-residential.jpg
+-rw-r--r--  1 root root    7112 Sep 18 13:20 projects.html
+-rw-r--r--  1 root root  202309 Sep 18 13:20 redevelopment-building.jpg
+-rw-r--r--  1 root root    8647 Sep 18 13:20 redevelopment.html
+-rw-r--r--  1 root root      68 Sep 18 13:20 robots.txt
+-rw-r--r--  1 root root    3668 Sep 18 13:20 sitemap.xml
+-rw-r--r--  1 root root  520682 Sep 18 13:20 skyline-mumbai.jpg
+-rw-r--r--  1 root root   36853 Sep 18 13:20 style.css
+-rw-r--r--  1 root root   16208 Sep 18 13:20 svg.js

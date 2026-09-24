@@ -1,0 +1,46 @@
+    lastY = y;
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* mobile menu */
+  const burger = document.getElementById('burger');
+  const mnav = document.getElementById('mnav');
+  const openM = (open) => {
+    burger.classList.toggle('open', open);
+    mnav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    mnav.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    mnav.querySelectorAll('.mlink').forEach((a, i) => a.style.transitionDelay = open ? `${.12 + i * .06}s` : '0s');
+  };
+  burger.addEventListener('click', () => openM(!mnav.classList.contains('open')));
+  mnav.querySelectorAll('.mlink').forEach(a => {
+    a.addEventListener('click', e => {
+      const sub = mnav.querySelector(`[data-msub="${a.dataset.mgroup}"]`);
+      if (sub) {
+        e.preventDefault();
+        const vis = sub.style.display === 'block';
+        mnav.querySelectorAll('.msub').forEach(s => s.style.display = 'none');
+        sub.style.display = vis ? 'none' : 'block';
+        const em = a.querySelector('em');
+        if (em) em.textContent = vis ? '+' : '–';
+      }
+    });
+  });
+
+  /* ============ FOOTER (light pink) ============ */
+  const footerHTML = `
+  <footer class="site-footer">
+    <div class="container">
+      <div class="f-top">
+        <div class="f-brand">
+          ${T.logo('dark')}
+          <p class="tagline">Rooted in you.</p>
+          <p>A Mumbai real estate development company building residential, commercial and mixed-use spaces around the five tattvas — with transparency, discipline and care.</p>
+          <div class="f-social">
+            <a href="https://in.linkedin.com/company/tatvm-group" target="_blank" rel="noopener" aria-label="LinkedIn">${T.icon('linkedin')}</a>
+            <a href="https://www.instagram.com/tatvmgroup/" target="_blank" rel="noopener" aria-label="Instagram">${T.icon('instagram')}</a>
+            <a href="https://youtube.com/@tatvmgroup" target="_blank" rel="noopener" aria-label="YouTube">${T.icon('youtube')}</a>
+            <a href="https://www.facebook.com/profile.php?id=61577605111837" target="_blank" rel="noopener" aria-label="Facebook">${T.icon('facebook')}</a>
+          </div>

@@ -1,0 +1,20 @@
+/* ---------- carousel ---------- */
+.car-wrap{position:relative}
+.car-track{
+  display:flex;gap:clamp(18px,2.4vw,30px);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 4px 18px;margin:-4px -4px 0;scrollbar-width:none;
+}
+.car-track::-webkit-scrollbar{display:none}
+.car-track>*{flex:0 0 min(400px,86vw);scroll-snap-align:start}
+.car-track.slim>*{flex:0 0 min(340px,82vw)}
+.car-btns{display:flex;gap:.6rem}
+.car-btn{
+  width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:#fff;
+  display:grid;place-items:center;color:var(--char);transition:all .3s;
+}
+.car-btn:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-2px)}
+.car-btn svg{width:18px;height:18px}
+
+=== count cards per track ===
+cards: 2
+cards: 2

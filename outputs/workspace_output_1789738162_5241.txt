@@ -1,0 +1,4 @@
+=== verify ===
+all standardized to <div>
+=== counts ===
+every page has exactly one header slot div

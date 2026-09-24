@@ -1,0 +1,63 @@
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+404.html                               H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+about.html                             H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+brand-story.html                       H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+contact.html                           H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+cookie-policy.html                     H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+csr.html                               H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+faqs.html                              H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+index.html                             H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+insights.html                          H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+leadership.html                        H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+network-partners.html                  H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+nri.html                               H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+our-approach.html                      H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+privacy-policy.html                    H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+projects.html                          H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+redevelopment.html                     H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+terms-and-conditions.html              H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+vision-mission.html                    H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+work-with-us.html                      H:<header id="header-slot" F:<footer id="footer-slot" headJS:0 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+projects/ghatkopar-mixed-use.html      H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:
+awk: cmd. line:1: f{/assets\/js\/(svg|components|main)\.js/{c++}} /<\/head>/{f=1} END{print c+0}
+awk: cmd. line:1:                                          ^ syntax error
+projects/ghatkopar-residential.html    H:<div id="header-slot"  F:<div id="footer-slot"  headJS:3 bodyJS:

@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Tat:vm â€” Mumbai Real Estate Enquiries</title>
+<meta name="description" content="Contact Tat:vm Builders & Developers, Lower Parel Mumbai: call +91 22 3500 6800, WhatsApp +91 91520 04250, email info@tatvmgroup.com, or send an enquiry online.">
+<meta name="keywords" content="contact Tat:vm, Mumbai real estate developer contact, Lower Parel office">
+<link rel="canonical" href="https://tatvmgroup.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="Contact | Tat:vm â€” Mumbai Real Estate Enquiries">
+<meta property="og:description" content="Contact Tat:vm Builders & Developers, Lower Parel Mumbai: call +91 22 3500 6800, WhatsApp +91 91520 04250, email info@tatvmgroup.com, or send an enquiry online.">
+<meta property="og:url" content="https://tatvmgroup.com/contact.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/hero-poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact | Tat:vm â€” Mumbai Real Estate Enquiries">
+<meta name="twitter:description" content="Contact Tat:vm Builders & Developers, Lower Parel Mumbai: call +91 22 3500 6800, WhatsApp +91 91520 04250, email info@tatvmgroup.com, or send an enquiry online.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/hero-poster.jpg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "RealEstateAgent", "@id": "https://tatvmgroup.com/#org", "name": "Tat:vm Builders & Developers Pvt Ltd", "alternateName": "Tat:vm Group", "url": "https://tatvmgroup.com/", "logo": "https://tatvmgroup.com/assets/img/favicon.svg", "slogan": "Rooted in you", "telephone": "+91-22-3500-6800", "email": "info@tatvmgroup.com", "address": {"@type": "PostalAddress", "secretAddress": "", "streetAddress": "Unit 607, 6th Floor, Lodha Supremus, Senapati Bapat Marg", "addressLocality": "Mumbai", "addressRegion": "MH", "postalCode": "400013", "addressCountry": "IN"}, "areaServed": "Mumbai, Maharashtra, India", "sameAs": ["https://in.linkedin.com/company/tatvm-group", "https://www.instagram.com/tatvmgroup/", "https://www.youtube.com/@tatvmgroup", "https://www.facebook.com/profile.php?id=61577605111837"], "founder": {"@type": "Person", "name": "Raahul Maroo", "jobTitle": "Founder & Managing Director"}, "priceRange": "â‚¹â‚¹â‚¹"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tatvmgroup.com/index.html"}, {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://tatvmgroup.com/contact.html"}]}, {"@type": "ContactPage", "name": "Contact Tat:vm", "url": "https://tatvmgroup.com/contact.html"}]}</script>
+</head>
+<body data-page="inner">
+
+<header id="header-slot"></header>
+<main>
+
+<section class="page-hero">
+  <img src="./assets/img/hero-poster.jpg" alt="" aria-hidden="true">
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Contact</span></nav>
+    <p class="eyebrow light">Contact</p>
+    <h1 class="display">Say hello.</h1>
+    <p class="lead">Buying, building or redeveloping â€” start with a conversation, not a brochure.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container grid-2">
+    <div>
+      <p class="eyebrow">Enquire</p>
+      <h2 class="h2">Tell us about your home.</h2>
+      <p class="lead">Share a few details and our team will reach out within one working day.</p>
+      <form data-tatvm-form class="form-grid mt-lg" novalidate>
+        <label class="field"><span>Full name</span><input type="text" name="name" required placeholder="Your name"></label>
+        <label class="field"><span>Phone</span><input type="tel" name="phone" required placeholder="+91"></label>
+        <label class="field"><span>Email</span><input type="email" name="email" required placeholder="you@example.com"></label>
+        <label class="field"><span>Iâ€™m interested in</span>
+          <select name="interest">
+            <option>Buying a home</option>
+            <option>Society redevelopment</option>
+            <option>Joint development / land</option>
+            <option>NRI services</option>
+            <option>Channel partnership</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="field"><span>Message</span><textarea name="message" rows="4" placeholder="A line or two about what you need"></textarea></label>
+        <button type="submit" class="btn btn-primary">Send enquiry</button>
+        <p class="form-ok"><i data-icon="check" data-icls="green"></i> Thank you â€” weâ€™ve received your enquiry. Our team will reach out within one working day.</p>
+      </form>
+    </div>
+    <div>
+      <div class="card mt-lg reveal">
+        <p class="eyebrow">Office</p>
+        <p class="lead">Tat:vm Builders &amp; Developers Pvt Ltd<br>Unit 607, 6th Floor, Lodha Supremus,<br>Senapati Bapat Marg, Lower Parel,<br>Mumbai 400013</p>
+        <ul class="spec-grid">
+          <li class="spec"><i data-icon="phone" data-icls="red"></i><span><a href="tel:+912235006800">+91 22 3500 6800</a></span></li>
+          <li class="spec"><i data-icon="mail" data-icls="red"></i><span><a href="mailto:info@tatvmgroup.com">info@tatvmgroup.com</a></span></li>
+          <li class="spec"><i data-icon="whatsapp" data-icls="green"></i><span><a href="https://wa.me/919152000425">+91 91520 04250</a></span></li>
+          <li class="spec"><i data-icon="clock" data-icls="red"></i><span>Monâ€“Sat, 10:00â€“19:00 IST</span></li>
+        </ul>
+        <a class="btn btn-outline mt-lg" href="https://www.google.com/maps/search/?api=1&amp;query=Lodha+Supremus+Senapati+Bapat+Marg+Lower+Parel+Mumbai" target="_blank" rel="noopener">Open in Maps</a>
+      </div>
+      <figure class="media-mask mt-lg reveal-img"><img src="./assets/img/ghatkopar-street.jpg" alt="A Mumbai street near the Tat:vm office" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>
+=====404=====
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found | Tat:vm</title>
+<meta name="description" content="The page you were looking for could not be found. Return to the Tat:vm homepage or explore our projects.">
+<meta name="keywords" content="">
+<link rel="canonical" href="https://tatvmgroup.com/404.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tat:vm Builders & Developers">
+<meta property="og:title" content="Page not found | Tat:vm">
+<meta property="og:description" content="The page you were looking for could not be found. Return to the Tat:vm homepage or explore our projects.">
+<meta property="og:url" content="https://tatvmgroup.com/404.html">
+<meta property="og:image" content="https://tatvmgroup.com/assets/img/favicon.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page not found | Tat:vm">
+<meta name="twitter:description" content="The page you were looking for could not be found. Return to the Tat:vm homepage or explore our projects.">
+<meta name="twitter:image" content="https://tatvmgroup.com/assets/img/favicon.svg">
+<link rel="stylesheet" href="./assets/css/style.css?v=5">
+<link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "WebPage", "name": "404", "url": "https://tatvmgroup.com/404.html"}]}</script>
+</head>
+<body data-page="inner">
+
+<header id="header-slot"></header>
+<main>
+
+<section class="section">
+  <div class="container center page404">
+    <p class="eyebrow">404</p>
+    <h1 class="display">This room doesnâ€™t exist.</h1>
+    <p class="lead">The page youâ€™re looking for has moved, or was never built. Letâ€™s take you somewhere useful.</p>
+    <div class="cta-wrap mt-lg">
+      <a href="index.html" class="btn btn-primary">Back home</a>
+      <a href="projects.html" class="btn btn-outline">See projects</a>
+      <a href="contact.html" class="btn btn-outline">Contact us</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer id="footer-slot"></footer>
+<script src="assets/js/svg.js?v=5"></script>
+<script src="assets/js/components.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+</body>
+</html>

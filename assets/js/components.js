@@ -21,9 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
       { label:'All Projects',          href:'projects.html', icon:'building' },
       { label:'Ghatkopar — Mixed-Use', href:'projects/ghatkopar-mixed-use.html', icon:'briefcase' },
       { label:'Ghatkopar — Residential', href:'projects/ghatkopar-residential.html', icon:'home' },
+      { label:'Marine Lines — Commercial', href:'projects/marine-lines-commercial.html', icon:'building' },
     ]},
     { label:'Opportunities', href:'#', dd:[
-      { label:'Work With Us',     href:'work-with-us.html', icon:'handshake' },
+      { label:'Careers',          href:'work-with-us.html', icon:'handshake' },
       { label:'Network Partners', href:'network-partners.html', icon:'users' },
       { label:'NRI Services',     href:'nri.html', icon:'globe' },
     ]},
@@ -145,9 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="f-col">
           <h4>Explore</h4>
           <a href="${depth}projects.html">Projects</a>
+          <a href="${depth}projects/marine-lines-commercial.html">Marine Lines — Commercial</a>
           <a href="${depth}blogs.html">Insights</a>
           <a href="${depth}faqs.html">FAQs</a>
-          <a href="${depth}work-with-us.html">Work With Us</a>
+          <a href="${depth}work-with-us.html">Careers</a>
           <a href="${depth}nri.html">NRI Services</a>
           <a href="${depth}network-partners.html">Network Partners</a>
         </div>
@@ -239,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const replyFor = message => {
       const text = message.toLowerCase();
       if (/project|home|residen|mixed.?use|commercial|upcoming/.test(text)) {
-        return 'Tat:vm currently has Ghatkopar Mixed-Use and Ghatkopar Residential projects coming soon. You can explore the project details or request an update from our team.';
+        return 'Tat:vm currently has Ghatkopar Mixed-Use, Ghatkopar Residential and a commercial project in Marine Lines, all coming soon. You can explore the project details or request an update from our team.';
       }
       if (/price|cost|budget|rate|brochure|rera|detail/.test(text)) {
         return 'Plans, pricing approach and RERA details are shared on request, in writing. Please use the enquiry form or WhatsApp us for the latest information.';

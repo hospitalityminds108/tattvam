@@ -1,0 +1,43 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:\\Users\\HMTL\\AppData\\Local\\Temp\\claude\\C--Users-HMTL-Downloads-Tatwam-Website\\ef35a749-b51c-4788-b836-5d3b7e3a5a66\\scratchpad\\static-server.js",
+        ".",
+        "8080"
+      ],
+      "port": 8080
+    },
+    {
+      "name": "kahuna",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "-y",
+        "http-server",
+        "C:/Users/HMTL/Documents/kahuna-website",
+        "-p",
+        "5178",
+        "-c-1",
+        "--silent"
+      ],
+      "port": 5178
+    },
+    {
+      "name": "cloud9",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "-y",
+        "http-server",
+        "C:/Users/HMTL/Documents/cloud9-main",
+        "-p",
+        "5179",
+        "-c-1",
+        "--silent"
+      ],
+      "port": 5179
+    }
+  ]
+}

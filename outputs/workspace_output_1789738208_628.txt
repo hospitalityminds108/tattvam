@@ -1,0 +1,40 @@
+=== BROWSER STATE ===
+URL: http://localhost:8080/index.html
+Title: Tat:vm — Rooted in You | Real Estate Developers in Mumbai
+Result: Navigated to http://localhost:8080/index.html (title: Tat:vm — Rooted in You | Real Estate Developers in Mumbai, status: 200)
+
+Interactive elements (86):
+  [0] a -> index.html
+  [1] a "About" -> #
+  [7] a "Projects" -> projects.html
+  [11] a "Redevelopment" -> redevelopment.html
+  [12] a "Opportunities" -> #
+  [16] a "Insights" -> #
+  [19] a "Contact" -> contact.html
+  [20] a "Enquire Now" -> contact.html
+  [22] a "About+" -> about.html
+  [23] a "Our Approach" -> our-approach.html
+  [24] a "Vision & Mission" -> vision-mission.html
+  [25] a "Brand Story" -> brand-story.html
+  [26] a "Leadership" -> leadership.html
+  [27] a "CSR" -> csr.html
+  [28] a "Projects+" -> projects.html
+  [29] a "All Projects" -> projects.html
+  [30] a "Ghatkopar — Mixed-Use" -> projects/ghatkopar-mixed-use.html
+  [31] a "Ghatkopar — Residential" -> projects/ghatkopar-residential.html
+  [32] a "Redevelopment" -> redevelopment.html
+  [33] a "Opportunities+" -> javascript:void(0)
+  [34] a "Work With Us" -> work-with-us.html
+  [35] a "Network Partners" -> network-partners.html
+  [36] a "NRI Services" -> nri.html
+  [37] a "Insights+" -> insights.html
+  [38] a "Blogs & Perspectives" -> insights.html
+  [39] a "FAQs" -> faqs.html
+  [40] a "Contact" -> contact.html
+  [41] a "Enquire Now" -> contact.html
+  [42] a "WhatsApp" -> https://wa.me/919152000425
+  [43] a "Explore Projects" -> projects.html
+  [44] a "Book a Consultation" -> contact.html
+  [45] a "More about us" -> about.html
+  [46] a "Meet the founder" -> leadership.html
+  [47] g role="button" "SPACE"

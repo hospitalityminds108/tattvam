@@ -1,0 +1,18 @@
+36:    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Insights</span></nav>
+=== all breadcrumbs ===
+about.html                              Home / About 
+brand-story.html                        Home / About / Brand Story 
+contact.html                            Home / Contact 
+csr.html                                Home / About / CSR 
+faqs.html                               Home / Insights / FAQs 
+insights.html                           Home / Insights 
+leadership.html                         Home / About / Leadership 
+network-partners.html                   Home / Opportunities / Network Partners 
+nri.html                                Home / Opportunities / NRI Services 
+our-approach.html                       Home / About / Our Approach 
+projects.html                           Home / Projects 
+redevelopment.html                      Home / Redevelopment 
+vision-mission.html                     Home / About / Vision & Mission 
+work-with-us.html                       Home / Opportunities / Work With Us 
+projects/ghatkopar-mixed-use.html       Home / Projects / Ghatkopar Mixed-Use 
+projects/ghatkopar-residential.html     Home / Projects / Ghatkopar Residential 
