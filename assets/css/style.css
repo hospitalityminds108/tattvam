@@ -83,6 +83,7 @@ p{color:var(--taupe);font-weight:500}
 .section{padding-block:clamp(72px,9vw,128px);position:relative}
 .bg-cream{background:var(--cream)}
 .bg-sand{background:var(--sand)}
+.bg-community{background:linear-gradient(rgba(246,241,231,.84),rgba(246,241,231,.84)),url("../../Csr%20img/Rooted%20in%20the%20neighbourhood..png") center/cover no-repeat}
 .bg-red{background:linear-gradient(155deg,var(--red) 0%,var(--red-deep) 100%);color:#fff}
 .grid{display:grid;gap:clamp(18px,2.4vw,30px)}
 .grid>*{min-width:0}
