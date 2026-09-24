@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       space:    { name:'Space',    sub:'Room to grow', color:'#E8B23A', icon:'tSpace', copy:'Space is not square footage — it is room for the life that happens inside it. We plan generous, flexible layouts so homes adapt as families grow, work shifts and evenings stretch long.' },
       light:    { name:'Light',    sub:'Every home\'s first right', color:'#E97F31', icon:'tLight', copy:'Natural light is not a premium feature; it is a basic right of every home. Orientation, windows and balconies are placed before saleable area is ever calculated.' },
       air:      { name:'Air',      sub:'A home that breathes', color:'#3FA8B5', icon:'tAir', copy:'Cross-ventilation is designed in from the first sketch, so air moves through every room. A home that breathes feels alive — and costs less to keep comfortable.' },
-      vastu:    { name:'Vastu',    sub:'Harmony by design', color:'#8B6BB1', icon:'tVastu', copy:'Vastu is applied as design wisdom, not superstition — orientation, proportion and flow working together so a home simply feels right the moment you walk in.' },
+      vastu:    { name:'Community', sub:'Rooted in belonging', color:'#8B6BB1', icon:'tVastu', copy:'Community is designed into every project through local-first hiring, street-respecting spaces and site-worker welfare that helps neighbourhoods thrive.' },
       sustain:  { name:'Sustainability', sub:'Lighter to live in', color:'#7C922B', icon:'tSustain', copy:'Water harvesting, solar-ready roofs, native shading and low-waste materials. A lighter building is cheaper to live in and kinder to the city around it.' },
     };
 
@@ -266,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'vastu', num: '04', sub: 'Principle',
-      name: 'Vastu', tagline: 'Aligned, not superstitious',
-      description: 'Direction, geometry and balance. Vastu principles are interpreted with modern planning discipline.',
+      name: 'Community', tagline: 'Rooted in belonging',
+      description: 'Neighbourhood connection, shared spaces and dignity at work are interpreted through thoughtful planning and everyday design.',
       accent:     '#8674B5', accentSoft: 'rgba(134,116,181,.15)', accentLine: 'rgba(134,116,181,.40)',
       auraA: '#D6CBEC', auraB: '#F1ECF9', wash: '#F8F5FC',
       icon: SVG_OPEN +
