@@ -1,4 +1,0 @@
-brand-story.html FAIL: 'charmap' codec can't encode character '\x9d' in position 3973: character maps to <undefined>
-index.html encodes OK
-insights.html FAIL: 'charmap' codec can't encode character '\x9d' in position 12178: character maps to <undefined>
-leadership.html FAIL: 'charmap' codec can't encode character '\x9d' in position 5765: character maps to <undefined>

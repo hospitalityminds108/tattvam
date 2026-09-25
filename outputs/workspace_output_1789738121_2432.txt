@@ -1,2 +1,0 @@
-assets/js/components.js:66:  document.getElementById('header-slot').outerHTML = headerHTML;
-assets/js/components.js:168:  document.getElementById('footer-slot').outerHTML = footerHTML;

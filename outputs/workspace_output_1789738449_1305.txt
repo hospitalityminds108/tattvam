@@ -1,6 +1,0 @@
-=== BROWSER STATE ===
-URL: http://localhost:8080/index.html
-Title: Tat:vm — Rooted in You | Real Estate Developers in Mumbai
-Screenshot: /workspace/.screenshots/step_011.png
-Use see-image to view: /workspace/.screenshots/step_011.png
-=== END ===

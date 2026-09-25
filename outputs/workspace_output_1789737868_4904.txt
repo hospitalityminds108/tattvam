@@ -1,4 +1,0 @@
-=== verify ===
-index.html:134:        <img src="assets/img/leadership.jpeg" alt="Raahul Maroo, Founder and Managing Director of Tat:vm" loading="lazy" class="portrait" onerror="this.onerror=null;this.src='assets/img/leadership.jpeg';">
-leadership.html:33:  <img src="assets/img/leadership.jpeg" alt="" aria-hidden="true" onerror="this.onerror=null;this.src='assets/img/leadership.jpeg';">
-leadership.html:55:      <img src="assets/img/leadership.jpeg" alt="Raahul Maroo, Founder and MD of Tat:vm" class="portrait" loading="lazy" onerror="this.onerror=null;this.src='assets/img/leadership.jpeg';">

@@ -1,2 +1,0 @@
-open: True | after close: False | body overflow: ''
-burger pointer-events: auto

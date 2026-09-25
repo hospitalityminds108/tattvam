@@ -1,8 +1,0 @@
-mojibake-fixed   brand-story.html
-mojibake-fixed   insights.html
-mojibake-fixed   leadership.html
-
-Summary: {'clean': 36, 'mojibake-fixed': 6}
-=== recheck ===
-  20  index.html
-TOTAL remaining mojibake chars: 20

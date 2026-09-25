@@ -1,3 +1,0 @@
-loader: {'exists': False}
-mojibake in rendered text: 0
-has ₹: False | has →: True
