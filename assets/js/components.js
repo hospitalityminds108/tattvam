@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { label:'Marine Lines — Commercial', href:'projects/marine-lines-commercial.html', icon:'building' },
     ]},
     { label:'Opportunities', href:'#', dd:[
-      { label:'Careers',          href:'work-with-us.html', icon:'handshake' },
+      { label:'Work With Us',     href:'work-with-us.html', icon:'handshake' },
       { label:'Network Partners', href:'network-partners.html', icon:'users' },
       { label:'NRI Services',     href:'nri.html', icon:'globe' },
     ]},
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="${depth}projects/marine-lines-commercial.html">Marine Lines — Commercial</a>
           <a href="${depth}blogs.html">Insights</a>
           <a href="${depth}faqs.html">FAQs</a>
-          <a href="${depth}work-with-us.html">Careers</a>
+          <a href="${depth}work-with-us.html">Work With Us</a>
           <a href="${depth}nri.html">NRI Services</a>
           <a href="${depth}network-partners.html">Network Partners</a>
         </div>

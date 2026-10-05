@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
       space:    { name:'Space',    sub:'Room to grow', color:'#E8B23A', icon:'tSpace', copy:'Space is not square footage — it is room for the life that happens inside it. We plan generous, flexible layouts so homes adapt as families grow, work shifts and evenings stretch long.' },
       light:    { name:'Light',    sub:'Every home\'s first right', color:'#E97F31', icon:'tLight', copy:'Natural light is not a premium feature; it is a basic right of every home. Orientation, windows and balconies are placed before saleable area is ever calculated.' },
       air:      { name:'Air',      sub:'A home that breathes', color:'#3FA8B5', icon:'tAir', copy:'Cross-ventilation is designed in from the first sketch, so air moves through every room. A home that breathes feels alive — and costs less to keep comfortable.' },
-      vastu:    { name:'Vastu',    sub:'Harmony by design', color:'#8B6BB1', icon:'tVastu', copy:'Vastu is applied as design wisdom, not superstition — orientation, proportion and flow working together so a home simply feels right the moment you walk in.' },
+      vastu:    { name:'Community', sub:'Rooted in belonging', color:'#8B6BB1', icon:'tVastu', copy:'Community is designed into every project through local-first hiring, street-respecting spaces and site-worker welfare that helps neighbourhoods thrive.' },
       sustain:  { name:'Sustainability', sub:'Lighter to live in', color:'#7C922B', icon:'tSustain', copy:'Water harvesting, solar-ready roofs, native shading and low-waste materials. A lighter building is cheaper to live in and kinder to the city around it.' },
     };
 
@@ -266,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'vastu', num: '04', sub: 'Principle',
-      name: 'Vastu', tagline: 'Aligned, not superstitious',
-      description: 'Direction, geometry and balance. Vastu principles are interpreted with modern planning discipline.',
+      name: 'Community', tagline: 'Rooted in belonging',
+      description: 'Neighbourhood connection, shared spaces and dignity at work are interpreted through thoughtful planning and everyday design.',
       accent:     '#8674B5', accentSoft: 'rgba(134,116,181,.15)', accentLine: 'rgba(134,116,181,.40)',
       auraA: '#D6CBEC', auraB: '#F1ECF9', wash: '#F8F5FC',
       icon: SVG_OPEN +
@@ -415,8 +415,8 @@ document.addEventListener('DOMContentLoaded', () => {
       var t = d / 180;
 
       var scale   = 1.06 - 0.24 * t;
-      var opacity = 1 - 0.40 * t;
-      var blur    = t > 0.12 ? (t - 0.12) * 0.85 : 0;
+      var opacity = 1 - 0.26 * t;
+      var blur    = t > 0.12 ? (t - 0.12) * 0.5 : 0;
 
       el.style.transform =
         'translate(-50%,-50%) translate3d(' +
@@ -850,7 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* set endpoint to a real form/API URL to post applications (with the CV attached);
      while empty, the form hands the application off via email + WhatsApp */
-  var CFG = { email: 'info@tatvmgroup.com', whatsapp: '919152000425', endpoint: '' };
+  var CFG = { email: 'info@tatvmgroup.com', whatsapp: '919152000425', endpoint: window.TATVM_CV_ENDPOINT || 'https://formsubmit.co/info@tatvmgroup.com' };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (id) { return document.getElementById(id); };
 
@@ -995,17 +995,30 @@ document.addEventListener('DOMContentLoaded', () => {
       'Note: ' + ($('cfMessage').value.trim() || '(none)')
     ];
   }
+  function waText() {
+    return 'Hello Tat:vm, I would like to apply.\n\n' + summary().join('\n') + '\nResume: ' + file.name;
+  }
+  function waLink() { return 'https://wa.me/' + CFG.whatsapp + '?text=' + encodeURIComponent(waText()); }
+  function canShareFile() {
+    try { return !!(navigator.canShare && navigator.canShare({ files: [file] })); } catch (err) { return false; }
+  }
   function showSuccess(sent) {
     var first = $('cfName').value.trim().split(/\s+/)[0];
     var lines = summary();
-    $('successTitle').textContent = sent ? 'Application Submitted Successfully' : 'Your application is ready to send';
+    var share = canShareFile();
+    $('successTitle').textContent = sent ? 'Application Submitted Successfully' : 'One last step on WhatsApp';
+    $('successWa').firstChild.nodeValue = sent ? 'Message us on WhatsApp ' : 'Open WhatsApp chat ';
     $('successText').textContent = sent
-      ? 'Thank you, ' + first + '. Our team will review your application and be in touch.'
-      : 'Thank you, ' + first + '. One last step: send it to our team by email (attach your resume) or on WhatsApp, whichever is quicker.';
+      ? 'Thank you, ' + first + '. Your details and CV (' + file.name + ') have been emailed to our team. A WhatsApp chat has also opened with your details, press send there for a quicker reply.'
+      : 'Thank you, ' + first + '. A WhatsApp chat with Tat:vm has opened with your details filled in. Press send, then attach your CV (' + file.name + ') in the same chat.';
     var mailBody = lines.join('\n') + '\n\nResume: ' + file.name + ' (please attach it to this email)';
     $('successMail').href = 'mailto:' + CFG.email + '?subject=' + encodeURIComponent('Application: ' + position.value + ' - ' + $('cfName').value.trim()) + '&body=' + encodeURIComponent(mailBody);
-    $('successWa').href = 'https://wa.me/' + CFG.whatsapp + '?text=' + encodeURIComponent('Hello Tat:vm, I would like to apply.\n' + lines.join('\n') + '\nI will share my resume (' + file.name + ') here.');
-    $('successRoute').hidden = sent;
+    $('successWa').href = waLink();
+    $('successShare').hidden = sent || !share;
+    $('successHint').textContent = share
+      ? 'On your phone, "Send CV file on WhatsApp" shares the file itself: choose WhatsApp, then Tat:vm (+91 91520 04250).'
+      : 'In the WhatsApp chat, tap the paperclip and choose your CV file to attach it.';
+        $('successHint').hidden = sent;
     form.classList.add('is-leaving');
     setTimeout(function () {
       form.hidden = true;
@@ -1014,23 +1027,55 @@ document.addEventListener('DOMContentLoaded', () => {
       $('successTitle').focus({ preventScroll: true });
     }, reduce ? 0 : 450);
   }
+  $('successShare').addEventListener('click', function () {
+    if (!file || !canShareFile()) return;
+    navigator.share({ files: [file], title: 'Application: ' + position.value, text: waText() }).catch(function () {});
+  });
 
+  function hidden(name, value) {
+    var i = form.querySelector('input[type=hidden][name="' + name + '"]');
+    if (!i) { i = document.createElement('input'); i.type = 'hidden'; i.name = name; form.appendChild(i); }
+    i.value = value;
+  }
+  var sendTimer = null;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     alertEl.classList.remove('show');
     if (!validate()) return;
+    window.open(waLink(), '_blank', 'noopener');
     if (!CFG.endpoint) { showSuccess(false); return; }
+
     var btn = form.querySelector('button[type=submit]');
-    btn.disabled = true;
-    var fd = new FormData(form);
-    fd.set('resume', file, file.name);
-    fetch(CFG.endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
-      .then(function (r) { if (!r.ok) throw new Error('bad status'); showSuccess(true); })
-      .catch(function () {
-        btn.disabled = false;
-        alertEl.textContent = 'Something went wrong sending your application. Please try again, or email ' + CFG.email + ' directly.';
-        alertEl.classList.add('show');
-      });
+    var label = btn.firstChild.nodeValue;
+    btn.disabled = true; btn.firstChild.nodeValue = 'Sending… ';
+    var done = false;
+    function finish(ok) {
+      if (done) return; done = true;
+      clearTimeout(sendTimer);
+      btn.disabled = false; btn.firstChild.nodeValue = label;
+      showSuccess(ok);
+    }
+
+    var frame = document.getElementById('cvFrame');
+    if (!frame) {
+      frame = document.createElement('iframe');
+      frame.name = 'cvFrame'; frame.id = 'cvFrame'; frame.title = 'Application upload';
+      frame.style.cssText = 'position:absolute;width:0;height:0;border:0;visibility:hidden';
+      document.body.appendChild(frame);
+    }
+    frame.onload = function () {
+      /* the service redirects to our own confirmation page only after it has accepted the application */
+      var ok = false;
+      try { ok = /\/application-sent\.html$/.test(frame.contentWindow.location.pathname); } catch (err) { ok = false; }
+      finish(ok);
+    };
+    hidden('_subject', 'Application: ' + position.value + ' - ' + $('cfName').value.trim());
+    hidden('_template', 'table');
+    hidden('_captcha', 'false');
+    hidden('_next', new URL('application-sent.html', location.href).href);
+    form.action = CFG.endpoint; form.method = 'POST'; form.enctype = 'multipart/form-data'; form.target = 'cvFrame';
+    sendTimer = setTimeout(function () { finish(false); }, 25000);
+    HTMLFormElement.prototype.submit.call(form);
   });
 
   $('applyAgain').addEventListener('click', function (e) {

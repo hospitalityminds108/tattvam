@@ -16,7 +16,7 @@ window.TATVM = (() => {
       { key:'space',      label:'SPACE',   color:'#E8B23A', labelY:16 },
       { key:'light',      label:'LIGHT',   color:'#E97F31' },
       { key:'air',        label:'AIR',     color:'#3FA8B5' },
-      { key:'vastu',      label:'VASTU',   color:'#8B6BB1' },
+      { key:'vastu',      label:'COMMUNITY', color:'#8B6BB1' },
       { key:'sustain',    label:'SUSTAINABILITY', color:'#9FB63D', labelY:135 },
     ];
     // node positions on a pentagon (top, upper-right, lower-right, lower-left, upper-left)
@@ -47,7 +47,7 @@ window.TATVM = (() => {
     });
     // core pentagon
     const core = `M250 96 L414 215 L351 408 L149 408 L86 215 Z`;
-    return `<svg class="pent-svg" viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The five Tat:vm tattvas — space, light, air, vastu and sustainability as one system">
+    return `<svg class="pent-svg" viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The five Tat:vm tattvas — space, light, air, community and sustainability as one system">
       <defs>
         <linearGradient id="pcore" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stop-color="#8E1F24"/><stop offset="1" stop-color="#6E1417"/>
