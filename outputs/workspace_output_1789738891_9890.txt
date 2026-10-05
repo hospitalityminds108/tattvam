@@ -1,3 +1,0 @@
-About dropdown: {'opacity': '1', 'visibility': 'visible'}
-carousel: {'scrollW': 1158, 'clientW': 1158}
-tattva nav buttons: 5

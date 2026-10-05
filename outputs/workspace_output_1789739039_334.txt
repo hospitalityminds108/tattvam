@@ -1,1 +1,0 @@
-{'footerExists': True, 'footerRect': 598.84375, 'slotExists': False, 'bodyH': 8482, 'docH': 8482}

@@ -1,8 +1,0 @@
-=== 404.html ===
-32:<section class="section">
-=== privacy-policy.html ===
-32:<section class="section">
-=== terms-and-conditions.html ===
-32:<section class="section">
-=== cookie-policy.html ===
-32:<section class="section">

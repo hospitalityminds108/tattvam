@@ -1,6 +1,0 @@
-=== BROWSER STATE ===
-URL: http://localhost:8080/404.html
-Title: Page not found | Tat:vm
-Result: Navigated to http://localhost:8080/404.html (title: Page not found | Tat:vm, status: 200)
-Use see-image to view: /workspace/.screenshots/step_007.png
-=== END ===

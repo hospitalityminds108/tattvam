@@ -1,1 +1,0 @@
-field span style now: {'fontSize': '11.84px', 'fontWeight': '800', 'letterSpacing': '1.6576px', 'textTransform': 'uppercase'}

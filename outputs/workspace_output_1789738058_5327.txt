@@ -1,9 +1,0 @@
-fixed about.html
-fixed brand-story.html
-fixed csr.html
-fixed leadership.html
-fixed our-approach.html
-fixed projects.html
-fixed vision-mission.html
-fixed projects/ghatkopar-mixed-use.html
-fixed projects/ghatkopar-residential.html

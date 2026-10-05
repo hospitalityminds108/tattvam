@@ -1,4 +1,0 @@
-=== svg.js asset refs ===
-7:    const src = `${base}tatvm_logo.png`;
-8:    const fallback = `${base}assets/img/tatvm-logo.svg`;
-=== components.js asset refs ===
