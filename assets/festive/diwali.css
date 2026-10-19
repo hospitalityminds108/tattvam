@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Tat:vm — Diwali festive layer
+   Purely additive: nothing in the site's own design is changed or hidden.
+   Uses the brand maroon and lime with warm diya gold as the festive accent.
+   Switched on and off from assets/js/components.js (festive loader).
+   ========================================================================== */
+:root{
+  --fx-gold:#F4B740;
+  --fx-gold-soft:#FFD98A;
+  --fx-marigold:#F08A24;
+  --fx-marigold-2:#F6B92B;
+  --fx-leaf:#7C922B;
+  --fx-clay:#8E1F24;
+  --fx-clay-deep:#5E1215;
+}
+
+/* ---------- hero sky: embers + fireworks canvas ---------- */
+.fx-sky{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;mix-blend-mode:screen}
+.hero .hero-inner,.page-hero .hero-inner{z-index:2}
+
+/* ---------- toran: marigold garland under the header ---------- */
+.fx-toran{position:absolute;left:0;right:0;top:var(--header);height:92px;pointer-events:none;z-index:2;overflow:visible}
+.fx-toran svg{display:block;width:100%;height:100%;overflow:visible}
+.fx-toran .fx-strand{transform-box:fill-box;transform-origin:50% 0;animation:fxSway 4.8s ease-in-out infinite}
+.fx-toran .fx-strand:nth-of-type(3n){animation-duration:5.6s}
+.fx-toran .fx-strand:nth-of-type(4n+1){animation-duration:4.2s}
+@keyframes fxSway{0%,100%{transform:rotate(-3.2deg)}50%{transform:rotate(3.2deg)}}
+.fx-toran.fx-in{animation:fxDrop 1.4s var(--ease-out,cubic-bezier(.16,1,.3,1)) both}
+@keyframes fxDrop{from{opacity:0;transform:translateY(-26px)}to{opacity:1;transform:none}}
+
+/* ---------- akash kandil: hanging star lanterns ---------- */
+.fx-kandil{position:absolute;top:var(--header);width:74px;pointer-events:none;z-index:2;transform-origin:50% 0;animation:fxSwing 6s ease-in-out infinite}
+.fx-kandil.l{left:clamp(14px,5vw,80px)}
+.fx-kandil.r{right:clamp(14px,5vw,80px);animation-delay:-2.4s;animation-duration:6.8s}
+.fx-kandil svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 0 18px rgba(244,183,64,.55))}
+.fx-kandil .fx-glow{animation:fxBreath 2.6s ease-in-out infinite}
+@keyframes fxSwing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes fxBreath{0%,100%{opacity:.75}50%{opacity:1}}
+@media(max-width:860px){.fx-kandil{width:54px}.fx-kandil.l{display:none}}
+
+/* ---------- diya ledge + rangoli on top of the footer ---------- */
+.fx-ledge{position:relative;z-index:3;height:0;overflow:visible;display:flex;align-items:center;justify-content:center;gap:clamp(10px,3.2vw,46px);pointer-events:none}   /* takes no space: sits on the edge above the footer */
+.fx-ledge .fx-diya{width:clamp(38px,4.4vw,56px);flex:none;transform:translateY(-12px)}
+.fx-ledge .fx-rangoli{width:clamp(76px,9vw,112px);flex:none;margin-inline:clamp(4px,1.5vw,18px)}
+.fx-ledge .fx-rangoli .fx-ring{transform-box:fill-box;transform-origin:center;animation:fxTurn 60s linear infinite}
+.fx-ledge .fx-rangoli .fx-ring.rev{animation-direction:reverse;animation-duration:80s}
+@keyframes fxTurn{to{transform:rotate(360deg)}}
+.fx-diya svg{display:block;width:100%;height:auto;overflow:visible}
+.fx-diya .fx-flame{transform-box:fill-box;transform-origin:50% 100%;animation:fxFlicker 1.3s ease-in-out infinite}
+.fx-diya:nth-child(2n) .fx-flame{animation-duration:1.05s}
+.fx-diya:nth-child(3n) .fx-flame{animation-duration:1.55s}
+.fx-diya .fx-halo{animation:fxBreath 1.9s ease-in-out infinite}
+@keyframes fxFlicker{0%,100%{transform:scale(1,1) rotate(-2deg)}25%{transform:scale(.94,1.06) rotate(2deg)}50%{transform:scale(1.04,.95) rotate(-1deg)}75%{transform:scale(.97,1.04) rotate(1.5deg)}}
+@media(max-width:640px){.fx-ledge .fx-diya:nth-child(n+4):not(:nth-last-child(-n+3)){display:none}}
+
+/* ---------- greeting card ---------- */
+.fx-greet{position:fixed;left:clamp(14px,2.4vw,26px);bottom:calc(clamp(14px,2.4vw,26px) + 62px);   /* sits above the site's back-to-top button */
+  z-index:930;width:min(360px,calc(100vw - 110px));
+  background:linear-gradient(160deg,#FFFDF8 0%,var(--ivory,#FBF7F0) 60%,#FBEFD9 100%);border:1px solid rgba(142,31,36,.18);border-radius:20px;
+  box-shadow:0 26px 60px -24px rgba(110,20,23,.45),0 0 0 6px rgba(244,183,64,.08);padding:16px 18px 14px 16px;display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;
+  transform:translateY(24px) scale(.98);opacity:0;transition:transform .7s var(--ease-out,cubic-bezier(.16,1,.3,1)),opacity .6s}
+.fx-greet.show{transform:none;opacity:1}
+.fx-greet .fx-diya{width:52px;margin-top:-6px}
+.fx-greet h3{font-family:var(--font-serif,Georgia,serif);font-size:1.15rem;line-height:1.2;color:var(--red,#8E1F24);margin:2px 28px 4px 0}
+.fx-greet p{font-size:.86rem;line-height:1.55;color:var(--ink,#3A3128);margin:0}
+.fx-greet .fx-sign{display:block;margin-top:6px;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep,#7C922B)}
+.fx-greet .fx-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(142,31,36,.08);color:var(--red,#8E1F24);font-size:1.1rem;line-height:1;cursor:pointer}
+.fx-greet .fx-x:hover{background:rgba(142,31,36,.16)}
+.fx-greet .fx-calm{grid-column:2;justify-self:start;margin-top:8px;border:0;background:none;padding:0;font:inherit;font-size:.74rem;font-weight:700;color:var(--taupe,#8B7C6B);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.fx-greet .fx-x:focus-visible,.fx-greet .fx-calm:focus-visible{outline:2px solid var(--red,#8E1F24);outline-offset:2px}
+.fx-greet::before{content:'';position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(120px 60px at 30px 30px,rgba(244,183,64,.22),transparent 70%)}
+@media(max-width:640px){.fx-greet{bottom:calc(clamp(14px,2.4vw,26px) + 62px);grid-template-columns:44px 1fr;padding:13px 14px 12px}.fx-greet .fx-diya{width:44px}.fx-greet h3{font-size:1.02rem}.fx-greet p{font-size:.8rem}}
+
+/* ---------- calm mode (visitor choice) and reduced motion ---------- */
+.festive-calm .fx-toran .fx-strand,.festive-calm .fx-kandil,.festive-calm .fx-ring,.festive-calm .fx-flame,.festive-calm .fx-halo,.festive-calm .fx-glow{animation:none!important}
+@media(prefers-reduced-motion:reduce){
+  .fx-toran .fx-strand,.fx-kandil,.fx-ring,.fx-flame,.fx-halo,.fx-glow,.fx-toran.fx-in{animation:none!important}
+  .fx-greet{transition:none}
+}
+@media print{.fx-sky,.fx-toran,.fx-kandil,.fx-ledge,.fx-greet{display:none!important}}
+
+/* ---------- welcome popup (once per visitor per season) ---------- */
+html.fx-lock,html.fx-lock body{overflow:hidden!important}
+.fx-pop{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:clamp(14px,3vw,32px);
+  background:radial-gradient(1200px 600px at 50% 40%,rgba(110,20,23,.55),rgba(30,12,10,.82));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:0;transition:opacity .5s ease}
+.fx-pop.show{opacity:1}
+.fx-pop-card{position:relative;width:min(860px,100%);max-height:calc(100vh - 28px);overflow:auto;display:grid;grid-template-columns:1.05fr 1fr;
+  background:var(--ivory,#FBF7F0);border-radius:28px;box-shadow:0 40px 120px -30px rgba(0,0,0,.6),0 0 0 1px rgba(244,183,64,.35),0 0 60px -10px rgba(244,183,64,.35);
+  transform:translateY(26px) scale(.94);transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.fx-pop.show .fx-pop-card{transform:none}
+.fx-pop-art{position:relative;min-height:440px;overflow:hidden;border-radius:28px 0 0 28px;
+  background:radial-gradient(120% 80% at 50% 0%,#5A1216 0%,#3A0D10 45%,#1E0809 100%)}
+.fx-pop-art>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fx-pop-art .fx-sky{z-index:0}
+.fx-pop-art .fx-toran{top:0;height:80px;z-index:2}
+.fx-pop-art .fx-kandil{top:28px;width:62px;z-index:2}
+.fx-pop-art .fx-kandil.l{left:22px;display:block}.fx-pop-art .fx-kandil.r{right:22px}
+.fx-pop-moon{position:absolute;left:50%;top:44%;width:150px;height:150px;transform:translate(-50%,-50%);border-radius:50%;z-index:1;
+  background:radial-gradient(circle,rgba(255,217,138,.55),rgba(244,183,64,.18) 45%,transparent 70%);animation:fxBreath 3.2s ease-in-out infinite}
+.fx-pop-art .fx-pop-rangoli{position:absolute;left:50%;top:44%;width:120px;transform:translate(-50%,-50%);z-index:2;filter:drop-shadow(0 0 22px rgba(244,183,64,.45))}
+.fx-pop-art .fx-pop-rangoli .fx-ring{transform-box:fill-box;transform-origin:center;animation:fxTurn 40s linear infinite}
+.fx-pop-art .fx-pop-rangoli .fx-ring.rev{animation-direction:reverse;animation-duration:55s}
+.fx-pop-diyas{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:clamp(8px,2vw,18px);z-index:2}
+.fx-pop-diyas .fx-diya{width:clamp(36px,4.4vw,48px)}
+.fx-pop-diyas::before{content:'';position:absolute;left:8%;right:8%;bottom:-6px;height:36px;border-radius:50%;background:radial-gradient(closest-side,rgba(244,183,64,.35),transparent);z-index:-1}
+.fx-pop-body{padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;justify-content:center;gap:14px;
+  background:radial-gradient(260px 160px at 100% 0%,rgba(244,183,64,.14),transparent 70%),radial-gradient(240px 160px at 0% 100%,rgba(159,182,61,.12),transparent 70%)}
+.fx-pop-logo{height:46px;width:auto;align-self:flex-start}
+.fx-pop-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep,#7C922B)}
+.fx-pop-eyebrow::before{content:'';width:26px;height:2px;background:currentColor;border-radius:2px}
+.fx-pop-title{font-family:var(--font-serif,Georgia,serif);font-size:clamp(2rem,4.2vw,3rem);line-height:1.02;color:var(--red,#8E1F24);margin:0}
+.fx-pop-title span{display:block;font-size:.5em;letter-spacing:.02em;color:var(--char,#2B2420);margin-top:.35em;font-style:italic}
+.fx-pop-text{font-size:1rem;line-height:1.65;color:var(--ink,#3A3128);margin:0}
+.fx-pop-sign{font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--taupe,#8B7C6B)}
+.fx-pop-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.fx-pop-actions a,.fx-pop-actions button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:999px;font:inherit;font-weight:800;font-size:.9rem;cursor:pointer;text-decoration:none;transition:transform .3s,box-shadow .3s,background .3s}
+.fx-pop-actions a{background:var(--red,#8E1F24);color:#fff;border:0;box-shadow:0 14px 30px -14px rgba(142,31,36,.8)}
+.fx-pop-actions a:hover{transform:translateY(-2px);background:var(--red-deep,#6E1417)}
+.fx-pop-actions button{background:transparent;color:var(--red,#8E1F24);border:1.5px solid rgba(142,31,36,.35)}
+.fx-pop-actions button:hover{background:rgba(142,31,36,.06)}
+.fx-pop-x{position:absolute;top:14px;right:14px;z-index:5;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--red,#8E1F24);font-size:1.4rem;line-height:1;cursor:pointer;box-shadow:0 8px 20px -8px rgba(0,0,0,.35)}
+.fx-pop-x:hover{background:#fff;transform:rotate(90deg);transition:transform .35s}
+.fx-pop a:focus-visible,.fx-pop button:focus-visible{outline:3px solid var(--fx-gold);outline-offset:3px}
+@media(max-width:760px){
+  .fx-pop-card{grid-template-columns:1fr;border-radius:24px}
+  .fx-pop-art{min-height:230px;border-radius:24px 24px 0 0}
+  .fx-pop-art .fx-pop-rangoli{width:86px;top:46%}.fx-pop-moon{width:110px;height:110px;top:46%}
+  .fx-pop-art .fx-kandil{width:44px;top:62px}.fx-pop-art .fx-kandil.l{display:block}
+  .fx-pop-body{padding:22px 22px 24px;gap:10px}
+  .fx-pop-logo{height:38px}
+  .fx-pop-text{font-size:.92rem}
+}
+.festive-calm .fx-pop-moon,.festive-calm .fx-pop-rangoli .fx-ring{animation:none!important}
+@media(prefers-reduced-motion:reduce){.fx-pop,.fx-pop-card{transition:none}.fx-pop-moon,.fx-pop-rangoli .fx-ring{animation:none!important}}

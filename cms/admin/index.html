@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Tat:vm Content Manager</title>
+<style>
+  :root{--red:#8E1F24;--red-d:#74181c;--green:#7C922B;--cream:#FBF7F0;--line:#E5D9C6;--ink:#2B2420;--muted:#7A6A60;--bg:#F4EEE4;--ok:#2f7d32;--warn:#a86400}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Manrope,"Segoe UI",system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.5}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;margin:0}
+  button,input,select,textarea{font:inherit;color:inherit}
+  .hidden{display:none!important}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.05rem;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700;font-size:.9rem;text-decoration:none;color:var(--ink);white-space:nowrap}
+  .btn:hover{border-color:#cdbda3;background:#fffdf9}
+  .btn:disabled{opacity:.55;cursor:default}
+  .btn.primary{background:var(--red);border-color:var(--red);color:#fff}.btn.primary:hover{background:var(--red-d)}
+  .btn.green{background:var(--green);border-color:var(--green);color:#fff}
+  .btn.danger{color:#a3161c;border-color:#e6b9bb}.btn.danger:hover{background:#fdf1f1}
+  .btn.small{padding:.35rem .65rem;font-size:.8rem;border-radius:8px}
+  /* auth */
+  .auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+  .auth-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px;width:100%;max-width:400px;box-shadow:0 20px 50px -30px rgba(0,0,0,.35)}
+  .auth-card h1{font-size:1.5rem;margin-bottom:.3rem}.auth-card p{color:var(--muted);margin:.2rem 0 1.2rem}
+  /* shell */
+  header.top{background:#fff;border-bottom:1px solid var(--line);padding:12px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+  header.top .brand{font-family:Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--red);margin-right:auto}
+  header.top .brand small{color:var(--muted);font-family:inherit;font-weight:400;font-size:.8rem;margin-left:.5rem}
+  main{max-width:1180px;margin:0 auto;padding:22px}
+  .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .bar h2{font-size:1.45rem;margin-right:auto}
+  .filters{display:grid;grid-template-columns:2fr repeat(5,1fr);gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+  @media(max-width:900px){.filters{grid-template-columns:1fr 1fr}}
+  label{display:block;font-size:.76rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+  input[type=text],input[type=password],input[type=url],input[type=date],input[type=search],select,textarea{width:100%;padding:.6rem .75rem;border:1px solid var(--line);border-radius:10px;background:#fff}
+  input:focus,select:focus,textarea:focus,.editor:focus{outline:2px solid #d9c9a8;outline-offset:1px;border-color:#cdbda3}
+  .invalid{border-color:#c62828!important;background:#fff8f8!important}
+  .err{color:#b3161c;font-size:.8rem;font-weight:600;margin-top:.25rem}
+  .hint{color:var(--muted);font-size:.8rem;margin-top:.25rem}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  th{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:.7rem .8rem;border-bottom:1px solid var(--line);background:#fdfaf5}
+  td{padding:.7rem .8rem;border-bottom:1px solid #f0e7d8;vertical-align:middle}
+  tr:last-child td{border-bottom:0}
+  .thumb{width:74px;height:48px;border-radius:8px;object-fit:cover;background:#eee4d3;display:block}
+  .t-title{font-weight:700;display:block;max-width:420px}
+  .t-sub{color:var(--muted);font-size:.8rem}
+  .pill{display:inline-block;padding:.18rem .6rem;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase}
+  .pill.published{background:#e5f3e0;color:var(--ok)}.pill.draft{background:#fff1d6;color:var(--warn)}.pill.unpublished{background:#eee;color:#555}
+  .tag{display:inline-block;padding:.15rem .5rem;border-radius:6px;background:#f3ebdd;font-size:.74rem;font-weight:700;color:#5d4f45}
+  .actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .pager{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:14px;color:var(--muted);font-weight:600}
+  .empty{background:#fff;border:1px dashed var(--line);border-radius:14px;padding:40px;text-align:center;color:var(--muted)}
+  .notice{background:#fff7e3;border:1px solid #efd9a4;border-radius:12px;padding:12px 14px;margin-bottom:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .notice strong{margin-right:auto}
+  /* form */
+  .form-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+  @media(max-width:980px){.form-grid{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+  .card h3{font-size:1.05rem;margin-bottom:12px}
+  .field{margin-bottom:14px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .count{float:right;font-weight:600;text-transform:none;letter-spacing:0}
+  .toolbar{display:flex;flex-wrap:wrap;gap:4px;border:1px solid var(--line);border-bottom:0;border-radius:10px 10px 0 0;padding:6px;background:#fdfaf5}
+  .toolbar button{border:1px solid transparent;background:none;border-radius:7px;padding:.3rem .55rem;cursor:pointer;font-weight:700;min-width:34px}
+  .toolbar button:hover{background:#f0e6d4}
+  .toolbar .sep{width:1px;background:var(--line);margin:2px 4px}
+  .editor{min-height:340px;max-height:70vh;overflow:auto;border:1px solid var(--line);border-radius:0 0 10px 10px;padding:14px 16px;background:#fff;font-size:1rem;line-height:1.7}
+  .editor h2{font-size:1.4rem;margin:1.2em 0 .4em}.editor h3{font-size:1.15rem;margin:1em 0 .3em}.editor h4{margin:1em 0 .3em}
+  .editor p{margin:0 0 .9em}.editor img{max-width:100%;height:auto;border-radius:8px}.editor a{color:var(--red)}
+  .editor blockquote{border-left:4px solid var(--green);margin:1em 0;padding:.3em 1em;color:#5d4f45;background:#faf6ee}
+  .editor table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}
+  .editor th,.editor td{border:1px solid #d8c9b0;padding:.45em .6em;vertical-align:top;min-width:60px}
+  .editor th{background:#f5eddf;font-weight:800}
+  .editor caption{caption-side:top;text-align:left;font-weight:700;color:var(--muted);padding-bottom:.3em}
+  .editor hr{border:0;border-top:2px solid var(--line);margin:1.5em 0}
+  .editor pre{background:#2B2420;color:#f4eee4;padding:.8em 1em;border-radius:8px;overflow:auto;font-size:.85rem}
+  .editor code{font-family:Consolas,monospace;font-size:.9em;background:#f3ebdd;padding:.05em .3em;border-radius:4px}
+  .editor pre code{background:none;padding:0}
+  .editor mark{background:#fff1b8}
+  .editor iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;background:#000;display:block;margin:1em 0}
+  .toolbar .tb-table{display:none;gap:4px;flex-wrap:wrap}
+  .toolbar.in-table .tb-table{display:flex}
+  .faq-row{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;background:#fdfaf5}
+  .faq-row .faq-head{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+  .faq-row .faq-head label{margin:0;margin-right:auto}
+  textarea.code{font-family:Consolas,monospace;font-size:.82rem;min-height:140px}
+  textarea.source{min-height:340px;font-family:Consolas,monospace;font-size:.85rem;border-radius:0 0 10px 10px}
+  .drop{border:2px dashed var(--line);border-radius:12px;padding:14px;text-align:center;background:#fdfaf5;cursor:pointer;color:var(--muted);font-weight:600}
+  .drop:hover{border-color:#cdbda3}
+  .preview{position:relative;margin-top:10px}
+  .preview img{width:100%;max-height:220px;object-fit:contain;border-radius:10px;background:#f3ebdd;display:block}
+  .preview .x,.clip .x{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.7);color:#fff;border:0;border-radius:50%;width:26px;height:26px;cursor:pointer;font-weight:700}
+  .clips{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:10px}
+  .clip{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#f3ebdd;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--red)}
+  .clip img{width:100%;height:100%;object-fit:cover}
+  .logo-prev{height:44px;max-width:160px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px;margin-top:8px;display:block}
+  .sticky{position:sticky;top:76px}
+  .stack{display:flex;flex-direction:column;gap:8px}.stack .btn{justify-content:center}
+  .urlprev{font-size:.8rem;color:var(--muted);word-break:break-all;margin-top:.3rem}
+  /* modal + toast */
+  .modal{position:fixed;inset:0;background:rgba(30,22,18,.55);display:flex;align-items:center;justify-content:center;padding:18px;z-index:50}
+  .modal .box{background:#fff;border-radius:16px;padding:22px;width:100%;max-width:560px;max-height:86vh;overflow:auto}
+  .modal h3{font-size:1.2rem;margin-bottom:.5rem}
+  .modal .foot{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+  .files{list-style:none;margin:10px 0;padding:0;border:1px solid var(--line);border-radius:10px;max-height:300px;overflow:auto}
+  .files li{padding:.45rem .7rem;border-bottom:1px solid #f0e7d8;font-family:Consolas,monospace;font-size:.82rem;display:flex;gap:8px}
+  .files li:last-child{border-bottom:0}.files .del{color:#b3161c;font-weight:700}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#2B2420;color:#fff;padding:.75rem 1.1rem;border-radius:12px;font-weight:600;z-index:60;max-width:92vw;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+  #toast.bad{background:#a3161c}
+</style>
+</head>
+<body>
+
+<!-- LOGIN / FIRST-TIME SETUP -->
+<div class="auth hidden" id="viewAuth">
+  <form class="auth-card" id="authForm" autocomplete="off">
+    <h1 id="authTitle">Tat:vm Content Manager</h1>
+    <p id="authText">Log in to manage blogs, news and clippings.</p>
+    <div class="field"><label for="authPw" id="authLabel">Password</label><input type="password" id="authPw" required minlength="8" autocomplete="current-password"></div>
+    <div class="field hidden" id="authPw2Wrap"><label for="authPw2">Repeat password</label><input type="password" id="authPw2" minlength="8" autocomplete="new-password"></div>
+    <div class="err hidden" id="authErr"></div>
+    <button class="btn primary" style="width:100%;justify-content:center;margin-top:8px" id="authBtn">Log in</button>
+  </form>
+</div>
+
+<!-- APP -->
+<div class="hidden" id="viewApp">
+  <header class="top">
+    <div class="brand">tat:vm <small>Content Manager</small></div>
+    <a class="btn small" href="/" target="_blank">View website</a>
+    <button class="btn small" id="btnPending">Files to upload <span id="pendingCount"></span></button>
+    <button class="btn small" id="btnSettings">Settings</button>
+    <button class="btn small" id="btnLogout">Log out</button>
+  </header>
+
+  <!-- LIST -->
+  <main id="viewList">
+    <div class="notice hidden" id="pendingNotice"><strong id="pendingText"></strong><button class="btn small primary" id="pendingOpen">Show files</button></div>
+    <div class="bar"><h2>All content</h2><button class="btn primary" id="btnNew">+ Add new content</button></div>
+    <div class="filters">
+      <div><label for="fQ">Search</label><input type="search" id="fQ" placeholder="Title, description or publisher"></div>
+      <div><label for="fType">Type</label><select id="fType"><option value="">All types</option></select></div>
+      <div><label for="fCat">Category</label><select id="fCat"><option value="">All categories</option></select></div>
+      <div><label for="fStatus">Status</label><select id="fStatus"><option value="">All statuses</option><option value="published">Published</option><option value="draft">Draft</option><option value="unpublished">Unpublished</option></select></div>
+      <div><label for="fFrom">From date</label><input type="date" id="fFrom"></div>
+      <div><label for="fTo">To date</label><input type="date" id="fTo"></div>
+    </div>
+    <div id="listWrap"></div>
+    <div class="pager" id="pager"></div>
+  </main>
+
+  <!-- FORM -->
+  <main id="viewForm" class="hidden">
+    <div class="bar"><h2 id="formTitle">Add new content</h2><button class="btn" id="btnBack">← Back to list</button></div>
+    <div class="notice hidden" id="legacyNote"><strong>This article's page was built before the Content Manager. You can change its card details (title, description, image, date, status) here; the text on the article page itself is not edited from this screen.</strong></div>
+    <form id="itemForm" novalidate>
+      <div class="form-grid">
+        <div>
+          <div class="card">
+            <div class="row2">
+              <div class="field"><label for="type">Content type *</label><select id="type" name="type"></select><div class="err" data-err="type"></div></div>
+              <div class="field"><label for="pub_date">Publication date *</label><input type="date" id="pub_date" name="pub_date"><div class="err" data-err="pub_date"></div></div>
+            </div>
+            <div class="field"><label for="title">Title * <span class="count" data-count="title" data-max="200"></span></label><input type="text" id="title" name="title" maxlength="200"><div class="err" data-err="title"></div></div>
+            <div class="field"><label for="description">Short description <span class="count" data-count="description" data-max="400"></span></label><textarea id="description" name="description" rows="3" maxlength="400"></textarea><div class="hint">Shown on the card. Needed before publishing.</div><div class="err" data-err="description"></div></div>
+            <div class="field" data-show="external-news,pr-article,company-news"><label for="external_url">External article link <span data-req="external-news">*</span></label><input type="url" id="external_url" name="external_url" placeholder="https://"><div class="hint" id="extHint"></div><div class="err" data-err="external_url"></div></div>
+          </div>
+
+          <div class="card" data-show="blog,insight,company-news,pr-article" id="bodyCard">
+            <h3>Article content</h3>
+            <div class="toolbar" id="toolbar">
+              <button type="button" data-cmd="bold" title="Bold"><b>B</b></button>
+              <button type="button" data-cmd="italic" title="Italic"><i>I</i></button>
+              <button type="button" data-cmd="underline" title="Underline"><u>U</u></button>
+              <button type="button" data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>
+              <button type="button" data-cmd="superscript" title="Superscript">x²</button>
+              <button type="button" data-cmd="subscript" title="Subscript">x₂</button>
+              <span class="sep"></span>
+              <button type="button" data-block="h2" title="Section heading">H2</button>
+              <button type="button" data-block="h3" title="Sub-heading">H3</button>
+              <button type="button" data-block="h4" title="Small heading">H4</button>
+              <button type="button" data-block="p" title="Normal text">¶</button>
+              <span class="sep"></span>
+              <button type="button" data-cmd="insertUnorderedList" title="Bullet list">• List</button>
+              <button type="button" data-cmd="insertOrderedList" title="Numbered list">1. List</button>
+              <button type="button" data-block="blockquote" title="Quote">“ ”</button>
+              <button type="button" data-block="pre" title="Code / preformatted text">&lt;/&gt;</button>
+              <button type="button" data-cmd="insertHorizontalRule" title="Divider line">―</button>
+              <span class="sep"></span>
+              <button type="button" id="tbTable" title="Insert table">Table</button>
+              <span class="tb-table">
+                <button type="button" data-tbl="row-after" title="Add row below">+ Row</button>
+                <button type="button" data-tbl="col-after" title="Add column to the right">+ Col</button>
+                <button type="button" data-tbl="row-del" title="Delete this row">− Row</button>
+                <button type="button" data-tbl="col-del" title="Delete this column">− Col</button>
+                <button type="button" data-tbl="head" title="Make this row a header row / normal row">Header</button>
+                <button type="button" data-tbl="table-del" title="Delete the whole table">Delete table</button>
+              </span>
+              <button type="button" id="tbEmbed" title="Embed a YouTube / Vimeo video or Google Map">Video / Map</button>
+              <span class="sep"></span>
+              <button type="button" id="tbLink" title="Add link">Link</button>
+              <button type="button" data-cmd="unlink" title="Remove link">Unlink</button>
+              <button type="button" id="tbImage" title="Insert image">Image</button>
+              <span class="sep"></span>
+              <button type="button" data-cmd="undo" title="Undo">↶</button>
+              <button type="button" data-cmd="redo" title="Redo">↷</button>
+              <button type="button" data-cmd="removeFormat" title="Clear formatting of the selected text">Clear</button>
+              <button type="button" id="tbSource" title="Edit HTML" style="margin-left:auto">HTML</button>
+            </div>
+            <div class="editor" id="editor" contenteditable="true"></div>
+            <textarea class="source hidden" id="source" spellcheck="false"></textarea>
+            <div class="hint">Use H2 for section headings; they become the "Contents" list on the page. Click inside a table to see its row and column buttons. Tables, lists and headings pasted from Word or Google Docs are kept. For links to other pages on the site, paste the full address (https://tatvmgroup.com/…).</div>
+            <div class="err" data-err="body_html"></div>
+            <input type="file" id="bodyImageInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+          </div>
+
+          <div class="card" data-show="blog,insight,company-news,pr-article" id="faqCard">
+            <h3>FAQs (optional)</h3>
+            <p class="hint" style="margin:0 0 10px">Shown at the end of the article as an expandable list, and added to the page as FAQ schema for Google.</p>
+            <div id="faqList"></div>
+            <button type="button" class="btn small" id="faqAdd">+ Add question</button>
+            <div class="err" data-err="faqs"></div>
+          </div>
+
+          <div class="card" data-show="clipping">
+            <h3>Newspaper clipping files *</h3>
+            <div class="drop" id="clipDrop">Click to upload the clipping pages (JPG, PNG, WEBP or PDF). You can choose several.</div>
+            <input type="file" id="clipInput" accept="image/jpeg,image/png,image/webp,application/pdf" multiple class="hidden">
+            <div class="clips" id="clipList"></div>
+            <div class="hint">Readers click the card to open these full-size with zoom. Upload the highest resolution you have.</div>
+            <div class="err" data-err="clip_files"></div>
+          </div>
+
+          <div class="card" data-show="blog,insight,company-news,pr-article">
+            <h3>Search engine details</h3>
+            <div class="field"><label for="slug">URL slug *</label><input type="text" id="slug" name="slug" maxlength="100" placeholder="created-from-the-title"><div class="urlprev" id="urlPrev"></div><div class="err" data-err="slug"></div></div>
+            <div class="field"><label for="seo_title">SEO title <span class="count" data-count="seo_title" data-max="60"></span></label><input type="text" id="seo_title" name="seo_title" maxlength="160" placeholder="Leave empty to use the title"></div>
+            <div class="field"><label for="meta_description">Meta description <span class="count" data-count="meta_description" data-max="160"></span></label><textarea id="meta_description" name="meta_description" rows="2" maxlength="320" placeholder="Leave empty to use the short description"></textarea></div>
+            <div class="field"><label for="keywords">Keywords</label><input type="text" id="keywords" name="keywords" maxlength="300" placeholder="e.g. redevelopment in Mumbai, SRA projects"><div class="hint">Separate with commas. Added to the article schema.</div></div>
+            <div class="field"><label for="schema_json">Extra schema (advanced, optional)</label><textarea class="code" id="schema_json" name="schema_json" spellcheck="false" placeholder='{ "@type": "HowTo", "name": "…" }'></textarea>
+              <div class="hint">The article, breadcrumb and FAQ schema are created automatically. Paste extra JSON-LD here only if you need another type (for example HowTo, Event, VideoObject). Paste the JSON only; script tags are removed.</div><div class="err" data-err="schema_json"></div></div>
+          </div>
+        </div>
+
+        <div class="sticky">
+          <div class="card">
+            <h3>Status: <span class="pill draft" id="statusPill">Draft</span></h3>
+            <div class="stack" id="saveButtons"></div>
+            <div class="hint" id="statusHint" style="margin-top:10px"></div>
+          </div>
+          <div class="card">
+            <h3 id="imgHeading">Featured image</h3>
+            <div class="drop" id="imgDrop">Click to upload an image (JPG, PNG or WEBP)</div>
+            <input type="file" id="imgInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+            <div class="preview hidden" id="imgPrev"><img alt=""><button type="button" class="x" title="Remove">×</button></div>
+            <div class="hint" id="imgHint">Landscape works best for cards (about 1600 × 1000).</div>
+            <div class="err" data-err="image"></div>
+            <div class="field" style="margin-top:10px"><label for="image_alt">Image description (alt text)</label><input type="text" id="image_alt" name="image_alt" maxlength="200"></div>
+          </div>
+          <div class="card">
+            <h3>Details</h3>
+            <div class="field"><label for="category">Category</label><select id="category"></select><input type="text" id="categoryOther" class="hidden" maxlength="60" placeholder="New category name" style="margin-top:6px"></div>
+            <div class="field" data-show="blog,insight,company-news,pr-article"><label for="author">Author</label><input type="text" id="author" name="author" maxlength="80" placeholder="Tat:vm Group"></div>
+            <div class="field" data-show="company-news,pr-article,external-news,clipping">
+              <label for="publisher">Publisher <span data-req="pr-article,external-news,clipping">*</span></label>
+              <select id="publisher"></select>
+              <input type="text" id="publisherNew" class="hidden" maxlength="80" placeholder="Publisher name, e.g. The Economic Times" style="margin-top:6px">
+              <img class="logo-prev hidden" id="logoPrev" alt="">
+              <div style="margin-top:8px"><button type="button" class="btn small" id="logoBtn">Upload publisher logo</button></div>
+              <input type="file" id="logoInput" accept="image/jpeg,image/png,image/webp" class="hidden">
+              <div class="hint">The logo appears in the corner of the news card.</div>
+              <div class="err" data-err="publisher"></div><div class="err" data-err="publisher_logo"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</div>
+
+<div class="modal hidden" id="modal"><div class="box" id="modalBox"></div></div>
+<div id="toast" class="hidden"></div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const slugify = s => String(s || '').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 90).replace(/-+$/, '');
+  const BLOG = ['blog', 'insight'];
+  let META = null, current = null, state = {}, listPage = 1, dirty = false;
+
+  // ---------------------------------------------------------------- plumbing
+  async function api(path, opts = {}) {
+    const o = { method: opts.method || 'GET', headers: { 'X-CMS': '1' }, credentials: 'same-origin' };
+    if (opts.body instanceof Blob) { o.body = opts.body; o.headers['Content-Type'] = opts.body.type || 'application/octet-stream'; }
+    else if (opts.body !== undefined) { o.body = JSON.stringify(opts.body); o.headers['Content-Type'] = 'application/json'; }
+    let res, data;
+    try { res = await fetch(path, o); data = await res.json(); }
+    catch (e) { throw Object.assign(new Error('The Content Manager is not responding. Check that its window is still open.'), { offline: true }); }
+    if (res.status === 401 && !path.startsWith('/api/login')) { showAuth(false); throw new Error(data.error || 'Please log in.'); }
+    if (!res.ok) throw Object.assign(new Error(data.error || 'Something went wrong.'), { fields: data.fields });
+    return data;
+  }
+  let toastTimer;
+  function toast(msg, bad) { const t = $('#toast'); t.textContent = msg; t.className = bad ? 'bad' : ''; clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.add('hidden'), bad ? 7000 : 4000); }
+  function modal(html) { $('#modalBox').innerHTML = html; $('#modal').classList.remove('hidden'); return $('#modalBox'); }
+  const closeModal = () => $('#modal').classList.add('hidden');
+  $('#modal').addEventListener('click', e => { if (e.target.id === 'modal' || e.target.dataset.close !== undefined) closeModal(); });
+  function confirmBox(title, text, okLabel, danger) {
+    return new Promise(resolve => {
+      const b = modal(`<h3>${esc(title)}</h3><p>${esc(text)}</p><div class="foot"><button class="btn" data-no>Cancel</button><button class="btn ${danger ? 'danger' : 'primary'}" data-yes>${esc(okLabel)}</button></div>`);
+      b.querySelector('[data-no]').onclick = () => { closeModal(); resolve(false); };
+      b.querySelector('[data-yes]').onclick = () => { closeModal(); resolve(true); };
+    });
+  }
+  const siteMsg = site => !site ? '' : (site.changed.length + site.removed.length ? ` Website files updated (${site.changed.length + site.removed.length}).` : '');
+
+  // ---------------------------------------------------------------- auth
+  function showAuth(setup) {
+    $('#viewApp').classList.add('hidden'); $('#viewAuth').classList.remove('hidden');
+    $('#authTitle').textContent = setup ? 'Create your password' : 'Tat:vm Content Manager';
+    $('#authText').textContent = setup ? 'First-time setup. Choose a password (at least 8 characters) for this Content Manager.' : 'Log in to manage blogs, news and clippings.';
+    $('#authPw2Wrap').classList.toggle('hidden', !setup);
+    $('#authBtn').textContent = setup ? 'Save password and continue' : 'Log in';
+    $('#authForm').dataset.setup = setup ? '1' : '';
+    $('#authPw').value = $('#authPw2').value = ''; $('#authErr').classList.add('hidden'); $('#authPw').focus();
+  }
+  $('#authForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const setup = !!e.target.dataset.setup, pw = $('#authPw').value, err = $('#authErr');
+    err.classList.add('hidden');
+    if (setup && pw !== $('#authPw2').value) { err.textContent = 'The two passwords do not match.'; return err.classList.remove('hidden'); }
+    try { await api(setup ? '/api/setup' : '/api/login', { method: 'POST', body: { password: pw } }); await startApp(); }
+    catch (ex) { err.textContent = ex.message; err.classList.remove('hidden'); }
+  });
+  $('#btnLogout').onclick = async () => { await api('/api/logout', { method: 'POST' }).catch(() => {}); showAuth(false); };
+
+  // ---------------------------------------------------------------- list
+  async function loadMeta() {
+    META = await api('/api/meta');
+    const keep = $('#fType').value, keepC = $('#fCat').value;
+    $('#fType').innerHTML = '<option value="">All types</option>' + META.types.map(t => `<option value="${t.key}">${esc(t.label)}</option>`).join('');
+    $('#fCat').innerHTML = '<option value="">All categories</option>' + [...new Set([...META.blogCategories, ...META.newsCategories])].map(c => `<option>${esc(c)}</option>`).join('');
+    $('#fType').value = keep; $('#fCat').value = keepC;
+    $('#pendingCount').textContent = META.pending ? `(${META.pending})` : '';
+    $('#pendingNotice').classList.toggle('hidden', !META.pending);
+    $('#pendingText').textContent = `${META.pending} website file${META.pending === 1 ? '' : 's'} changed on this computer and not yet uploaded to the live website.`;
+  }
+  const typeLabel = k => (META.types.find(t => t.key === k) || {}).label || k;
+  async function loadList() {
+    const q = new URLSearchParams({ page: listPage });
+    for (const [k, id] of [['q', 'fQ'], ['type', 'fType'], ['category', 'fCat'], ['status', 'fStatus'], ['from', 'fFrom'], ['to', 'fTo']]) if ($('#' + id).value) q.set(k, $('#' + id).value);
+    const d = await api('/api/items?' + q);
+    if (!d.items.length) { $('#listWrap').innerHTML = '<div class="empty">No content matches. Clear the filters or add new content.</div>'; $('#pager').innerHTML = ''; return; }
+    $('#listWrap').innerHTML = `<table><thead><tr><th></th><th>Title</th><th>Type</th><th>Date</th><th>Status</th><th></th></tr></thead><tbody>` + d.items.map(it => `
+      <tr data-id="${it.id}">
+        <td>${it.card_image ? `<img class="thumb" src="/${esc(it.card_image)}" alt="" loading="lazy">` : '<span class="thumb"></span>'}</td>
+        <td><span class="t-title">${esc(it.title)}</span><span class="t-sub">${esc([it.category, it.publisher].filter(Boolean).join(' · '))}</span></td>
+        <td><span class="tag">${esc(typeLabel(it.type))}</span></td>
+        <td style="white-space:nowrap">${esc(it.date_label || it.pub_date)}</td>
+        <td><span class="pill ${it.status}">${it.status}</span></td>
+        <td><div class="actions">
+          <button class="btn small" data-act="edit">Edit</button>
+          ${it.status === 'published' ? `<button class="btn small" data-act="unpublish">Unpublish</button>${it.url ? `<a class="btn small" target="_blank" href="${/^https?:/.test(it.url) ? esc(it.url) : '/' + esc(it.url)}">View</a>` : ''}` : `<button class="btn small green" data-act="publish">Publish</button>`}
+          <button class="btn small danger" data-act="delete">Delete</button>
+        </div></td>
+      </tr>`).join('') + '</tbody></table>';
+    $('#pager').innerHTML = d.pages > 1 ? `<button class="btn small" ${d.page <= 1 ? 'disabled' : ''} data-pg="${d.page - 1}">← Previous</button><span>Page ${d.page} of ${d.pages} · ${d.total} items</span><button class="btn small" ${d.page >= d.pages ? 'disabled' : ''} data-pg="${d.page + 1}">Next →</button>` : `<span>${d.total} item${d.total === 1 ? '' : 's'}</span>`;
+  }
+  $('#pager').addEventListener('click', e => { if (e.target.dataset.pg) { listPage = +e.target.dataset.pg; loadList(); } });
+  let ft; ['fQ', 'fType', 'fCat', 'fStatus', 'fFrom', 'fTo'].forEach(id => $('#' + id).addEventListener('input', () => { clearTimeout(ft); ft = setTimeout(() => { listPage = 1; loadList().catch(e => toast(e.message, true)); }, 250); }));
+  $('#listWrap').addEventListener('click', async e => {
+    const act = e.target.dataset.act, tr = e.target.closest('tr[data-id]'); if (!act || !tr) return;
+    const id = tr.dataset.id, title = tr.querySelector('.t-title').textContent;
+    try {
+      if (act === 'edit') return openForm(id);
+      if (act === 'delete') {
+        if (!await confirmBox('Delete this item?', `"${title}" will be removed from the website and from this list. This cannot be undone.`, 'Delete', true)) return;
+        const r = await api('/api/items/' + id, { method: 'DELETE' }); toast('Deleted.' + siteMsg(r.site));
+      } else {
+        const r = await api(`/api/items/${id}/status`, { method: 'POST', body: { status: act === 'publish' ? 'published' : 'unpublished' } });
+        toast((act === 'publish' ? 'Published.' : 'Unpublished — removed from the website.') + siteMsg(r.site));
+      }
+      await loadMeta(); await loadList();
+    } catch (ex) { toast(ex.fields ? ex.message + ' Open Edit to complete: ' + Object.values(ex.fields).join(' ') : ex.message, true); }
+  });
+
+  // ---------------------------------------------------------------- pending files / settings
+  async function showPending() {
+    const d = await api('/api/pending');
+    const b = modal(`<h3>Files to upload to the live website</h3>
+      <p>${d.files.length ? 'These files changed on this computer. Upload them to your hosting, keeping the same folders, so the live website shows the changes.' : 'Nothing is waiting. The live website matches this computer, as far as the Content Manager knows.'}</p>
+      ${d.files.length ? `<ul class="files">${d.files.map(f => `<li><span class="${f.action === 'delete' ? 'del' : ''}">${f.action === 'delete' ? 'DELETE on server' : 'upload'}</span><span>${esc(f.path)}</span></li>`).join('')}</ul>` : ''}
+      <div class="foot"><button class="btn" data-close>Close</button>${d.files.length ? '<button class="btn primary" id="pendDone">I have uploaded them</button>' : ''}</div>`);
+    const done = b.querySelector('#pendDone'); if (done) done.onclick = async () => { await api('/api/pending/clear', { method: 'POST' }); closeModal(); toast('Marked as uploaded.'); loadMeta(); };
+  }
+  $('#btnPending').onclick = $('#pendingOpen').onclick = () => showPending().catch(e => toast(e.message, true));
+  $('#btnSettings').onclick = () => {
+    const b = modal(`<h3>Settings</h3>
+      <div class="card"><h3>Back up</h3><p class="hint" style="margin:0 0 10px">Saves a copy of the content database and all uploaded files inside the cms/data/backups folder.</p><button class="btn" id="doBackup">Back up now</button></div>
+      <div class="card"><h3>Rebuild website pages</h3><p class="hint" style="margin:0 0 10px">Recreates the listing pages and CMS article pages from the saved content.</p><button class="btn" id="doRegen">Rebuild</button></div>
+      <div class="card"><h3>Change password</h3>
+        <div class="field"><label>Current password</label><input type="password" id="pwCur" autocomplete="current-password"></div>
+        <div class="field"><label>New password (8+ characters)</label><input type="password" id="pwNew" autocomplete="new-password"></div>
+        <button class="btn" id="doPw">Change password</button></div>
+      <div class="foot"><button class="btn" data-close>Close</button></div>`);
+    b.querySelector('#doBackup').onclick = async () => { try { const r = await api('/api/backup', { method: 'POST' }); toast('Backup saved in ' + r.database.replace(/\\/g, '/').replace(/\/[^/]+$/, '')); } catch (e) { toast(e.message, true); } };
+    b.querySelector('#doRegen').onclick = async () => { try { const r = await api('/api/regenerate', { method: 'POST' }); toast('Website pages rebuilt.' + siteMsg(r.site)); loadMeta(); } catch (e) { toast(e.message, true); } };
+    b.querySelector('#doPw').onclick = async () => { try { await api('/api/password', { method: 'POST', body: { current: b.querySelector('#pwCur').value, password: b.querySelector('#pwNew').value } }); closeModal(); toast('Password changed.'); } catch (e) { toast(e.message, true); } };
+  };
+
+  // ---------------------------------------------------------------- form
+  const F = id => $('#' + id);
+  const editor = F('editor'), source = F('source');
+  function cleanHtml(html) {            // tidy pasted content; the server cleans again on save
+    const doc = new DOMParser().parseFromString('<div>' + html + '</div>', 'text/html');
+    const keep = new Set(['P', 'H2', 'H3', 'H4', 'H5', 'H6', 'UL', 'OL', 'LI', 'A', 'STRONG', 'EM', 'B', 'I', 'U', 'S', 'STRIKE', 'DEL', 'BLOCKQUOTE', 'IMG', 'BR', 'H1', 'DIV',
+      'TABLE', 'THEAD', 'TBODY', 'TFOOT', 'TR', 'TH', 'TD', 'CAPTION', 'HR', 'PRE', 'CODE', 'SUP', 'SUB', 'MARK', 'SMALL', 'DL', 'DT', 'DD', 'CITE', 'FIGURE', 'FIGCAPTION', 'IFRAME']);
+    doc.body.querySelectorAll('script,style,meta,link,object,svg,title').forEach(n => n.remove());
+    doc.body.querySelectorAll('iframe').forEach(n => { if (!embedUrl(n.getAttribute('src') || '')) n.remove(); });
+    (function walk(node) {
+      [...node.children].forEach(el => {
+        walk(el);
+        if (!keep.has(el.tagName)) { el.replaceWith(...el.childNodes); return; }
+        const ok = { A: ['href'], IMG: ['src', 'alt'], TD: ['colspan', 'rowspan'], TH: ['colspan', 'rowspan', 'scope'], OL: ['start'], IFRAME: ['src', 'title', 'allowfullscreen'] }[el.tagName] || [];
+        [...el.attributes].forEach(a => { if (!ok.includes(a.name)) el.removeAttribute(a.name); });
+      });
+    })(doc.body.firstChild);
+    return doc.body.firstChild.innerHTML;
+  }
+  const toEditor = html => String(html || '').replace(/(<img[^>]*\ssrc=")(uploads|assets)\//g, '$1/$2/');
+  const getBody = () => source.classList.contains('hidden') ? editor.innerHTML : source.value;
+  document.execCommand('defaultParagraphSeparator', false, 'p');
+  $('#toolbar').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b || !source.classList.contains('hidden') && b.id !== 'tbSource') return;
+    editor.focus();
+    if (b.dataset.cmd) document.execCommand(b.dataset.cmd, false, null);
+    else if (b.dataset.block) document.execCommand('formatBlock', false, b.dataset.block);
+    dirty = true;
+  });
+  F('tbLink').onclick = () => {
+    const sel = window.getSelection(); if (!sel.rangeCount || sel.isCollapsed) return toast('Select the words to turn into a link first.', true);
+    const range = sel.getRangeAt(0);
+    const b = modal(`<h3>Add link</h3><div class="field"><label>Web address</label><input type="url" id="lnk" placeholder="https://tatvmgroup.com/…"></div><div class="foot"><button class="btn" data-close>Cancel</button><button class="btn primary" id="lnkOk">Add link</button></div>`);
+    const inp = b.querySelector('#lnk'); inp.focus();
+    const go = () => { const u = inp.value.trim(); if (!/^(https?:\/\/|mailto:|tel:)/i.test(u)) return inp.classList.add('invalid'); closeModal(); editor.focus(); sel.removeAllRanges(); sel.addRange(range); document.execCommand('createLink', false, u); dirty = true; };
+    b.querySelector('#lnkOk').onclick = go; inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
+  };
+  let bodyRange = null;
+  F('tbImage').onclick = () => { const s = window.getSelection(); bodyRange = s.rangeCount && editor.contains(s.anchorNode) ? s.getRangeAt(0) : null; F('bodyImageInput').click(); };
+  F('bodyImageInput').onchange = async e => {
+    const file = e.target.files[0]; e.target.value = ''; if (!file) return;
+    try {
+      const r = await uploadFile(file, BLOG.includes(F('type').value) ? 'blogs' : 'news');
+      editor.focus(); if (bodyRange) { const s = window.getSelection(); s.removeAllRanges(); s.addRange(bodyRange); }
+      document.execCommand('insertHTML', false, `<p><img src="/${esc(r.path)}" alt="${esc(F('title').value)}"></p><p><br></p>`); dirty = true;
+    } catch (ex) { toast(ex.message, true); }
+  };
+  // YouTube / Vimeo / Google Maps address (or pasted embed code) -> player address, or '' if not allowed
+  function embedUrl(input) {
+    let u = String(input || '').trim(), m;
+    if ((m = /<iframe[^>]*\ssrc=["']([^"']+)["']/i.exec(u))) u = m[1];
+    u = u.replace(/&amp;/g, '&');
+    if ((m = /^https?:\/\/(?:www\.|m\.)?youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)([A-Za-z0-9_-]{6,20})/.exec(u)) || (m = /^https?:\/\/youtu\.be\/([A-Za-z0-9_-]{6,20})/.exec(u))) return 'https://www.youtube-nocookie.com/embed/' + m[1];
+    if ((m = /^https?:\/\/(?:www\.|player\.)?vimeo\.com\/(?:video\/)?(\d{4,12})/.exec(u))) return 'https://player.vimeo.com/video/' + m[1];
+    if (/^https:\/\/www\.google\.com\/maps\/embed\?pb=[A-Za-z0-9!%._~:=&,+*-]+$/.test(u)) return u;
+    return '';
+  }
+  let savedRange = null;
+  const keepRange = () => { const s = window.getSelection(); savedRange = s.rangeCount && editor.contains(s.anchorNode) ? s.getRangeAt(0) : null; };
+  const restoreRange = () => { editor.focus(); if (savedRange) { const s = window.getSelection(); s.removeAllRanges(); s.addRange(savedRange); } };
+  F('tbTable').onclick = () => {
+    keepRange();
+    const b = modal(`<h3>Insert table</h3>
+      <div class="row2"><div class="field"><label>Rows</label><input type="text" id="tRows" value="3" inputmode="numeric"></div><div class="field"><label>Columns</label><input type="text" id="tCols" value="3" inputmode="numeric"></div></div>
+      <div class="field"><label><input type="checkbox" id="tHead" checked style="width:auto;margin-right:6px">First row is a header</label></div>
+      <div class="field"><label>Caption (optional)</label><input type="text" id="tCap" maxlength="150"></div>
+      <div class="foot"><button class="btn" data-close>Cancel</button><button class="btn primary" id="tOk">Insert table</button></div>`);
+    b.querySelector('#tOk').onclick = () => {
+      const rows = Math.min(50, Math.max(1, parseInt(b.querySelector('#tRows').value, 10) || 3)), cols = Math.min(12, Math.max(1, parseInt(b.querySelector('#tCols').value, 10) || 3));
+      const head = b.querySelector('#tHead').checked, cap = b.querySelector('#tCap').value.trim();
+      let h = '<table>' + (cap ? `<caption>${esc(cap)}</caption>` : '');
+      if (head) h += '<thead><tr>' + Array.from({ length: cols }, (_, i) => `<th>Heading ${i + 1}</th>`).join('') + '</tr></thead>';
+      h += '<tbody>' + Array.from({ length: head ? rows - 1 || 1 : rows }, () => '<tr>' + '<td><br></td>'.repeat(cols) + '</tr>').join('') + '</tbody></table><p><br></p>';
+      closeModal(); restoreRange(); document.execCommand('insertHTML', false, h); dirty = true;
+    };
+  };
+  const currentCell = () => { const s = window.getSelection(); const n = s.rangeCount ? s.anchorNode : null; const el = n && (n.nodeType === 1 ? n : n.parentElement); return el && editor.contains(el) ? el.closest('td,th') : null; };
+  document.addEventListener('selectionchange', () => { F('toolbar').classList.toggle('in-table', !!currentCell()); });
+  F('toolbar').addEventListener('mousedown', e => { if (e.target.closest('[data-tbl]')) e.preventDefault(); });   // keep the caret inside the table
+  F('toolbar').addEventListener('click', e => {
+    const b = e.target.closest('[data-tbl]'); if (!b) return;
+    const cell = currentCell(); if (!cell) return toast('Click inside a table cell first.', true);
+    const row = cell.parentElement, table = cell.closest('table'), idx = cell.cellIndex, act = b.dataset.tbl;
+    const newCell = tag => { const c = document.createElement(tag); c.innerHTML = '<br>'; return c; };
+    if (act === 'row-after') {
+      const r = document.createElement('tr');
+      for (let i = 0; i < row.cells.length; i++) r.appendChild(newCell('td'));
+      if (row.parentElement.tagName === 'THEAD') { let tb = table.tBodies[0]; if (!tb) { tb = document.createElement('tbody'); table.appendChild(tb); } tb.insertBefore(r, tb.firstChild); }
+      else row.after(r);
+    } else if (act === 'col-after') {
+      [...table.rows].forEach(r => { const ref = r.cells[Math.min(idx, r.cells.length - 1)]; const c = newCell(r.parentElement.tagName === 'THEAD' ? 'th' : 'td'); ref ? ref.after(c) : r.appendChild(c); });
+    } else if (act === 'row-del') {
+      const sec = row.parentElement; row.remove(); if (!sec.rows.length) sec.remove(); if (!table.rows.length) table.remove();
+    } else if (act === 'col-del') {
+      [...table.rows].forEach(r => { if (r.cells[idx]) r.cells[idx].remove(); }); [...table.rows].forEach(r => { if (!r.cells.length) r.remove(); }); if (!table.rows.length) table.remove();
+    } else if (act === 'head') {
+      const inHead = row.parentElement.tagName === 'THEAD';
+      const swap = (r, tag) => [...r.cells].forEach(c => { const n = document.createElement(tag); n.innerHTML = c.innerHTML; for (const a of ['colspan', 'rowspan']) if (c.getAttribute(a)) n.setAttribute(a, c.getAttribute(a)); c.replaceWith(n); });
+      if (inHead) { let tb = table.tBodies[0]; if (!tb) { tb = document.createElement('tbody'); table.appendChild(tb); } swap(row, 'td'); tb.insertBefore(row, tb.firstChild); if (!table.tHead.rows.length) table.tHead.remove(); }
+      else { let th = table.tHead; if (!th) th = table.createTHead(); swap(row, 'th'); th.appendChild(row); }
+    } else if (act === 'table-del') {
+      table.remove();
+    }
+    dirty = true;
+  });
+  F('tbEmbed').onclick = () => {
+    keepRange();
+    const b = modal(`<h3>Embed a video or map</h3>
+      <div class="field"><label>YouTube or Vimeo link, or Google Maps embed code</label><input type="text" id="emUrl" placeholder="https://www.youtube.com/watch?v=…"></div>
+      <div class="field"><label>Title (for accessibility)</label><input type="text" id="emTitle" maxlength="150" placeholder="e.g. Site walkthrough video"></div>
+      <div class="hint">For Google Maps: Share → Embed a map → Copy HTML, and paste it here.</div>
+      <div class="err" id="emErr"></div>
+      <div class="foot"><button class="btn" data-close>Cancel</button><button class="btn primary" id="emOk">Embed</button></div>`);
+    const inp = b.querySelector('#emUrl'); inp.focus();
+    b.querySelector('#emOk').onclick = () => {
+      const src = embedUrl(inp.value);
+      if (!src) { b.querySelector('#emErr').textContent = 'Only YouTube, Vimeo and Google Maps can be embedded. Check the link.'; return; }
+      const title = b.querySelector('#emTitle').value.trim() || 'Embedded video';
+      closeModal(); restoreRange();
+      document.execCommand('insertHTML', false, `<iframe src="${esc(src)}" title="${esc(title)}" allowfullscreen></iframe><p><br></p>`); dirty = true;
+    };
+  };
+
+  // FAQ builder
+  function renderFaqs() {
+    F('faqList').innerHTML = state.faqs.map((f, i) => `<div class="faq-row" data-i="${i}">
+      <div class="faq-head"><label>Question ${i + 1}</label>${i > 0 ? `<button type="button" class="btn small" data-faq="up" title="Move up">↑</button>` : ''}<button type="button" class="btn small danger" data-faq="del" title="Remove">✕</button></div>
+      <input type="text" data-faq-q maxlength="300" value="${esc(f.q)}" placeholder="Question">
+      <textarea data-faq-a rows="3" maxlength="3000" placeholder="Answer" style="margin-top:6px">${esc(f.a)}</textarea></div>`).join('');
+  }
+  F('faqAdd').onclick = () => { state.faqs.push({ q: '', a: '' }); renderFaqs(); dirty = true; const rows = F('faqList').querySelectorAll('[data-faq-q]'); rows[rows.length - 1].focus(); };
+  F('faqList').addEventListener('input', e => { const row = e.target.closest('.faq-row'); if (!row) return; const f = state.faqs[+row.dataset.i]; if (e.target.matches('[data-faq-q]')) f.q = e.target.value; else if (e.target.matches('[data-faq-a]')) f.a = e.target.value; });
+  F('faqList').addEventListener('click', e => {
+    const b = e.target.closest('[data-faq]'); if (!b) return; const i = +b.closest('.faq-row').dataset.i;
+    if (b.dataset.faq === 'del') state.faqs.splice(i, 1); else if (i > 0) [state.faqs[i - 1], state.faqs[i]] = [state.faqs[i], state.faqs[i - 1]];
+    renderFaqs(); dirty = true;
+  });
+
+  F('tbSource').onclick = () => {
+    const toSource = source.classList.contains('hidden');
+    if (toSource) source.value = editor.innerHTML.replace(/></g, '>\n<'); else editor.innerHTML = cleanHtml(source.value);
+    source.classList.toggle('hidden', !toSource); editor.classList.toggle('hidden', toSource);
+    F('tbSource').textContent = toSource ? 'Visual' : 'HTML';
+  };
+  editor.addEventListener('paste', e => {
+    const html = e.clipboardData.getData('text/html'), txt = e.clipboardData.getData('text/plain');
+    e.preventDefault();
+    document.execCommand('insertHTML', false, html ? cleanHtml(html) : esc(txt).split(/\n{2,}/).map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join(''));
+  });
+  editor.addEventListener('input', () => dirty = true);
+
+  async function uploadFile(file, folder) {
+    const limit = file.type === 'application/pdf' ? 30 : 15;
+    if (file.size > limit * 1024 * 1024) throw new Error(`"${file.name}" is larger than ${limit} MB.`);
+    toast('Uploading ' + file.name + '…');
+    const r = await api(`/api/upload?folder=${folder}&name=${encodeURIComponent(file.name)}`, { method: 'POST', body: file });
+    toast('Uploaded.'); return r;
+  }
+  const folderFor = () => F('type').value === 'clipping' ? 'clippings' : BLOG.includes(F('type').value) ? 'blogs' : 'news';
+
+  function renderImage() {
+    const p = F('imgPrev'); p.classList.toggle('hidden', !state.image); F('imgDrop').classList.toggle('hidden', !!state.image);
+    if (state.image) p.querySelector('img').src = '/' + state.image;
+  }
+  F('imgDrop').onclick = () => F('imgInput').click();
+  F('imgInput').onchange = async e => { const f = e.target.files[0]; e.target.value = ''; if (!f) return; try { state.image = (await uploadFile(f, folderFor())).path; dirty = true; renderImage(); clearErr('image'); } catch (ex) { toast(ex.message, true); } };
+  F('imgPrev').querySelector('.x').onclick = () => { state.image = ''; dirty = true; renderImage(); };
+
+  function renderClips() {
+    F('clipList').innerHTML = state.clips.map((c, i) => `<div class="clip">${/\.pdf$/i.test(c) ? 'PDF' : `<img src="/${esc(c)}" alt="">`}<button type="button" class="x" data-i="${i}" title="Remove">×</button></div>`).join('');
+  }
+  F('clipDrop').onclick = () => F('clipInput').click();
+  F('clipInput').onchange = async e => {
+    const files = [...e.target.files]; e.target.value = '';
+    for (const f of files) { try { state.clips.push((await uploadFile(f, 'clippings')).path); dirty = true; renderClips(); clearErr('clip_files'); } catch (ex) { toast(ex.message, true); } }
+  };
+  F('clipList').addEventListener('click', e => { if (e.target.dataset.i !== undefined) { state.clips.splice(+e.target.dataset.i, 1); dirty = true; renderClips(); } });
+
+  function fillCategory(value) {
+    const list = BLOG.includes(F('type').value) ? META.blogCategories : META.newsCategories;
+    const def = value || (BLOG.includes(F('type').value) ? 'Real Estate' : F('type').value === 'company-news' ? 'Company News' : 'Press & Media');
+    const all = list.includes(def) ? list : [...list, def];
+    F('category').innerHTML = all.map(c => `<option>${esc(c)}</option>`).join('') + '<option value="__other">Other (type a new one)…</option>';
+    F('category').value = def; F('categoryOther').classList.add('hidden'); F('categoryOther').value = '';
+  }
+  F('category').onchange = () => { F('categoryOther').classList.toggle('hidden', F('category').value !== '__other'); if (F('category').value === '__other') F('categoryOther').focus(); };
+  function fillPublisher(value) {
+    F('publisher').innerHTML = '<option value="">— Choose —</option>' + META.publishers.map(p => `<option>${esc(p.name)}</option>`).join('') + '<option value="__new">Add a new publisher…</option>';
+    if (value && !META.publishers.some(p => p.name === value)) F('publisher').insertAdjacentHTML('afterbegin', `<option>${esc(value)}</option>`);
+    F('publisher').value = value || ''; F('publisherNew').classList.add('hidden'); F('publisherNew').value = ''; state.logo = ''; renderLogo();
+  }
+  function renderLogo() {
+    const existing = (META.publishers.find(p => p.name === F('publisher').value) || {}).logo;
+    const src = state.logo || existing; F('logoPrev').classList.toggle('hidden', !src); if (src) F('logoPrev').src = '/' + src;
+    F('logoBtn').textContent = src ? 'Replace publisher logo' : 'Upload publisher logo';
+  }
+  F('publisher').onchange = () => { F('publisherNew').classList.toggle('hidden', F('publisher').value !== '__new'); state.logo = ''; renderLogo(); if (F('publisher').value === '__new') F('publisherNew').focus(); };
+  F('logoBtn').onclick = () => F('logoInput').click();
+  F('logoInput').onchange = async e => { const f = e.target.files[0]; e.target.value = ''; if (!f) return; try { state.logo = (await uploadFile(f, 'publishers')).path; dirty = true; renderLogo(); } catch (ex) { toast(ex.message, true); } };
+
+  function applyType() {
+    const t = F('type').value;
+    $$('#itemForm [data-show]').forEach(el => el.classList.toggle('hidden', !el.dataset.show.split(',').includes(t) || (current && current.legacy && (el.id === 'bodyCard' || el.id === 'faqCard' || el.querySelector('#slug')))));
+    $$('#itemForm [data-req]').forEach(el => el.classList.toggle('hidden', !el.dataset.req.split(',').includes(t)));
+    F('imgHeading').textContent = t === 'clipping' ? 'Card thumbnail (optional)' : 'Featured image *';
+    F('imgHint').textContent = t === 'clipping' ? 'If empty, the first clipping image is used on the card. A PDF-only clipping needs a thumbnail.' : 'Landscape works best for cards (about 1600 × 1000).';
+    F('extHint').textContent = t === 'external-news' ? 'The card opens this address in a new tab.' : 'Optional. Adds a "Read More" link to the original article at the end of the page.';
+    updateUrl();
+  }
+  function updateUrl() {
+    const t = F('type').value, s = slugify(F('slug').value || F('title').value);
+    F('urlPrev').textContent = s ? `Page address: tatvmgroup.com/${BLOG.includes(t) ? 'blog' : 'News'}/${s}.html` : '';
+  }
+  F('type').onchange = () => { fillCategory(); applyType(); };
+  F('title').addEventListener('input', () => { if (!state.slugTouched) F('slug').value = slugify(F('title').value); updateUrl(); });
+  F('slug').addEventListener('input', () => { state.slugTouched = true; updateUrl(); });
+  F('slug').addEventListener('blur', () => { F('slug').value = slugify(F('slug').value); updateUrl(); });
+  $$('[data-count]').forEach(el => { const inp = F(el.dataset.count), max = +el.dataset.max; const upd = () => { el.textContent = `${inp.value.length} / ${max}`; el.style.color = inp.value.length > max ? '#b3161c' : ''; }; inp.addEventListener('input', upd); el._upd = upd; });
+  F('itemForm').addEventListener('input', () => dirty = true);
+
+  function clearErr(k) { const e = $(`[data-err="${k}"]`); if (e) e.textContent = ''; const i = F(k); if (i) i.classList.remove('invalid'); }
+  function showErrors(fields) {
+    $$('[data-err]').forEach(e => e.textContent = ''); $$('.invalid').forEach(e => e.classList.remove('invalid'));
+    let first = null;
+    for (const [k, msg] of Object.entries(fields || {})) {
+      const e = $(`[data-err="${k}"]`); if (e) { e.textContent = msg; first = first || e; }
+      const i = k === 'body_html' ? editor : F(k); if (i) i.classList.add('invalid');
+    }
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function validate(status) {            // quick checks before sending; the server checks again
+    const e = {}, t = F('type').value, legacy = current && current.legacy;
+    if (!F('title').value.trim()) e.title = 'Title is required.';
+    if (!F('pub_date').value) e.pub_date = 'Choose a publication date.';
+    const ext = F('external_url').value.trim();
+    if (ext && !/^https?:\/\/\S+\.\S+/i.test(ext)) e.external_url = 'Enter a full web address starting with https://';
+    if (status === 'published') {
+      if (!F('description').value.trim()) e.description = 'Add a short description before publishing.';
+      if (t === 'external-news' && !ext) e.external_url = 'Add the link to the original article.';
+      if (t === 'clipping' && !state.clips.length) e.clip_files = 'Upload at least one clipping image or PDF.';
+      if (t === 'clipping' && !state.image && !state.clips.some(c => !/\.pdf$/i.test(c))) e.image = 'A PDF clipping needs a thumbnail image for its card.';
+      if (t !== 'clipping' && !state.image) e.image = 'Add a featured image before publishing.';
+      if (!legacy && !['external-news', 'clipping'].includes(t) && editor.textContent.trim().length < 20 && source.classList.contains('hidden')) e.body_html = 'Write the article content before publishing.';
+      const pub = F('publisher').value === '__new' ? F('publisherNew').value.trim() : F('publisher').value;
+      if (['pr-article', 'external-news', 'clipping'].includes(t) && !pub) e.publisher = 'Choose or add the publisher.';
+    }
+    const faqs = state.faqs.filter(f => f.q.trim() || f.a.trim());
+    if (faqs.some(f => !f.q.trim() || !f.a.trim())) e.faqs = 'Each FAQ needs both a question and an answer.';
+    const sj = F('schema_json').value.replace(/<\/?script[^>]*>/gi, '').trim();
+    if (sj) { try { const p = JSON.parse(sj); const l = Array.isArray(p) ? p : [p]; if (!l.length || l.some(o => !o || typeof o !== 'object' || Array.isArray(o) || !o['@type'])) throw 0; } catch (x) { e.schema_json = 'This is not valid schema JSON. Each block needs an "@type".'; } }
+    return e;
+  }
+  async function save(status) {
+    const errs = validate(status);
+    if (Object.keys(errs).length) { showErrors(errs); return toast('Please fix the highlighted fields.', true); }
+    const body = {
+      type: F('type').value, status, title: F('title').value, description: F('description').value, pub_date: F('pub_date').value,
+      external_url: F('external_url').value, body_html: getBody(), slug: F('slug').value, seo_title: F('seo_title').value, meta_description: F('meta_description').value,
+      image: state.image, image_alt: F('image_alt').value, clip_files: state.clips, author: F('author').value,
+      faqs: state.faqs.filter(f => f.q.trim() || f.a.trim()), keywords: F('keywords').value, schema_json: F('schema_json').value,
+      category: F('category').value === '__other' ? F('categoryOther').value : F('category').value,
+      publisher: F('publisher').value === '__new' ? F('publisherNew').value : F('publisher').value, publisher_logo: state.logo || undefined
+    };
+    $$('#saveButtons .btn').forEach(b => b.disabled = true);
+    try {
+      const r = current ? await api('/api/items/' + current.id, { method: 'PUT', body }) : await api('/api/items', { method: 'POST', body });
+      dirty = false;
+      toast((status === 'published' ? 'Published.' : status === 'draft' ? 'Draft saved. It is not on the website.' : 'Saved as unpublished. It is not on the website.') + siteMsg(r.site));
+      await loadMeta(); fillForm(r.item);
+    } catch (ex) { if (ex.fields) showErrors(ex.fields); toast(ex.message, true); }
+    finally { $$('#saveButtons .btn').forEach(b => b.disabled = false); }
+  }
+  function renderButtons() {
+    const st = current ? current.status : 'new', box = F('saveButtons');
+    const pill = F('statusPill'); pill.className = 'pill ' + (current ? current.status : 'draft'); pill.textContent = current ? current.status : 'New';
+    box.innerHTML = st === 'published'
+      ? `<button type="button" class="btn primary" data-save="published">Update on website</button><button type="button" class="btn" data-save="unpublished">Unpublish</button>`
+      : `<button type="button" class="btn primary" data-save="published">Publish to website</button><button type="button" class="btn" data-save="${st === 'unpublished' ? 'unpublished' : 'draft'}">${st === 'unpublished' ? 'Save (keep unpublished)' : 'Save as draft'}</button>`;
+    if (current) box.insertAdjacentHTML('beforeend', `${current.status === 'published' && current.url ? `<a class="btn" target="_blank" href="${/^https?:/.test(current.url) ? esc(current.url) : '/' + esc(current.url)}">View on website preview</a>` : ''}<button type="button" class="btn danger" data-del>Delete</button>`);
+    F('statusHint').textContent = st === 'published' ? 'Live in the website files on this computer. Upload the changed files to show it on the live website.' : 'Not shown on the website.';
+  }
+  F('saveButtons').addEventListener('click', async e => {
+    if (e.target.dataset.save) return save(e.target.dataset.save);
+    if (e.target.dataset.del !== undefined) {
+      if (!await confirmBox('Delete this item?', `"${current.title}" will be removed from the website and from this list. This cannot be undone.`, 'Delete', true)) return;
+      try { const r = await api('/api/items/' + current.id, { method: 'DELETE' }); dirty = false; toast('Deleted.' + siteMsg(r.site)); showList(); } catch (ex) { toast(ex.message, true); }
+    }
+  });
+  function fillForm(it) {
+    current = it || null;
+    state = { image: it ? it.image : '', clips: it ? [...it.clip_files] : [], faqs: it && Array.isArray(it.faqs) ? it.faqs.map(f => ({ q: f.q || '', a: f.a || '' })) : [], logo: '', slugTouched: !!(it && it.slug) };
+    F('formTitle').textContent = it ? 'Edit: ' + it.title : 'Add new content';
+    F('legacyNote').classList.toggle('hidden', !(it && it.legacy));
+    F('type').innerHTML = META.types.map(t => `<option value="${t.key}">${esc(t.label)}</option>`).join('');
+    F('type').value = it ? it.type : 'blog'; F('type').disabled = !!it;
+    for (const k of ['title', 'description', 'pub_date', 'external_url', 'slug', 'seo_title', 'meta_description', 'image_alt', 'author', 'keywords', 'schema_json']) F(k).value = it ? it[k] || '' : '';
+    if (!it) F('pub_date').value = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    F('external_url').disabled = !!(it && it.legacy);
+    editor.innerHTML = toEditor(it ? it.body_html : ''); source.classList.add('hidden'); editor.classList.remove('hidden'); F('tbSource').textContent = 'HTML';
+    fillCategory(it && it.category); fillPublisher(it && it.publisher);
+    renderImage(); renderClips(); renderFaqs(); applyType(); renderButtons(); showErrors({}); $$('[data-count]').forEach(el => el._upd());
+    dirty = false;
+  }
+  async function openForm(id) {
+    try { await loadMeta(); const it = id ? (await api('/api/items/' + id)).item : null; fillForm(it); $('#viewList').classList.add('hidden'); $('#viewForm').classList.remove('hidden'); window.scrollTo(0, 0); }
+    catch (ex) { toast(ex.message, true); }
+  }
+  async function showList() { $('#viewForm').classList.add('hidden'); $('#viewList').classList.remove('hidden'); current = null; await loadMeta(); await loadList(); }
+  $('#btnNew').onclick = () => openForm(null);
+  $('#btnBack').onclick = async () => { if (dirty && !await confirmBox('Leave without saving?', 'Your changes on this page have not been saved.', 'Leave')) return; showList().catch(e => toast(e.message, true)); };
+  window.addEventListener('beforeunload', e => { if (dirty && !$('#viewForm').classList.contains('hidden')) { e.preventDefault(); e.returnValue = ''; } });
+
+  // ---------------------------------------------------------------- start
+  async function startApp() { $('#viewAuth').classList.add('hidden'); $('#viewApp').classList.remove('hidden'); await showList(); }
+  (async () => {
+    try { const s = await api('/api/state'); if (s.setup) showAuth(true); else if (!s.authed) showAuth(false); else await startApp(); }
+    catch (e) { document.body.innerHTML = '<div class="auth"><div class="auth-card"><h1>Content Manager is not running</h1><p>Double-click "Start Content Manager" in the website folder, then reload this page.</p></div></div>'; }
+  })();
+})();
+</script>
+</body>
+</html>

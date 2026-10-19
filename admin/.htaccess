@@ -1,0 +1,7 @@
+# Tat:vm Content Manager
+Options -Indexes
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+  Header set X-Frame-Options "DENY"
+  Header set Cache-Control "no-store"
+</IfModule>

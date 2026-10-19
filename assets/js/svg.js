@@ -3,7 +3,7 @@ window.TATVM = (() => {
 
   /* ---------------- BRAND LOGO ---------------- */
   const logo = (variant = 'dark') => {
-    const base = /\/(projects|Blogs|News)\//.test(location.pathname) ? '../' : './';
+    const base = /\/(projects|Blogs|News|blog)\//.test(location.pathname) ? '../' : './';
     const src = `${base}assets/img/tatvm_logo.png`;
     const fallback = `${base}assets/img/favicon.svg`;
     return `<img src="${src}" alt="Tat:vm — Rooted in you" class="brand-logo ${variant === 'white' ? 'brand-logo-white' : ''}" loading="eager" decoding="async" onerror="this.onerror=null;this.src='${fallback}';">`;

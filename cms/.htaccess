@@ -1,0 +1,9 @@
+# The Content Manager runs only on the office computer. If this folder is ever uploaded
+# to the web server by mistake, nothing inside it (database, backups, code) may be served.
+<IfModule mod_authz_core.c>
+  Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+  Order deny,allow
+  Deny from all
+</IfModule>

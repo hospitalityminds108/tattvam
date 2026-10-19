@@ -1,9 +1,35 @@
 // Tat:vm — shared components (header, footer, floating contact stack)
+
+/* ---- Festive themes ------------------------------------------------------
+   mode 'preview' : only visible with ?festive=diwali in the address (for client review)
+   mode 'auto'    : switches itself on between `from` and `to` (dates inclusive)
+   mode 'on' / 'off' : always on / always off
+   Visitors' ?festive=off hides it for their visit. Remove this block and the
+   assets/festive folder to take the festive layer out completely. */
+(function festiveLayer() {
+  const CFG = { name: 'diwali', mode: 'auto', from: '2026-10-17', to: '2026-11-16' };
+  let pick = null;
+  try {
+    const q = new URLSearchParams(location.search).get('festive');
+    if (q === CFG.name || q === 'on') sessionStorage.setItem('tatvm-festive', CFG.name);
+    if (q === 'off') sessionStorage.setItem('tatvm-festive', 'off');
+    pick = sessionStorage.getItem('tatvm-festive');
+  } catch (e) {}
+  const d = new Date(), today = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  let on = CFG.mode === 'on' || (CFG.mode === 'auto' && today >= CFG.from && today <= CFG.to);
+  if (pick === CFG.name) on = true;
+  if (pick === 'off') on = false;
+  if (!on) return;
+  const base = (/\/(projects|Blogs|News|blog)\//.test(location.pathname) ? '../' : '') + 'assets/festive/' + CFG.name;
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = base + '.css?v=2'; document.head.appendChild(css);
+  const js = document.createElement('script'); js.src = base + '.js?v=2'; js.defer = true; document.head.appendChild(js);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
   const T = window.TATVM;
   const path = location.pathname.split('/').pop() || 'index.html';
   const inProjects = location.pathname.includes('/projects/');
-  const depth = /\/(projects|Blogs|News)\//.test(location.pathname) ? '../' : '';
+  const depth = /\/(projects|Blogs|News|blog)\//.test(location.pathname) ? '../' : '';
   const resolveNavHref = href => href.startsWith('projects/')
     ? (inProjects ? href.slice(9) : depth + href)
     : depth + href;
@@ -174,7 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <span>
           <a href="${depth}privacy-policy.html">Privacy</a> ·
           <a href="${depth}terms-and-conditions.html">Terms</a> ·
-          <a href="${depth}cookie-policy.html">Cookies</a>
+          <a href="${depth}cookie-policy.html">Cookies</a> ·
+          <a href="${depth}admin/" rel="nofollow">Admin</a>
         </span>
       </div>
     </div>

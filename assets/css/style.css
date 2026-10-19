@@ -3055,3 +3055,15 @@ form[data-tatvm-form]>button[type=submit]{grid-column:1/-1;justify-self:center;a
 .np-get .spec svg{margin-top:.2rem}
 .np-get .spec strong{margin-bottom:.35rem}
 .np-get .spec span{font-size:.9rem;line-height:1.6;color:var(--taupe);font-weight:500}
+
+/* news cards: publisher logo on the image, bottom-left corner */
+.news-pub{
+  position:absolute;left:14px;bottom:14px;z-index:2;display:inline-flex;align-items:center;justify-content:center;
+  height:40px;min-width:40px;max-width:calc(100% - 28px);padding:6px;box-sizing:border-box;
+  background:rgba(255,255,255,.96);border-radius:10px;box-shadow:0 6px 18px -6px rgba(0,0,0,.45);
+}
+.news-pub img,.news-card-image .news-pub img,.featured-news-image .news-pub img,.art-card .am .news-pub img{
+  display:block;width:auto;height:100%;max-width:150px;aspect-ratio:auto;object-fit:contain;border-radius:5px;transform:none;transition:none;
+}
+.news-pub img[src*="construction-times"]{height:13px;margin:0 5px}
+.featured-news-image .news-pub{left:18px;bottom:18px;height:46px;min-width:46px}
