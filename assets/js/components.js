@@ -21,8 +21,8 @@
   if (pick === 'off') on = false;
   if (!on) return;
   const base = (/\/(projects|Blogs|News|blog)\//.test(location.pathname) ? '../' : '') + 'assets/festive/' + CFG.name;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = base + '.css?v=2'; document.head.appendChild(css);
-  const js = document.createElement('script'); js.src = base + '.js?v=2'; js.defer = true; document.head.appendChild(js);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = base + '.css?v=9'; document.head.appendChild(css);
+  const js = document.createElement('script'); js.src = base + '.js?v=9'; js.defer = true; document.head.appendChild(js);
 })();
 
 document.addEventListener('DOMContentLoaded', () => {

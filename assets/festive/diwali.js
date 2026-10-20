@@ -98,26 +98,88 @@
     return `<svg viewBox="0 0 ${width} 92" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="${d}" fill="none" stroke="#5E1215" stroke-width="1.6"/>${flowers}${strands}</svg>`;
   }
 
-  // ------------------------------------------------------------------ hero: toran + kandils + sky
-  function decorateHero() {
+  // ------------------------------------------------------------------ sections below the hero: fine line art
+  // The hero banners stay exactly as designed. Below them, alternate sections get one quiet line-art motif:
+  // a rangoli mandala drawn in a single gold line in a top corner, or a jaali (lattice screen) strip along one edge.
+  // Each motif sits behind the section's content, takes no space and never changes the layout.
+  function mandalaLine() {
+    const petals = (n, r, w, h) => Array.from({ length: n }, (_, k) =>
+      `<ellipse cx="100" cy="${100 - r}" rx="${w}" ry="${h}" transform="rotate(${(360 / n) * k} 100 100)"/>`).join('');
+    const dots = (n, r) => Array.from({ length: n }, (_, k) => {
+      const a = (Math.PI * 2 * k) / n; return `<circle cx="${(100 + Math.cos(a) * r).toFixed(1)}" cy="${(100 + Math.sin(a) * r).toFixed(1)}" r="1.6" class="fx-fill"/>`;
+    }).join('');
+    return `<svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+      <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="90" stroke-dasharray="2 5"/>
+      ${petals(16, 66, 9, 22)}${dots(16, 86)}
+      <circle cx="100" cy="100" r="50"/>${petals(12, 36, 8, 14)}
+      <circle cx="100" cy="100" r="20"/>${petals(8, 12, 4, 8)}
+      <circle cx="100" cy="100" r="4" class="fx-fill"/>
+    </svg>`;
+  }
+  function diyaLine() {
+    // a lit clay diya drawn in one fine gold line; the flame and its glow are the only parts that move
+    return `<svg viewBox="0 0 120 110" aria-hidden="true" focusable="false">
+      <ellipse class="fx-lglow" cx="60" cy="30" rx="34" ry="30" stroke="none"/>
+      <path class="fx-lflame" d="M60 6 C71 21 75 33 67 43 C63.5 47.5 56.5 47.5 53 43 C45 33 49 21 60 6 Z"/>
+      <path class="fx-lflame2" d="M60 22 C65 29 66 35 62.5 40 C61.2 41.8 58.8 41.8 57.5 40 C54 35 55 29 60 22 Z"/>
+      <path d="M60 46 L60 54"/>
+      <path d="M10 56 C10 52 110 52 110 56 C110 82 90 98 60 98 C30 98 10 82 10 56 Z"/>
+      <path d="M10 56 C10 60 110 60 110 56"/>
+      <path d="M24 70 Q33 77 42 70 Q51 77 60 70 Q69 77 78 70 Q87 77 96 70"/>
+      <circle cx="37" cy="86" r="1.5" class="fx-fill"/><circle cx="60" cy="89" r="1.5" class="fx-fill"/><circle cx="83" cy="86" r="1.5" class="fx-fill"/>
+      <path d="M42 98 L78 98 M48 104 L72 104"/>
+    </svg>`;
+  }
+  function jaaliLine(id) {
+    // ogee lattice: interlocking arches, the classic stone-screen pattern
+    return `<svg width="100%" height="100%" aria-hidden="true" focusable="false">
+      <defs><pattern id="${id}" width="44" height="64" patternUnits="userSpaceOnUse">
+        <path d="M0 0 C 0 18 22 18 22 32 C 22 46 0 46 0 64 M44 0 C 44 18 22 18 22 32 C 22 46 44 46 44 64"/>
+        <circle cx="22" cy="32" r="2.4"/><circle cx="0" cy="0" r="1.4" class="fx-fill"/><circle cx="44" cy="64" r="1.4" class="fx-fill"/>
+      </pattern></defs>
+      <rect width="100%" height="100%" fill="url(#${id})" stroke="none"/>
+    </svg>`;
+  }
+  function isDark(el) {       // maroon / dark sections get a lighter line colour
+    if (el.classList.contains('bg-red') || el.classList.contains('on-dark')) return true;
+    const m = /rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?/.exec(getComputedStyle(el).backgroundColor || '');
+    if (!m || (m[4] !== undefined && +m[4] < 0.2)) return false;
+    return (0.299 * m[1] + 0.587 * m[2] + 0.114 * m[3]) < 110;
+  }
+  function decorateSections() {
     const hero = document.querySelector('.hero, .page-hero');
-    if (!hero) return;
-    const isHome = hero.classList.contains('hero');
-
-    const toran = document.createElement('div');
-    toran.className = 'fx-toran' + (REDUCE ? '' : ' fx-in');
-    hero.appendChild(toran);
-    const drawToran = () => { toran.innerHTML = toranSVG(Math.max(320, Math.round(hero.clientWidth))); };
-    drawToran();
-    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawToran, 200); });
-
-    ['l', 'r'].forEach(side => { const k = svgEl(kandilSVG(), 'fx-kandil ' + side); hero.appendChild(k); });
-
-    const canvas = document.createElement('canvas');
-    canvas.className = 'fx-sky';
-    const scrim = hero.querySelector('.hero-scrim');
-    if (scrim && scrim.nextSibling) hero.insertBefore(canvas, scrim.nextSibling); else hero.appendChild(canvas);
-    sky(canvas, hero, isHome);
+    const all = [...document.querySelectorAll('main section, body > section')].filter((s, i, a) => a.indexOf(s) === i);
+    const list = all.filter(s =>
+      s !== hero && !s.closest('.hero, .page-hero') &&
+      !s.matches('.hero, .page-hero, .tattvas, .poem-band') &&          // banners and sections that already carry their own artwork
+      (!hero || (hero.compareDocumentPosition(s) & Node.DOCUMENT_POSITION_FOLLOWING)) &&
+      getComputedStyle(s).position !== 'static' && s.offsetHeight > 260);
+    let n = 0;
+    list.forEach((s, i) => {
+      if (i === 0) {             // the intro section (first below the hero) also gets one lit diya, bottom-left
+        const deco = document.createElement('div');
+        deco.className = 'fx-deco fx-deco--diya fx-l' + (isDark(s) ? ' fx-on-dark' : '');
+        deco.setAttribute('aria-hidden', 'true');
+        deco.innerHTML = `<span class="fx-diyaline">${diyaLine()}</span>`;
+        s.classList.add('fx-host'); s.insertBefore(deco, s.firstChild);
+      }
+      if (i % 2 === 1) return;
+      if (n >= 6) return;            // every other section, at most six per page
+      const kind = n % 2 === 0 ? 'mandala' : 'jaali', side = n % 4 < 2 ? 'r' : 'l';
+      const deco = document.createElement('div');
+      deco.className = `fx-deco fx-deco--${kind} fx-${side}` + (isDark(s) ? ' fx-on-dark' : '');
+      deco.setAttribute('aria-hidden', 'true');
+      deco.innerHTML = kind === 'mandala' ? `<span class="fx-mandala">${mandalaLine()}</span>` : `<span class="fx-jaali">${jaaliLine('fxJaali' + n)}</span>`;
+      s.classList.add('fx-host');
+      s.insertBefore(deco, s.firstChild);
+      n++;
+    });
+    // fade each motif in gently as its section scrolls into view
+    if ('IntersectionObserver' in window && !REDUCE) {
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('fx-seen'); io.unobserve(e.target); } }), { threshold: 0.15 });
+      document.querySelectorAll('.fx-deco').forEach(d => io.observe(d));
+    } else document.querySelectorAll('.fx-deco').forEach(d => d.classList.add('fx-seen'));
+    setTimeout(() => document.querySelectorAll('.fx-deco').forEach(d => d.classList.add('fx-seen')), 6000);   // safety net
   }
 
   function sky(canvas, host, fireworks) {
@@ -315,7 +377,7 @@
 
   // ------------------------------------------------------------------ start
   function start() {
-    decorateHero();
+    decorateSections();
     if (!popup()) greet();     // the popup is the greeting on a visitor's first page; the small card appears on later pages
     // the footer is drawn by components.js; wait for it briefly
     let tries = 0; (function waitFooter() { if (!decorateFooter() && tries++ < 40) setTimeout(waitFooter, 150); })();

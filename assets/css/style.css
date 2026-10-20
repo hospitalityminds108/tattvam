@@ -3040,6 +3040,12 @@ body.is-ready .page-hero .coming-soon-badge{animation-play-state:running}
 /* homepage closing band: larger "Begin" */
 #cta .eyebrow{font-size:1rem;letter-spacing:.3em}
 #cta .eyebrow::before,#cta .eyebrow::after{width:36px}
+#cta{isolation:isolate}
+#cta>.container{position:relative;z-index:1}
+.cta-festive-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding-inline:12px;pointer-events:none;z-index:0}
+.cta-festive-art img{width:clamp(120px,11vw,158px);height:auto;flex:none;filter:drop-shadow(0 0 16px rgba(255,194,88,.22))}
+.cta-festive-art img:last-child{transform:scaleX(-1)}
+@media(max-width:1320px){.cta-festive-art{display:none}}
 
 /* our approach hero: show the right-hand scene only (left was a half image) */
 .page-hero>img.hero-crop-right{left:auto;right:0;width:166%;max-width:none}

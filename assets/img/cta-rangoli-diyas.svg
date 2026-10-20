@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" fill="none">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop stop-color="#FFD978" stop-opacity=".72"/>
+      <stop offset=".48" stop-color="#F4B740" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#F4B740" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="32" y1="5" x2="32" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9D9"/>
+      <stop offset=".48" stop-color="#FFD15D"/>
+      <stop offset="1" stop-color="#F08A24"/>
+    </linearGradient>
+    <linearGradient id="bowl" x1="32" y1="32" x2="32" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C84B32"/>
+      <stop offset="1" stop-color="#6E1417"/>
+    </linearGradient>
+    <g id="diya">
+      <circle cx="32" cy="22" r="29" fill="url(#glow)"/>
+      <path d="M32 5c6 9 8 15 4 22-2 4-8 4-10 0-4-7-1-13 6-22Z" fill="url(#flame)"/>
+      <path d="M32 15c3 5 3 8 1 11-1 2-2 2-3 0-2-3-1-6 2-11Z" fill="#FFFBE8"/>
+      <path d="M8 34c0-4 48-4 48 0 0 14-10 23-24 23S8 48 8 34Z" fill="url(#bowl)" stroke="#F4B740" stroke-width="1.5"/>
+      <path d="M9 34c0-3 46-3 46 0 0 2-46 2-46 0Z" fill="#FFD36B"/>
+      <path d="M16 42q6 4 12 0 6 4 12 0 4 3 8 1" stroke="#F4B740" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="21" cy="49" r="1.4" fill="#FFF0B0"/>
+      <circle cx="32" cy="51" r="1.4" fill="#FFF0B0"/>
+      <circle cx="43" cy="49" r="1.4" fill="#FFF0B0"/>
+    </g>
+  </defs>
+
+  <g opacity=".98">
+    <circle cx="120" cy="110" r="78" fill="#6E1417" fill-opacity=".38"/>
+    <circle cx="120" cy="110" r="73" stroke="#FFD36B" stroke-width="1.6"/>
+    <circle cx="120" cy="110" r="67" stroke="#F08A24" stroke-width="1"/>
+    <g fill="#F4B740" stroke="#FFF0B0" stroke-width=".8">
+      <ellipse cx="120" cy="43" rx="5" ry="9"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(22.5 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(45 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(67.5 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(90 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(112.5 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(135 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(157.5 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(180 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(202.5 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(225 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(247.5 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(270 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(292.5 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(315 120 110)"/>
+      <ellipse cx="120" cy="43" rx="5" ry="9" transform="rotate(337.5 120 110)"/>
+    </g>
+    <g fill="#F08A24" stroke="#FFD36B" stroke-width="1">
+      <ellipse cx="120" cy="62" rx="9" ry="23"/>
+      <ellipse cx="120" cy="62" rx="9" ry="23" transform="rotate(45 120 110)"/>
+      <ellipse cx="120" cy="62" rx="9" ry="23" transform="rotate(90 120 110)"/>
+      <ellipse cx="120" cy="62" rx="9" ry="23" transform="rotate(135 120 110)"/>
+      <ellipse cx="120" cy="62" rx="9" ry="23" transform="rotate(180 120 110)"/>
+      <ellipse cx="120" cy="62" rx="9" ry="23" transform="rotate(225 120 110)"/>
+      <ellipse cx="120" cy="62" rx="9" ry="23" transform="rotate(270 120 110)"/>
+      <ellipse cx="120" cy="62" rx="9" ry="23" transform="rotate(315 120 110)"/>
+    </g>
+    <g fill="#9FB63D" stroke="#E7F2A2" stroke-width="1">
+      <ellipse cx="120" cy="78" rx="8" ry="17"/>
+      <ellipse cx="120" cy="78" rx="8" ry="17" transform="rotate(60 120 110)"/>
+      <ellipse cx="120" cy="78" rx="8" ry="17" transform="rotate(120 120 110)"/>
+      <ellipse cx="120" cy="78" rx="8" ry="17" transform="rotate(180 120 110)"/>
+      <ellipse cx="120" cy="78" rx="8" ry="17" transform="rotate(240 120 110)"/>
+      <ellipse cx="120" cy="78" rx="8" ry="17" transform="rotate(300 120 110)"/>
+    </g>
+    <circle cx="120" cy="110" r="15" fill="#F4B740" stroke="#FFF0B0" stroke-width="2"/>
+    <circle cx="120" cy="110" r="9" fill="#8E1F24"/>
+    <circle cx="120" cy="110" r="4" fill="#FFF0B0"/>
+    <g fill="#FFD36B">
+      <circle cx="120" cy="36" r="2.3"/>
+      <circle cx="172" cy="58" r="2.3"/>
+      <circle cx="194" cy="110" r="2.3"/>
+      <circle cx="172" cy="162" r="2.3"/>
+      <circle cx="120" cy="184" r="2.3"/>
+      <circle cx="68" cy="162" r="2.3"/>
+      <circle cx="46" cy="110" r="2.3"/>
+      <circle cx="68" cy="58" r="2.3"/>
+    </g>
+  </g>
+
+  <g transform="translate(1 2) scale(.43)">
+    <use href="#diya"/>
+  </g>
+  <g transform="translate(184 2) scale(.43)">
+    <use href="#diya"/>
+  </g>
+  <g transform="translate(1 169) scale(.43)">
+    <use href="#diya"/>
+  </g>
+  <g transform="translate(184 169) scale(.43)">
+    <use href="#diya"/>
+  </g>
+</svg>

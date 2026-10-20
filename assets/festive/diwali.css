@@ -14,11 +14,10 @@
   --fx-clay-deep:#5E1215;
 }
 
-/* ---------- hero sky: embers + fireworks canvas ---------- */
+/* ---------- sky canvas (used inside the welcome popup artwork) ---------- */
 .fx-sky{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;mix-blend-mode:screen}
-.hero .hero-inner,.page-hero .hero-inner{z-index:2}
 
-/* ---------- toran: marigold garland under the header ---------- */
+/* ---------- toran: marigold garland (welcome popup artwork) ---------- */
 .fx-toran{position:absolute;left:0;right:0;top:var(--header);height:92px;pointer-events:none;z-index:2;overflow:visible}
 .fx-toran svg{display:block;width:100%;height:100%;overflow:visible}
 .fx-toran .fx-strand{transform-box:fill-box;transform-origin:50% 0;animation:fxSway 4.8s ease-in-out infinite}
@@ -28,7 +27,7 @@
 .fx-toran.fx-in{animation:fxDrop 1.4s var(--ease-out,cubic-bezier(.16,1,.3,1)) both}
 @keyframes fxDrop{from{opacity:0;transform:translateY(-26px)}to{opacity:1;transform:none}}
 
-/* ---------- akash kandil: hanging star lanterns ---------- */
+/* ---------- akash kandil: hanging star lanterns (welcome popup artwork) ---------- */
 .fx-kandil{position:absolute;top:var(--header);width:74px;pointer-events:none;z-index:2;transform-origin:50% 0;animation:fxSwing 6s ease-in-out infinite}
 .fx-kandil.l{left:clamp(14px,5vw,80px)}
 .fx-kandil.r{right:clamp(14px,5vw,80px);animation-delay:-2.4s;animation-duration:6.8s}
@@ -134,3 +133,48 @@ html.fx-lock,html.fx-lock body{overflow:hidden!important}
 }
 .festive-calm .fx-pop-moon,.festive-calm .fx-pop-rangoli .fx-ring{animation:none!important}
 @media(prefers-reduced-motion:reduce){.fx-pop,.fx-pop-card{transition:none}.fx-pop-moon,.fx-pop-rangoli .fx-ring{animation:none!important}}
+
+/* ---------- line art on the sections below the hero ---------- */
+/* one quiet motif per decorated section, drawn behind the content in a single antique-gold line */
+.fx-host{isolation:isolate}
+.fx-deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;opacity:0;transition:opacity 1.8s ease;--fx-line:rgba(170,126,48,.32)}
+.fx-deco.fx-on-dark{--fx-line:rgba(255,224,168,.22)}
+.fx-deco--jaali{--fx-line:rgba(170,126,48,.42)}.fx-deco--jaali.fx-on-dark{--fx-line:rgba(255,224,168,.28)}
+.fx-deco.fx-seen{opacity:1}
+.fx-deco svg{display:block;overflow:visible}
+.fx-mandala svg *,.fx-jaali svg pattern *{fill:none;stroke:var(--fx-line);stroke-width:1;vector-effect:non-scaling-stroke}
+.fx-mandala svg .fx-fill,.fx-jaali svg pattern .fx-fill{fill:var(--fx-line);stroke:none}
+.fx-mandala{position:absolute;top:clamp(-90px,-6vw,-50px);width:clamp(210px,22vw,320px);aspect-ratio:1}
+.fx-r .fx-mandala{right:clamp(-90px,-6vw,-50px)}
+.fx-l .fx-mandala{left:clamp(-90px,-6vw,-50px)}
+.fx-mandala svg{width:100%;height:100%;animation:fxTurn 180s linear infinite}
+.fx-jaali{position:absolute;top:0;bottom:0;width:var(--gutter,72px);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%)}
+.fx-r .fx-jaali{right:0}
+.fx-l .fx-jaali{left:0}
+.fx-jaali svg{width:100%;height:100%}
+@media(max-width:760px){
+  .fx-deco--jaali{display:none}
+  .fx-mandala{width:170px;top:-56px}.fx-r .fx-mandala{right:-64px}.fx-l .fx-mandala{left:-64px}
+  .fx-deco{--fx-line:rgba(170,126,48,.24)}.fx-deco.fx-on-dark{--fx-line:rgba(255,224,168,.18)}
+}
+.festive-calm .fx-mandala svg{animation:none!important}
+@media(prefers-reduced-motion:reduce){.fx-mandala svg{animation:none!important}.fx-deco{transition:none}}
+@media print{.fx-deco{display:none!important}}
+
+/* ---------- line-art diya: bottom corner of a section, flame flickers softly ---------- */
+.fx-deco--diya{--fx-line:rgba(170,126,48,.5);--fx-flame:rgba(240,138,36,.5);--fx-glowc:rgba(244,183,64,.22)}
+.fx-deco--diya.fx-on-dark{--fx-line:rgba(255,224,168,.4);--fx-flame:rgba(255,201,90,.55);--fx-glowc:rgba(255,201,90,.2)}
+.fx-diyaline{position:absolute;left:50%;bottom:clamp(10px,2vw,30px);transform:translateX(-50%);width:clamp(54px,5vw,74px);aspect-ratio:120/110}
+.fx-diyaline svg{width:100%;height:100%;overflow:visible}
+.fx-diyaline svg path,.fx-diyaline svg circle{fill:none;stroke:var(--fx-line);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.fx-diyaline svg .fx-fill{fill:var(--fx-line);stroke:none}
+.fx-diyaline svg .fx-lflame{fill:var(--fx-flame);transform-box:fill-box;transform-origin:50% 100%;animation:fxFlicker 1.5s ease-in-out infinite}
+.fx-diyaline svg .fx-lflame2{fill:rgba(255,247,219,.7);stroke:none;transform-box:fill-box;transform-origin:50% 100%;animation:fxFlicker 1.1s ease-in-out infinite reverse}
+.fx-diyaline svg .fx-lglow{fill:var(--fx-glowc);animation:fxBreath 2.4s ease-in-out infinite}
+@media(max-width:760px){.fx-deco--diya{display:none}}
+.festive-calm .fx-lflame,.festive-calm .fx-lflame2,.festive-calm .fx-lglow{animation:none!important}
+@media(prefers-reduced-motion:reduce){.fx-lflame,.fx-lflame2,.fx-lglow{animation:none!important}}
+
+/* ---------- hero stays clean: no festive art inside any hero banner ---------- */
+.hero .fx-deco,.page-hero .fx-deco,.hero .fx-toran,.page-hero .fx-toran,.hero .fx-kandil,.page-hero .fx-kandil,.hero .fx-sky,.page-hero .fx-sky{display:none!important}
