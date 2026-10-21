@@ -311,7 +311,7 @@
   // ------------------------------------------------------------------ welcome popup (once per visitor per season)
   // To use your own Diwali creative instead of the animated artwork, set image to its path from the site root,
   // e.g. 'assets/festive/diwali-creative.jpg' (landscape or square, at least 900 px wide).
-  const POPUP = { image: '', link: 'projects.html', linkText: 'Explore Our Projects', delay: 2200 };
+  const POPUP = { image: '', link: 'projects.html', linkText: 'Explore Our Projects', delay: 500 };
   const DEPTH = /\/(projects|Blogs|News|blog)\//.test(location.pathname) ? '../' : '';
   function popup() {
     const KEY = 'tatvm-festive-popup-' + new Date().getFullYear();
@@ -356,8 +356,14 @@
       }
     };
     wrap.addEventListener('click', e => { if (e.target === wrap || e.target.closest('.fx-pop-x, .fx-pop-close')) close(); });
-    // wait for the page (and its loading screen) to finish before greeting
-    const later = fn => (document.readyState === 'complete' ? fn() : window.addEventListener('load', fn, { once: true }));
+    // show as soon as the site's loading screen has cleared (not after every image and video has finished)
+    const later = fn => {
+      const ld = document.getElementById('loader');
+      if (!ld || ld.classList.contains('done')) return fn();
+      let fired = false; const go = () => { if (!fired) { fired = true; fn(); } };
+      new MutationObserver((m, o) => { if (ld.classList.contains('done')) { o.disconnect(); go(); } }).observe(ld, { attributes: true, attributeFilter: ['class'] });
+      setTimeout(go, 4200);   // safety
+    };
     later(() => setTimeout(() => {
       if (document.querySelector('.fx-pop')) return;
       document.body.appendChild(wrap);
