@@ -92,13 +92,13 @@ html.fx-lock,html.fx-lock body{overflow:hidden!important}
 .fx-pop-art{position:relative;min-height:440px;overflow:hidden;border-radius:28px 0 0 28px;
   background:radial-gradient(120% 80% at 50% 0%,#5A1216 0%,#3A0D10 45%,#1E0809 100%)}
 .fx-pop-art>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.fx-pop-art .fx-sky{z-index:0}
+.fx-pop-art .fx-sky{z-index:1}
 .fx-pop-art .fx-toran{top:0;height:80px;z-index:2}
 .fx-pop-art .fx-kandil{top:28px;width:62px;z-index:2}
 .fx-pop-art .fx-kandil.l{left:22px;display:block}.fx-pop-art .fx-kandil.r{right:22px}
-.fx-pop-moon{position:absolute;left:50%;top:44%;width:150px;height:150px;transform:translate(-50%,-50%);border-radius:50%;z-index:1;
+.fx-pop-moon{position:absolute;left:50%;top:50%;width:150px;height:150px;transform:translate(-50%,-50%);border-radius:50%;z-index:1;
   background:radial-gradient(circle,rgba(255,217,138,.55),rgba(244,183,64,.18) 45%,transparent 70%);animation:fxBreath 3.2s ease-in-out infinite}
-.fx-pop-art .fx-pop-rangoli{position:absolute;left:50%;top:44%;width:120px;transform:translate(-50%,-50%);z-index:2;filter:drop-shadow(0 0 22px rgba(244,183,64,.45))}
+.fx-pop-art .fx-pop-rangoli{position:absolute;left:50%;top:50%;width:120px;transform:translate(-50%,-50%);z-index:2;filter:drop-shadow(0 0 22px rgba(244,183,64,.45))}
 .fx-pop-art .fx-pop-rangoli .fx-ring{transform-box:fill-box;transform-origin:center;animation:fxTurn 40s linear infinite}
 .fx-pop-art .fx-pop-rangoli .fx-ring.rev{animation-direction:reverse;animation-duration:55s}
 .fx-pop-diyas{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:clamp(8px,2vw,18px);z-index:2}
@@ -125,7 +125,7 @@ html.fx-lock,html.fx-lock body{overflow:hidden!important}
 @media(max-width:760px){
   .fx-pop-card{grid-template-columns:1fr;border-radius:24px}
   .fx-pop-art{min-height:230px;border-radius:24px 24px 0 0}
-  .fx-pop-art .fx-pop-rangoli{width:86px;top:46%}.fx-pop-moon{width:110px;height:110px;top:46%}
+  .fx-pop-art .fx-pop-rangoli{width:86px;top:50%}.fx-pop-moon{width:110px;height:110px;top:50%}
   .fx-pop-art .fx-kandil{width:44px;top:62px}.fx-pop-art .fx-kandil.l{display:block}
   .fx-pop-body{padding:22px 22px 24px;gap:10px}
   .fx-pop-logo{height:38px}
@@ -133,6 +133,25 @@ html.fx-lock,html.fx-lock body{overflow:hidden!important}
 }
 .festive-calm .fx-pop-moon,.festive-calm .fx-pop-rangoli .fx-ring{animation:none!important}
 @media(prefers-reduced-motion:reduce){.fx-pop,.fx-pop-card{transition:none}.fx-pop-moon,.fx-pop-rangoli .fx-ring{animation:none!important}}
+
+/* ---------- popup artwork: background layers (mandala, lattice, skyline) ---------- */
+.fx-pop-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.fx-pop-mandala{position:absolute;left:50%;top:50%;width:130%;aspect-ratio:1;transform:translate(-50%,-50%)}
+.fx-pop-mandala svg{display:block;width:100%;height:100%;animation:fxTurn 160s linear infinite}
+.fx-pop-mandala svg *,.fx-pop-jaali svg pattern *{fill:none;stroke:rgba(255,217,138,.15);stroke-width:1;vector-effect:non-scaling-stroke}
+.fx-pop-mandala svg .fx-fill,.fx-pop-jaali svg pattern .fx-fill{fill:rgba(255,217,138,.2);stroke:none}
+.fx-pop-jaali{position:absolute;top:0;bottom:0;width:30%;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,rgba(0,0,0,.2) 55%,transparent 80%);mask-image:linear-gradient(180deg,#000 0,rgba(0,0,0,.2) 55%,transparent 80%)}
+.fx-pop-jaali.l{left:0}.fx-pop-jaali.r{right:0}
+.fx-pop-jaali svg{display:block;width:100%;height:100%}
+.fx-pop-skyline{position:absolute;left:0;right:0;bottom:0;height:34%}
+.fx-pop-skyline svg{display:block;width:100%;height:100%}
+.fx-pop-skyline .fx-bld rect{fill:#2A0A0C;stroke:rgba(244,183,64,.12);stroke-width:.6}
+.fx-pop-skyline .fx-win{fill:#FFD98A;opacity:.15;animation:fxWin 6s ease-in-out infinite}
+@keyframes fxWin{0%,100%{opacity:.1}50%{opacity:.85}}
+.festive-calm .fx-pop-mandala svg,.festive-calm .fx-win{animation:none!important}
+@media(prefers-reduced-motion:reduce){.fx-pop-mandala svg,.fx-win{animation:none!important}}
+.fx-pop-art .fx-pop-diyas{z-index:3}
 
 /* ---------- line art on the sections below the hero ---------- */
 /* one quiet motif per decorated section, drawn behind the content in a single antique-gold line */

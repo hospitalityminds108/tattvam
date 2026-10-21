@@ -130,6 +130,16 @@
       <path d="M42 98 L78 98 M48 104 L72 104"/>
     </svg>`;
   }
+  function skylineSVG() {
+    // a quiet Mumbai skyline with lit windows, for the base of the popup artwork
+    const b = [[0,46],[22,72],[40,54],[64,96],[86,62],[108,82],[132,50],[152,102],[178,66],[200,86],[224,56],[246,98],[270,64],[294,80],[316,52],[338,90],[362,60],[384,76]];
+    let r = '', w = '';
+    b.forEach(([x, h], i) => {
+      r += `<rect x="${x}" y="${120 - h}" width="${i % 3 === 1 ? 24 : 20}" height="${h}"/>`;
+      for (let k = 0; k < Math.floor(h / 22); k++) w += `<rect class="fx-win" x="${x + 5 + (k % 2) * 8}" y="${120 - h + 8 + k * 17}" width="3" height="4" style="animation-delay:${(-(i * 3 + k * 1.7) % 7).toFixed(1)}s"/>`;
+    });
+    return `<svg viewBox="0 0 410 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><g class="fx-bld">${r}</g><g class="fx-wins">${w}</g></svg>`;
+  }
   function jaaliLine(id) {
     // ogee lattice: interlocking arches, the classic stone-screen pattern
     return `<svg width="100%" height="100%" aria-hidden="true" focusable="false">
@@ -199,7 +209,7 @@
       W = host.clientWidth; H = host.clientHeight;
       canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      const target = Math.min(fireworks ? 70 : 38, Math.round((W * H) / (fireworks ? 16000 : 22000)));
+      const target = Math.min(fireworks ? 95 : 38, Math.round((W * H) / (fireworks ? 11000 : 22000)));
       while (embers.length < target) embers.push(ember(true));
       embers.length = target;
     }
@@ -231,7 +241,10 @@
         if (al > 0) { ctx.globalAlpha = al; const s = e.r * 7; ctx.drawImage(sprite(e.c), e.x - s / 2, e.y - s / 2, s, s); }
       }
       if (fireworks && !calm()) {
-        if (now > next) { launch(); next = now + rand(2200, 4200); }
+        if (now > next) { launch(); if (Math.random() < .45) setTimeout(launch, rand(250, 600)); next = now + rand(1100, 2200); }
+        for (const fx of [W * .2, W * .8]) {      // ground fountains (anar) either side
+          if (Math.random() < .7) sparks.push({ x: fx + rand(-4, 4), y: H - 58, vx: rand(-.9, .9), vy: rand(-3.4, -2.2), life: 1, decay: rand(.014, .022), c: COLORS[(Math.random() * 3) | 0], r: rand(1.1, 1.9) });
+        }
         for (let i = rockets.length - 1; i >= 0; i--) {
           const r = rockets[i]; r.t += .022 * dt;
           const px = r.x + (r.tx - r.x) * r.t, py = r.y + (r.ty - r.y) * (1 - Math.pow(1 - r.t, 2));
@@ -322,7 +335,8 @@
     wrap.setAttribute('role', 'dialog'); wrap.setAttribute('aria-modal', 'true'); wrap.setAttribute('aria-labelledby', 'fxPopTitle');
     const art = POPUP.image
       ? `<img src="${DEPTH + POPUP.image}" alt="Shubh Deepavali from Tat:vm">`
-      : `<span class="fx-pop-moon" aria-hidden="true"></span><span class="fx-pop-rangoli" aria-hidden="true">${rangoliSVG()}</span>
+      : `<div class="fx-pop-bg" aria-hidden="true"><span class="fx-pop-mandala">${mandalaLine()}</span><span class="fx-pop-jaali l">${jaaliLine('fxPopJl')}</span><span class="fx-pop-jaali r">${jaaliLine('fxPopJr')}</span><span class="fx-pop-skyline">${skylineSVG()}</span></div>
+         <span class="fx-pop-moon" aria-hidden="true"></span><span class="fx-pop-rangoli" aria-hidden="true">${rangoliSVG()}</span>
          <div class="fx-pop-diyas" aria-hidden="true">${Array.from({ length: 5 }, () => `<span class="fx-diya">${diyaSVG()}</span>`).join('')}</div>`;
     wrap.innerHTML = `<div class="fx-pop-card">
         <button type="button" class="fx-pop-x" aria-label="Close">×</button>
@@ -333,7 +347,7 @@
           <h2 class="fx-pop-title" id="fxPopTitle">Shubh Deepavali<span>Happy Diwali from Tat:vm</span></h2>
           <p class="fx-pop-text">This Diwali, may every home be filled with light, warmth and new beginnings. Thank you for being part of our journey. Here is to a bright and prosperous year ahead.</p>
           <span class="fx-pop-sign">— With warm wishes, Team Tat:vm</span>
-          <div class="fx-pop-actions"><a href="${DEPTH + POPUP.link}">${POPUP.linkText}</a><button type="button" class="fx-pop-close">Celebrate with us</button></div>
+          <div class="fx-pop-actions"><a href="${DEPTH + POPUP.link}">${POPUP.linkText}</a></div>
         </div>
       </div>`;
     const artBox = wrap.querySelector('.fx-pop-art');
